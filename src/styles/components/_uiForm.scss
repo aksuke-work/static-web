@@ -6,16 +6,16 @@
 .uiForm {
     display: flex;
     flex-direction: column;
-    gap: 2.4rem;
+    gap: var(--spacing-xl);
 
     @include media(sp) {
-        gap: 2rem;
+        gap: var(--spacing-lg);
     }
 
     &__row {
         display: flex;
         flex-direction: column;
-        gap: 0.8rem;
+        gap: var(--spacing-sm);
     }
 
     &__label {
@@ -24,26 +24,22 @@
         color: var(--color-text);
         display: flex;
         align-items: center;
-        gap: 0.4rem;
+        gap: var(--spacing-xs);
 
         @include media(sp) {
             font-size: var(--font-size-sm);
         }
 
-        &::after {
-            content: '';
-            display: inline-block;
-            width: 0.6rem;
-            height: 0.6rem;
-            background-color: var(--color-error);
-            border-radius: 50%;
-            margin-left: 0.4rem;
-        }
-
-        // 必須でない場合
-        &:not([data-required='true']) {
+        // 必須マーカー（アクセシビリティ対応）
+        &[data-required='true'] {
             &::after {
-                display: none;
+                content: '*';
+                display: inline-block;
+                color: var(--color-error);
+                font-weight: 700;
+                margin-left: var(--spacing-xs);
+                font-size: var(--font-size-base);
+                line-height: 1;
             }
         }
     }
@@ -55,7 +51,22 @@
     &__note {
         font-size: var(--font-size-sm);
         color: var(--color-text-muted);
-        margin-top: 0.4rem;
+        margin-top: var(--spacing-xs);
+    }
+
+    &__error {
+        font-size: var(--font-size-sm);
+        color: var(--color-error);
+        margin-top: var(--spacing-xs);
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+
+        &::before {
+            content: '⚠';
+            display: inline-block;
+            font-size: var(--font-size-base);
+        }
     }
 }
 
@@ -64,28 +75,55 @@
 .uiTextarea,
 .uiSelect {
     width: 100%;
-    padding: 1.2rem 1.6rem;
+    padding: var(--spacing-md) var(--spacing-lg);
     font-size: var(--font-size-base);
     font-family: var(--font-family-base);
     color: var(--color-text);
     background-color: var(--color-bg);
-    border: 1px solid var(--color-border);
+    border: var(--border-width-thin) solid var(--color-border);
     border-radius: var(--border-radius-md);
-    transition: all 0.3s ease;
+    transition: all var(--transition-base);
 
     @include media(sp) {
-        padding: 1rem 1.2rem;
+        padding: var(--spacing-sm) var(--spacing-md);
         font-size: var(--font-size-sm);
     }
 
     &:focus {
         outline: none;
         border-color: var(--color-primary);
-        box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.1);
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
     }
 
     &::placeholder {
         color: var(--color-text-muted);
+    }
+
+    // エラー状態
+    &_isError {
+        border-color: var(--color-error);
+        background-color: rgba(239, 68, 68, 0.05);
+
+        &:focus {
+            border-color: var(--color-error);
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+        }
+    }
+
+    // 成功状態
+    &_isSuccess {
+        border-color: var(--color-success);
+        background-color: rgba(16, 185, 129, 0.05);
+
+        &:focus {
+            border-color: var(--color-success);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
     }
 }
 
@@ -100,9 +138,13 @@
 
 .uiSelect {
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23667eea' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 1.6rem center;
-    padding-right: 4rem;
-}
+    background-position: right var(--spacing-lg) center;
+    padding-right: var(--spacing-2xl);
+    cursor: pointer;
 
+    &:hover {
+        border-color: var(--color-primary-light);
+    }
+}

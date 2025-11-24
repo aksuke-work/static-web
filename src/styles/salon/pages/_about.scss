@@ -222,18 +222,18 @@
 }
 
 .salonInfo {
-    padding: 6rem 0;
-    background-color: #f8f8f8;
+    padding: var(--section-spacing-md) 0;
+    background-color: var(--color-bg-gray);
 
     @include media(sp) {
-        padding: 4rem 0;
+        padding: var(--section-spacing-sm) 0;
     }
 
     &__inner {
     }
 
     &__title {
-        margin-bottom: 4rem;
+        margin-bottom: var(--spacing-2xl);
     }
 
     &__list {
@@ -243,12 +243,12 @@
 
     &__item {
         display: flex;
-        padding: 2rem 0;
-        border-bottom: 1px solid #ddd;
+        padding: var(--spacing-lg) 0;
+        border-bottom: var(--border-width-thin) solid var(--color-border);
 
         @include media(sp) {
             flex-direction: column;
-            gap: 0.8rem;
+            gap: var(--spacing-sm);
         }
 
         &:last-child {
@@ -258,9 +258,9 @@
 
     &__dt {
         width: 20rem;
-        font-size: 1.6rem;
+        font-size: var(--font-size-base);
         font-weight: 700;
-        color: #666;
+        color: var(--color-text-light);
         flex-shrink: 0;
 
         @include media(sp) {
@@ -269,12 +269,12 @@
     }
 
     &__dd {
-        font-size: 1.6rem;
-        line-height: 1.8;
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
         flex: 1;
 
         @include media(sp) {
-            font-size: 1.4rem;
+            font-size: var(--font-size-sm);
         }
     }
 
@@ -289,32 +289,32 @@
 }
 
 .salonAccess {
-    padding: 6rem 0;
+    padding: var(--section-spacing-md) 0;
 
     @include media(sp) {
-        padding: 4rem 0;
+        padding: var(--section-spacing-sm) 0;
     }
 
     &__inner {
     }
 
     &__title {
-        margin-bottom: 4rem;
+        margin-bottom: var(--spacing-2xl);
     }
 
     &__content {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 4rem;
+        gap: var(--spacing-xl);
 
         @include media(sp) {
             grid-template-columns: 1fr;
-            gap: 2rem;
+            gap: var(--spacing-lg);
         }
     }
 
     &__map {
-        border-radius: 1.2rem;
+        border-radius: var(--border-radius-lg);
         overflow: hidden;
         height: 45rem;
 
@@ -333,7 +333,7 @@
     }
 
     &__infoItem {
-        margin-bottom: 2rem;
+        margin-bottom: var(--spacing-lg);
 
         &:last-child {
             margin-bottom: 0;
@@ -341,63 +341,63 @@
     }
 
     &__infoDt {
-        font-size: 1.6rem;
+        font-size: var(--font-size-base);
         font-weight: 700;
-        margin-bottom: 0.8rem;
-        color: #666;
+        margin-bottom: var(--spacing-sm);
+        color: var(--color-text-light);
     }
 
     &__infoDd {
-        font-size: 1.6rem;
-        line-height: 1.8;
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
     }
 
     &__route {
-        margin-top: 3rem;
-        padding-top: 3rem;
-        border-top: 1px solid #ddd;
+        margin-top: var(--spacing-xl);
+        padding-top: var(--spacing-xl);
+        border-top: var(--border-width-thin) solid var(--color-border);
     }
 
     &__routeTitle {
-        font-size: 1.8rem;
+        font-size: var(--font-size-lg);
         font-weight: 700;
-        margin-bottom: 1.6rem;
+        margin-bottom: var(--spacing-md);
     }
 
     &__routeList {
         list-style: decimal;
-        padding-left: 2rem;
+        padding-left: var(--spacing-lg);
     }
 
     &__routeItem {
-        font-size: 1.6rem;
-        line-height: 1.8;
-        margin-bottom: 1.2rem;
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        margin-bottom: var(--spacing-md);
 
         @include media(sp) {
-            font-size: 1.4rem;
+            font-size: var(--font-size-sm);
         }
     }
 
     &__parking {
-        margin-top: 3rem;
-        padding-top: 3rem;
-        border-top: 1px solid #ddd;
+        margin-top: var(--spacing-xl);
+        padding-top: var(--spacing-xl);
+        border-top: var(--border-width-thin) solid var(--color-border);
     }
 
     &__parkingTitle {
-        font-size: 1.8rem;
+        font-size: var(--font-size-lg);
         font-weight: 700;
-        margin-bottom: 1.6rem;
+        margin-bottom: var(--spacing-md);
     }
 
     &__parkingText {
-        font-size: 1.6rem;
-        line-height: 1.8;
-        color: #666;
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        color: var(--color-text-light);
 
         @include media(sp) {
-            font-size: 1.4rem;
+            font-size: var(--font-size-sm);
         }
     }
 }

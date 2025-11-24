@@ -1,73 +1,73 @@
 @use 'sass:math';
 html {
-  font-size: 62.5%;
-  height: auto;
-  overflow: visible;
+    font-size: 62.5%;
+    height: auto;
+    overflow: visible;
 }
 body {
-  // font-family: "itc-avant-garde-gothic-pro", "zen-kaku-gothic-new" , "Zen Kaku Gothic New" , sans-serif;
-  font-family: 'zen-kaku-gothic-new', 'Zen Kaku Gothic New', sans-serif;
-  // font-optical-sizing: auto;
-  // font-family: "Zen Old Mincho", serif;
-  font-family: $font-zen-kaku-gothic;
-  font-size: 16px;
-  font-size: 1.6rem;
-  color: #232323;
-  height: auto;
-  overflow: visible;
-  font-weight: 500;
-  transition: opacity 1s ease;
-  opacity: 1;
-  @include media() {
-  }
-  &.is__fix {
-    overflow: hidden;
-    height: 100%;
-    position: static;
-  }
-  &.is_show {
-    overflow: hidden;
-    height: 100%;
-    position: static;
-    .main {
-      position: relative;
-      &:before {
+    // font-family: "itc-avant-garde-gothic-pro", "zen-kaku-gothic-new" , "Zen Kaku Gothic New" , sans-serif;
+    font-family: 'zen-kaku-gothic-new', 'Zen Kaku Gothic New', sans-serif;
+    // font-optical-sizing: auto;
+    // font-family: "Zen Old Mincho", serif;
+    font-family: $font-zen-kaku-gothic;
+    font-size: 16px;
+    font-size: 1.6rem;
+    color: #232323;
+    height: auto;
+    overflow: visible;
+    font-weight: 500;
+    transition: opacity 1s ease;
+    opacity: 1;
+    @include media() {
+    }
+    &.is__fix {
+        overflow: hidden;
+        height: 100%;
+        position: static;
+    }
+    &.is_show {
+        overflow: hidden;
+        height: 100%;
+        position: static;
+        .main {
+            position: relative;
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: rgba(#fff, 0.85);
+                width: 100%;
+                height: 100%;
+                z-index: 3;
+            }
+        }
+    }
+    &:after {
         content: '';
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
-        background: rgba(#fff, 0.85);
         width: 100%;
         height: 100%;
-        z-index: 3;
-      }
+        background-color: #fff;
+        z-index: 9999;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.8s ease;
     }
-  }
-  &:after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    z-index: 9999;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.8s ease;
-  }
-  &.fade {
-    &:after {
-      opacity: 1;
+    &.fade {
+        &:after {
+            opacity: 1;
+        }
     }
-  }
 
-  &:not(.fade) {
-    &:after {
-      opacity: 0;
-      pointer-events: none;
+    &:not(.fade) {
+        &:after {
+            opacity: 0;
+            pointer-events: none;
+        }
     }
-  }
 }
 html,
 body,
@@ -135,26 +135,26 @@ audio,
 video,
 details,
 summary {
-  font-weight: 400;
+    font-weight: 400;
 }
 img {
-  vertical-align: bottom;
+    vertical-align: bottom;
 }
 
 input,
 button,
 select {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  padding: 0;
-  appearance: none;
-  color: #000;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    appearance: none;
+    color: #000;
 }
 
 @supports (-webkit-touch-callout: none) {
-  body {
-    font-size-adjust: 0.5; /* Safariだけ補正 */
-  }
+    body {
+        font-size-adjust: 0.5; /* Safariだけ補正 */
+    }
 }

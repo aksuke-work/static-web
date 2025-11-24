@@ -77,23 +77,23 @@
     }
 
     &__itemName {
-        font-size: 2.4rem;
+        font-size: var(--font-size-xl);
         font-weight: 700;
-        margin-bottom: 1.2rem;
+        margin-bottom: var(--spacing-md);
 
         @include media(sp) {
-            font-size: 2rem;
+            font-size: var(--font-size-lg);
         }
     }
 
     &__itemDescription {
-        font-size: 1.6rem;
-        line-height: 1.8;
-        color: #666;
-        margin-bottom: 1.6rem;
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        color: var(--color-text-light);
+        margin-bottom: var(--spacing-md);
 
         @include media(sp) {
-            font-size: 1.4rem;
+            font-size: var(--font-size-sm);
         }
     }
 
@@ -101,27 +101,27 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 2rem;
+        gap: var(--spacing-lg);
 
         @include media(sp) {
             flex-direction: column;
             align-items: flex-start;
-            gap: 1rem;
+            gap: var(--spacing-sm);
         }
     }
 
     &__itemTime {
-        font-size: 1.4rem;
-        color: #666;
+        font-size: var(--font-size-sm);
+        color: var(--color-text-muted);
     }
 
     &__itemPrice {
-        font-size: 2rem;
+        font-size: var(--font-size-lg);
         font-weight: 700;
-        color: #333;
+        color: var(--color-text);
 
         @include media(sp) {
-            font-size: 1.8rem;
+            font-size: var(--font-size-md);
         }
     }
 }
@@ -185,23 +185,23 @@
     }
 
     &__itemName {
-        font-size: 2.4rem;
+        font-size: var(--font-size-xl);
         font-weight: 700;
-        margin-bottom: 1.2rem;
+        margin-bottom: var(--spacing-md);
 
         @include media(sp) {
-            font-size: 2rem;
+            font-size: var(--font-size-lg);
         }
     }
 
     &__itemDescription {
-        font-size: 1.6rem;
-        line-height: 1.8;
-        color: #666;
-        margin-bottom: 1.6rem;
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        color: var(--color-text-light);
+        margin-bottom: var(--spacing-md);
 
         @include media(sp) {
-            font-size: 1.4rem;
+            font-size: var(--font-size-sm);
         }
     }
 
@@ -209,56 +209,56 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 2rem;
+        gap: var(--spacing-lg);
 
         @include media(sp) {
             flex-direction: column;
             align-items: flex-start;
-            gap: 1rem;
+            gap: var(--spacing-sm);
         }
     }
 
     &__itemTime {
-        font-size: 1.4rem;
-        color: #666;
+        font-size: var(--font-size-sm);
+        color: var(--color-text-muted);
     }
 
     &__itemPrice {
-        font-size: 2rem;
+        font-size: var(--font-size-lg);
         font-weight: 700;
-        color: #333;
+        color: var(--color-text);
 
         @include media(sp) {
-            font-size: 1.8rem;
+            font-size: var(--font-size-md);
         }
 
         &Note {
             display: block;
-            font-size: 1.2rem;
+            font-size: var(--font-size-xs);
             font-weight: 400;
-            color: #e53935;
-            margin-top: 0.4rem;
+            color: var(--color-error);
+            margin-top: var(--spacing-xs);
         }
     }
 }
 
 .salonMenuOption {
-    padding: 6rem 0;
+    padding: var(--section-spacing-md) 0;
 
     @include media(sp) {
-        padding: 4rem 0;
+        padding: var(--section-spacing-sm) 0;
     }
 
     &__inner {
     }
 
     &__title {
-        margin-bottom: 3rem;
+        margin-bottom: var(--spacing-xl);
     }
 
     &__items {
         display: grid;
-        gap: 1.6rem;
+        gap: var(--spacing-md);
         max-width: 60rem;
         margin: 0 auto;
     }
@@ -267,43 +267,49 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 1.6rem 2rem;
-        background-color: #fff;
-        border-radius: 0.8rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: var(--spacing-md) var(--spacing-lg);
+        background-color: var(--color-surface);
+        border-radius: var(--border-radius-md);
+        box-shadow: var(--shadow-sm);
+        transition: all var(--transition-base);
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
     }
 
     &__itemName {
-        font-size: 1.6rem;
+        font-size: var(--font-size-base);
         font-weight: 700;
     }
 
     &__itemPrice {
-        font-size: 1.6rem;
+        font-size: var(--font-size-base);
         font-weight: 700;
-        color: #333;
+        color: var(--color-text);
     }
 }
 
 .salonMenuDiscount {
-    padding: 6rem 0;
-    background-color: #f8f8f8;
+    padding: var(--section-spacing-md) 0;
+    background-color: var(--color-bg-gray);
 
     @include media(sp) {
-        padding: 4rem 0;
+        padding: var(--section-spacing-sm) 0;
     }
 
     &__inner {
     }
 
     &__title {
-        margin-bottom: 3rem;
+        margin-bottom: var(--spacing-xl);
     }
 
     &__items {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
+        gap: var(--spacing-lg);
 
         @include media(sp) {
             grid-template-columns: 1fr;
@@ -311,47 +317,53 @@
     }
 
     &__item {
-        background-color: #fff;
-        border-radius: 1.2rem;
-        padding: 2.4rem;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        background-color: var(--color-surface);
+        border-radius: var(--border-radius-lg);
+        padding: var(--spacing-xl);
+        box-shadow: var(--shadow-sm);
         text-align: center;
+        transition: all var(--transition-base);
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
 
         @include media(sp) {
-            padding: 2rem;
+            padding: var(--spacing-lg);
         }
     }
 
     &__itemName {
-        font-size: 2rem;
+        font-size: var(--font-size-lg);
         font-weight: 700;
-        margin-bottom: 1.2rem;
-        color: #e53935;
+        margin-bottom: var(--spacing-md);
+        color: var(--color-error);
     }
 
     &__itemDescription {
-        font-size: 1.6rem;
-        line-height: 1.8;
-        color: #666;
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        color: var(--color-text-light);
 
         @include media(sp) {
-            font-size: 1.4rem;
+            font-size: var(--font-size-sm);
         }
     }
 }
 
 .salonMenuNote {
-    padding: 6rem 0;
+    padding: var(--section-spacing-md) 0;
 
     @include media(sp) {
-        padding: 4rem 0;
+        padding: var(--section-spacing-sm) 0;
     }
 
     &__inner {
     }
 
     &__title {
-        margin-bottom: 3rem;
+        margin-bottom: var(--spacing-xl);
     }
 
     &__content {
@@ -365,14 +377,14 @@
     }
 
     &__item {
-        padding: 1.2rem 0;
-        font-size: 1.6rem;
-        line-height: 1.8;
-        color: #666;
-        border-bottom: 1px solid #ddd;
+        padding: var(--spacing-md) 0;
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        color: var(--color-text-light);
+        border-bottom: var(--border-width-thin) solid var(--color-border);
 
         @include media(sp) {
-            font-size: 1.4rem;
+            font-size: var(--font-size-sm);
         }
 
         &:last-child {
@@ -381,7 +393,7 @@
 
         &::before {
             content: '・';
-            margin-right: 0.8rem;
+            margin-right: var(--spacing-sm);
         }
     }
 }

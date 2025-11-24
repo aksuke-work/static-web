@@ -12,15 +12,22 @@
     font-size: var(--font-size-base);
     font-weight: 700;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all var(--transition-base);
     cursor: pointer;
     border: 2px solid transparent;
     font-family: var(--font-family-base);
     white-space: nowrap;
+    position: relative;
 
     @include media(sp) {
         padding: 1rem 2rem;
         font-size: var(--font-size-sm);
+    }
+
+    // フォーカス状態（アクセシビリティ対応）
+    &:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
     }
 
     // タイプ別スタイル
@@ -30,8 +37,10 @@
 
         &:hover {
             background-color: var(--color-primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
+        }
+
+        &:active {
+            transform: translateY(0);
         }
     }
 
@@ -41,8 +50,10 @@
 
         &:hover {
             background-color: var(--color-accent-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
+        }
+
+        &:active {
+            transform: translateY(0);
         }
     }
 
@@ -54,35 +65,165 @@
         &:hover {
             background-color: var(--color-primary);
             color: var(--color-bg);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+        }
+
+        &:active {
+            transform: translateY(0);
         }
     }
 
-    // サイズバリエーション
+    // サイズバリエーション（視覚的階層強化）
     &_size_lg {
-        padding: 1.6rem 3.2rem;
-        font-size: var(--font-size-md);
+        padding: 2rem 4rem;
+        font-size: var(--font-size-lg);
+        border-radius: var(--border-radius-lg);
 
         @include media(sp) {
-            padding: 1.4rem 2.8rem;
-            font-size: var(--font-size-base);
+            padding: 1.6rem 3.2rem;
+            font-size: var(--font-size-md);
+        }
+
+        &:hover {
+            transform: translateY(-4px); // Largeは大きく動く
+            box-shadow: var(--shadow-xl);
         }
     }
 
     &_size_md {
         padding: 1.2rem 2.4rem;
         font-size: var(--font-size-base);
+
+        &:hover {
+            transform: translateY(-2px); // Mediumは中程度
+            box-shadow: var(--shadow-lg);
+        }
     }
 
     &_size_sm {
         padding: 0.8rem 1.6rem;
         font-size: var(--font-size-sm);
+        border-radius: var(--border-radius-sm);
 
         @include media(sp) {
             padding: 0.6rem 1.2rem;
             font-size: var(--font-size-xs);
         }
+
+        &:hover {
+            transform: translateY(-1px); // Smallは控えめに
+            box-shadow: var(--shadow-md);
+        }
+    }
+
+    // LINE予約ボタン
+    &_type_line {
+        background: linear-gradient(135deg, #06c755 0%, #05b048 100%);
+        color: #fff;
+        box-shadow: 0 10px 30px rgba(6, 199, 85, 0.3);
+
+        &:hover {
+            background: linear-gradient(135deg, #05b048 0%, #049a3d 100%);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(6, 199, 85, 0.4);
+        }
+
+        &:active {
+            transform: translateY(-2px);
+        }
+    }
+
+    // 電話予約ボタン
+    &_type_tel {
+        background: rgba(255, 255, 255, 0.95);
+        color: var(--color-primary);
+        border-color: var(--color-primary);
+
+        @supports (backdrop-filter: blur(10px)) {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        &:hover {
+            background: var(--color-primary);
+            color: #fff;
+            border-color: var(--color-primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        &:active {
+            transform: translateY(-2px);
+        }
+    }
+
+    // アイコンとテキストのスタイル（reservationButton互換）
+    &__icon {
+        position: relative;
+        font-size: var(--font-size-md);
+        font-weight: 900;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        transition:
+            transform var(--transition-base),
+            opacity var(--transition-base);
+        z-index: 1;
+
+        @include media(sp) {
+            font-size: var(--font-size-sm);
+        }
+    }
+
+    &__text {
+        position: relative;
+        font-size: inherit;
+        z-index: 1;
+        transition: transform var(--transition-base);
+    }
+
+    &_type_line:hover &__icon {
+        transform: scale(1.1) rotate(-5deg);
+    }
+
+    &_type_line:hover &__text {
+        transform: translateX(2px);
+    }
+
+    &_type_tel:hover &__icon {
+        transform: scale(1.2) rotate(15deg);
+    }
+
+    &_type_tel:hover &__text {
+        transform: translateX(2px);
+    }
+
+    // 無効状態
+    &:disabled,
+    &_isDisabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+    // ローディング状態
+    &_isLoading {
+        position: relative;
+        color: transparent;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 1.6rem;
+            height: 1.6rem;
+            border: 2px solid currentColor;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+        }
     }
 }
 
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

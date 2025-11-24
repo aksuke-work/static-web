@@ -10,10 +10,10 @@
     border-radius: var(--border-radius-md);
     overflow: hidden;
     box-shadow: var(--shadow-sm);
-    transition: all 0.3s ease;
+    transition: all var(--transition-base);
 
     &:hover {
-        box-shadow: var(--shadow-md);
+        box-shadow: var(--shadow-lg);
         transform: translateY(-4px);
     }
 
@@ -25,15 +25,15 @@
     }
 
     &__body {
-        padding: 2rem;
+        padding: var(--spacing-lg);
         display: flex;
         flex-direction: column;
-        gap: 1.2rem;
+        gap: var(--spacing-md);
         flex: 1;
 
         @include media(sp) {
-            padding: 1.6rem;
-            gap: 1rem;
+            padding: var(--spacing-md);
+            gap: var(--spacing-sm);
         }
     }
 
@@ -53,7 +53,7 @@
         font-size: var(--font-size-sm);
         color: var(--color-text-muted);
         display: flex;
-        gap: 1.2rem;
+        gap: var(--spacing-md);
         flex-wrap: wrap;
     }
 
@@ -89,10 +89,10 @@
     // サービスカード（メニュー用）
     &_type_service {
         .uiCard__body {
-            padding: 2.4rem;
+            padding: var(--spacing-xl);
 
             @include media(sp) {
-                padding: 1.6rem;
+                padding: var(--spacing-md);
             }
         }
     }
@@ -111,10 +111,10 @@
     // お客様の声カード
     &_type_voice {
         .uiCard__body {
-            padding: 2.4rem;
+            padding: var(--spacing-xl);
 
             @include media(sp) {
-                padding: 1.6rem;
+                padding: var(--spacing-md);
             }
         }
 
@@ -126,15 +126,49 @@
     // ギャラリー画像用カード
     &_type_gallery {
         .uiCard__body {
-            padding: 1.2rem;
+            padding: var(--spacing-md);
 
             @include media(sp) {
-                padding: 0.8rem;
+                padding: var(--spacing-sm);
             }
         }
 
         .uiCard__title {
             font-size: var(--font-size-base);
+        }
+    }
+
+    // アスペクト比のModifier
+    &_aspect_16_9 {
+        .uiCard__image {
+            aspect-ratio: 16 / 9;
+        }
+    }
+
+    &_aspect_3_2 {
+        .uiCard__image {
+            aspect-ratio: 3 / 2;
+        }
+    }
+
+    &_aspect_1_1 {
+        .uiCard__image {
+            aspect-ratio: 1 / 1;
+        }
+    }
+
+    // サイズ別のホバーエフェクト調整
+    &_size_large {
+        &:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+        }
+    }
+
+    &_size_small {
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
     }
 }

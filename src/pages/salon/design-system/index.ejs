@@ -11,91 +11,144 @@
         <h1 class="designSystem__title">Design System</h1>
 
         <!-- Colors -->
-        <section class="uiSection">
+        <section class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
-                <h2 class="designSystem__sectionTitle">Colors</h2>
-                <div class="dsColorPalette">
-                    <div class="dsColorPalette__item">
-                        <div class="dsColorPalette__chip" style="background-color: var(--color-primary);"></div>
-                        <p class="dsColorPalette__label">Primary: #333</p>
-                    </div>
-                    <div class="dsColorPalette__item">
-                        <div class="dsColorPalette__chip" style="background-color: var(--color-accent);"></div>
-                        <p class="dsColorPalette__label">Accent: #d4a574</p>
-                    </div>
-                    <div class="dsColorPalette__item">
-                        <div class="dsColorPalette__chip" style="background-color: var(--color-bg); border: 1px solid var(--color-border);"></div>
-                        <p class="dsColorPalette__label">Background: #ffffff</p>
-                    </div>
-                    <div class="dsColorPalette__item">
-                        <div class="dsColorPalette__chip" style="background-color: var(--color-bg-gray);"></div>
-                        <p class="dsColorPalette__label">Background Gray: #f5f5f5</p>
-                    </div>
-                    <div class="dsColorPalette__item">
-                        <div class="dsColorPalette__chip" style="background-color: var(--color-text);"></div>
-                        <p class="dsColorPalette__label">Text: #232323</p>
-                    </div>
-                    <div class="dsColorPalette__item">
-                        <div class="dsColorPalette__chip" style="background-color: var(--color-text-light);"></div>
-                        <p class="dsColorPalette__label">Text Light: #666</p>
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Colors</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="dsColorPalette">
+                        <div class="dsColorPalette__item">
+                            <div class="dsColorPalette__chip dsColorPalette__chip_color_primary"></div>
+                            <p class="dsColorPalette__label">Primary: #667eea</p>
+                        </div>
+                        <div class="dsColorPalette__item">
+                            <div class="dsColorPalette__chip dsColorPalette__chip_color_accent"></div>
+                            <p class="dsColorPalette__label">Accent: #f5a623</p>
+                        </div>
+                        <div class="dsColorPalette__item">
+                            <div class="dsColorPalette__chip dsColorPalette__chip_color_bg"></div>
+                            <p class="dsColorPalette__label">Background: #ffffff</p>
+                        </div>
+                        <div class="dsColorPalette__item">
+                            <div class="dsColorPalette__chip dsColorPalette__chip_color_bgGray"></div>
+                            <p class="dsColorPalette__label">Background Gray: #fafafa</p>
+                        </div>
+                        <div class="dsColorPalette__item">
+                            <div class="dsColorPalette__chip dsColorPalette__chip_color_text"></div>
+                            <p class="dsColorPalette__label">Text: #1a1a1a</p>
+                        </div>
+                        <div class="dsColorPalette__item">
+                            <div class="dsColorPalette__chip dsColorPalette__chip_color_textLight"></div>
+                            <p class="dsColorPalette__label">Text Light: #4a4a4a</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Typography -->
-        <section class="uiSection">
+        <section class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
-                <h2 class="designSystem__sectionTitle">Typography</h2>
-                <div class="dsTypography">
-                    <div class="dsTypography__item">
-                        <p class="dsTypography__label">H1 - 4.8rem / 1.2</p>
-                        <h1 class="dsTypography__sample uiHeading uiHeading_level_h1">都町でゆったり、隠れ家サロン</h1>
-                    </div>
-                    <div class="dsTypography__item">
-                        <p class="dsTypography__label">H2 - 3.2rem / 1.3</p>
-                        <h2 class="dsTypography__sample uiHeading uiHeading_level_h2">あなただけの特別な時間を</h2>
-                    </div>
-                    <div class="dsTypography__item">
-                        <p class="dsTypography__label">H3 - 2.4rem / 1.4</p>
-                        <h3 class="dsTypography__sample uiHeading uiHeading_level_h3">コンセプト</h3>
-                    </div>
-                    <div class="dsTypography__item">
-                        <p class="dsTypography__label">Lead - 1.8rem / 1.8</p>
-                        <p class="dsTypography__sample uiLead">都心の喧騒から離れた、静かな隠れ家のような空間で、あなただけの特別な時間をお過ごしください。</p>
-                    </div>
-                    <div class="dsTypography__item">
-                        <p class="dsTypography__label">Body - 1.6rem / 1.6</p>
-                        <p class="dsTypography__sample uiBody">私たちは、お客様一人ひとりに寄り添い、最適なスタイルをご提案いたします。リラックスできる空間と、丁寧なカウンセリングで、あなたの理想を実現します。</p>
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Typography</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="dsTypography">
+                        <div class="dsTypography__item">
+                            <p class="dsTypography__label">H1 - clamp(3.2rem, 4vw + 2.4rem, 4.8rem) / 1.2</p>
+                            <h1 class="dsTypography__sample uiHeading uiHeading_level_h1">都町でゆったり、隠れ家サロン</h1>
+                        </div>
+                        <div class="dsTypography__item">
+                            <p class="dsTypography__label">H2 - clamp(2.4rem, 3vw + 1.8rem, 3.2rem) / 1.3</p>
+                            <h2 class="dsTypography__sample uiHeading uiHeading_level_h2">あなただけの特別な時間を</h2>
+                        </div>
+                        <div class="dsTypography__item">
+                            <p class="dsTypography__label">H3 - clamp(2rem, 2vw + 1.5rem, 2.4rem) / 1.4</p>
+                            <h3 class="dsTypography__sample uiHeading uiHeading_level_h3">コンセプト</h3>
+                        </div>
+                        <div class="dsTypography__item">
+                            <p class="dsTypography__label">Lead - clamp(1.5rem, 1.2vw + 1rem, 1.875rem) / 1.7</p>
+                            <p class="dsTypography__sample uiLead">都心の喧騒から離れた、静かな隠れ家のような空間で、あなただけの特別な時間をお過ごしください。</p>
+                        </div>
+                        <div class="dsTypography__item">
+                            <p class="dsTypography__label">Body - clamp(1.4rem, 1.2vw + 1rem, 1.6rem) / 1.5</p>
+                            <p class="dsTypography__sample uiBody">私たちは、お客様一人ひとりに寄り添い、最適なスタイルをご提案いたします。リラックスできる空間と、丁寧なカウンセリングで、あなたの理想を実現します。</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Headings / Text -->
-        <section class="uiSection">
+        <section class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
-                <h2 class="designSystem__sectionTitle">Headings / Text</h2>
-                <div class="designSystem__componentGroup">
-                    <h1 class="uiHeading uiHeading_level_h1 uiHeading_align_left">見出し H1（左寄せ）</h1>
-                    <h1 class="uiHeading uiHeading_level_h1 uiHeading_align_center">見出し H1（中央寄せ）</h1>
-                    <h2 class="uiHeading uiHeading_level_h2 uiHeading_align_left">見出し H2（左寄せ）</h2>
-                    <h2 class="uiHeading uiHeading_level_h2 uiHeading_align_center">見出し H2（中央寄せ）</h2>
-                    <h3 class="uiHeading uiHeading_level_h3 uiHeading_align_left">見出し H3（左寄せ）</h3>
-                    <p class="uiLead">リード文：都心の喧騒から離れた、静かな隠れ家のような空間で、あなただけの特別な時間をお過ごしください。</p>
-                    <p class="uiBody">本文：私たちは、お客様一人ひとりに寄り添い、最適なスタイルをご提案いたします。リラックスできる空間と、丁寧なカウンセリングで、あなたの理想を実現します。</p>
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Headings / Text</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
+                    <h3 class="uiHeading uiHeading_level_h3">基本パターン</h3>
+                    <div class="designSystem__component">
+                        <h1 class="uiHeading uiHeading_level_h1 uiHeading_align_left">見出し H1（左寄せ）</h1>
+                        <h1 class="uiHeading uiHeading_level_h1 uiHeading_align_center">見出し H1（中央寄せ）</h1>
+                        <h2 class="uiHeading uiHeading_level_h2 uiHeading_align_left">見出し H2（左寄せ）</h2>
+                        <h2 class="uiHeading uiHeading_level_h2 uiHeading_align_center">見出し H2（中央寄せ）</h2>
+                        <h3 class="uiHeading uiHeading_level_h3 uiHeading_align_left">見出し H3（左寄せ）</h3>
+                        <p class="uiLead">リード文：都心の喧騒から離れた、静かな隠れ家のような空間で、あなただけの特別な時間をお過ごしください。</p>
+                        <p class="uiBody">本文：私たちは、お客様一人ひとりに寄り添い、最適なスタイルをご提案いたします。リラックスできる空間と、丁寧なカウンセリングで、あなたの理想を実現します。</p>
+                    </div>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン1: グラデーション見出し</h3>
+                    <div class="designSystem__component">
+                        <h1 class="uiHeading uiHeading_level_h1 uiHeading_type_gradient uiHeading_align_left">グラデーション見出し H1</h1>
+                        <h2 class="uiHeading uiHeading_level_h2 uiHeading_type_gradient uiHeading_align_left">グラデーション見出し H2</h2>
+                        <h3 class="uiHeading uiHeading_level_h3 uiHeading_type_gradient uiHeading_align_left">グラデーション見出し H3</h3>
+                        <p class="designSystem__description">グラデーションテキストを使用したモダンな見出しスタイル。2025年のトレンドを反映した洗練されたデザインです。</p>
+                    </div>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン2: アンダーライン付き見出し</h3>
+                    <div class="designSystem__component">
+                        <h1 class="uiHeading uiHeading_level_h1 uiHeading_type_underline uiHeading_align_left">アンダーライン見出し H1</h1>
+                        <h2 class="uiHeading uiHeading_level_h2 uiHeading_type_underline uiHeading_align_left">アンダーライン見出し H2</h2>
+                        <h3 class="uiHeading uiHeading_level_h3 uiHeading_type_underline uiHeading_align_left">アンダーライン見出し H3</h3>
+                        <p class="designSystem__description">グラデーションのアンダーラインで強調された見出し。視覚的な階層を明確にし、読みやすさを向上させます。</p>
+                    </div>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン3: アイコン/装飾付き見出し</h3>
+                    <div class="designSystem__component">
+                        <h1 class="uiHeading uiHeading_level_h1 uiHeading_type_icon uiHeading_align_left">装飾付き見出し H1</h1>
+                        <h2 class="uiHeading uiHeading_level_h2 uiHeading_type_icon uiHeading_align_left">装飾付き見出し H2</h2>
+                        <h3 class="uiHeading uiHeading_level_h3 uiHeading_type_icon uiHeading_align_left">装飾付き見出し H3</h3>
+                        <p class="designSystem__description">左側にアイコンや装飾要素を配置した見出し。ブランドアイデンティティを表現し、視覚的なインパクトを与えます。</p>
+                    </div>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン4: 背景色付き見出し</h3>
+                    <div class="designSystem__component">
+                        <h1 class="uiHeading uiHeading_level_h1 uiHeading_type_background uiHeading_align_left">背景色付き見出し H1</h1>
+                        <h2 class="uiHeading uiHeading_level_h2 uiHeading_type_background uiHeading_align_left">背景色付き見出し H2</h2>
+                        <h3 class="uiHeading uiHeading_level_h3 uiHeading_type_background uiHeading_align_left">背景色付き見出し H3</h3>
+                        <p class="designSystem__description">背景色とボーダーで強調された見出し。セクションの区切りを明確にし、コンテンツの構造を視覚的に表現します。</p>
+                    </div>
+                </div>
                 </div>
             </div>
         </section>
 
         <!-- Buttons -->
-        <section class="uiSection">
+        <section class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
-                <h2 class="designSystem__sectionTitle">Buttons</h2>
-                <div class="designSystem__componentGroup">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Buttons</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
                     <div class="designSystem__componentGroup">
                         <h3 class="uiHeading uiHeading_level_h3">Primary</h3>
-                        <div style="display: flex; gap: 1.6rem; flex-wrap: wrap;">
+                        <div class="designSystem__buttonGroup">
                             <a class="uiButton uiButton_type_primary uiButton_size_lg" href="#">Large Button</a>
                             <a class="uiButton uiButton_type_primary uiButton_size_md" href="#">Medium Button</a>
                             <a class="uiButton uiButton_type_primary uiButton_size_sm" href="#">Small Button</a>
@@ -103,7 +156,7 @@
                     </div>
                     <div class="designSystem__componentGroup">
                         <h3 class="uiHeading uiHeading_level_h3">Secondary</h3>
-                        <div style="display: flex; gap: 1.6rem; flex-wrap: wrap;">
+                        <div class="designSystem__buttonGroup">
                             <a class="uiButton uiButton_type_secondary uiButton_size_lg" href="#">Large Button</a>
                             <a class="uiButton uiButton_type_secondary uiButton_size_md" href="#">Medium Button</a>
                             <a class="uiButton uiButton_type_secondary uiButton_size_sm" href="#">Small Button</a>
@@ -111,10 +164,18 @@
                     </div>
                     <div class="designSystem__componentGroup">
                         <h3 class="uiHeading uiHeading_level_h3">Outline</h3>
-                        <div style="display: flex; gap: 1.6rem; flex-wrap: wrap;">
+                        <div class="designSystem__buttonGroup">
                             <a class="uiButton uiButton_type_outline uiButton_size_lg" href="#">Large Button</a>
                             <a class="uiButton uiButton_type_outline uiButton_size_md" href="#">Medium Button</a>
                             <a class="uiButton uiButton_type_outline uiButton_size_sm" href="#">Small Button</a>
+                        </div>
+                    </div>
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">States</h3>
+                        <div class="designSystem__buttonGroup">
+                            <button class="uiButton uiButton_type_primary" type="button">Normal</button>
+                            <button class="uiButton uiButton_type_primary uiButton_isDisabled" type="button" disabled>Disabled</button>
+                            <button class="uiButton uiButton_type_primary uiButton_isLoading" type="button">Loading</button>
                         </div>
                     </div>
                 </div>
@@ -122,10 +183,14 @@
         </section>
 
         <!-- Text Links -->
-        <section class="uiSection">
+        <section class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
-                <h2 class="designSystem__sectionTitle">Text Links</h2>
-                <div class="designSystem__componentGroup">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Text Links</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
                     <p class="uiBody">
                         <a class="uiTextLink uiTextLink_type_arrow" href="#">矢印付きリンク</a>
                     </p>
@@ -133,14 +198,19 @@
                         <a class="uiTextLink uiTextLink_type_underlined" href="#">下線付きリンク</a>
                     </p>
                 </div>
+                </div>
             </div>
         </section>
 
         <!-- Sections / Grid -->
-        <section class="uiSection">
+        <section class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
-                <h2 class="designSystem__sectionTitle">Sections / Grid</h2>
-                <div class="designSystem__componentGroup">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Sections / Grid</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
                     <div class="uiSection uiSection_bg_gray">
                         <div class="uiSection__inner uiContainer">
                             <div class="uiSection__header">
@@ -163,42 +233,47 @@
                     </div>
                     <div class="uiGrid uiGrid_cols_2">
                         <div class="uiGrid__item">
-                            <div style="background: var(--color-bg-gray); padding: 2rem; border-radius: var(--border-radius-md);">
+                            <div class="designSystem__gridItem">
                                 <p class="uiBody">2カラムグリッド - アイテム1</p>
                             </div>
                         </div>
                         <div class="uiGrid__item">
-                            <div style="background: var(--color-bg-gray); padding: 2rem; border-radius: var(--border-radius-md);">
+                            <div class="designSystem__gridItem">
                                 <p class="uiBody">2カラムグリッド - アイテム2</p>
                             </div>
                         </div>
                     </div>
                     <div class="uiGrid uiGrid_cols_3">
                         <div class="uiGrid__item">
-                            <div style="background: var(--color-bg-gray); padding: 2rem; border-radius: var(--border-radius-md);">
+                            <div class="designSystem__gridItem">
                                 <p class="uiBody">3カラムグリッド - アイテム1</p>
                             </div>
                         </div>
                         <div class="uiGrid__item">
-                            <div style="background: var(--color-bg-gray); padding: 2rem; border-radius: var(--border-radius-md);">
+                            <div class="designSystem__gridItem">
                                 <p class="uiBody">3カラムグリッド - アイテム2</p>
                             </div>
                         </div>
                         <div class="uiGrid__item">
-                            <div style="background: var(--color-bg-gray); padding: 2rem; border-radius: var(--border-radius-md);">
+                            <div class="designSystem__gridItem">
                                 <p class="uiBody">3カラムグリッド - アイテム3</p>
                             </div>
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
         </section>
 
         <!-- Cards -->
-        <section class="uiSection">
+        <section class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
-                <h2 class="designSystem__sectionTitle">Cards</h2>
-                <div class="designSystem__componentGroup">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Cards</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
                     <h3 class="uiHeading uiHeading_level_h3">Service Card（メニュー用）</h3>
                     <div class="uiGrid uiGrid_cols_3">
                         <div class="uiGrid__item">
@@ -324,14 +399,19 @@
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
         </section>
 
         <!-- Lists -->
-        <section class="uiSection">
+        <section class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
-                <h2 class="designSystem__sectionTitle">Lists</h2>
-                <div class="designSystem__componentGroup">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Lists</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
                     <h3 class="uiHeading uiHeading_level_h3">Feature List（特徴リスト）</h3>
                     <ul class="uiFeatureList">
                         <li class="uiFeatureList__item">
@@ -389,14 +469,19 @@
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
         </section>
 
         <!-- Header Patterns -->
-        <section class="uiSection">
+        <section class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
-                <h2 class="designSystem__sectionTitle">Header Patterns</h2>
-                <div class="designSystem__componentGroup">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Header Patterns</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
                     <h3 class="uiHeading uiHeading_level_h3">パターン1: 標準ヘッダー（グラスモーフィズム）</h3>
                     <div style="position: relative; width: 100vw; margin-left: calc((100vw - 100%) / -2); margin-right: calc((100vw - 100%) / -2); overflow: visible;">
                         <header class="uiHeader">
@@ -632,14 +717,19 @@
                         </header>
                     </div>
                 </div>
+                </div>
             </div>
         </section>
 
         <!-- Hero Patterns -->
-        <section class="uiSection">
+        <section class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
-                <h2 class="designSystem__sectionTitle">Hero Patterns</h2>
-                <div class="designSystem__componentGroup">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Hero Patterns</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
                     <h3 class="uiHeading uiHeading_level_h3">Center（中央寄せ）</h3>
                     <div class="uiHero uiHero_type_center" style="background: var(--color-bg-gray); padding: 4rem 2rem;">
                         <span class="uiHero__eyecatch">Eyecatch</span>
@@ -698,15 +788,137 @@
                             </div>
                         </div>
                     </div>
+                    <h3 class="uiHeading uiHeading_level_h3">Three.js パターン1: ワイヤーフレーム（幾何学的・クール）</h3>
+                    <div class="uiHero uiHero_type_threejs_wireframe">
+                        <canvas class="uiHero__canvas"></canvas>
+                        <div class="uiHero__content">
+                            <span class="uiHero__eyecatch">Eyecatch</span>
+                            <h2 class="uiHero__title">クールで洗練された空間</h2>
+                            <p class="uiHero__lead">幾何学的な美しさが生み出す、モダンな体験</p>
+                            <div class="uiHero__buttons">
+                                <a class="uiButton uiButton_type_primary" href="#">予約する</a>
+                                <a class="uiButton uiButton_type_outline" href="#" style="background: rgba(255,255,255,0.2); border-color: #fff; color: #fff;">詳しく見る</a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="uiHeading uiHeading_level_h3">Three.js パターン2: 流れるパーティクル（エレガント・流動的）</h3>
+                    <div class="uiHero uiHero_type_threejs_flow">
+                        <canvas class="uiHero__canvas"></canvas>
+                        <div class="uiHero__content">
+                            <span class="uiHero__eyecatch">Eyecatch</span>
+                            <h2 class="uiHero__title">流れるような美しさ</h2>
+                            <p class="uiHero__lead">エレガントな動きが生み出す、優雅な時間</p>
+                            <div class="uiHero__buttons">
+                                <a class="uiButton uiButton_type_primary" href="#">予約する</a>
+                                <a class="uiButton uiButton_type_outline" href="#" style="background: rgba(255,255,255,0.2); border-color: #fff; color: #fff;">詳しく見る</a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="uiHeading uiHeading_level_h3">Three.js パターン3: グリッド/ネオン（サイバー・モダン）</h3>
+                    <div class="uiHero uiHero_type_threejs_grid">
+                        <canvas class="uiHero__canvas"></canvas>
+                        <div class="uiHero__content">
+                            <span class="uiHero__eyecatch">Eyecatch</span>
+                            <h2 class="uiHero__title">未来を感じる空間</h2>
+                            <p class="uiHero__lead">ネオンが織りなす、サイバーな世界観</p>
+                            <div class="uiHero__buttons">
+                                <a class="uiButton uiButton_type_primary" href="#">予約する</a>
+                                <a class="uiButton uiButton_type_outline" href="#" style="background: rgba(255,255,255,0.2); border-color: #fff; color: #fff;">詳しく見る</a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="uiHeading uiHeading_level_h3">Three.js パターン4: オーガニック形状（有機的・柔らかい）</h3>
+                    <div class="uiHero uiHero_type_threejs_organic">
+                        <canvas class="uiHero__canvas"></canvas>
+                        <div class="uiHero__content">
+                            <span class="uiHero__eyecatch">Eyecatch</span>
+                            <h2 class="uiHero__title">自然な美しさ</h2>
+                            <p class="uiHero__lead">有機的な形状が生み出す、柔らかな空間</p>
+                            <div class="uiHero__buttons">
+                                <a class="uiButton uiButton_type_primary" href="#">予約する</a>
+                                <a class="uiButton uiButton_type_outline" href="#">詳しく見る</a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="uiHeading uiHeading_level_h3">Three.js パターン5: 光のビーム（ドラマチック・明るい）</h3>
+                    <div class="uiHero uiHero_type_threejs_beam">
+                        <canvas class="uiHero__canvas"></canvas>
+                        <div class="uiHero__content">
+                            <span class="uiHero__eyecatch">Eyecatch</span>
+                            <h2 class="uiHero__title">光が導く空間</h2>
+                            <p class="uiHero__lead">ドラマチックな光の演出が生み出す、特別な体験</p>
+                            <div class="uiHero__buttons">
+                                <a class="uiButton uiButton_type_primary" href="#">予約する</a>
+                                <a class="uiButton uiButton_type_outline" href="#">詳しく見る</a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="uiHeading uiHeading_level_h3">Three.js パターン6: 幾何学パターン（ミニマル・クリーン）</h3>
+                    <div class="uiHero uiHero_type_threejs_geometric">
+                        <canvas class="uiHero__canvas"></canvas>
+                        <div class="uiHero__content">
+                            <span class="uiHero__eyecatch">Eyecatch</span>
+                            <h2 class="uiHero__title">シンプルな美しさ</h2>
+                            <p class="uiHero__lead">ミニマルな幾何学が生み出す、クリーンな空間</p>
+                            <div class="uiHero__buttons">
+                                <a class="uiButton uiButton_type_primary" href="#">予約する</a>
+                                <a class="uiButton uiButton_type_outline" href="#">詳しく見る</a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="uiHeading uiHeading_level_h3">Three.js パターン7: ヘアサロン向け - 髪の流れ（流れるリボンエフェクト）</h3>
+                    <div class="uiHero uiHero_type_threejs_hairFlow">
+                        <canvas class="uiHero__canvas"></canvas>
+                        <div class="uiHero__content">
+                            <span class="uiHero__eyecatch">Eyecatch</span>
+                            <h2 class="uiHero__title">美しい髪の流れ</h2>
+                            <p class="uiHero__lead">流れるような美しさが生み出す、特別なスタイル</p>
+                            <div class="uiHero__buttons">
+                                <a class="uiButton uiButton_type_primary" href="#">予約する</a>
+                                <a class="uiButton uiButton_type_outline" href="#">詳しく見る</a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="uiHeading uiHeading_level_h3">Three.js パターン8: ヘアサロン向け - ゴールドエレガンス（高級感のあるゴールドパーティクル）</h3>
+                    <div class="uiHero uiHero_type_threejs_goldElegance">
+                        <canvas class="uiHero__canvas"></canvas>
+                        <div class="uiHero__content">
+                            <span class="uiHero__eyecatch">Eyecatch</span>
+                            <h2 class="uiHero__title">上質な時間を</h2>
+                            <p class="uiHero__lead">ゴールドが輝く、エレガントな空間で特別なひとときを</p>
+                            <div class="uiHero__buttons">
+                                <a class="uiButton uiButton_type_primary" href="#">予約する</a>
+                                <a class="uiButton uiButton_type_outline" href="#" style="background: rgba(255,255,255,0.2); border-color: #ffd700; color: #ffd700;">詳しく見る</a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="uiHeading uiHeading_level_h3">Three.js パターン9: ヘアサロン向け - リラックスウェーブ（柔らかい波の動き）</h3>
+                    <div class="uiHero uiHero_type_threejs_relaxWave">
+                        <canvas class="uiHero__canvas"></canvas>
+                        <div class="uiHero__content">
+                            <span class="uiHero__eyecatch">Eyecatch</span>
+                            <h2 class="uiHero__title">ゆったりとした時間</h2>
+                            <p class="uiHero__lead">柔らかな波が生み出す、リラックスできる空間</p>
+                            <div class="uiHero__buttons">
+                                <a class="uiButton uiButton_type_primary" href="#">予約する</a>
+                                <a class="uiButton uiButton_type_outline" href="#">詳しく見る</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </section>
 
         <!-- CTA -->
-        <section class="uiSection">
+        <section class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
-                <h2 class="designSystem__sectionTitle">CTA</h2>
-                <div class="designSystem__componentGroup">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">CTA</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
                     <div class="uiCtaBand">
                         <div class="uiContainer">
                             <h2 class="uiCtaBand__title">ご予約・お問い合わせ</h2>
@@ -719,14 +931,19 @@
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
         </section>
 
         <!-- Form -->
-        <section class="uiSection">
+        <section class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
-                <h2 class="designSystem__sectionTitle">Form</h2>
-                <div class="designSystem__componentGroup">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Form</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
                     <form class="uiForm">
                         <div class="uiForm__row">
                             <label class="uiForm__label" data-required="true">お名前</label>
@@ -775,14 +992,19 @@
                         </div>
                     </form>
                 </div>
+                </div>
             </div>
         </section>
 
         <!-- Table Patterns -->
-        <section class="uiSection">
+        <section class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
-                <h2 class="designSystem__sectionTitle">Table Patterns</h2>
-                <div class="designSystem__componentGroup">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Table Patterns</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
                     <h3 class="uiHeading uiHeading_level_h3">パターン1: 標準テーブル</h3>
                     <div style="overflow-x: auto;">
                         <table class="uiTable uiTable_type_standard">
@@ -901,14 +1123,19 @@
                         </tbody>
                     </table>
                 </div>
+                </div>
             </div>
         </section>
 
         <!-- List Patterns -->
-        <section class="uiSection">
+        <section class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
-                <h2 class="designSystem__sectionTitle">List Patterns</h2>
-                <div class="designSystem__componentGroup">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">List Patterns</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
                     <h3 class="uiHeading uiHeading_level_h3">パターン1: 標準リスト</h3>
                     <ul class="uiList uiList_type_standard">
                         <li class="uiList__item">カット + シャンプー + ブロー</li>
@@ -957,14 +1184,19 @@
                         </li>
                     </ol>
                 </div>
+                </div>
             </div>
         </section>
 
         <!-- Footer Patterns -->
-        <section class="uiSection">
+        <section class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
-                <h2 class="designSystem__sectionTitle">Footer Patterns</h2>
-                <div class="designSystem__componentGroup">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Footer Patterns</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
                     <h3 class="uiHeading uiHeading_level_h3">パターン1: 標準フッター（グラデーション背景）</h3>
                     <div style="position: relative; width: 100vw; margin-left: calc((100vw - 100%) / -2); margin-right: calc((100vw - 100%) / -2); overflow: visible;">
                         <footer class="uiFooter uiFooter_type_standard">
@@ -1224,14 +1456,19 @@
                         </footer>
                     </div>
                 </div>
+                </div>
             </div>
         </section>
 
         <!-- Badge Patterns -->
-        <section class="uiSection">
+        <section class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
-                <h2 class="designSystem__sectionTitle">Badge Patterns</h2>
-                <div class="designSystem__componentGroup">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Badge Patterns</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
                     <h3 class="uiHeading uiHeading_level_h3">パターン1: 基本バッジ</h3>
                     <div class="designSystem__component">
                         <span class="uiBadge uiBadge_type_basic">新着</span>
@@ -1258,14 +1495,19 @@
                         <span class="uiBadge uiBadge_type_status uiBadge_type_status_info">情報</span>
                     </div>
                 </div>
+                </div>
             </div>
         </section>
 
         <!-- Alert Patterns -->
-        <section class="uiSection">
+        <section class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
-                <h2 class="designSystem__sectionTitle">Alert Patterns</h2>
-                <div class="designSystem__componentGroup">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Alert Patterns</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
                     <h3 class="uiHeading uiHeading_level_h3">パターン1: 情報アラート（青）</h3>
                     <div class="designSystem__component">
                         <div class="uiAlert uiAlert_type_info">
@@ -1302,14 +1544,19 @@
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
         </section>
 
         <!-- Modal Patterns -->
-        <section class="uiSection">
+        <section class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
-                <h2 class="designSystem__sectionTitle">Modal Patterns</h2>
-                <div class="designSystem__componentGroup">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Modal Patterns</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
                     <h3 class="uiHeading uiHeading_level_h3">パターン1: 基本モーダル（予約確認など）</h3>
                     <div class="designSystem__component">
                         <div class="uiModal uiModal_type_basic isActive" style="position: relative; display: block; opacity: 1; visibility: visible;">
@@ -1377,14 +1624,19 @@
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
         </section>
 
         <!-- Tabs Patterns -->
-        <section class="uiSection">
+        <section class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
-                <h2 class="designSystem__sectionTitle">Tabs Patterns</h2>
-                <div class="designSystem__componentGroup">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Tabs Patterns</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
                     <h3 class="uiHeading uiHeading_level_h3">パターン1: 基本タブ（横並び）</h3>
                     <div class="designSystem__component">
                         <div class="uiTabs uiTabs_type_basic">
@@ -1457,14 +1709,19 @@
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
         </section>
 
         <!-- Breadcrumb Patterns -->
-        <section class="uiSection">
+        <section class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
-                <h2 class="designSystem__sectionTitle">Breadcrumb Patterns</h2>
-                <div class="designSystem__componentGroup">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Breadcrumb Patterns</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
                     <h3 class="uiHeading uiHeading_level_h3">パターン1: 基本パンくず（区切り文字付き）</h3>
                     <div class="designSystem__component">
                         <nav class="uiBreadcrumb uiBreadcrumb_type_basic">
@@ -1516,11 +1773,12 @@
                         </nav>
                     </div>
                 </div>
+                </div>
             </div>
         </section>
     </div>
 </main>
 <%- include('../template/_footer', {
-    scripts: ['/js/design-system/heroThreejs.js', '/js/design-system/faq.js']
+    scripts: ['/js/design-system/heroThreejs.js', '/js/design-system/faq.js', '/js/design-system/accordion.js', '/js/design-system/copyCode.js']
 }) %>
 

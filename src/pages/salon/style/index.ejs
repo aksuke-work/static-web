@@ -17,13 +17,13 @@
 
     <section class="salonStyleGallery">
         <div class="salonStyleGallery__inner container">
-            <h2 class="salonStyleGallery__title sectionTitle">スタイルギャラリー</h2>
+            <h2 class="salonStyleGallery__title uiHeading uiHeading_level_h2">スタイルギャラリー</h2>
             <div class="salonStyleGallery__filter">
-                <button class="salonStyleGallery__filterButton salonStyleGallery__filterButton_type_active" data-filter="all">すべて</button>
-                <button class="salonStyleGallery__filterButton" data-filter="long">ロング</button>
-                <button class="salonStyleGallery__filterButton" data-filter="bob">ボブ</button>
-                <button class="salonStyleGallery__filterButton" data-filter="mens">メンズ</button>
-                <button class="salonStyleGallery__filterButton" data-filter="hightone">ハイトーン</button>
+                <button class="uiButton uiButton_type_outline isActive" data-filter="all">すべて</button>
+                <button class="uiButton uiButton_type_outline" data-filter="long">ロング</button>
+                <button class="uiButton uiButton_type_outline" data-filter="bob">ボブ</button>
+                <button class="uiButton uiButton_type_outline" data-filter="mens">メンズ</button>
+                <button class="uiButton uiButton_type_outline" data-filter="hightone">ハイトーン</button>
             </div>
             <div class="salonStyleGallery__list">
                 <div class="salonStyleGallery__item" data-category="long">
@@ -74,7 +74,7 @@
 
     <section class="salonBeforeAfter">
         <div class="salonBeforeAfter__inner container">
-            <h2 class="salonBeforeAfter__title sectionTitle">ビフォー・アフター</h2>
+            <h2 class="salonBeforeAfter__title uiHeading uiHeading_level_h2">ビフォー・アフター</h2>
             <div class="salonBeforeAfter__list">
                 <div class="salonBeforeAfter__item">
                     <div class="salonBeforeAfter__before">
@@ -102,7 +102,7 @@
 
     <section class="salonTestimonial">
         <div class="salonTestimonial__inner container">
-            <h2 class="salonTestimonial__title sectionTitle">お客様の声</h2>
+            <h2 class="salonTestimonial__title uiHeading uiHeading_level_h2">お客様の声</h2>
             <div class="salonTestimonial__list">
                 <div class="salonTestimonial__item">
                     <div class="salonTestimonial__rating">
@@ -152,11 +152,13 @@
 
     <section class="salonSns">
         <div class="salonSns__inner container">
-            <h2 class="salonSns__title sectionTitle">Instagram</h2>
+            <h2 class="salonSns__title uiHeading uiHeading_level_h2">Instagram</h2>
             <p class="salonSns__text">最新のスタイルはInstagramで更新中</p>
+            <% if (typeof config !== 'undefined' && config.social && config.social.instagram) { %>
             <div class="salonSns__link">
-                <a class="button button_type_primary" href="https://www.instagram.com/salon/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+                <a class="uiButton uiButton_type_primary" href="<%= config.social.instagram %>" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
             </div>
+            <% } %>
         </div>
     </section>
 </main>

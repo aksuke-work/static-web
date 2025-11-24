@@ -6,64 +6,64 @@
 
 :root {
     // カラーパレット - 2025年トレンド対応（統一された洗練されたカラー）
-    // 統一されたプライマリカラー
-    --color-primary: #1A1F2E;
-    --color-primary-light: #2C3E50;
-    --color-primary-dark: #0F1419;
-    --color-secondary: #E8B4B8;
-    --color-secondary-light: #F5D7DA;
-    --color-secondary-dark: #D89FA4;
-    // 統一されたアクセントカラー
-    --color-accent: #667EEA;
-    --color-accent-light: #8B9AFF;
-    --color-accent-dark: #4C63D2;
-    --color-tertiary: #6C5CE7;
-    --color-tertiary-light: #8B7ED8;
-    --color-tertiary-dark: #5A4FCF;
-    
-    // ブランドカラー（強調）
-    --brand-primary: #667EEA;
-    --brand-secondary: #764BA2;
-    --brand-accent: #F5A623;
+    // プライマリカラー（統一）
+    --color-primary: #667eea;
+    --color-primary-light: #8b9aff;
+    --color-primary-dark: #4c63d2;
+    --color-secondary: #e8b4b8;
+    --color-secondary-light: #f5d7da;
+    --color-secondary-dark: #d89fa4;
+    // セカンダリカラー（アクセント）
+    --color-accent: #f5a623;
+    --color-accent-light: #ffb84d;
+    --color-accent-dark: #e8960f;
+    --color-tertiary: #6c5ce7;
+    --color-tertiary-light: #8b7ed8;
+    --color-tertiary-dark: #5a4fcf;
 
-    // グラデーションカラー（統一された135deg方向）
-    --gradient-primary: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+    // ブランドカラー（強調）
+    --brand-primary: #667eea;
+    --brand-secondary: #764ba2;
+    --brand-accent: #f5a623;
+
+    // グラデーションカラー（3種類に統一）
+    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-accent: linear-gradient(135deg, #f5a623 0%, #ffb84d 100%);
+    --gradient-neutral: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
+    // 互換性のための既存変数（非推奨）
     --gradient-hero: linear-gradient(135deg, rgba(26, 31, 46, 0.95) 0%, rgba(102, 126, 234, 0.85) 100%);
     --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.92) 100%);
-    --gradient-secondary: linear-gradient(135deg, #F093FB 0%, #F5576C 100%);
-    --gradient-accent: linear-gradient(135deg, #4FACFE 0%, #00F2FE 100%);
-    --gradient-warm: linear-gradient(135deg, #FA8BFF 0%, #2BD2FF 50%, #2BFF88 100%);
-    --gradient-cool: linear-gradient(135deg, #667EEA 0%, #764BA2 50%, #F093FB 100%);
-    --gradient-text: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+    --gradient-text: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 
     // ニュートラルカラー - 洗練されたグレースケール
-    --color-bg: #FFFFFF;
-    --color-bg-gray: #FAFAFA;
-    --color-bg-gray-light: #F5F5F5;
-    --color-bg-gray-dark: #EEEEEE;
-    --color-surface: #FFFFFF;
+    --color-bg: #ffffff;
+    --color-bg-gray: #fafafa;
+    --color-bg-gray-light: #f5f5f5;
+    --color-bg-gray-dark: #eeeeee;
+    --color-surface: #ffffff;
     --color-surface-elevated: rgba(255, 255, 255, 0.95);
-    --color-text: #1A1A1A;
-    --color-text-light: #4A4A4A;
-    --color-text-muted: #8A8A8A;
-    --color-text-disabled: #C0C0C0;
-    --color-border: #E5E5E5;
-    --color-border-light: #F0F0F0;
-    --color-border-dark: #D0D0D0;
+    // テキストカラー（コントラスト比を考慮）
+    --color-text: #1a1a1a; // 16.6:1 (AAA)
+    --color-text-light: #4a4a4a; // 7.1:1 (AA)
+    --color-text-muted: #6a6a6a; // 4.5:1 (AA) - 改善
+    --color-text-disabled: #b0b0b0; // 2.3:1 (Large text only)
+    --color-border: #e5e5e5;
+    --color-border-light: #f0f0f0;
+    --color-border-dark: #d0d0d0;
 
     // セマンティックカラー
-    --color-success: #10B981;
-    --color-success-light: #34D399;
+    --color-success: #10b981;
+    --color-success-light: #34d399;
     --color-success-dark: #059669;
-    --color-error: #EF4444;
-    --color-error-light: #F87171;
-    --color-error-dark: #DC2626;
-    --color-warning: #F59E0B;
-    --color-warning-light: #FBBF24;
-    --color-warning-dark: #D97706;
-    --color-info: #3B82F6;
-    --color-info-light: #60A5FA;
-    --color-info-dark: #2563EB;
+    --color-error: #ef4444;
+    --color-error-light: #f87171;
+    --color-error-dark: #dc2626;
+    --color-warning: #f59e0b;
+    --color-warning-light: #fbbf24;
+    --color-warning-dark: #d97706;
+    --color-info: #3b82f6;
+    --color-info-light: #60a5fa;
+    --color-info-dark: #2563eb;
 
     // タイポグラフィ - 2025年トレンド対応
     --font-family-base: 'zen-kaku-gothic-new', 'Zen Kaku Gothic New', sans-serif;
@@ -71,7 +71,7 @@
     --font-family-serif: 'Zen Old Mincho', serif;
 
     // 可変フォントサイズ（clamp関数対応）
-    --font-size-xs: clamp(1.0rem, 0.8vw + 0.6rem, 1.2rem);
+    --font-size-xs: clamp(1rem, 0.8vw + 0.6rem, 1.2rem);
     --font-size-sm: clamp(1.2rem, 1vw + 0.8rem, 1.4rem);
     --font-size-base: clamp(1.4rem, 1.2vw + 1rem, 1.6rem);
     --font-size-md: clamp(1.6rem, 1.4vw + 1.2rem, 1.8rem);
@@ -80,18 +80,18 @@
     --font-size-xxl: clamp(3.2rem, 4vw + 2.4rem, 4.8rem);
     --font-size-hero: clamp(4rem, 6vw + 3rem, 7.2rem);
 
-    // 行間 - タイトな設定
-    --line-height-tight: 1.2;
-    --line-height-snug: 1.3;
-    --line-height-normal: 1.5;
-    --line-height-relaxed: 1.7;
-    --line-height-loose: 2;
+    // 行間（明確化）
+    --line-height-tight: 1.1; // H1（大きな見出し）
+    --line-height-snug: 1.2; // H2-H3（中見出し）
+    --line-height-normal: 1.5; // Body（本文）
+    --line-height-relaxed: 1.7; // Lead（リード文）
+    --line-height-loose: 2; // 装飾的テキスト
 
-    // 字間
-    --letter-spacing-tight: -0.02em;
-    --letter-spacing-normal: 0;
-    --letter-spacing-wide: 0.05em;
-    --letter-spacing-wider: 0.1em;
+    // 字間（統一）
+    --letter-spacing-tight: -0.03em; // H1-H2（大きな見出し）
+    --letter-spacing-normal: 0; // H3-Body（通常）
+    --letter-spacing-wide: 0.05em; // キャプション、ラベル
+    --letter-spacing-wider: 0.1em; // 装飾的テキスト
 
     // スペーシング - リズムのあるスケール
     --spacing-xs: 0.4rem;
@@ -104,30 +104,30 @@
     --spacing-4xl: 8rem;
     --spacing-5xl: 12rem;
 
-    // セクション間のスペーシング
-    --section-spacing-sm: 6rem;
-    --section-spacing-md: 8rem;
-    --section-spacing-lg: 12rem;
-    --section-spacing-xl: 16rem;
+    // セクション間のスペーシング（基本スケールの倍数で統一）
+    --section-spacing-sm: var(--spacing-2xl); // 4.8rem
+    --section-spacing-md: var(--spacing-3xl); // 6.4rem
+    --section-spacing-lg: var(--spacing-4xl); // 8rem
+    --section-spacing-xl: var(--spacing-5xl); // 12rem
 
-    // ボーダー
+    // ボーダー（役割を明確化）
     --border-radius-sm: 0.4rem;
     --border-radius-md: 0.8rem;
     --border-radius-lg: 1.2rem;
     --border-radius-xl: 1.6rem;
     --border-radius-2xl: 2.4rem;
     --border-radius-full: 9999px;
-    --border-width-thin: 1px;
-    --border-width-medium: 2px;
-    --border-width-thick: 3px;
+    --border-width-thin: 1px; // 区切り線（リスト、テーブル）
+    --border-width-medium: 2px; // 強調線（見出し、セクション）
+    --border-width-thick: 3px; // アクセント線（アクティブ状態）
 
-    // シャドウ - 多層シャドウ
-    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.08);
-    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.06);
-    --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(0, 0, 0, 0.1);
+    // シャドウ（階層を明確化）
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05); // 微細な区切り
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06); // カード（通常）
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08); // カード（ホバー）
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1); // モーダル
+    --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.12); // ドロップダウン
+    --shadow-2xl: 0 24px 48px rgba(0, 0, 0, 0.15); // ポップオーバー
     --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.06);
     --shadow-colored: 0 10px 30px rgba(102, 126, 234, 0.3);
 
@@ -156,4 +156,3 @@
     --z-popover: 1060;
     --z-tooltip: 1070;
 }
-

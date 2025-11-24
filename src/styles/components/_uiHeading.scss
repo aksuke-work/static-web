@@ -46,5 +46,95 @@
     &_align_center {
         text-align: center;
     }
-}
 
+    // デザインパターン1: グラデーション見出し
+    &_type_gradient {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+    }
+
+    // デザインパターン2: アンダーライン付き見出し
+    &_type_underline {
+        position: relative;
+        padding-bottom: 1.6rem;
+        display: inline-block;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        @include media(sp) {
+            padding-bottom: 1.2rem;
+
+            &::after {
+                height: 3px;
+            }
+        }
+    }
+
+    // デザインパターン3: アイコン/装飾付き見出し
+    &_type_icon {
+        position: relative;
+        padding-left: 4rem;
+
+        &::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.4rem;
+            color: var(--color-accent, #d4a574);
+            line-height: 1;
+
+            @include media(sp) {
+                font-size: 2rem;
+                padding-left: 3rem;
+            }
+        }
+
+        @include media(sp) {
+            padding-left: 3rem;
+        }
+    }
+
+    // デザインパターン4: 背景色付き見出し
+    &_type_background {
+        display: inline-block;
+        padding: 1.2rem 2.4rem;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        border-left: 4px solid #667eea;
+        border-radius: var(--border-radius-md, 8px);
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+
+        @include media(sp) {
+            padding: 1rem 1.6rem;
+            border-left-width: 3px;
+
+            &::before {
+                width: 3px;
+            }
+        }
+    }
+}

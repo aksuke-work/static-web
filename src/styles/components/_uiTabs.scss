@@ -7,16 +7,16 @@
 .uiTabs {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: var(--spacing-lg);
 
-    @media screen and (max-width: 768px) {
-        gap: 1.6rem;
+    @include media(sp) {
+        gap: var(--spacing-md);
     }
 
     &__nav {
         display: flex;
-        gap: 0.8rem;
-        border-bottom: 2px solid var(--color-border-light);
+        gap: var(--spacing-sm);
+        border-bottom: var(--border-width-medium) solid var(--color-border-light);
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
@@ -25,8 +25,8 @@
             display: none;
         }
 
-        @media screen and (max-width: 768px) {
-            gap: 0.6rem;
+        @include media(sp) {
+            gap: var(--spacing-xs);
         }
     }
 
@@ -35,7 +35,7 @@
     }
 
     &__navButton {
-        padding: 1.2rem 2rem;
+        padding: var(--spacing-md) var(--spacing-lg);
         border: none;
         background: transparent;
         color: var(--color-text-light);
@@ -45,22 +45,29 @@
         transition: all var(--transition-base);
         position: relative;
         white-space: nowrap;
-        border-bottom: 3px solid transparent;
-        margin-bottom: -2px;
+        border-bottom: var(--border-width-thick) solid transparent;
+        margin-bottom: calc(-1 * var(--border-width-medium));
 
-        @media screen and (max-width: 768px) {
-            padding: 1rem 1.6rem;
+        @include media(sp) {
+            padding: var(--spacing-sm) var(--spacing-md);
             font-size: var(--font-size-sm);
         }
 
         &:hover {
             color: var(--color-primary);
+            background-color: rgba(102, 126, 234, 0.05);
         }
 
         &.isActive {
             color: var(--color-primary);
             border-bottom-color: var(--color-primary);
             font-weight: 700;
+            background-color: rgba(102, 126, 234, 0.08);
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
         }
     }
 
@@ -71,10 +78,17 @@
 
     &__panel {
         display: none;
-        animation: fadeIn 0.3s ease-out;
+        opacity: 0;
+        transform: translateY(10px);
+        transition:
+            opacity var(--transition-base),
+            transform var(--transition-base);
 
         &.isActive {
             display: block;
+            opacity: 1;
+            transform: translateY(0);
+            animation: fadeIn var(--transition-base) ease-out;
         }
     }
 
@@ -92,20 +106,21 @@
     // パターン2: アンダーラインタブ（下線付き）
     &_type_underline {
         .uiTabs__nav {
-            border-bottom: 2px solid var(--color-border);
+            border-bottom: var(--border-width-medium) solid var(--color-border);
         }
 
         .uiTabs__navButton {
             border-bottom: none;
-            padding-bottom: 1.2rem;
+            padding-bottom: var(--spacing-md);
+            margin-bottom: calc(-1 * var(--border-width-medium));
 
             &::after {
                 content: '';
                 position: absolute;
-                bottom: -2px;
+                bottom: calc(-1 * var(--border-width-medium));
                 left: 0;
                 width: 0;
-                height: 2px;
+                height: var(--border-width-medium);
                 background: var(--gradient-primary);
                 transition: width var(--transition-base);
             }
@@ -122,20 +137,20 @@
     &_type_pill {
         .uiTabs__nav {
             border-bottom: none;
-            gap: 0.8rem;
+            gap: var(--spacing-sm);
             background: var(--color-bg-gray);
-            padding: 0.4rem;
+            padding: var(--spacing-xs);
             border-radius: var(--border-radius-full);
         }
 
         .uiTabs__navButton {
             border-bottom: none;
             border-radius: var(--border-radius-full);
-            padding: 0.8rem 1.6rem;
+            padding: var(--spacing-sm) var(--spacing-lg);
             margin-bottom: 0;
 
-            @media screen and (max-width: 768px) {
-                padding: 0.6rem 1.2rem;
+            @include media(sp) {
+                padding: var(--spacing-xs) var(--spacing-md);
             }
 
             &:hover {
@@ -162,4 +177,3 @@
         transform: translateY(0);
     }
 }
-

@@ -17,7 +17,7 @@
 
     <section class="salonReserveMethod">
         <div class="salonReserveMethod__inner container">
-            <h2 class="salonReserveMethod__title sectionTitle">予約方法</h2>
+            <h2 class="salonReserveMethod__title uiHeading uiHeading_level_h2">予約方法</h2>
             <div class="salonReserveMethod__list">
                 <div class="salonReserveMethod__item">
                     <h3 class="salonReserveMethod__itemTitle">LINE予約</h3>
@@ -28,10 +28,12 @@
                         <li class="salonReserveMethod__itemFeature">キャンペーン情報を受け取れる</li>
                     </ul>
                     <div class="salonReserveMethod__itemButton">
-                        <a class="reservationButton reservationButton_type_line" href="https://line.me/R/ti/p/@salon" target="_blank" rel="noopener noreferrer">
-                            <span class="reservationButton__icon">LINE</span>
-                            <span class="reservationButton__text">LINE予約する</span>
+                        <% if (typeof config !== 'undefined' && config.social && config.social.line) { %>
+                        <a class="uiButton uiButton_type_line uiButton_size_lg" href="<%= config.social.line %>" target="_blank" rel="noopener noreferrer">
+                            <span class="uiButton__icon">LINE</span>
+                            <span class="uiButton__text">LINE予約する</span>
                         </a>
+                        <% } %>
                     </div>
                 </div>
                 <div class="salonReserveMethod__item">
@@ -43,10 +45,12 @@
                         <li class="salonReserveMethod__itemFeature">質問や相談がしやすい</li>
                     </ul>
                     <div class="salonReserveMethod__itemButton">
-                        <a class="reservationButton reservationButton_type_tel" href="tel:00-0000-0000">
-                            <span class="reservationButton__icon">TEL</span>
-                            <span class="reservationButton__text">00-0000-0000</span>
+                        <% if (typeof config !== 'undefined' && config.salon && config.salon.tel) { %>
+                        <a class="uiButton uiButton_type_tel uiButton_size_lg" href="tel:<%= config.salon.tel %>">
+                            <span class="uiButton__icon">TEL</span>
+                            <span class="uiButton__text"><%= config.salon.tel %></span>
                         </a>
+                        <% } %>
                     </div>
                 </div>
                 <div class="salonReserveMethod__item">
@@ -58,9 +62,9 @@
                         <li class="salonReserveMethod__itemFeature">予約確認メールが届く</li>
                     </ul>
                     <div class="salonReserveMethod__itemButton">
-                        <a class="reservationButton reservationButton_type_web" href="#form">
-                            <span class="reservationButton__icon">WEB</span>
-                            <span class="reservationButton__text">Webフォームで予約</span>
+                        <a class="uiButton uiButton_type_primary uiButton_size_lg" href="#form">
+                            <span class="uiButton__icon">WEB</span>
+                            <span class="uiButton__text">Webフォームで予約</span>
                         </a>
                     </div>
                 </div>
@@ -70,57 +74,71 @@
 
     <section class="salonReserveForm" id="form">
         <div class="salonReserveForm__inner container">
-            <h2 class="salonReserveForm__title sectionTitle">Webフォーム予約</h2>
-            <form class="salonReserveForm__form" action="/salon/reserve/confirm/" method="post">
-                <div class="salonReserveForm__item">
-                    <label class="salonReserveForm__label" for="name">お名前 <span class="salonReserveForm__required">必須</span></label>
-                    <input class="salonReserveForm__input" type="text" id="name" name="name" required />
+            <h2 class="salonReserveForm__title uiHeading uiHeading_level_h2">Webフォーム予約</h2>
+            <form class="uiForm" action="/salon/reserve/confirm/" method="post">
+                <div class="uiForm__row">
+                    <label class="uiForm__label" for="name" data-required="true">お名前</label>
+                    <div class="uiForm__field">
+                        <input class="uiInput" type="text" id="name" name="name" required />
+                    </div>
                 </div>
-                <div class="salonReserveForm__item">
-                    <label class="salonReserveForm__label" for="email">メールアドレス <span class="salonReserveForm__required">必須</span></label>
-                    <input class="salonReserveForm__input" type="email" id="email" name="email" required />
+                <div class="uiForm__row">
+                    <label class="uiForm__label" for="email" data-required="true">メールアドレス</label>
+                    <div class="uiForm__field">
+                        <input class="uiInput" type="email" id="email" name="email" required />
+                    </div>
                 </div>
-                <div class="salonReserveForm__item">
-                    <label class="salonReserveForm__label" for="tel">電話番号 <span class="salonReserveForm__required">必須</span></label>
-                    <input class="salonReserveForm__input" type="tel" id="tel" name="tel" required />
+                <div class="uiForm__row">
+                    <label class="uiForm__label" for="tel" data-required="true">電話番号</label>
+                    <div class="uiForm__field">
+                        <input class="uiInput" type="tel" id="tel" name="tel" required />
+                    </div>
                 </div>
-                <div class="salonReserveForm__item">
-                    <label class="salonReserveForm__label" for="date">希望日 <span class="salonReserveForm__required">必須</span></label>
-                    <input class="salonReserveForm__input" type="date" id="date" name="date" required />
+                <div class="uiForm__row">
+                    <label class="uiForm__label" for="date" data-required="true">希望日</label>
+                    <div class="uiForm__field">
+                        <input class="uiInput" type="date" id="date" name="date" required />
+                    </div>
                 </div>
-                <div class="salonReserveForm__item">
-                    <label class="salonReserveForm__label" for="time">希望時間 <span class="salonReserveForm__required">必須</span></label>
-                    <select class="salonReserveForm__select" id="time" name="time" required>
-                        <option value="">選択してください</option>
-                        <option value="10:00">10:00</option>
-                        <option value="11:00">11:00</option>
-                        <option value="12:00">12:00</option>
-                        <option value="13:00">13:00</option>
-                        <option value="14:00">14:00</option>
-                        <option value="15:00">15:00</option>
-                        <option value="16:00">16:00</option>
-                        <option value="17:00">17:00</option>
-                        <option value="18:00">18:00</option>
-                    </select>
+                <div class="uiForm__row">
+                    <label class="uiForm__label" for="time" data-required="true">希望時間</label>
+                    <div class="uiForm__field">
+                        <select class="uiSelect" id="time" name="time" required>
+                            <option value="">選択してください</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="salonReserveForm__item">
-                    <label class="salonReserveForm__label" for="menu">希望メニュー <span class="salonReserveForm__required">必須</span></label>
-                    <select class="salonReserveForm__select" id="menu" name="menu" required>
-                        <option value="">選択してください</option>
-                        <option value="cut">カット</option>
-                        <option value="color">カラー</option>
-                        <option value="perm">パーマ</option>
-                        <option value="treatment">トリートメント</option>
-                        <option value="spa">ヘッドスパ</option>
-                        <option value="cut-color">カット＋カラー</option>
-                    </select>
+                <div class="uiForm__row">
+                    <label class="uiForm__label" for="menu" data-required="true">希望メニュー</label>
+                    <div class="uiForm__field">
+                        <select class="uiSelect" id="menu" name="menu" required>
+                            <option value="">選択してください</option>
+                            <option value="cut">カット</option>
+                            <option value="color">カラー</option>
+                            <option value="perm">パーマ</option>
+                            <option value="treatment">トリートメント</option>
+                            <option value="spa">ヘッドスパ</option>
+                            <option value="cut-color">カット＋カラー</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="salonReserveForm__item">
-                    <label class="salonReserveForm__label" for="message">備考・ご要望</label>
-                    <textarea class="salonReserveForm__textarea" id="message" name="message" rows="5"></textarea>
+                <div class="uiForm__row">
+                    <label class="uiForm__label" for="message">備考・ご要望</label>
+                    <div class="uiForm__field">
+                        <textarea class="uiTextarea" id="message" name="message" rows="5"></textarea>
+                    </div>
                 </div>
-                <div class="salonReserveForm__submit">
-                    <button class="button button_type_primary" type="submit">予約内容を確認する</button>
+                <div class="uiForm__row">
+                    <button class="uiButton uiButton_type_primary" type="submit">予約内容を確認する</button>
                 </div>
             </form>
         </div>
@@ -128,7 +146,7 @@
 
     <section class="salonReservePolicy">
         <div class="salonReservePolicy__inner container">
-            <h2 class="salonReservePolicy__title sectionTitle">キャンセル・変更ポリシー</h2>
+            <h2 class="salonReservePolicy__title uiHeading uiHeading_level_h2">キャンセル・変更ポリシー</h2>
             <div class="salonReservePolicy__content">
                 <ul class="salonReservePolicy__list">
                     <li class="salonReservePolicy__item">キャンセル・変更は前日までにご連絡ください</li>
@@ -142,7 +160,7 @@
 
     <section class="salonReserveFaq">
         <div class="salonReserveFaq__inner container">
-            <h2 class="salonReserveFaq__title sectionTitle">よくある質問</h2>
+            <h2 class="salonReserveFaq__title uiHeading uiHeading_level_h2">よくある質問</h2>
             <div class="salonReserveFaq__list">
                 <div class="salonReserveFaq__item">
                     <h3 class="salonReserveFaq__itemQuestion">初回の持ち物はありますか？</h3>

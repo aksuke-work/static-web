@@ -12,7 +12,7 @@
 .page-transition-overlay {
     position: fixed;
     inset: 0;
-    background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     pointer-events: all;
     opacity: 1;
     transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -156,7 +156,8 @@ body.is-transitioning {
 // パルスアニメーション
 // ============================================
 @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
         opacity: 1;
         transform: scale(1);
     }
@@ -167,7 +168,8 @@ body.is-transitioning {
 }
 
 @keyframes pulseGlow {
-    0%, 100% {
+    0%,
+    100% {
         box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
     }
     50% {
@@ -222,7 +224,8 @@ body.is-transitioning {
 // フロートアニメーション（パーティクル風）
 // ============================================
 @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0) rotate(0deg) scale(1);
     }
     33% {
@@ -239,7 +242,9 @@ body.is-transitioning {
 .fadein {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.8s var(--transition-base), transform 0.8s var(--transition-base);
+    transition:
+        opacity 0.8s var(--transition-base),
+        transform 0.8s var(--transition-base);
     will-change: opacity, transform;
 
     &.jsActive {
@@ -266,7 +271,7 @@ body.is-transitioning {
 .fadeInUp {
     @extend .fadein;
     animation: fadeInUp 0.8s var(--transition-base) forwards;
-    
+
     &.jsActive {
         animation-play-state: running;
     }
@@ -276,8 +281,10 @@ body.is-transitioning {
 .fadeInDown {
     opacity: 0;
     transform: translateY(-30px);
-    transition: opacity 0.8s var(--transition-base), transform 0.8s var(--transition-base);
-    
+    transition:
+        opacity 0.8s var(--transition-base),
+        transform 0.8s var(--transition-base);
+
     &.jsActive {
         opacity: 1;
         transform: translateY(0);
@@ -288,8 +295,10 @@ body.is-transitioning {
 .fadeInLeft {
     opacity: 0;
     transform: translateX(-30px);
-    transition: opacity 0.8s var(--transition-base), transform 0.8s var(--transition-base);
-    
+    transition:
+        opacity 0.8s var(--transition-base),
+        transform 0.8s var(--transition-base);
+
     &.jsActive {
         opacity: 1;
         transform: translateX(0);
@@ -300,8 +309,10 @@ body.is-transitioning {
 .fadeInRight {
     opacity: 0;
     transform: translateX(30px);
-    transition: opacity 0.8s var(--transition-base), transform 0.8s var(--transition-base);
-    
+    transition:
+        opacity 0.8s var(--transition-base),
+        transform 0.8s var(--transition-base);
+
     &.jsActive {
         opacity: 1;
         transform: translateX(0);
@@ -312,8 +323,10 @@ body.is-transitioning {
 .scaleIn {
     opacity: 0;
     transform: scale(0.9);
-    transition: opacity 0.6s var(--transition-base), transform 0.6s var(--transition-base);
-    
+    transition:
+        opacity 0.6s var(--transition-base),
+        transform 0.6s var(--transition-base);
+
     &.jsActive {
         opacity: 1;
         transform: scale(1);
@@ -324,8 +337,10 @@ body.is-transitioning {
 .rotateIn {
     opacity: 0;
     transform: rotate(-10deg) scale(0.9);
-    transition: opacity 0.6s var(--transition-base), transform 0.6s var(--transition-base);
-    
+    transition:
+        opacity 0.6s var(--transition-base),
+        transform 0.6s var(--transition-base);
+
     &.jsActive {
         opacity: 1;
         transform: rotate(0deg) scale(1);
@@ -351,8 +366,10 @@ body.is-transitioning {
 // ホバーアニメーション
 // ============================================
 .hover-lift {
-    transition: transform var(--transition-base), box-shadow var(--transition-base);
-    
+    transition:
+        transform var(--transition-base),
+        box-shadow var(--transition-base);
+
     &:hover {
         transform: translateY(-8px);
         box-shadow: var(--shadow-xl);
@@ -361,7 +378,7 @@ body.is-transitioning {
 
 .hover-scale {
     transition: transform var(--transition-base);
-    
+
     &:hover {
         transform: scale(1.05);
     }
@@ -369,7 +386,7 @@ body.is-transitioning {
 
 .hover-glow {
     transition: box-shadow var(--transition-base);
-    
+
     &:hover {
         box-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
     }
@@ -407,11 +424,11 @@ body.is-transitioning {
     width: 2rem;
     height: 2rem;
     border: 3px solid rgba(102, 126, 234, 0.2);
-    border-top-color: #667EEA;
+    border-top-color: #667eea;
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
     position: relative;
-    
+
     &::before {
         content: '';
         position: absolute;
@@ -435,12 +452,7 @@ body.is-transitioning {
 }
 
 .skeleton {
-    background: linear-gradient(
-        90deg,
-        #f0f0f0 0px,
-        #e0e0e0 40px,
-        #f0f0f0 80px
-    );
+    background: linear-gradient(90deg, #f0f0f0 0px, #e0e0e0 40px, #f0f0f0 80px);
     background-size: 200px 100%;
     animation: skeleton 1.5s infinite;
     border-radius: var(--border-radius-md);
@@ -451,7 +463,7 @@ body.is-transitioning {
 // ============================================
 html {
     scroll-behavior: smooth;
-    
+
     @media (prefers-reduced-motion: reduce) {
         scroll-behavior: auto;
     }

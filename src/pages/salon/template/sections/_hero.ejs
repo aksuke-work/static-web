@@ -1,4 +1,4 @@
-<% 
+<%
     const heroData = typeof hero !== 'undefined' ? hero : {
         catchcopy: '都町でゆったり、隠れ家サロン',
         subtitle: 'あなただけの特別な時間を',
@@ -25,17 +25,17 @@
                 <p class="salonHero__subtitle"><%= heroData.subtitle %></p>
             <% } %>
             <div class="salonHero__buttons">
-                <a class="reservationButton reservationButton_type_line" href="<%= heroData.reservationButtons.line %>" target="_blank" rel="noopener noreferrer">
-                    <span class="reservationButton__icon">LINE</span>
-                    <span class="reservationButton__text">LINE予約</span>
+                <a class="uiButton uiButton_type_line uiButton_size_lg" href="<%= heroData.reservationButtons.line %>" target="_blank" rel="noopener noreferrer">
+                    <span class="uiButton__icon">LINE</span>
+                    <span class="uiButton__text">LINE予約</span>
                 </a>
-                <a class="reservationButton reservationButton_type_web" href="<%= heroData.reservationButtons.web %>">
-                    <span class="reservationButton__icon">WEB</span>
-                    <span class="reservationButton__text">Web予約</span>
+                <a class="uiButton uiButton_type_primary uiButton_size_lg" href="<%= heroData.reservationButtons.web %>">
+                    <span class="uiButton__icon">WEB</span>
+                    <span class="uiButton__text">Web予約</span>
                 </a>
-                <a class="reservationButton reservationButton_type_tel" href="<%= heroData.reservationButtons.tel %>">
-                    <span class="reservationButton__icon">TEL</span>
-                    <span class="reservationButton__text">電話予約</span>
+                <a class="uiButton uiButton_type_tel uiButton_size_lg" href="<%= heroData.reservationButtons.tel %>">
+                    <span class="uiButton__icon">TEL</span>
+                    <span class="uiButton__text">電話予約</span>
                 </a>
             </div>
         </div>

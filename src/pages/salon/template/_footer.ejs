@@ -4,18 +4,22 @@
             <h2 class="footer__ctaTitle">ご予約・お問い合わせ</h2>
             <p class="footer__ctaText">お気軽にお問い合わせください</p>
             <div class="footer__ctaButtons">
-                <a class="reservationButton reservationButton_type_line" href="https://line.me/R/ti/p/@salon" target="_blank" rel="noopener noreferrer">
-                    <span class="reservationButton__icon">LINE</span>
-                    <span class="reservationButton__text">LINE予約</span>
+                <% if (typeof config !== 'undefined' && config.social && config.social.line) { %>
+                <a class="uiButton uiButton_type_line uiButton_size_lg" href="<%= config.social.line %>" target="_blank" rel="noopener noreferrer">
+                    <span class="uiButton__icon">LINE</span>
+                    <span class="uiButton__text">LINE予約</span>
                 </a>
-                <a class="reservationButton reservationButton_type_web" href="/salon/reserve/">
-                    <span class="reservationButton__icon">WEB</span>
-                    <span class="reservationButton__text">Web予約</span>
+                <% } %>
+                <a class="uiButton uiButton_type_primary uiButton_size_lg" href="/salon/reserve/">
+                    <span class="uiButton__icon">WEB</span>
+                    <span class="uiButton__text">Web予約</span>
                 </a>
-                <a class="reservationButton reservationButton_type_tel" href="tel:00-0000-0000">
-                    <span class="reservationButton__icon">TEL</span>
-                    <span class="reservationButton__text">電話予約</span>
+                <% if (typeof config !== 'undefined' && config.salon && config.salon.tel) { %>
+                <a class="uiButton uiButton_type_tel uiButton_size_lg" href="tel:<%= config.salon.tel %>">
+                    <span class="uiButton__icon">TEL</span>
+                    <span class="uiButton__text">電話予約</span>
                 </a>
+                <% } %>
             </div>
         </div>
     </div>
@@ -23,36 +27,60 @@
         <div class="footer__info">
             <p class="footer__logo">
                 <a class="footer__logoLink" href="/salon/">
-                    <span class="footer__logoText">サロン名</span>
+                    <span class="footer__logoText"><%= typeof config !== 'undefined' && config.salon && config.salon.name ? config.salon.name : 'サロン名' %></span>
                 </a>
             </p>
             <dl class="footer__address">
-                <dt class="footer__addressDt">サロン名</dt>
-                <dd class="footer__addressDd">〒000-0000 <br class="pcnon">都道府県 市区町村 番地</dd>
+                <dt class="footer__addressDt"><%= typeof config !== 'undefined' && config.salon && config.salon.name ? config.salon.name : 'サロン名' %></dt>
+                <dd class="footer__addressDd"><%= typeof config !== 'undefined' && config.salon && config.salon.address ? config.salon.address.replace(/ /g, ' <br class="pcnon">') : '〒000-0000 <br class="pcnon">都道府県 市区町村 番地' %></dd>
             </dl>
+            <% if (typeof config !== 'undefined' && config.salon && config.salon.tel) { %>
             <dl class="footer__contact">
                 <dt class="footer__contactDt">TEL</dt>
                 <dd class="footer__contactDd">
-                    <a class="footer__contactLink" href="tel:00-0000-0000">00-0000-0000</a>
+                    <a class="footer__contactLink" href="tel:<%= config.salon.tel %>"><%= config.salon.tel %></a>
                 </dd>
             </dl>
+            <% } %>
+            <% if (typeof config !== 'undefined' && config.salon && config.salon.businessHours) { %>
             <dl class="footer__hours">
                 <dt class="footer__hoursDt">営業時間</dt>
-                <dd class="footer__hoursDd">平日 10:00-19:00<br class="pcnon">土日祝 9:00-18:00</dd>
+                <dd class="footer__hoursDd"><%= config.salon.businessHours.weekday %><br class="pcnon"><%= config.salon.businessHours.weekend %></dd>
             </dl>
+            <% } %>
+            <% if (typeof config !== 'undefined' && config.salon && config.salon.closed) { %>
             <dl class="footer__closed">
                 <dt class="footer__closedDt">定休日</dt>
-                <dd class="footer__closedDd">火曜日</dd>
+                <dd class="footer__closedDd"><%= config.salon.closed %></dd>
             </dl>
+            <% } %>
+            <% if (typeof config !== 'undefined' && config.social && (config.social.instagram || config.social.twitter || config.social.facebook)) { %>
             <div class="footer__sns">
                 <ul class="footer__snsList">
+                    <% if (config.social.instagram) { %>
                     <li class="footer__snsItem">
-                        <a class="footer__snsLink footer__snsLink_type_instagram" href="https://www.instagram.com/salon/" target="_blank" rel="noopener noreferrer">
+                        <a class="footer__snsLink footer__snsLink_type_instagram" href="<%= config.social.instagram %>" target="_blank" rel="noopener noreferrer">
                             <span class="footer__snsIcon">Instagram</span>
                         </a>
                     </li>
+                    <% } %>
+                    <% if (config.social.twitter) { %>
+                    <li class="footer__snsItem">
+                        <a class="footer__snsLink footer__snsLink_type_twitter" href="<%= config.social.twitter %>" target="_blank" rel="noopener noreferrer">
+                            <span class="footer__snsIcon">Twitter</span>
+                        </a>
+                    </li>
+                    <% } %>
+                    <% if (config.social.facebook) { %>
+                    <li class="footer__snsItem">
+                        <a class="footer__snsLink footer__snsLink_type_facebook" href="<%= config.social.facebook %>" target="_blank" rel="noopener noreferrer">
+                            <span class="footer__snsIcon">Facebook</span>
+                        </a>
+                    </li>
+                    <% } %>
                 </ul>
             </div>
+            <% } %>
         </div>
         <nav class="footer__nav fNav" aria-label="フッターナビゲーション">
             <div class="fNav__list">
@@ -110,7 +138,7 @@
                 <a class="footer__bottomPrivacyLink" href="/salon/privacypolicy/">プライバシーポリシー</a>
             </p>
             <p class="footer__bottomCopyright">
-                <small class="footer__bottomCopyrightText">© 2025 Salon Name. All rights reserved.</small>
+                <small class="footer__bottomCopyrightText"><%= typeof config !== 'undefined' && config.copyrightOwner ? config.copyrightOwner : '© 2025 Salon Name. All rights reserved.' %></small>
             </p>
         </div>
     </div>

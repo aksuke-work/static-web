@@ -8,24 +8,24 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 0.8rem;
+    gap: var(--spacing-sm);
     list-style: none;
     padding: 0;
     margin: 0;
     font-size: var(--font-size-sm);
 
-    @media screen and (max-width: 768px) {
+    @include media(sp) {
         font-size: var(--font-size-xs);
-        gap: 0.6rem;
+        gap: var(--spacing-xs);
     }
 
     &__item {
         display: flex;
         align-items: center;
-        gap: 0.8rem;
+        gap: var(--spacing-sm);
 
-        @media screen and (max-width: 768px) {
-            gap: 0.6rem;
+        @include media(sp) {
+            gap: var(--spacing-xs);
         }
     }
 
@@ -36,7 +36,7 @@
         position: relative;
         display: inline-flex;
         align-items: center;
-        gap: 0.4rem;
+        gap: var(--spacing-xs);
 
         &::after {
             content: '';
@@ -44,7 +44,7 @@
             bottom: -2px;
             left: 0;
             width: 0;
-            height: 1px;
+            height: var(--border-width-thin);
             background: var(--color-primary);
             transition: width var(--transition-base);
         }
@@ -93,7 +93,7 @@
         .uiBreadcrumb__link {
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: var(--spacing-xs);
 
             &::before {
                 content: '🏠';

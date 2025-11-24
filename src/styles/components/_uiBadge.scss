@@ -8,28 +8,28 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.4rem 1.2rem;
+    padding: var(--spacing-xs) var(--spacing-md);
     border-radius: var(--border-radius-full);
     font-size: var(--font-size-xs);
     font-weight: 700;
     line-height: 1.4;
-    letter-spacing: 0.05em;
+    letter-spacing: var(--letter-spacing-wide);
     text-transform: uppercase;
     white-space: nowrap;
     transition: all var(--transition-base);
     position: relative;
     overflow: hidden;
 
-    @media screen and (max-width: 768px) {
-        padding: 0.3rem 1rem;
-        font-size: 1rem;
+    @include media(sp) {
+        padding: calc(var(--spacing-xs) * 0.75) var(--spacing-sm);
+        font-size: var(--font-size-xs);
     }
 
     // パターン1: 基本バッジ
     &_type_basic {
         background: var(--color-bg-gray);
         color: var(--color-text);
-        border: 1px solid var(--color-border);
+        border: var(--border-width-thin) solid var(--color-border);
 
         &:hover {
             background: var(--color-bg-gray-dark);
@@ -99,35 +99,34 @@
 
     // サイズバリエーション
     &_size_small {
-        padding: 0.2rem 0.8rem;
-        font-size: 1rem;
+        padding: calc(var(--spacing-xs) * 0.5) var(--spacing-sm);
+        font-size: var(--font-size-xs);
 
-        @media screen and (max-width: 768px) {
-            padding: 0.15rem 0.6rem;
-            font-size: 0.9rem;
+        @include media(sp) {
+            padding: calc(var(--spacing-xs) * 0.4) var(--spacing-xs);
         }
     }
 
     &_size_large {
-        padding: 0.6rem 1.6rem;
+        padding: var(--spacing-sm) var(--spacing-lg);
         font-size: var(--font-size-sm);
 
-        @media screen and (max-width: 768px) {
-            padding: 0.5rem 1.4rem;
+        @include media(sp) {
+            padding: var(--spacing-xs) var(--spacing-md);
             font-size: var(--font-size-xs);
         }
     }
 
     // アイコン付きバッジ
     &__icon {
-        margin-right: 0.4rem;
+        margin-right: var(--spacing-xs);
         font-size: 1.2em;
         line-height: 1;
         display: inline-flex;
         align-items: center;
 
-        @media screen and (max-width: 768px) {
-            margin-right: 0.3rem;
+        @include media(sp) {
+            margin-right: calc(var(--spacing-xs) * 0.75);
         }
     }
 
@@ -135,4 +134,3 @@
         display: inline-block;
     }
 }
-

@@ -257,7 +257,9 @@
         &:hover {
             background: rgba(255, 255, 255, 0.25);
             transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.3);
+            box-shadow:
+                0 8px 24px rgba(0, 0, 0, 0.2),
+                0 0 0 1px rgba(255, 255, 255, 0.3);
             border-color: rgba(255, 255, 255, 0.4);
 
             &::before {

@@ -17,7 +17,9 @@
     padding: 2rem;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition:
+        opacity var(--transition-base),
+        visibility var(--transition-base);
 
     &.isActive {
         opacity: 1;
@@ -40,11 +42,15 @@
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
         opacity: 0;
-        transition: opacity 0.3s ease;
+        transition: opacity var(--transition-base);
         cursor: pointer;
+
+        // backdrop-filterの条件付き適用（パフォーマンス最適化）
+        @supports (backdrop-filter: blur(8px)) {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
     }
 
     &__dialog {
@@ -57,7 +63,9 @@
         max-height: 90vh;
         overflow: hidden;
         transform: translateY(20px) scale(0.95);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+        transition:
+            transform var(--transition-base),
+            opacity var(--transition-base);
         display: flex;
         flex-direction: column;
 
@@ -107,6 +115,27 @@
         }
     }
 
+    // サイズModifier
+    &_size_small {
+        .uiModal__dialog {
+            max-width: 400px;
+        }
+    }
+
+    &_size_large {
+        .uiModal__dialog {
+            max-width: 900px;
+        }
+    }
+
+    &_size_fullscreen {
+        .uiModal__dialog {
+            max-width: 95vw;
+            max-height: 95vh;
+            border-radius: var(--border-radius-lg);
+        }
+    }
+
     &__header {
         padding: 2.4rem 2.4rem 1.6rem;
         border-bottom: 1px solid var(--color-border-light);
@@ -148,15 +177,32 @@
         cursor: pointer;
         border-radius: var(--border-radius-md);
         transition: all var(--transition-base);
-        font-size: 2rem;
-        line-height: 1;
         padding: 0;
         flex-shrink: 0;
+        position: relative;
 
-        @media screen and (max-width: 768px) {
+        @include media(sp) {
             width: 2.8rem;
             height: 2.8rem;
-            font-size: 1.8rem;
+        }
+
+        // ×アイコン（SVG風のCSS実装）
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            width: 1.6rem;
+            height: 2px;
+            background-color: currentColor;
+            border-radius: 1px;
+        }
+
+        &::before {
+            transform: rotate(45deg);
+        }
+
+        &::after {
+            transform: rotate(-45deg);
         }
 
         &:hover {
@@ -166,6 +212,11 @@
 
         &:active {
             transform: rotate(90deg) scale(0.95);
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
         }
     }
 
@@ -204,4 +255,3 @@
         margin: 0 auto;
     }
 }
-

@@ -12,9 +12,12 @@
         <meta property="og:title" content="<%= meta.title %><%= typeof siteName !== 'undefined' ? siteName : '' %>" />
         <meta property="og:description" content="<%= meta.description %>" />
         <meta property="og:url" content="/salon/<%= meta.url || '' %>" />
-        <meta property="og:image" content="/images/ogp.png" />
-        <meta property="og:site_name" content="" />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="og:image" content="<%= typeof meta.ogImage !== 'undefined' && meta.ogImage ? meta.ogImage : (typeof config !== 'undefined' && config.ogp && config.ogp.defaultImage ? config.ogp.defaultImage : '/images/ogp.png') %>" />
+        <meta property="og:site_name" content="<%= typeof config !== 'undefined' && config.ogp && config.ogp.siteName ? config.ogp.siteName : '' %>" />
+        <meta name="twitter:card" content="<%= typeof config !== 'undefined' && config.ogp && config.ogp.twitterCard ? config.ogp.twitterCard : 'summary_large_image' %>" />
+        <% if (typeof config !== 'undefined' && config.ogp && config.ogp.twitterSite) { %>
+        <meta name="twitter:site" content="<%= config.ogp.twitterSite %>" />
+        <% } %>
         <meta name="twitter:title" content="<%= meta.title %><%= typeof siteName !== 'undefined' ? siteName : '' %>" />
         <meta name="description" content="<%= meta.description %>" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,7 +34,7 @@
             <div class="header__inner">
                 <h1 class="header__logo">
                     <a class="header__logoLink" href="/salon/">
-                        <span class="header__logoText">サロン名</span>
+                        <span class="header__logoText"><%= typeof config !== 'undefined' && config.salon && config.salon.name ? config.salon.name : 'サロン名' %></span>
                     </a>
                 </h1>
                 <nav class="header__nav gNav">
