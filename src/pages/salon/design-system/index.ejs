@@ -392,6 +392,249 @@
             </div>
         </section>
 
+        <!-- Header Patterns -->
+        <section class="uiSection">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle">Header Patterns</h2>
+                <div class="designSystem__componentGroup">
+                    <h3 class="uiHeading uiHeading_level_h3">パターン1: 標準ヘッダー（グラスモーフィズム）</h3>
+                    <div style="position: relative; width: 100vw; margin-left: calc((100vw - 100%) / -2); margin-right: calc((100vw - 100%) / -2); overflow: visible;">
+                        <header class="uiHeader">
+                            <div class="uiHeader__inner">
+                                <h1 class="uiHeader__logo">
+                                    <a class="uiHeader__logoLink" href="#">
+                                        <span class="uiHeader__logoText">サロン名</span>
+                                    </a>
+                                </h1>
+                                <nav class="uiHeader__nav">
+                                    <ul class="uiHeader__navList">
+                                        <li class="uiHeader__navItem">
+                                            <a class="uiHeader__navLink" href="#">TOP</a>
+                                        </li>
+                                        <li class="uiHeader__navItem">
+                                            <a class="uiHeader__navLink" href="#">メニュー</a>
+                                        </li>
+                                        <li class="uiHeader__navItem">
+                                            <a class="uiHeader__navLink" href="#">店舗情報</a>
+                                        </li>
+                                        <li class="uiHeader__navItem">
+                                            <a class="uiHeader__navLink" href="#">ギャラリー</a>
+                                        </li>
+                                        <li class="uiHeader__navItem">
+                                            <a class="uiHeader__navLink" href="#">予約</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <button class="uiHeader__menuToggle" type="button" aria-label="メニューを開く">
+                                    <span class="uiHeader__menuToggleBar"></span>
+                                    <span class="uiHeader__menuToggleBar"></span>
+                                </button>
+                            </div>
+                        </header>
+                    </div>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン2: 透明ヘッダー</h3>
+                    <div style="position: relative; width: 100vw; margin-left: calc((100vw - 100%) / -2); margin-right: calc((100vw - 100%) / -2); background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 4rem 2rem; overflow: visible;">
+                        <header class="uiHeader uiHeader_type_transparent">
+                            <div class="uiHeader__inner">
+                                <h1 class="uiHeader__logo">
+                                    <a class="uiHeader__logoLink" href="#">
+                                        <span class="uiHeader__logoText">サロン名</span>
+                                    </a>
+                                </h1>
+                                <nav class="uiHeader__nav">
+                                    <ul class="uiHeader__navList">
+                                        <li class="uiHeader__navItem">
+                                            <a class="uiHeader__navLink" href="#">TOP</a>
+                                        </li>
+                                        <li class="uiHeader__navItem">
+                                            <a class="uiHeader__navLink" href="#">メニュー</a>
+                                        </li>
+                                        <li class="uiHeader__navItem">
+                                            <a class="uiHeader__navLink" href="#">店舗情報</a>
+                                        </li>
+                                        <li class="uiHeader__navItem">
+                                            <a class="uiHeader__navLink" href="#">ギャラリー</a>
+                                        </li>
+                                        <li class="uiHeader__navItem">
+                                            <a class="uiHeader__navLink" href="#">予約</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <button class="uiHeader__menuToggle" type="button" aria-label="メニューを開く">
+                                    <span class="uiHeader__menuToggleBar"></span>
+                                    <span class="uiHeader__menuToggleBar"></span>
+                                </button>
+                            </div>
+                        </header>
+                        <div style="margin-top: 4rem; text-align: center; color: rgba(255, 255, 255, 0.9);">
+                            <p style="font-size: 1.4rem; margin-bottom: 1rem;">スクロールすると背景が表示されます</p>
+                            <p style="font-size: 1.2rem;">（実際のページではスクロール時に背景が表示されます）</p>
+                        </div>
+                    </div>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン3: CTA付きヘッダー</h3>
+                    <div style="position: relative; width: 100vw; margin-left: calc((100vw - 100%) / -2); margin-right: calc((100vw - 100%) / -2); overflow: visible;">
+                        <header class="uiHeader uiHeader_type_cta">
+                            <div class="uiHeader__inner">
+                                <h1 class="uiHeader__logo">
+                                    <a class="uiHeader__logoLink" href="#">
+                                        <span class="uiHeader__logoText">サロン名</span>
+                                    </a>
+                                </h1>
+                                <nav class="uiHeader__nav">
+                                    <ul class="uiHeader__navList">
+                                        <li class="uiHeader__navItem">
+                                            <a class="uiHeader__navLink" href="#">TOP</a>
+                                        </li>
+                                        <li class="uiHeader__navItem">
+                                            <a class="uiHeader__navLink" href="#">メニュー</a>
+                                        </li>
+                                        <li class="uiHeader__navItem">
+                                            <a class="uiHeader__navLink" href="#">店舗情報</a>
+                                        </li>
+                                        <li class="uiHeader__navItem">
+                                            <a class="uiHeader__navLink" href="#">ギャラリー</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="uiHeader__cta">
+                                    <a class="uiHeader__ctaButton" href="#">予約する</a>
+                                    <a class="uiHeader__ctaButtonSecondary" href="#">お問い合わせ</a>
+                                </div>
+                                <button class="uiHeader__menuToggle" type="button" aria-label="メニューを開く">
+                                    <span class="uiHeader__menuToggleBar"></span>
+                                    <span class="uiHeader__menuToggleBar"></span>
+                                </button>
+                            </div>
+                        </header>
+                    </div>
+
+                    <!-- 既存のclass="header"パターン -->
+                    <h3 class="uiHeading uiHeading_level_h3">パターン4: 標準ヘッダー（class="header"）</h3>
+                    <div style="position: relative; width: 100vw; margin-left: calc((100vw - 100%) / -2); margin-right: calc((100vw - 100%) / -2); overflow: visible; background: #fff;">
+                        <header class="header header_type_designSystem">
+                            <div class="header__inner">
+                                <h1 class="header__logo">
+                                    <a class="header__logoLink" href="#">
+                                        <span class="header__logoText">サロン名</span>
+                                    </a>
+                                </h1>
+                                <nav class="header__nav gNav">
+                                    <ul class="gNav__list">
+                                        <li class="gNav__item">
+                                            <a class="gNav__link" href="#">TOP</a>
+                                        </li>
+                                        <li class="gNav__item">
+                                            <a class="gNav__link" href="#">メニュー</a>
+                                        </li>
+                                        <li class="gNav__item">
+                                            <a class="gNav__link" href="#">店舗情報</a>
+                                        </li>
+                                        <li class="gNav__item">
+                                            <a class="gNav__link" href="#">ギャラリー</a>
+                                        </li>
+                                        <li class="gNav__item">
+                                            <a class="gNav__link" href="#">予約</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="ham js-toggle-menu">
+                                    <div class="ham__inner">
+                                        <span class="ham__bar"></span>
+                                        <span class="ham__bar"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="header__bg"></div>
+                        </header>
+                    </div>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン5: 透明ヘッダー（class="header"）</h3>
+                    <div style="position: relative; width: 100vw; margin-left: calc((100vw - 100%) / -2); margin-right: calc((100vw - 100%) / -2); background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 4rem 2rem; overflow: visible;">
+                        <header class="header header_type_transparent header_type_designSystem">
+                            <div class="header__inner">
+                                <h1 class="header__logo">
+                                    <a class="header__logoLink" href="#" style="color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.3); background: none; -webkit-text-fill-color: #fff;">
+                                        <span class="header__logoText">サロン名</span>
+                                    </a>
+                                </h1>
+                                <nav class="header__nav gNav">
+                                    <ul class="gNav__list">
+                                        <li class="gNav__item">
+                                            <a class="gNav__link" href="#" style="color: rgba(255,255,255,0.9); text-shadow: 0 1px 3px rgba(0,0,0,0.3);">TOP</a>
+                                        </li>
+                                        <li class="gNav__item">
+                                            <a class="gNav__link" href="#" style="color: rgba(255,255,255,0.9); text-shadow: 0 1px 3px rgba(0,0,0,0.3);">メニュー</a>
+                                        </li>
+                                        <li class="gNav__item">
+                                            <a class="gNav__link" href="#" style="color: rgba(255,255,255,0.9); text-shadow: 0 1px 3px rgba(0,0,0,0.3);">店舗情報</a>
+                                        </li>
+                                        <li class="gNav__item">
+                                            <a class="gNav__link" href="#" style="color: rgba(255,255,255,0.9); text-shadow: 0 1px 3px rgba(0,0,0,0.3);">ギャラリー</a>
+                                        </li>
+                                        <li class="gNav__item">
+                                            <a class="gNav__link" href="#" style="color: rgba(255,255,255,0.9); text-shadow: 0 1px 3px rgba(0,0,0,0.3);">予約</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="ham js-toggle-menu">
+                                    <div class="ham__inner">
+                                        <span class="ham__bar" style="background-color: #fff;"></span>
+                                        <span class="ham__bar" style="background-color: #fff;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="header__bg"></div>
+                        </header>
+                        <div style="margin-top: 4rem; text-align: center; color: rgba(255, 255, 255, 0.9);">
+                            <p style="font-size: 1.4rem; margin-bottom: 1rem;">スクロールすると背景が表示されます</p>
+                        </div>
+                    </div>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン6: CTA付きヘッダー（class="header"）</h3>
+                    <div style="position: relative; width: 100vw; margin-left: calc((100vw - 100%) / -2); margin-right: calc((100vw - 100%) / -2); overflow: visible; background: #fff;">
+                        <header class="header header_type_cta header_type_designSystem">
+                            <div class="header__inner" style="gap: 2rem;">
+                                <h1 class="header__logo">
+                                    <a class="header__logoLink" href="#">
+                                        <span class="header__logoText">サロン名</span>
+                                    </a>
+                                </h1>
+                                <nav class="header__nav gNav" style="flex: 1; justify-content: center;">
+                                    <ul class="gNav__list">
+                                        <li class="gNav__item">
+                                            <a class="gNav__link" href="#">TOP</a>
+                                        </li>
+                                        <li class="gNav__item">
+                                            <a class="gNav__link" href="#">メニュー</a>
+                                        </li>
+                                        <li class="gNav__item">
+                                            <a class="gNav__link" href="#">店舗情報</a>
+                                        </li>
+                                        <li class="gNav__item">
+                                            <a class="gNav__link" href="#">ギャラリー</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div style="display: flex; align-items: center; gap: 1.2rem;">
+                                    <a class="uiButton uiButton_type_primary" href="#" style="padding: 1rem 2.4rem; font-size: var(--font-size-sm); white-space: nowrap;">予約する</a>
+                                    <a class="uiButton uiButton_type_outline" href="#" style="padding: 1rem 2.4rem; font-size: var(--font-size-sm); white-space: nowrap;">お問い合わせ</a>
+                                </div>
+                                <div class="ham js-toggle-menu">
+                                    <div class="ham__inner">
+                                        <span class="ham__bar"></span>
+                                        <span class="ham__bar"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="header__bg"></div>
+                        </header>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Hero Patterns -->
         <section class="uiSection">
             <div class="uiSection__inner uiContainer">
@@ -531,6 +774,747 @@
                             <button class="uiButton uiButton_type_primary uiButton_size_lg" type="submit">送信する</button>
                         </div>
                     </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Table Patterns -->
+        <section class="uiSection">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle">Table Patterns</h2>
+                <div class="designSystem__componentGroup">
+                    <h3 class="uiHeading uiHeading_level_h3">パターン1: 標準テーブル</h3>
+                    <div style="overflow-x: auto;">
+                        <table class="uiTable uiTable_type_standard">
+                            <thead class="uiTable__header">
+                                <tr class="uiTable__row">
+                                    <th class="uiTable__headerCell">メニュー名</th>
+                                    <th class="uiTable__headerCell">時間</th>
+                                    <th class="uiTable__headerCell">料金</th>
+                                    <th class="uiTable__headerCell">カテゴリ</th>
+                                </tr>
+                            </thead>
+                            <tbody class="uiTable__body">
+                                <tr class="uiTable__row">
+                                    <td class="uiTable__cell" data-label="メニュー名">カット</td>
+                                    <td class="uiTable__cell" data-label="時間">60分</td>
+                                    <td class="uiTable__cell" data-label="料金">¥5,000</td>
+                                    <td class="uiTable__cell" data-label="カテゴリ">カット</td>
+                                </tr>
+                                <tr class="uiTable__row">
+                                    <td class="uiTable__cell" data-label="メニュー名">カラー</td>
+                                    <td class="uiTable__cell" data-label="時間">90分</td>
+                                    <td class="uiTable__cell" data-label="料金">¥8,000</td>
+                                    <td class="uiTable__cell" data-label="カテゴリ">カラー</td>
+                                </tr>
+                                <tr class="uiTable__row">
+                                    <td class="uiTable__cell" data-label="メニュー名">パーマ</td>
+                                    <td class="uiTable__cell" data-label="時間">120分</td>
+                                    <td class="uiTable__cell" data-label="料金">¥12,000</td>
+                                    <td class="uiTable__cell" data-label="カテゴリ">パーマ</td>
+                                </tr>
+                                <tr class="uiTable__row">
+                                    <td class="uiTable__cell" data-label="メニュー名">トリートメント</td>
+                                    <td class="uiTable__cell" data-label="時間">30分</td>
+                                    <td class="uiTable__cell" data-label="料金">¥3,000</td>
+                                    <td class="uiTable__cell" data-label="カテゴリ">トリートメント</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン2: ストライプテーブル</h3>
+                    <div style="overflow-x: auto;">
+                        <table class="uiTable uiTable_type_stripe">
+                            <thead class="uiTable__header">
+                                <tr class="uiTable__row">
+                                    <th class="uiTable__headerCell">スタッフ名</th>
+                                    <th class="uiTable__headerCell">担当メニュー</th>
+                                    <th class="uiTable__headerCell">経験年数</th>
+                                    <th class="uiTable__headerCell">特技</th>
+                                </tr>
+                            </thead>
+                            <tbody class="uiTable__body">
+                                <tr class="uiTable__row">
+                                    <td class="uiTable__cell" data-label="スタッフ名">田中 美咲</td>
+                                    <td class="uiTable__cell" data-label="担当メニュー">カット・カラー</td>
+                                    <td class="uiTable__cell" data-label="経験年数">8年</td>
+                                    <td class="uiTable__cell" data-label="特技">ショートカット</td>
+                                </tr>
+                                <tr class="uiTable__row">
+                                    <td class="uiTable__cell" data-label="スタッフ名">佐藤 花子</td>
+                                    <td class="uiTable__cell" data-label="担当メニュー">パーマ・トリートメント</td>
+                                    <td class="uiTable__cell" data-label="経験年数">5年</td>
+                                    <td class="uiTable__cell" data-label="特技">ロングヘア</td>
+                                </tr>
+                                <tr class="uiTable__row">
+                                    <td class="uiTable__cell" data-label="スタッフ名">鈴木 さくら</td>
+                                    <td class="uiTable__cell" data-label="担当メニュー">カット・パーマ</td>
+                                    <td class="uiTable__cell" data-label="経験年数">3年</td>
+                                    <td class="uiTable__cell" data-label="特技">ボブスタイル</td>
+                                </tr>
+                                <tr class="uiTable__row">
+                                    <td class="uiTable__cell" data-label="スタッフ名">高橋 みゆき</td>
+                                    <td class="uiTable__cell" data-label="担当メニュー">カラー・トリートメント</td>
+                                    <td class="uiTable__cell" data-label="経験年数">10年</td>
+                                    <td class="uiTable__cell" data-label="特技">カラーリング</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン3: カード型テーブル</h3>
+                    <table class="uiTable uiTable_type_card">
+                        <thead class="uiTable__header">
+                            <tr class="uiTable__row">
+                                <th class="uiTable__headerCell">プラン名</th>
+                                <th class="uiTable__headerCell">内容</th>
+                                <th class="uiTable__headerCell">時間</th>
+                                <th class="uiTable__headerCell">料金</th>
+                            </tr>
+                        </thead>
+                        <tbody class="uiTable__body">
+                            <tr class="uiTable__row">
+                                <td class="uiTable__cell" data-label="プラン名">ベーシックプラン</td>
+                                <td class="uiTable__cell" data-label="内容">カット + シャンプー</td>
+                                <td class="uiTable__cell" data-label="時間">60分</td>
+                                <td class="uiTable__cell" data-label="料金">¥5,000</td>
+                            </tr>
+                            <tr class="uiTable__row">
+                                <td class="uiTable__cell" data-label="プラン名">スタンダードプラン</td>
+                                <td class="uiTable__cell" data-label="内容">カット + カラー + シャンプー</td>
+                                <td class="uiTable__cell" data-label="時間">120分</td>
+                                <td class="uiTable__cell" data-label="料金">¥12,000</td>
+                            </tr>
+                            <tr class="uiTable__row">
+                                <td class="uiTable__cell" data-label="プラン名">プレミアムプラン</td>
+                                <td class="uiTable__cell" data-label="内容">カット + カラー + パーマ + トリートメント</td>
+                                <td class="uiTable__cell" data-label="時間">180分</td>
+                                <td class="uiTable__cell" data-label="料金">¥20,000</td>
+                            </tr>
+                            <tr class="uiTable__row">
+                                <td class="uiTable__cell" data-label="プラン名">スペシャルプラン</td>
+                                <td class="uiTable__cell" data-label="内容">フルコース + ヘッドスパ</td>
+                                <td class="uiTable__cell" data-label="時間">240分</td>
+                                <td class="uiTable__cell" data-label="料金">¥30,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- List Patterns -->
+        <section class="uiSection">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle">List Patterns</h2>
+                <div class="designSystem__componentGroup">
+                    <h3 class="uiHeading uiHeading_level_h3">パターン1: 標準リスト</h3>
+                    <ul class="uiList uiList_type_standard">
+                        <li class="uiList__item">カット + シャンプー + ブロー</li>
+                        <li class="uiList__item">カラー + トリートメント</li>
+                        <li class="uiList__item">パーマ + カット</li>
+                        <li class="uiList__item">ヘッドスパ + トリートメント</li>
+                    </ul>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン2: アイコン付きリスト</h3>
+                    <ul class="uiList uiList_type_icon">
+                        <li class="uiList__item">
+                            <span class="uiList__itemTitle">プロフェッショナルな技術</span>
+                            <p class="uiList__itemText">経験豊富なスタイリストが丁寧にカウンセリング</p>
+                        </li>
+                        <li class="uiList__item">
+                            <span class="uiList__itemTitle">高品質なヘアケア</span>
+                            <p class="uiList__itemText">厳選されたヘアケア商品を使用</p>
+                        </li>
+                        <li class="uiList__item">
+                            <span class="uiList__itemTitle">リラックスできる空間</span>
+                            <p class="uiList__itemText">落ち着いた雰囲気でゆったりとお過ごしいただけます</p>
+                        </li>
+                        <li class="uiList__item">
+                            <span class="uiList__itemTitle">アフターケアサポート</span>
+                            <p class="uiList__itemText">スタイリングのアドバイスも承ります</p>
+                        </li>
+                    </ul>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン3: 番号付きリスト</h3>
+                    <ol class="uiList uiList_type_numbered">
+                        <li class="uiList__item">
+                            <span class="uiList__itemTitle">ご予約</span>
+                            <p class="uiList__itemText">お電話またはWebフォームからご予約ください</p>
+                        </li>
+                        <li class="uiList__item">
+                            <span class="uiList__itemTitle">カウンセリング</span>
+                            <p class="uiList__itemText">ご希望のスタイルを詳しくお聞きします</p>
+                        </li>
+                        <li class="uiList__item">
+                            <span class="uiList__itemTitle">施術</span>
+                            <p class="uiList__itemText">丁寧に施術させていただきます</p>
+                        </li>
+                        <li class="uiList__item">
+                            <span class="uiList__itemTitle">スタイリング</span>
+                            <p class="uiList__itemText">仕上がりを確認してスタイリング完了</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Patterns -->
+        <section class="uiSection">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle">Footer Patterns</h2>
+                <div class="designSystem__componentGroup">
+                    <h3 class="uiHeading uiHeading_level_h3">パターン1: 標準フッター（グラデーション背景）</h3>
+                    <div style="position: relative; width: 100vw; margin-left: calc((100vw - 100%) / -2); margin-right: calc((100vw - 100%) / -2); overflow: visible;">
+                        <footer class="uiFooter uiFooter_type_standard">
+                            <div class="uiFooter__container">
+                                <div class="uiFooter__info">
+                                    <p class="uiFooter__logo">
+                                        <a class="uiFooter__logoLink" href="#">
+                                            <span class="uiFooter__logoText">サロン名</span>
+                                        </a>
+                                    </p>
+                                    <dl class="uiFooter__address">
+                                        <dt class="uiFooter__addressDt">サロン名</dt>
+                                        <dd class="uiFooter__addressDd">〒000-0000<br>都道府県 市区町村 番地</dd>
+                                    </dl>
+                                    <dl class="uiFooter__contact">
+                                        <dt class="uiFooter__contactDt">TEL</dt>
+                                        <dd class="uiFooter__contactDd">
+                                            <a class="uiFooter__contactLink" href="tel:00-0000-0000">00-0000-0000</a>
+                                        </dd>
+                                    </dl>
+                                    <dl class="uiFooter__hours">
+                                        <dt class="uiFooter__hoursDt">営業時間</dt>
+                                        <dd class="uiFooter__hoursDd">平日 10:00-19:00<br>土日祝 9:00-18:00</dd>
+                                    </dl>
+                                    <div class="uiFooter__sns">
+                                        <ul class="uiFooter__snsList">
+                                            <li class="uiFooter__snsItem">
+                                                <a class="uiFooter__snsLink" href="#" target="_blank" rel="noopener noreferrer">
+                                                    <span>Instagram</span>
+                                                </a>
+                                            </li>
+                                            <li class="uiFooter__snsItem">
+                                                <a class="uiFooter__snsLink" href="#" target="_blank" rel="noopener noreferrer">
+                                                    <span>Facebook</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <nav class="uiFooter__nav">
+                                    <ul class="uiFooter__navList">
+                                        <li class="uiFooter__navItem">
+                                            <h4 class="uiFooter__navTitle">メニュー</h4>
+                                            <ul class="uiFooter__navLinks">
+                                                <li class="uiFooter__navLinksItem">
+                                                    <a class="uiFooter__navLink" href="#">TOP</a>
+                                                </li>
+                                                <li class="uiFooter__navLinksItem">
+                                                    <a class="uiFooter__navLink" href="#">メニュー</a>
+                                                </li>
+                                                <li class="uiFooter__navLinksItem">
+                                                    <a class="uiFooter__navLink" href="#">店舗情報</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="uiFooter__navItem">
+                                            <h4 class="uiFooter__navTitle">情報</h4>
+                                            <ul class="uiFooter__navLinks">
+                                                <li class="uiFooter__navLinksItem">
+                                                    <a class="uiFooter__navLink" href="#">ギャラリー</a>
+                                                </li>
+                                                <li class="uiFooter__navLinksItem">
+                                                    <a class="uiFooter__navLink" href="#">予約</a>
+                                                </li>
+                                                <li class="uiFooter__navLinksItem">
+                                                    <a class="uiFooter__navLink" href="#">お問い合わせ</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="uiFooter__navItem">
+                                            <h4 class="uiFooter__navTitle">その他</h4>
+                                            <ul class="uiFooter__navLinks">
+                                                <li class="uiFooter__navLinksItem">
+                                                    <a class="uiFooter__navLink" href="#">プライバシーポリシー</a>
+                                                </li>
+                                                <li class="uiFooter__navLinksItem">
+                                                    <a class="uiFooter__navLink" href="#">利用規約</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="uiFooter__bottom">
+                                <div class="uiFooter__bottomContainer">
+                                    <p class="uiFooter__bottomPrivacy">
+                                        <a class="uiFooter__bottomPrivacyLink" href="#">プライバシーポリシー</a>
+                                    </p>
+                                    <p class="uiFooter__bottomCopyright">
+                                        <small class="uiFooter__bottomCopyrightText">© 2024 サロン名. All Rights Reserved.</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </footer>
+                    </div>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン2: ミニマルフッター（シンプル、白背景）</h3>
+                    <div style="position: relative; width: 100vw; margin-left: calc((100vw - 100%) / -2); margin-right: calc((100vw - 100%) / -2); overflow: visible; background: #fff;">
+                        <footer class="uiFooter uiFooter_type_minimal">
+                            <div class="uiFooter__container">
+                                <div class="uiFooter__info">
+                                    <p class="uiFooter__logo">
+                                        <a class="uiFooter__logoLink" href="#">
+                                            <span class="uiFooter__logoText">サロン名</span>
+                                        </a>
+                                    </p>
+                                    <dl class="uiFooter__address">
+                                        <dt class="uiFooter__addressDt">サロン名</dt>
+                                        <dd class="uiFooter__addressDd">〒000-0000<br>都道府県 市区町村 番地</dd>
+                                    </dl>
+                                    <dl class="uiFooter__contact">
+                                        <dt class="uiFooter__contactDt">TEL</dt>
+                                        <dd class="uiFooter__contactDd">
+                                            <a class="uiFooter__contactLink" href="tel:00-0000-0000">00-0000-0000</a>
+                                        </dd>
+                                    </dl>
+                                    <div class="uiFooter__sns">
+                                        <ul class="uiFooter__snsList">
+                                            <li class="uiFooter__snsItem">
+                                                <a class="uiFooter__snsLink" href="#" target="_blank" rel="noopener noreferrer">
+                                                    <span>Instagram</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <nav class="uiFooter__nav">
+                                    <ul class="uiFooter__navList">
+                                        <li class="uiFooter__navItem">
+                                            <h4 class="uiFooter__navTitle">メニュー</h4>
+                                            <ul class="uiFooter__navLinks">
+                                                <li class="uiFooter__navLinksItem">
+                                                    <a class="uiFooter__navLink" href="#">TOP</a>
+                                                </li>
+                                                <li class="uiFooter__navLinksItem">
+                                                    <a class="uiFooter__navLink" href="#">メニュー</a>
+                                                </li>
+                                                <li class="uiFooter__navLinksItem">
+                                                    <a class="uiFooter__navLink" href="#">店舗情報</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="uiFooter__navItem">
+                                            <h4 class="uiFooter__navTitle">情報</h4>
+                                            <ul class="uiFooter__navLinks">
+                                                <li class="uiFooter__navLinksItem">
+                                                    <a class="uiFooter__navLink" href="#">ギャラリー</a>
+                                                </li>
+                                                <li class="uiFooter__navLinksItem">
+                                                    <a class="uiFooter__navLink" href="#">予約</a>
+                                                </li>
+                                                <li class="uiFooter__navLinksItem">
+                                                    <a class="uiFooter__navLink" href="#">お問い合わせ</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="uiFooter__bottom">
+                                <div class="uiFooter__bottomContainer">
+                                    <p class="uiFooter__bottomPrivacy">
+                                        <a class="uiFooter__bottomPrivacyLink" href="#">プライバシーポリシー</a>
+                                    </p>
+                                    <p class="uiFooter__bottomCopyright">
+                                        <small class="uiFooter__bottomCopyrightText">© 2024 サロン名. All Rights Reserved.</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </footer>
+                    </div>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン3: CTA付きフッター</h3>
+                    <div style="position: relative; width: 100vw; margin-left: calc((100vw - 100%) / -2); margin-right: calc((100vw - 100%) / -2); overflow: visible;">
+                        <footer class="uiFooter uiFooter_type_cta">
+                            <div class="uiFooter__cta">
+                                <div class="uiFooter__ctaInner">
+                                    <h2 class="uiFooter__ctaTitle">ご予約・お問い合わせ</h2>
+                                    <p class="uiFooter__ctaText">お気軽にお問い合わせください</p>
+                                    <div class="uiFooter__ctaButtons">
+                                        <a class="uiButton uiButton_type_primary uiButton_size_lg" href="#">LINE予約</a>
+                                        <a class="uiButton uiButton_type_outline uiButton_size_lg" href="#" style="background: rgba(255,255,255,0.2); border-color: #fff; color: #fff;">Web予約</a>
+                                        <a class="uiButton uiButton_type_outline uiButton_size_lg" href="#" style="background: rgba(255,255,255,0.2); border-color: #fff; color: #fff;">電話予約</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="uiFooter__container">
+                                <div class="uiFooter__info">
+                                    <p class="uiFooter__logo">
+                                        <a class="uiFooter__logoLink" href="#">
+                                            <span class="uiFooter__logoText">サロン名</span>
+                                        </a>
+                                    </p>
+                                    <dl class="uiFooter__address">
+                                        <dt class="uiFooter__addressDt">サロン名</dt>
+                                        <dd class="uiFooter__addressDd">〒000-0000<br>都道府県 市区町村 番地</dd>
+                                    </dl>
+                                    <dl class="uiFooter__contact">
+                                        <dt class="uiFooter__contactDt">TEL</dt>
+                                        <dd class="uiFooter__contactDd">
+                                            <a class="uiFooter__contactLink" href="tel:00-0000-0000">00-0000-0000</a>
+                                        </dd>
+                                    </dl>
+                                    <div class="uiFooter__sns">
+                                        <ul class="uiFooter__snsList">
+                                            <li class="uiFooter__snsItem">
+                                                <a class="uiFooter__snsLink" href="#" target="_blank" rel="noopener noreferrer">
+                                                    <span>Instagram</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <nav class="uiFooter__nav">
+                                    <ul class="uiFooter__navList">
+                                        <li class="uiFooter__navItem">
+                                            <h4 class="uiFooter__navTitle">メニュー</h4>
+                                            <ul class="uiFooter__navLinks">
+                                                <li class="uiFooter__navLinksItem">
+                                                    <a class="uiFooter__navLink" href="#">TOP</a>
+                                                </li>
+                                                <li class="uiFooter__navLinksItem">
+                                                    <a class="uiFooter__navLink" href="#">メニュー</a>
+                                                </li>
+                                                <li class="uiFooter__navLinksItem">
+                                                    <a class="uiFooter__navLink" href="#">店舗情報</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="uiFooter__navItem">
+                                            <h4 class="uiFooter__navTitle">情報</h4>
+                                            <ul class="uiFooter__navLinks">
+                                                <li class="uiFooter__navLinksItem">
+                                                    <a class="uiFooter__navLink" href="#">ギャラリー</a>
+                                                </li>
+                                                <li class="uiFooter__navLinksItem">
+                                                    <a class="uiFooter__navLink" href="#">予約</a>
+                                                </li>
+                                                <li class="uiFooter__navLinksItem">
+                                                    <a class="uiFooter__navLink" href="#">お問い合わせ</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="uiFooter__bottom">
+                                <div class="uiFooter__bottomContainer">
+                                    <p class="uiFooter__bottomPrivacy">
+                                        <a class="uiFooter__bottomPrivacyLink" href="#">プライバシーポリシー</a>
+                                    </p>
+                                    <p class="uiFooter__bottomCopyright">
+                                        <small class="uiFooter__bottomCopyrightText">© 2024 サロン名. All Rights Reserved.</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Badge Patterns -->
+        <section class="uiSection">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle">Badge Patterns</h2>
+                <div class="designSystem__componentGroup">
+                    <h3 class="uiHeading uiHeading_level_h3">パターン1: 基本バッジ</h3>
+                    <div class="designSystem__component">
+                        <span class="uiBadge uiBadge_type_basic">新着</span>
+                        <span class="uiBadge uiBadge_type_basic">人気</span>
+                        <span class="uiBadge uiBadge_type_basic">おすすめ</span>
+                        <span class="uiBadge uiBadge_type_basic uiBadge_size_small">小</span>
+                        <span class="uiBadge uiBadge_type_basic">中</span>
+                        <span class="uiBadge uiBadge_type_basic uiBadge_size_large">大</span>
+                    </div>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン2: カテゴリバッジ（グラデーション背景）</h3>
+                    <div class="designSystem__component">
+                        <span class="uiBadge uiBadge_type_category">カット</span>
+                        <span class="uiBadge uiBadge_type_category">カラー</span>
+                        <span class="uiBadge uiBadge_type_category">パーマ</span>
+                        <span class="uiBadge uiBadge_type_category">トリートメント</span>
+                    </div>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン3: ステータスバッジ</h3>
+                    <div class="designSystem__component">
+                        <span class="uiBadge uiBadge_type_status uiBadge_type_status_success">成功</span>
+                        <span class="uiBadge uiBadge_type_status uiBadge_type_status_warning">警告</span>
+                        <span class="uiBadge uiBadge_type_status uiBadge_type_status_error">エラー</span>
+                        <span class="uiBadge uiBadge_type_status uiBadge_type_status_info">情報</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alert Patterns -->
+        <section class="uiSection">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle">Alert Patterns</h2>
+                <div class="designSystem__componentGroup">
+                    <h3 class="uiHeading uiHeading_level_h3">パターン1: 情報アラート（青）</h3>
+                    <div class="designSystem__component">
+                        <div class="uiAlert uiAlert_type_info">
+                            <span class="uiAlert__icon">ℹ️</span>
+                            <div class="uiAlert__content">
+                                <h4 class="uiAlert__title">お知らせ</h4>
+                                <p class="uiAlert__message">営業時間が変更になりました。ご確認ください。</p>
+                            </div>
+                            <button class="uiAlert__closeButton" type="button">×</button>
+                        </div>
+                    </div>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン2: 成功アラート（緑）</h3>
+                    <div class="designSystem__component">
+                        <div class="uiAlert uiAlert_type_success">
+                            <span class="uiAlert__icon">✓</span>
+                            <div class="uiAlert__content">
+                                <h4 class="uiAlert__title">予約完了</h4>
+                                <p class="uiAlert__message">ご予約が正常に完了しました。確認メールをお送りしました。</p>
+                            </div>
+                            <button class="uiAlert__closeButton" type="button">×</button>
+                        </div>
+                    </div>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン3: 警告アラート（オレンジ）</h3>
+                    <div class="designSystem__component">
+                        <div class="uiAlert uiAlert_type_warning">
+                            <span class="uiAlert__icon">⚠️</span>
+                            <div class="uiAlert__content">
+                                <h4 class="uiAlert__title">注意</h4>
+                                <p class="uiAlert__message">キャンセルポリシーをご確認ください。当日キャンセルは料金が発生します。</p>
+                            </div>
+                            <button class="uiAlert__closeButton" type="button">×</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal Patterns -->
+        <section class="uiSection">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle">Modal Patterns</h2>
+                <div class="designSystem__componentGroup">
+                    <h3 class="uiHeading uiHeading_level_h3">パターン1: 基本モーダル（予約確認など）</h3>
+                    <div class="designSystem__component">
+                        <div class="uiModal uiModal_type_basic isActive" style="position: relative; display: block; opacity: 1; visibility: visible;">
+                            <div class="uiModal__overlay" style="position: relative; opacity: 1;"></div>
+                            <div class="uiModal__dialog" style="position: relative; transform: none; opacity: 1;">
+                                <div class="uiModal__header">
+                                    <h3 class="uiModal__title">予約確認</h3>
+                                    <button class="uiModal__closeButton" type="button">×</button>
+                                </div>
+                                <div class="uiModal__content">
+                                    <p>ご予約内容をご確認ください。</p>
+                                    <p>日時: 2024年1月15日 14:00</p>
+                                    <p>メニュー: カット + カラー</p>
+                                </div>
+                                <div class="uiModal__footer">
+                                    <button class="uiButton uiButton_type_outline" type="button">キャンセル</button>
+                                    <button class="uiButton uiButton_type_primary" type="button">予約確定</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン2: 画像表示モーダル（ライトボックス）</h3>
+                    <div class="designSystem__component">
+                        <div class="uiModal uiModal_type_image isActive" style="position: relative; display: block; opacity: 1; visibility: visible;">
+                            <div class="uiModal__overlay" style="position: relative; opacity: 1;"></div>
+                            <div class="uiModal__dialog" style="position: relative; transform: none; opacity: 1;">
+                                <div class="uiModal__content">
+                                    <img class="uiModal__image" src="https://via.placeholder.com/800x600" alt="サンプル画像" style="max-width: 100%; height: auto;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン3: フォームモーダル（お問い合わせなど）</h3>
+                    <div class="designSystem__component">
+                        <div class="uiModal uiModal_type_form isActive" style="position: relative; display: block; opacity: 1; visibility: visible;">
+                            <div class="uiModal__overlay" style="position: relative; opacity: 1;"></div>
+                            <div class="uiModal__dialog" style="position: relative; transform: none; opacity: 1;">
+                                <div class="uiModal__header">
+                                    <h3 class="uiModal__title">お問い合わせ</h3>
+                                    <button class="uiModal__closeButton" type="button">×</button>
+                                </div>
+                                <div class="uiModal__content">
+                                    <form class="uiForm">
+                                        <div class="uiForm__item">
+                                            <label class="uiForm__label">お名前</label>
+                                            <input class="uiInput" type="text" placeholder="山田 太郎">
+                                        </div>
+                                        <div class="uiForm__item">
+                                            <label class="uiForm__label">メールアドレス</label>
+                                            <input class="uiInput" type="email" placeholder="example@email.com">
+                                        </div>
+                                        <div class="uiForm__item">
+                                            <label class="uiForm__label">お問い合わせ内容</label>
+                                            <textarea class="uiTextarea" rows="5" placeholder="お問い合わせ内容をご記入ください"></textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="uiModal__footer">
+                                    <button class="uiButton uiButton_type_outline" type="button">キャンセル</button>
+                                    <button class="uiButton uiButton_type_primary" type="button">送信</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabs Patterns -->
+        <section class="uiSection">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle">Tabs Patterns</h2>
+                <div class="designSystem__componentGroup">
+                    <h3 class="uiHeading uiHeading_level_h3">パターン1: 基本タブ（横並び）</h3>
+                    <div class="designSystem__component">
+                        <div class="uiTabs uiTabs_type_basic">
+                            <nav class="uiTabs__nav">
+                                <div class="uiTabs__navItem">
+                                    <button class="uiTabs__navButton isActive" type="button">カット</button>
+                                </div>
+                                <div class="uiTabs__navItem">
+                                    <button class="uiTabs__navButton" type="button">カラー</button>
+                                </div>
+                                <div class="uiTabs__navItem">
+                                    <button class="uiTabs__navButton" type="button">パーマ</button>
+                                </div>
+                                <div class="uiTabs__navItem">
+                                    <button class="uiTabs__navButton" type="button">トリートメント</button>
+                                </div>
+                            </nav>
+                            <div class="uiTabs__content">
+                                <div class="uiTabs__panel isActive">
+                                    <p>カットメニューの内容がここに表示されます。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン2: アンダーラインタブ（下線付き）</h3>
+                    <div class="designSystem__component">
+                        <div class="uiTabs uiTabs_type_underline">
+                            <nav class="uiTabs__nav">
+                                <div class="uiTabs__navItem">
+                                    <button class="uiTabs__navButton isActive" type="button">スタッフ</button>
+                                </div>
+                                <div class="uiTabs__navItem">
+                                    <button class="uiTabs__navButton" type="button">メニュー</button>
+                                </div>
+                                <div class="uiTabs__navItem">
+                                    <button class="uiTabs__navButton" type="button">料金</button>
+                                </div>
+                            </nav>
+                            <div class="uiTabs__content">
+                                <div class="uiTabs__panel isActive">
+                                    <p>スタッフ情報がここに表示されます。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン3: ピルタブ（丸みのあるタブ）</h3>
+                    <div class="designSystem__component">
+                        <div class="uiTabs uiTabs_type_pill">
+                            <nav class="uiTabs__nav">
+                                <div class="uiTabs__navItem">
+                                    <button class="uiTabs__navButton isActive" type="button">すべて</button>
+                                </div>
+                                <div class="uiTabs__navItem">
+                                    <button class="uiTabs__navButton" type="button">新着</button>
+                                </div>
+                                <div class="uiTabs__navItem">
+                                    <button class="uiTabs__navButton" type="button">人気</button>
+                                </div>
+                                <div class="uiTabs__navItem">
+                                    <button class="uiTabs__navButton" type="button">おすすめ</button>
+                                </div>
+                            </nav>
+                            <div class="uiTabs__content">
+                                <div class="uiTabs__panel isActive">
+                                    <p>すべてのコンテンツがここに表示されます。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Breadcrumb Patterns -->
+        <section class="uiSection">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle">Breadcrumb Patterns</h2>
+                <div class="designSystem__componentGroup">
+                    <h3 class="uiHeading uiHeading_level_h3">パターン1: 基本パンくず（区切り文字付き）</h3>
+                    <div class="designSystem__component">
+                        <nav class="uiBreadcrumb uiBreadcrumb_type_basic">
+                            <div class="uiBreadcrumb__item">
+                                <a class="uiBreadcrumb__link" href="#">ホーム</a>
+                                <span class="uiBreadcrumb__separator"></span>
+                            </div>
+                            <div class="uiBreadcrumb__item">
+                                <a class="uiBreadcrumb__link" href="#">メニュー</a>
+                                <span class="uiBreadcrumb__separator"></span>
+                            </div>
+                            <div class="uiBreadcrumb__item">
+                                <span class="uiBreadcrumb__text">カット</span>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン2: アイコン付きパンくず</h3>
+                    <div class="designSystem__component">
+                        <nav class="uiBreadcrumb uiBreadcrumb_type_icon">
+                            <div class="uiBreadcrumb__item">
+                                <a class="uiBreadcrumb__link" href="#">ホーム</a>
+                                <span class="uiBreadcrumb__separator"></span>
+                            </div>
+                            <div class="uiBreadcrumb__item">
+                                <a class="uiBreadcrumb__link" href="#">店舗情報</a>
+                                <span class="uiBreadcrumb__separator"></span>
+                            </div>
+                            <div class="uiBreadcrumb__item">
+                                <span class="uiBreadcrumb__text">アクセス</span>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <h3 class="uiHeading uiHeading_level_h3">パターン3: ミニマルパンくず（シンプル）</h3>
+                    <div class="designSystem__component">
+                        <nav class="uiBreadcrumb uiBreadcrumb_type_minimal">
+                            <div class="uiBreadcrumb__item">
+                                <a class="uiBreadcrumb__link" href="#">ホーム</a>
+                                <span class="uiBreadcrumb__separator"></span>
+                            </div>
+                            <div class="uiBreadcrumb__item">
+                                <a class="uiBreadcrumb__link" href="#">ギャラリー</a>
+                                <span class="uiBreadcrumb__separator"></span>
+                            </div>
+                            <div class="uiBreadcrumb__item">
+                                <span class="uiBreadcrumb__text">スタイル集</span>
+                            </div>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </section>

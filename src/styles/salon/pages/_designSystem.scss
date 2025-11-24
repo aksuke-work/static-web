@@ -29,30 +29,112 @@
         font-size: var(--font-size-xl);
         font-weight: 700;
         color: var(--color-text);
-        margin: 0 0 var(--spacing-lg) 0;
+        margin: 0 0 5rem 0;
         padding-bottom: var(--spacing-md);
-        border-bottom: 1px solid var(--color-border);
+        border-bottom: 2px solid var(--color-border);
+        position: relative;
 
         @include media(sp) {
             font-size: var(--font-size-lg);
-            margin-bottom: var(--spacing-md);
+            margin-bottom: 3.5rem;
             padding-bottom: var(--spacing-sm);
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 8rem;
+            height: 2px;
+            background: var(--gradient-primary);
+
+            @include media(sp) {
+                width: 6rem;
+            }
         }
     }
 
     &__componentGroup {
         display: flex;
         flex-direction: column;
-        gap: var(--spacing-md);
-        margin-bottom: var(--spacing-xl);
+        gap: 6rem;
+        margin-bottom: 8rem;
 
         @include media(sp) {
-            gap: var(--spacing-sm);
-            margin-bottom: var(--spacing-lg);
+            gap: 4rem;
+            margin-bottom: 6rem;
         }
 
         &:last-child {
             margin-bottom: 0;
+        }
+
+        // パターン見出し（h3）のスタイル
+        > h3 {
+            margin: 0 0 3rem 0;
+            padding-bottom: var(--spacing-md);
+            border-bottom: 2px solid var(--color-border-light);
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            color: var(--color-text);
+            position: relative;
+
+            @include media(sp) {
+                margin-bottom: 2rem;
+                padding-bottom: var(--spacing-sm);
+                font-size: var(--font-size-md);
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 6rem;
+                height: 2px;
+                background: var(--gradient-primary);
+
+                @include media(sp) {
+                    width: 4rem;
+                }
+            }
+        }
+
+        // コンポーネントのラッパーdiv
+        > div {
+            margin-top: 0;
+        }
+
+        // ネストされたcomponentGroup（ボタンセクションなど）
+        .designSystem__componentGroup {
+            gap: 4rem;
+            margin-bottom: 4rem;
+
+            @include media(sp) {
+                gap: 3rem;
+                margin-bottom: 3rem;
+            }
+        }
+
+        // 直接の子要素（見出し、テキストなど）のスペーシング
+        > h1,
+        > h2,
+        > h3,
+        > h4,
+        > p,
+        > ul,
+        > ol,
+        > table {
+            margin-bottom: 2.4rem;
+
+            @include media(sp) {
+                margin-bottom: 2rem;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
     }
 }
@@ -61,12 +143,13 @@
 .dsColorPalette {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 2.4rem;
-    margin-bottom: var(--spacing-xl);
+    gap: 3rem;
+    margin-bottom: 5rem;
 
     @include media(sp) {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 1.6rem;
+        gap: 2rem;
+        margin-bottom: 3.5rem;
     }
 
     &__item {
@@ -100,11 +183,12 @@
 .dsTypography {
     display: flex;
     flex-direction: column;
-    gap: 3.2rem;
-    margin-bottom: var(--spacing-xl);
+    gap: 4rem;
+    margin-bottom: 5rem;
 
     @include media(sp) {
-        gap: 2.4rem;
+        gap: 3rem;
+        margin-bottom: 3.5rem;
     }
 
     &__item {
@@ -135,6 +219,111 @@
 
     &__sample {
         margin: 0;
+    }
+}
+
+// デザインシステムページ内のヘッダー表示調整
+.designSystem {
+    // ヘッダーコンポーネントのラッパー調整
+    .designSystem__componentGroup {
+        // ヘッダーを含むラッパーdivのスタイル調整
+        > div[style*="position: relative"] {
+            position: relative !important;
+            width: 100vw !important;
+            margin-left: calc((100vw - 100%) / -2) !important;
+            margin-right: calc((100vw - 100%) / -2) !important;
+            overflow: visible !important;
+        }
+    }
+
+    // class="header"のデザインシステムページ用調整
+    .header {
+        &.header_type_designSystem {
+            position: relative !important;
+            top: auto !important;
+            left: auto !important;
+            width: 100vw !important;
+            margin-left: calc((100vw - 100%) / -2) !important;
+            margin-right: calc((100vw - 100%) / -2) !important;
+        }
+
+        &_type_transparent {
+            &.header_type_designSystem {
+                background: transparent !important;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                box-shadow: none !important;
+            }
+        }
+
+        &_type_cta {
+            &.header_type_designSystem {
+                .header__inner {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+            }
+        }
+    }
+
+    // class="uiHeader"のデザインシステムページ用調整
+    .uiHeader {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100vw !important;
+        margin-left: calc((100vw - 100%) / -2) !important;
+        margin-right: calc((100vw - 100%) / -2) !important;
+    }
+
+    // class="uiFooter"のデザインシステムページ用調整
+    .uiFooter {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+    }
+
+    // class="uiModal"のデザインシステムページ用調整
+    .uiModal {
+        position: relative !important;
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        padding: 2rem 0 !important;
+
+        .uiModal__overlay {
+            position: relative !important;
+            opacity: 1 !important;
+        }
+
+        .uiModal__dialog {
+            position: relative !important;
+            transform: none !important;
+            opacity: 1 !important;
+            max-width: 100% !important;
+            max-height: none !important;
+        }
+    }
+
+    // Badgeコンポーネントのスペーシング調整
+    .uiBadge {
+        margin-right: 0.8rem;
+        margin-bottom: 0.8rem;
+
+        @media screen and (max-width: 768px) {
+            margin-right: 0.6rem;
+            margin-bottom: 0.6rem;
+        }
+    }
+
+    // Alertコンポーネントのスペーシング調整
+    .uiAlert {
+        margin-bottom: 2rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 }
 

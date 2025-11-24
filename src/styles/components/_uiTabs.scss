@@ -1,0 +1,165 @@
+/**
+ * タブコンポーネント
+ * メニューカテゴリの切り替えなどに使用
+ * 2025年トレンド対応のモダンなデザイン
+ */
+
+.uiTabs {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @media screen and (max-width: 768px) {
+        gap: 1.6rem;
+    }
+
+    &__nav {
+        display: flex;
+        gap: 0.8rem;
+        border-bottom: 2px solid var(--color-border-light);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            gap: 0.6rem;
+        }
+    }
+
+    &__navItem {
+        flex-shrink: 0;
+    }
+
+    &__navButton {
+        padding: 1.2rem 2rem;
+        border: none;
+        background: transparent;
+        color: var(--color-text-light);
+        font-size: var(--font-size-base);
+        font-weight: 600;
+        cursor: pointer;
+        transition: all var(--transition-base);
+        position: relative;
+        white-space: nowrap;
+        border-bottom: 3px solid transparent;
+        margin-bottom: -2px;
+
+        @media screen and (max-width: 768px) {
+            padding: 1rem 1.6rem;
+            font-size: var(--font-size-sm);
+        }
+
+        &:hover {
+            color: var(--color-primary);
+        }
+
+        &.isActive {
+            color: var(--color-primary);
+            border-bottom-color: var(--color-primary);
+            font-weight: 700;
+        }
+    }
+
+    &__content {
+        position: relative;
+        min-height: 200px;
+    }
+
+    &__panel {
+        display: none;
+        animation: fadeIn 0.3s ease-out;
+
+        &.isActive {
+            display: block;
+        }
+    }
+
+    // パターン1: 基本タブ（横並び）
+    &_type_basic {
+        .uiTabs__navButton {
+            border-bottom: 3px solid transparent;
+
+            &.isActive {
+                border-bottom-color: var(--color-primary);
+            }
+        }
+    }
+
+    // パターン2: アンダーラインタブ（下線付き）
+    &_type_underline {
+        .uiTabs__nav {
+            border-bottom: 2px solid var(--color-border);
+        }
+
+        .uiTabs__navButton {
+            border-bottom: none;
+            padding-bottom: 1.2rem;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: var(--gradient-primary);
+                transition: width var(--transition-base);
+            }
+
+            &.isActive {
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    // パターン3: ピルタブ（丸みのあるタブ）
+    &_type_pill {
+        .uiTabs__nav {
+            border-bottom: none;
+            gap: 0.8rem;
+            background: var(--color-bg-gray);
+            padding: 0.4rem;
+            border-radius: var(--border-radius-full);
+        }
+
+        .uiTabs__navButton {
+            border-bottom: none;
+            border-radius: var(--border-radius-full);
+            padding: 0.8rem 1.6rem;
+            margin-bottom: 0;
+
+            @media screen and (max-width: 768px) {
+                padding: 0.6rem 1.2rem;
+            }
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.5);
+            }
+
+            &.isActive {
+                background: var(--gradient-primary);
+                color: #fff;
+                box-shadow: var(--shadow-md);
+                transform: translateY(-2px);
+            }
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

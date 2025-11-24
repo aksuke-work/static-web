@@ -1,0 +1,284 @@
+/**
+ * ヘッダーコンポーネント
+ * 複数のバリエーションを持つヘッダーコンポーネント
+ */
+
+// パターン1: 標準ヘッダー（グラスモーフィズム）
+.uiHeader {
+    position: relative;
+    width: 100vw;
+    margin-left: calc((100vw - 100%) / -2);
+    margin-right: calc((100vw - 100%) / -2);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-sm);
+
+    &__inner {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media screen and (max-width: 768px) {
+            padding: 1.6rem 2rem;
+        }
+    }
+
+    &__logo {
+        &Link {
+            text-decoration: none;
+            color: var(--color-primary);
+            font-size: var(--font-size-lg);
+            font-weight: 900;
+            display: block;
+            transition: all var(--transition-base);
+            background: var(--gradient-text-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: rgba(0, 0, 0, 0);
+            background-clip: text;
+
+            @media screen and (max-width: 768px) {
+                font-size: var(--font-size-md);
+            }
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+
+        &Text {
+            display: block;
+        }
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
+    }
+
+    &__navList {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__navItem {
+        margin-left: 2.4rem;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+    &__navLink {
+        text-decoration: none;
+        color: var(--color-text);
+        font-weight: 700;
+        font-size: var(--font-size-md);
+        padding: 0.8rem 1.6rem;
+        position: relative;
+        transition: all var(--transition-base);
+        display: block;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0.4rem;
+            left: 1.6rem;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        &:hover {
+            color: var(--color-primary);
+
+            &::after {
+                width: calc(100% - 3.2rem);
+            }
+        }
+    }
+
+    &__menuToggle {
+        display: none;
+        width: 50px;
+        height: 30px;
+        border-radius: 100px;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        cursor: pointer;
+        padding: 10px 15px;
+        border: none;
+
+        @media screen and (max-width: 768px) {
+            display: flex;
+        }
+
+        &Bar {
+            width: 100%;
+            height: 1.5px;
+            background-color: #292929;
+            position: absolute;
+            left: 0;
+            border-radius: 1px;
+            transition: all 0.3s;
+
+            &:nth-of-type(1) {
+                top: 0;
+            }
+
+            &:nth-of-type(2) {
+                top: 100%;
+            }
+        }
+
+        &.isActive {
+            .uiHeader__menuToggleBar {
+                &:nth-of-type(1) {
+                    top: 50%;
+                    transform: translateY(-50%) rotate(45deg);
+                }
+
+                &:nth-of-type(2) {
+                    top: 50%;
+                    transform: translateY(-50%) rotate(-45deg);
+                }
+            }
+        }
+    }
+
+    // パターン2: 透明ヘッダー
+    &_type_transparent {
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border-bottom: none;
+        box-shadow: none;
+
+        .uiHeader__navLink {
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+
+            &::after {
+                background: rgba(255, 255, 255, 0.9);
+            }
+
+            &:hover {
+                color: #fff;
+            }
+        }
+
+        .uiHeader__logoLink {
+            color: #fff;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            background: none;
+            -webkit-text-fill-color: #fff;
+        }
+
+        &.isScrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-sm);
+
+            .uiHeader__navLink {
+                color: var(--color-text);
+                text-shadow: none;
+
+                &::after {
+                    background: var(--gradient-primary);
+                }
+
+                &:hover {
+                    color: var(--color-primary);
+                }
+            }
+
+            .uiHeader__logoLink {
+                color: var(--color-primary);
+                text-shadow: none;
+                background: var(--gradient-text-primary);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: rgba(0, 0, 0, 0);
+                background-clip: text;
+            }
+        }
+    }
+
+    // パターン3: CTA付きヘッダー
+    &_type_cta {
+        .uiHeader__inner {
+            gap: 2rem;
+        }
+
+        .uiHeader__nav {
+            flex: 1;
+            justify-content: center;
+        }
+
+        .uiHeader__cta {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+
+            @media screen and (max-width: 768px) {
+                display: none;
+            }
+        }
+
+        .uiHeader__ctaButton {
+            padding: 1rem 2.4rem;
+            background: var(--gradient-primary);
+            color: #fff;
+            text-decoration: none;
+            border-radius: var(--border-radius-full);
+            font-weight: 700;
+            font-size: var(--font-size-sm);
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-md);
+            white-space: nowrap;
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: var(--shadow-lg);
+            }
+        }
+
+        .uiHeader__ctaButtonSecondary {
+            padding: 1rem 2.4rem;
+            background: transparent;
+            color: var(--color-primary);
+            text-decoration: none;
+            border: 2px solid var(--color-primary);
+            border-radius: var(--border-radius-full);
+            font-weight: 700;
+            font-size: var(--font-size-sm);
+            transition: all var(--transition-base);
+            white-space: nowrap;
+
+            &:hover {
+                background: var(--color-primary);
+                color: #fff;
+            }
+        }
+    }
+}
+

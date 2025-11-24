@@ -1,0 +1,161 @@
+/**
+ * アラートコンポーネント
+ * 情報、成功、警告などの通知表示用
+ * 2025年トレンド対応のモダンなデザイン
+ */
+
+.uiAlert {
+    position: relative;
+    padding: 1.6rem 2rem;
+    border-radius: var(--border-radius-lg);
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    margin-bottom: var(--spacing-md);
+    animation: fadeInUp 0.4s ease-out;
+    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    @media screen and (max-width: 768px) {
+        padding: 1.4rem 1.6rem;
+        gap: 1rem;
+    }
+
+    // パターン1: 情報アラート（青）
+    &_type_info {
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(37, 99, 235, 0.15) 100%);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        color: var(--color-info-dark);
+
+        .uiAlert__icon {
+            color: var(--color-info);
+        }
+
+        .uiAlert__closeButton {
+            color: var(--color-info);
+
+            &:hover {
+                background: rgba(59, 130, 246, 0.1);
+            }
+        }
+    }
+
+    // パターン2: 成功アラート（緑）
+    &_type_success {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.15) 100%);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        color: var(--color-success-dark);
+
+        .uiAlert__icon {
+            color: var(--color-success);
+        }
+
+        .uiAlert__closeButton {
+            color: var(--color-success);
+
+            &:hover {
+                background: rgba(16, 185, 129, 0.1);
+            }
+        }
+    }
+
+    // パターン3: 警告アラート（オレンジ）
+    &_type_warning {
+        background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(217, 119, 6, 0.15) 100%);
+        border: 1px solid rgba(245, 158, 11, 0.3);
+        color: var(--color-warning-dark);
+
+        .uiAlert__icon {
+            color: var(--color-warning);
+        }
+
+        .uiAlert__closeButton {
+            color: var(--color-warning);
+
+            &:hover {
+                background: rgba(245, 158, 11, 0.1);
+            }
+        }
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        font-size: 2rem;
+        line-height: 1;
+        margin-top: 0.2rem;
+
+        @media screen and (max-width: 768px) {
+            font-size: 1.8rem;
+        }
+    }
+
+    &__content {
+        flex: 1;
+        min-width: 0;
+    }
+
+    &__title {
+        font-size: var(--font-size-md);
+        font-weight: 700;
+        margin-bottom: 0.4rem;
+        line-height: 1.5;
+
+        @media screen and (max-width: 768px) {
+            font-size: var(--font-size-base);
+        }
+    }
+
+    &__message {
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        margin: 0;
+
+        @media screen and (max-width: 768px) {
+            font-size: var(--font-size-sm);
+        }
+    }
+
+    &__closeButton {
+        flex-shrink: 0;
+        width: 2.4rem;
+        height: 2.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        border-radius: var(--border-radius-sm);
+        transition: all var(--transition-base);
+        font-size: 1.8rem;
+        line-height: 1;
+        padding: 0;
+
+        @media screen and (max-width: 768px) {
+            width: 2rem;
+            height: 2rem;
+            font-size: 1.6rem;
+        }
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

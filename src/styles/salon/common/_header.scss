@@ -9,7 +9,9 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
+    margin-left: calc((100vw - 100%) / -2);
+    margin-right: calc((100vw - 100%) / -2);
     z-index: var(--z-fixed);
     @include glass-morphism(rgba(255, 255, 255, 0.95), blur(20px));
     transition: all var(--transition-base);

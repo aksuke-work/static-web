@@ -1,0 +1,138 @@
+/**
+ * バッジコンポーネント
+ * 新着、人気、おすすめなどのラベル表示用
+ * 2025年トレンド対応のモダンなデザイン
+ */
+
+.uiBadge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 1.2rem;
+    border-radius: var(--border-radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+
+    @media screen and (max-width: 768px) {
+        padding: 0.3rem 1rem;
+        font-size: 1rem;
+    }
+
+    // パターン1: 基本バッジ
+    &_type_basic {
+        background: var(--color-bg-gray);
+        color: var(--color-text);
+        border: 1px solid var(--color-border);
+
+        &:hover {
+            background: var(--color-bg-gray-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+    }
+
+    // パターン2: カテゴリバッジ（グラデーション背景）
+    &_type_category {
+        background: var(--gradient-primary);
+        color: #fff;
+        border: none;
+        box-shadow: var(--shadow-sm);
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        &:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: var(--shadow-md);
+
+            &::before {
+                left: 100%;
+            }
+        }
+    }
+
+    // パターン3: ステータスバッジ
+    &_type_status {
+        border: none;
+        box-shadow: var(--shadow-xs);
+
+        &_success {
+            background: linear-gradient(135deg, var(--color-success) 0%, var(--color-success-dark) 100%);
+            color: #fff;
+        }
+
+        &_warning {
+            background: linear-gradient(135deg, var(--color-warning) 0%, var(--color-warning-dark) 100%);
+            color: #fff;
+        }
+
+        &_error {
+            background: linear-gradient(135deg, var(--color-error) 0%, var(--color-error-dark) 100%);
+            color: #fff;
+        }
+
+        &_info {
+            background: linear-gradient(135deg, var(--color-info) 0%, var(--color-info-dark) 100%);
+            color: #fff;
+        }
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+    }
+
+    // サイズバリエーション
+    &_size_small {
+        padding: 0.2rem 0.8rem;
+        font-size: 1rem;
+
+        @media screen and (max-width: 768px) {
+            padding: 0.15rem 0.6rem;
+            font-size: 0.9rem;
+        }
+    }
+
+    &_size_large {
+        padding: 0.6rem 1.6rem;
+        font-size: var(--font-size-sm);
+
+        @media screen and (max-width: 768px) {
+            padding: 0.5rem 1.4rem;
+            font-size: var(--font-size-xs);
+        }
+    }
+
+    // アイコン付きバッジ
+    &__icon {
+        margin-right: 0.4rem;
+        font-size: 1.2em;
+        line-height: 1;
+        display: inline-flex;
+        align-items: center;
+
+        @media screen and (max-width: 768px) {
+            margin-right: 0.3rem;
+        }
+    }
+
+    &__text {
+        display: inline-block;
+    }
+}
+

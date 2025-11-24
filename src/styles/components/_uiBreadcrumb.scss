@@ -1,0 +1,132 @@
+/**
+ * パンくずリストコンポーネント
+ * ページ階層の表示用
+ * 2025年トレンド対応のモダンなデザイン
+ */
+
+.uiBreadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: var(--font-size-sm);
+
+    @media screen and (max-width: 768px) {
+        font-size: var(--font-size-xs);
+        gap: 0.6rem;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+
+        @media screen and (max-width: 768px) {
+            gap: 0.6rem;
+        }
+    }
+
+    &__link {
+        color: var(--color-text-light);
+        text-decoration: none;
+        transition: all var(--transition-base);
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-primary);
+            transition: width var(--transition-base);
+        }
+
+        &:hover {
+            color: var(--color-primary);
+
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+
+    &__text {
+        color: var(--color-text);
+        font-weight: 600;
+    }
+
+    &__separator {
+        color: var(--color-border-dark);
+        font-size: 1.2em;
+        line-height: 1;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    // パターン1: 基本パンくず（区切り文字付き）
+    &_type_basic {
+        .uiBreadcrumb__separator {
+            &::before {
+                content: '/';
+            }
+        }
+    }
+
+    // パターン2: アイコン付きパンくず
+    &_type_icon {
+        .uiBreadcrumb__separator {
+            &::before {
+                content: '›';
+                font-size: 1.4em;
+                color: var(--color-primary);
+            }
+        }
+
+        .uiBreadcrumb__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+
+            &::before {
+                content: '🏠';
+                font-size: 1.2em;
+                line-height: 1;
+            }
+
+            &:not(:first-child)::before {
+                display: none;
+            }
+        }
+    }
+
+    // パターン3: ミニマルパンくず（シンプル）
+    &_type_minimal {
+        .uiBreadcrumb__separator {
+            &::before {
+                content: '>';
+                color: var(--color-text-light);
+            }
+        }
+
+        .uiBreadcrumb__link {
+            color: var(--color-text-light);
+
+            &:hover {
+                color: var(--color-primary);
+            }
+
+            &::after {
+                display: none;
+            }
+        }
+    }
+}
+
