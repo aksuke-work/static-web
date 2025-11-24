@@ -1,0 +1,542 @@
+<%- include('../template/_header', {
+    meta: {
+        title: 'Design System',
+        description: 'デザインシステム - コンポーネント一覧',
+        siteType: 'website',
+        url: 'design-system/',
+    }
+}) %>
+<main class="designSystem">
+    <div class="uiContainer">
+        <h1 class="designSystem__title">Design System</h1>
+
+        <!-- Colors -->
+        <section class="uiSection">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle">Colors</h2>
+                <div class="dsColorPalette">
+                    <div class="dsColorPalette__item">
+                        <div class="dsColorPalette__chip" style="background-color: var(--color-primary);"></div>
+                        <p class="dsColorPalette__label">Primary: #333</p>
+                    </div>
+                    <div class="dsColorPalette__item">
+                        <div class="dsColorPalette__chip" style="background-color: var(--color-accent);"></div>
+                        <p class="dsColorPalette__label">Accent: #d4a574</p>
+                    </div>
+                    <div class="dsColorPalette__item">
+                        <div class="dsColorPalette__chip" style="background-color: var(--color-bg); border: 1px solid var(--color-border);"></div>
+                        <p class="dsColorPalette__label">Background: #ffffff</p>
+                    </div>
+                    <div class="dsColorPalette__item">
+                        <div class="dsColorPalette__chip" style="background-color: var(--color-bg-gray);"></div>
+                        <p class="dsColorPalette__label">Background Gray: #f5f5f5</p>
+                    </div>
+                    <div class="dsColorPalette__item">
+                        <div class="dsColorPalette__chip" style="background-color: var(--color-text);"></div>
+                        <p class="dsColorPalette__label">Text: #232323</p>
+                    </div>
+                    <div class="dsColorPalette__item">
+                        <div class="dsColorPalette__chip" style="background-color: var(--color-text-light);"></div>
+                        <p class="dsColorPalette__label">Text Light: #666</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography -->
+        <section class="uiSection">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle">Typography</h2>
+                <div class="dsTypography">
+                    <div class="dsTypography__item">
+                        <p class="dsTypography__label">H1 - 4.8rem / 1.2</p>
+                        <h1 class="dsTypography__sample uiHeading uiHeading_level_h1">都町でゆったり、隠れ家サロン</h1>
+                    </div>
+                    <div class="dsTypography__item">
+                        <p class="dsTypography__label">H2 - 3.2rem / 1.3</p>
+                        <h2 class="dsTypography__sample uiHeading uiHeading_level_h2">あなただけの特別な時間を</h2>
+                    </div>
+                    <div class="dsTypography__item">
+                        <p class="dsTypography__label">H3 - 2.4rem / 1.4</p>
+                        <h3 class="dsTypography__sample uiHeading uiHeading_level_h3">コンセプト</h3>
+                    </div>
+                    <div class="dsTypography__item">
+                        <p class="dsTypography__label">Lead - 1.8rem / 1.8</p>
+                        <p class="dsTypography__sample uiLead">都心の喧騒から離れた、静かな隠れ家のような空間で、あなただけの特別な時間をお過ごしください。</p>
+                    </div>
+                    <div class="dsTypography__item">
+                        <p class="dsTypography__label">Body - 1.6rem / 1.6</p>
+                        <p class="dsTypography__sample uiBody">私たちは、お客様一人ひとりに寄り添い、最適なスタイルをご提案いたします。リラックスできる空間と、丁寧なカウンセリングで、あなたの理想を実現します。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Headings / Text -->
+        <section class="uiSection">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle">Headings / Text</h2>
+                <div class="designSystem__componentGroup">
+                    <h1 class="uiHeading uiHeading_level_h1 uiHeading_align_left">見出し H1（左寄せ）</h1>
+                    <h1 class="uiHeading uiHeading_level_h1 uiHeading_align_center">見出し H1（中央寄せ）</h1>
+                    <h2 class="uiHeading uiHeading_level_h2 uiHeading_align_left">見出し H2（左寄せ）</h2>
+                    <h2 class="uiHeading uiHeading_level_h2 uiHeading_align_center">見出し H2（中央寄せ）</h2>
+                    <h3 class="uiHeading uiHeading_level_h3 uiHeading_align_left">見出し H3（左寄せ）</h3>
+                    <p class="uiLead">リード文：都心の喧騒から離れた、静かな隠れ家のような空間で、あなただけの特別な時間をお過ごしください。</p>
+                    <p class="uiBody">本文：私たちは、お客様一人ひとりに寄り添い、最適なスタイルをご提案いたします。リラックスできる空間と、丁寧なカウンセリングで、あなたの理想を実現します。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Buttons -->
+        <section class="uiSection">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle">Buttons</h2>
+                <div class="designSystem__componentGroup">
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">Primary</h3>
+                        <div style="display: flex; gap: 1.6rem; flex-wrap: wrap;">
+                            <a class="uiButton uiButton_type_primary uiButton_size_lg" href="#">Large Button</a>
+                            <a class="uiButton uiButton_type_primary uiButton_size_md" href="#">Medium Button</a>
+                            <a class="uiButton uiButton_type_primary uiButton_size_sm" href="#">Small Button</a>
+                        </div>
+                    </div>
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">Secondary</h3>
+                        <div style="display: flex; gap: 1.6rem; flex-wrap: wrap;">
+                            <a class="uiButton uiButton_type_secondary uiButton_size_lg" href="#">Large Button</a>
+                            <a class="uiButton uiButton_type_secondary uiButton_size_md" href="#">Medium Button</a>
+                            <a class="uiButton uiButton_type_secondary uiButton_size_sm" href="#">Small Button</a>
+                        </div>
+                    </div>
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">Outline</h3>
+                        <div style="display: flex; gap: 1.6rem; flex-wrap: wrap;">
+                            <a class="uiButton uiButton_type_outline uiButton_size_lg" href="#">Large Button</a>
+                            <a class="uiButton uiButton_type_outline uiButton_size_md" href="#">Medium Button</a>
+                            <a class="uiButton uiButton_type_outline uiButton_size_sm" href="#">Small Button</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Text Links -->
+        <section class="uiSection">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle">Text Links</h2>
+                <div class="designSystem__componentGroup">
+                    <p class="uiBody">
+                        <a class="uiTextLink uiTextLink_type_arrow" href="#">矢印付きリンク</a>
+                    </p>
+                    <p class="uiBody">
+                        <a class="uiTextLink uiTextLink_type_underlined" href="#">下線付きリンク</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sections / Grid -->
+        <section class="uiSection">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle">Sections / Grid</h2>
+                <div class="designSystem__componentGroup">
+                    <div class="uiSection uiSection_bg_gray">
+                        <div class="uiSection__inner uiContainer">
+                            <div class="uiSection__header">
+                                <h3 class="uiHeading uiHeading_level_h2 uiHeading_align_center">グレー背景セクション</h3>
+                            </div>
+                            <div class="uiSection__body">
+                                <p class="uiBody">セクションコンテンツがここに入ります。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uiSection uiSection_bg_primary">
+                        <div class="uiSection__inner uiContainer">
+                            <div class="uiSection__header">
+                                <h3 class="uiHeading uiHeading_level_h2 uiHeading_align_center">プライマリ背景セクション</h3>
+                            </div>
+                            <div class="uiSection__body">
+                                <p class="uiBody">セクションコンテンツがここに入ります。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uiGrid uiGrid_cols_2">
+                        <div class="uiGrid__item">
+                            <div style="background: var(--color-bg-gray); padding: 2rem; border-radius: var(--border-radius-md);">
+                                <p class="uiBody">2カラムグリッド - アイテム1</p>
+                            </div>
+                        </div>
+                        <div class="uiGrid__item">
+                            <div style="background: var(--color-bg-gray); padding: 2rem; border-radius: var(--border-radius-md);">
+                                <p class="uiBody">2カラムグリッド - アイテム2</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uiGrid uiGrid_cols_3">
+                        <div class="uiGrid__item">
+                            <div style="background: var(--color-bg-gray); padding: 2rem; border-radius: var(--border-radius-md);">
+                                <p class="uiBody">3カラムグリッド - アイテム1</p>
+                            </div>
+                        </div>
+                        <div class="uiGrid__item">
+                            <div style="background: var(--color-bg-gray); padding: 2rem; border-radius: var(--border-radius-md);">
+                                <p class="uiBody">3カラムグリッド - アイテム2</p>
+                            </div>
+                        </div>
+                        <div class="uiGrid__item">
+                            <div style="background: var(--color-bg-gray); padding: 2rem; border-radius: var(--border-radius-md);">
+                                <p class="uiBody">3カラムグリッド - アイテム3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cards -->
+        <section class="uiSection">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle">Cards</h2>
+                <div class="designSystem__componentGroup">
+                    <h3 class="uiHeading uiHeading_level_h3">Service Card（メニュー用）</h3>
+                    <div class="uiGrid uiGrid_cols_3">
+                        <div class="uiGrid__item">
+                            <div class="uiCard uiCard_type_service">
+                                <img class="uiCard__image" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a14e?w=800&h=600&fit=crop" alt="カット" />
+                                <div class="uiCard__body">
+                                    <h4 class="uiCard__title">カット</h4>
+                                    <div class="uiCard__meta">
+                                        <span class="uiCard__metaItem">60分</span>
+                                    </div>
+                                    <p class="uiCard__text">お客様の骨格や髪質に合わせた、最適なカットスタイルをご提案します</p>
+                                    <p class="uiCard__price">5,000円</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uiGrid__item">
+                            <div class="uiCard uiCard_type_service">
+                                <img class="uiCard__image" src="https://images.unsplash.com/photo-1516975080664-ed2fc6a13737?w=800&h=600&fit=crop" alt="カラー" />
+                                <div class="uiCard__body">
+                                    <h4 class="uiCard__title">カラー</h4>
+                                    <div class="uiCard__meta">
+                                        <span class="uiCard__metaItem">90分</span>
+                                    </div>
+                                    <p class="uiCard__text">お肌のトーンに合わせた、自然で美しいカラーリングを施します</p>
+                                    <p class="uiCard__price">8,000円</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uiGrid__item">
+                            <div class="uiCard uiCard_type_service">
+                                <img class="uiCard__image" src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=800&h=600&fit=crop" alt="ヘッドスパ" />
+                                <div class="uiCard__body">
+                                    <h4 class="uiCard__title">ヘッドスパ</h4>
+                                    <div class="uiCard__meta">
+                                        <span class="uiCard__metaItem">45分</span>
+                                    </div>
+                                    <p class="uiCard__text">頭皮と髪をリフレッシュ。リラックスできる特別な時間をお過ごしください</p>
+                                    <p class="uiCard__price">6,000円</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="uiHeading uiHeading_level_h3">Staff Card（スタッフ紹介）</h3>
+                    <div class="uiGrid uiGrid_cols_3">
+                        <div class="uiGrid__item">
+                            <div class="uiCard uiCard_type_staff">
+                                <img class="uiCard__image" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" alt="スタッフ1" />
+                                <div class="uiCard__body">
+                                    <h4 class="uiCard__title">スタッフ名</h4>
+                                    <p class="uiCard__text">スタッフの紹介文がここに入ります。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uiGrid__item">
+                            <div class="uiCard uiCard_type_staff">
+                                <img class="uiCard__image" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop" alt="スタッフ2" />
+                                <div class="uiCard__body">
+                                    <h4 class="uiCard__title">スタッフ名</h4>
+                                    <p class="uiCard__text">スタッフの紹介文がここに入ります。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uiGrid__item">
+                            <div class="uiCard uiCard_type_staff">
+                                <img class="uiCard__image" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="スタッフ3" />
+                                <div class="uiCard__body">
+                                    <h4 class="uiCard__title">スタッフ名</h4>
+                                    <p class="uiCard__text">スタッフの紹介文がここに入ります。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="uiHeading uiHeading_level_h3">Voice Card（お客様の声）</h3>
+                    <div class="uiGrid uiGrid_cols_2">
+                        <div class="uiGrid__item">
+                            <div class="uiCard uiCard_type_voice">
+                                <div class="uiCard__body">
+                                    <h4 class="uiCard__title">お客様の声</h4>
+                                    <p class="uiCard__text">「とてもリラックスできて、素敵なスタイルに仕上げていただきました。また来たいです。」</p>
+                                    <div class="uiCard__meta">
+                                        <span class="uiCard__metaItem">30代女性</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uiGrid__item">
+                            <div class="uiCard uiCard_type_voice">
+                                <div class="uiCard__body">
+                                    <h4 class="uiCard__title">お客様の声</h4>
+                                    <p class="uiCard__text">「丁寧なカウンセリングで、理想通りの仕上がりでした。スタッフの方も親切で安心できました。」</p>
+                                    <div class="uiCard__meta">
+                                        <span class="uiCard__metaItem">20代女性</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="uiHeading uiHeading_level_h3">Gallery Card（ギャラリー）</h3>
+                    <div class="uiGrid uiGrid_cols_3">
+                        <div class="uiGrid__item">
+                            <div class="uiCard uiCard_type_gallery">
+                                <img class="uiCard__image" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a14e?w=400&h=400&fit=crop" alt="ギャラリー1" />
+                                <div class="uiCard__body">
+                                    <h4 class="uiCard__title">スタイル名</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uiGrid__item">
+                            <div class="uiCard uiCard_type_gallery">
+                                <img class="uiCard__image" src="https://images.unsplash.com/photo-1516975080664-ed2fc6a13737?w=400&h=400&fit=crop" alt="ギャラリー2" />
+                                <div class="uiCard__body">
+                                    <h4 class="uiCard__title">スタイル名</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uiGrid__item">
+                            <div class="uiCard uiCard_type_gallery">
+                                <img class="uiCard__image" src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=400&h=400&fit=crop" alt="ギャラリー3" />
+                                <div class="uiCard__body">
+                                    <h4 class="uiCard__title">スタイル名</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lists -->
+        <section class="uiSection">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle">Lists</h2>
+                <div class="designSystem__componentGroup">
+                    <h3 class="uiHeading uiHeading_level_h3">Feature List（特徴リスト）</h3>
+                    <ul class="uiFeatureList">
+                        <li class="uiFeatureList__item">
+                            <div class="uiFeatureList__icon">✨</div>
+                            <h4 class="uiFeatureList__title">こだわりの技術</h4>
+                            <p class="uiFeatureList__text">経験豊富なスタイリストが、お客様一人ひとりに最適なスタイルをご提案します</p>
+                        </li>
+                        <li class="uiFeatureList__item">
+                            <div class="uiFeatureList__icon">🏠</div>
+                            <h4 class="uiFeatureList__title">リラックス空間</h4>
+                            <p class="uiFeatureList__text">都心の喧騒から離れた、静かな隠れ家のような空間でお過ごしください</p>
+                        </li>
+                        <li class="uiFeatureList__item">
+                            <div class="uiFeatureList__icon">💆</div>
+                            <h4 class="uiFeatureList__title">丁寧なカウンセリング</h4>
+                            <p class="uiFeatureList__text">お客様のご希望やライフスタイルをお聞きし、最適なスタイルをご提案します</p>
+                        </li>
+                    </ul>
+                    <h3 class="uiHeading uiHeading_level_h3">Step List（ご利用の流れ）</h3>
+                    <ul class="uiStepList">
+                        <li class="uiStepList__item">
+                            <div class="uiStepList__number">01</div>
+                            <h4 class="uiStepList__title">ご来店</h4>
+                            <p class="uiStepList__text">ご予約いただいた時間にご来店ください。スタッフがお迎えいたします。</p>
+                        </li>
+                        <li class="uiStepList__item">
+                            <div class="uiStepList__number">02</div>
+                            <h4 class="uiStepList__title">カウンセリング</h4>
+                            <p class="uiStepList__text">お客様のご希望やライフスタイルをお聞きし、最適なスタイルをご提案します。</p>
+                        </li>
+                        <li class="uiStepList__item">
+                            <div class="uiStepList__number">03</div>
+                            <h4 class="uiStepList__title">施術</h4>
+                            <p class="uiStepList__text">丁寧な技術で、お客様の理想を実現します。リラックスしてお過ごしください。</p>
+                        </li>
+                        <li class="uiStepList__item">
+                            <div class="uiStepList__number">04</div>
+                            <h4 class="uiStepList__title">アフターケア</h4>
+                            <p class="uiStepList__text">スタイルの仕上げと、ご自宅でのケア方法をご案内いたします。</p>
+                        </li>
+                    </ul>
+                    <h3 class="uiHeading uiHeading_level_h3">FAQ（アコーディオン）</h3>
+                    <div class="uiFaq">
+                        <div class="uiFaq__item">
+                            <div class="uiFaq__question">予約はどのようにすればいいですか？</div>
+                            <div class="uiFaq__answer">LINE、Web、電話のいずれかでご予約いただけます。お気軽にお問い合わせください。</div>
+                        </div>
+                        <div class="uiFaq__item">
+                            <div class="uiFaq__question">初めてでも大丈夫ですか？</div>
+                            <div class="uiFaq__answer">はい、初めての方でも安心してご利用いただけます。丁寧なカウンセリングで、お客様に最適なスタイルをご提案いたします。</div>
+                        </div>
+                        <div class="uiFaq__item">
+                            <div class="uiFaq__question">駐車場はありますか？</div>
+                            <div class="uiFaq__answer">はい、3台分の駐車場を完備しております（無料）。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hero Patterns -->
+        <section class="uiSection">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle">Hero Patterns</h2>
+                <div class="designSystem__componentGroup">
+                    <h3 class="uiHeading uiHeading_level_h3">Center（中央寄せ）</h3>
+                    <div class="uiHero uiHero_type_center" style="background: var(--color-bg-gray); padding: 4rem 2rem;">
+                        <span class="uiHero__eyecatch">Eyecatch</span>
+                        <h2 class="uiHero__title">都町でゆったり、隠れ家サロン</h2>
+                        <p class="uiHero__lead">あなただけの特別な時間を</p>
+                        <div class="uiHero__buttons">
+                            <a class="uiButton uiButton_type_primary" href="#">予約する</a>
+                            <a class="uiButton uiButton_type_outline" href="#">詳しく見る</a>
+                        </div>
+                    </div>
+                    <h3 class="uiHeading uiHeading_level_h3">Split（左右分割）</h3>
+                    <div class="uiHero uiHero_type_split" style="background: var(--color-bg-gray); padding: 2rem;">
+                        <div>
+                            <span class="uiHero__eyecatch">Eyecatch</span>
+                            <h2 class="uiHero__title">都町でゆったり、隠れ家サロン</h2>
+                            <p class="uiHero__lead">あなただけの特別な時間を</p>
+                            <div class="uiHero__buttons">
+                                <a class="uiButton uiButton_type_primary" href="#">予約する</a>
+                            </div>
+                        </div>
+                        <img class="uiHero__image" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&h=600&fit=crop" alt="ヒーロー画像" />
+                    </div>
+                    <h3 class="uiHeading uiHeading_level_h3">Image Right（画像右）</h3>
+                    <div class="uiHero uiHero_type_imageRight" style="background: var(--color-bg-gray); padding: 2rem;">
+                        <div>
+                            <span class="uiHero__eyecatch">Eyecatch</span>
+                            <h2 class="uiHero__title">都町でゆったり、隠れ家サロン</h2>
+                            <p class="uiHero__lead">あなただけの特別な時間を</p>
+                            <div class="uiHero__buttons">
+                                <a class="uiButton uiButton_type_primary" href="#">予約する</a>
+                            </div>
+                        </div>
+                        <img class="uiHero__image" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&h=600&fit=crop" alt="ヒーロー画像" />
+                    </div>
+                    <h3 class="uiHeading uiHeading_level_h3">Background Image（背景画像）</h3>
+                    <div class="uiHero uiHero_type_bgImage" style="min-height: 500px;">
+                        <img class="uiHero__image" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&h=1080&fit=crop" alt="ヒーロー画像" />
+                        <span class="uiHero__eyecatch">Eyecatch</span>
+                        <h2 class="uiHero__title">都町でゆったり、隠れ家サロン</h2>
+                        <p class="uiHero__lead">あなただけの特別な時間を</p>
+                        <div class="uiHero__buttons">
+                            <a class="uiButton uiButton_type_primary" href="#">予約する</a>
+                            <a class="uiButton uiButton_type_outline" href="#" style="background: rgba(255,255,255,0.2); border-color: #fff; color: #fff;">詳しく見る</a>
+                        </div>
+                    </div>
+                    <h3 class="uiHeading uiHeading_level_h3">Three.js（3Dエフェクト）</h3>
+                    <div class="uiHero uiHero_type_threejs">
+                        <canvas class="uiHero__canvas"></canvas>
+                        <div class="uiHero__content">
+                            <span class="uiHero__eyecatch">Eyecatch</span>
+                            <h2 class="uiHero__title">都町でゆったり、隠れ家サロン</h2>
+                            <p class="uiHero__lead">あなただけの特別な時間を</p>
+                            <div class="uiHero__buttons">
+                                <a class="uiButton uiButton_type_primary" href="#">予約する</a>
+                                <a class="uiButton uiButton_type_outline" href="#" style="background: rgba(255,255,255,0.2); border-color: #fff; color: #fff;">詳しく見る</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="uiSection">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle">CTA</h2>
+                <div class="designSystem__componentGroup">
+                    <div class="uiCtaBand">
+                        <div class="uiContainer">
+                            <h2 class="uiCtaBand__title">ご予約・お問い合わせ</h2>
+                            <p class="uiCtaBand__text">お気軽にお問い合わせください</p>
+                            <div class="uiCtaBand__buttons">
+                                <a class="uiButton uiButton_type_secondary uiButton_size_lg" href="#">LINE予約</a>
+                                <a class="uiButton uiButton_type_outline uiButton_size_lg" href="#" style="background: rgba(255,255,255,0.2); border-color: #fff; color: #fff;">Web予約</a>
+                                <a class="uiButton uiButton_type_outline uiButton_size_lg" href="#" style="background: rgba(255,255,255,0.2); border-color: #fff; color: #fff;">電話予約</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form -->
+        <section class="uiSection">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle">Form</h2>
+                <div class="designSystem__componentGroup">
+                    <form class="uiForm">
+                        <div class="uiForm__row">
+                            <label class="uiForm__label" data-required="true">お名前</label>
+                            <div class="uiForm__field">
+                                <input class="uiInput" type="text" placeholder="山田 太郎" />
+                            </div>
+                        </div>
+                        <div class="uiForm__row">
+                            <label class="uiForm__label" data-required="true">メールアドレス</label>
+                            <div class="uiForm__field">
+                                <input class="uiInput" type="email" placeholder="example@email.com" />
+                            </div>
+                        </div>
+                        <div class="uiForm__row">
+                            <label class="uiForm__label" data-required="true">電話番号</label>
+                            <div class="uiForm__field">
+                                <input class="uiInput" type="tel" placeholder="090-1234-5678" />
+                            </div>
+                        </div>
+                        <div class="uiForm__row">
+                            <label class="uiForm__label">希望日時</label>
+                            <div class="uiForm__field">
+                                <input class="uiInput" type="date" />
+                            </div>
+                            <p class="uiForm__note">ご希望の日時をご記入ください</p>
+                        </div>
+                        <div class="uiForm__row">
+                            <label class="uiForm__label">メニュー</label>
+                            <div class="uiForm__field">
+                                <select class="uiSelect">
+                                    <option value="">選択してください</option>
+                                    <option value="cut">カット</option>
+                                    <option value="color">カラー</option>
+                                    <option value="spa">ヘッドスパ</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="uiForm__row">
+                            <label class="uiForm__label">お問い合わせ内容</label>
+                            <div class="uiForm__field">
+                                <textarea class="uiTextarea" placeholder="お問い合わせ内容をご記入ください"></textarea>
+                            </div>
+                        </div>
+                        <div class="uiForm__row">
+                            <button class="uiButton uiButton_type_primary uiButton_size_lg" type="submit">送信する</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+<%- include('../template/_footer', {
+    scripts: ['/js/design-system/heroThreejs.js', '/js/design-system/faq.js']
+}) %>
+

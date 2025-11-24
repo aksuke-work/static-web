@@ -1,0 +1,25 @@
+<% 
+    const reservationButtonData = typeof reservationButton !== 'undefined' ? reservationButton : {
+        type: 'line', // 'line', 'web', 'tel'
+        text: '予約する',
+        url: '#',
+        icon: ''
+    };
+    
+    const buttonClasses = {
+        line: 'reservationButton_type_line',
+        web: 'reservationButton_type_web',
+        tel: 'reservationButton_type_tel'
+    };
+    
+    const buttonIcons = {
+        line: 'LINE',
+        web: 'WEB',
+        tel: 'TEL'
+    };
+%>
+<a class="reservationButton <%= buttonClasses[reservationButtonData.type] || buttonClasses.web %>" href="<%= reservationButtonData.url %>" <% if (reservationButtonData.type === 'line') { %>target="_blank" rel="noopener noreferrer"<% } %>>
+    <span class="reservationButton__icon"><%= reservationButtonData.icon || buttonIcons[reservationButtonData.type] || 'WEB' %></span>
+    <span class="reservationButton__text"><%= reservationButtonData.text %></span>
+</a>
+

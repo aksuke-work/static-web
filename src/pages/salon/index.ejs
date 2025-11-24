@@ -1,0 +1,173 @@
+<%- include('./template/_header', {
+    meta: {
+        title: 'TOP',
+        description: '都町でゆったり、隠れ家サロン。あなただけの特別な時間を',
+        siteType: 'website',
+        url: '',
+    }
+}) %>
+<div id="page-transition-overlay" class="page-transition-overlay"></div>
+<main class="salonMain salonMain_type_top">
+    <%- include('./template/sections/_hero', {
+        hero: {
+            catchcopy: '都町でゆったり、隠れ家サロン',
+            subtitle: 'あなただけの特別な時間を',
+            image: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&w=1920&h=1080&fit=crop&q=80',
+            imageSp: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&w=768&h=1024&fit=crop&q=80',
+            reservationButtons: {
+                line: 'https://line.me/R/ti/p/@salon',
+                web: '/salon/reserve/',
+                tel: 'tel:00-0000-0000'
+            }
+        }
+    }) %>
+
+    <section class="salonConcept">
+        <div class="salonConcept__inner container">
+            <h2 class="salonConcept__title sectionTitle">コンセプト</h2>
+            <div class="salonConcept__content">
+                <p class="salonConcept__text">都心の喧騒から離れた、静かな隠れ家のような空間で、<br class="pcnon">あなただけの特別な時間をお過ごしください。</p>
+                <p class="salonConcept__text">私たちは、お客様一人ひとりに寄り添い、<br class="pcnon">最適なスタイルをご提案いたします。</p>
+                <p class="salonConcept__text">リラックスできる空間と、丁寧なカウンセリングで、<br class="pcnon">あなたの理想を実現します。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="salonPopularMenu">
+        <div class="salonPopularMenu__inner container">
+            <h2 class="salonPopularMenu__title sectionTitle">人気メニュー</h2>
+            <div class="salonPopularMenu__list">
+                <%- include('./template/sections/_menuCard', {
+                    menuCard: {
+                        name: 'カット',
+                        description: 'お客様の骨格や髪質に合わせた、最適なカットスタイルをご提案します',
+                        time: '60分',
+                        price: '5,000円',
+                        image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a14e?auto=format&w=800&h=600&fit=crop&q=80',
+                        link: '/salon/menu/#cut'
+                    }
+                }) %>
+                <%- include('./template/sections/_menuCard', {
+                    menuCard: {
+                        name: 'カラー',
+                        description: 'お肌のトーンに合わせた、自然で美しいカラーリングを施します',
+                        time: '90分',
+                        price: '8,000円',
+                        image: 'https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&w=800&h=600&fit=crop&q=80',
+                        link: '/salon/menu/#color'
+                    }
+                }) %>
+                <%- include('./template/sections/_menuCard', {
+                    menuCard: {
+                        name: 'ヘッドスパ',
+                        description: '頭皮と髪をリフレッシュ。リラックスできる特別な時間をお過ごしください',
+                        time: '45分',
+                        price: '6,000円',
+                        image: 'https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&w=800&h=600&fit=crop&q=80',
+                        link: '/salon/menu/#spa'
+                    }
+                }) %>
+            </div>
+            <div class="salonPopularMenu__button">
+                <a class="button button_type_outline" href="/salon/menu/">メニュー一覧を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="salonFirstTime">
+        <div class="salonFirstTime__inner container">
+            <h2 class="salonFirstTime__title sectionTitle">初めての方へ</h2>
+            <div class="salonFirstTime__flow">
+                <div class="salonFirstTime__flowItem">
+                    <div class="salonFirstTime__flowNumber">01</div>
+                    <h3 class="salonFirstTime__flowTitle">ご来店</h3>
+                    <p class="salonFirstTime__flowText">ご予約いただいた時間にご来店ください。スタッフがお迎えいたします。</p>
+                </div>
+                <div class="salonFirstTime__flowItem">
+                    <div class="salonFirstTime__flowNumber">02</div>
+                    <h3 class="salonFirstTime__flowTitle">カウンセリング</h3>
+                    <p class="salonFirstTime__flowText">お客様のご希望やライフスタイルをお聞きし、最適なスタイルをご提案します。</p>
+                </div>
+                <div class="salonFirstTime__flowItem">
+                    <div class="salonFirstTime__flowNumber">03</div>
+                    <h3 class="salonFirstTime__flowTitle">施術</h3>
+                    <p class="salonFirstTime__flowText">丁寧な技術で、お客様の理想を実現します。リラックスしてお過ごしください。</p>
+                </div>
+                <div class="salonFirstTime__flowItem">
+                    <div class="salonFirstTime__flowNumber">04</div>
+                    <h3 class="salonFirstTime__flowTitle">アフターケア</h3>
+                    <p class="salonFirstTime__flowText">スタイルの仕上げと、ご自宅でのケア方法をご案内いたします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="salonNews">
+        <div class="salonNews__inner container">
+            <h2 class="salonNews__title sectionTitle">お知らせ</h2>
+            <ul class="salonNews__list">
+                <li class="salonNews__item">
+                    <article class="salonNews__article">
+                        <time class="salonNews__date" datetime="2025-01-15">2025.01.15</time>
+                        <span class="salonNews__category">お知らせ</span>
+                        <h3 class="salonNews__articleTitle">
+                            <a class="salonNews__articleLink" href="#">新年の営業時間について</a>
+                        </h3>
+                    </article>
+                </li>
+                <li class="salonNews__item">
+                    <article class="salonNews__article">
+                        <time class="salonNews__date" datetime="2025-01-10">2025.01.10</time>
+                        <span class="salonNews__category">キャンペーン</span>
+                        <h3 class="salonNews__articleTitle">
+                            <a class="salonNews__articleLink" href="#">初回限定キャンペーン実施中</a>
+                        </h3>
+                    </article>
+                </li>
+                <li class="salonNews__item">
+                    <article class="salonNews__article">
+                        <time class="salonNews__date" datetime="2025-01-05">2025.01.05</time>
+                        <span class="salonNews__category">お知らせ</span>
+                        <h3 class="salonNews__articleTitle">
+                            <a class="salonNews__articleLink" href="#">新スタッフ入店のお知らせ</a>
+                        </h3>
+                    </article>
+                </li>
+            </ul>
+            <div class="salonNews__button">
+                <a class="button button_type_outline" href="/salon/news/">お知らせ一覧を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="salonAccess">
+        <div class="salonAccess__inner container">
+            <h2 class="salonAccess__title sectionTitle">アクセス</h2>
+            <div class="salonAccess__content">
+                <div class="salonAccess__map">
+                    <img class="salonAccess__mapImage" src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&w=800&h=600&fit=crop&q=80" alt="アクセスマップ" loading="lazy" onerror="this.onerror=null; this.src='https://picsum.photos/800/600?random=100';" />
+                </div>
+                <div class="salonAccess__info">
+                    <dl class="salonAccess__infoItem">
+                        <dt class="salonAccess__infoDt">最寄り駅</dt>
+                        <dd class="salonAccess__infoDd">○○駅 徒歩5分</dd>
+                    </dl>
+                    <dl class="salonAccess__infoItem">
+                        <dt class="salonAccess__infoDt">住所</dt>
+                        <dd class="salonAccess__infoDd">〒000-0000<br class="pcnon">都道府県 市区町村 番地</dd>
+                    </dl>
+                    <dl class="salonAccess__infoItem">
+                        <dt class="salonAccess__infoDt">駐車場</dt>
+                        <dd class="salonAccess__infoDd">3台完備（無料）</dd>
+                    </dl>
+                    <div class="salonAccess__button">
+                        <a class="button button_type_primary" href="/salon/about/#access">詳しいアクセス情報を見る</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<%- include('./template/_footer', {
+    scripts: []
+}) %>

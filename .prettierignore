@@ -1,0 +1,22 @@
+# ビルド出力先（編集しない）
+public/
+
+# 依存関係
+node_modules/
+
+# ログファイル
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# システムファイル
+.DS_Store
+Thumbs.db
+
+# パッケージロックファイル
+package-lock.json
+
+# 画像ファイル（フォーマット不要）
+**/*.{jpg,jpeg,png,gif,svg,webp,ico}
+

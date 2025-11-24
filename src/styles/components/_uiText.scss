@@ -1,0 +1,27 @@
+/**
+ * テキストコンポーネント
+ * リード文、本文などのテキストコンポーネント
+ */
+
+.uiLead {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text);
+    font-weight: 400;
+
+    @include media(sp) {
+        font-size: var(--font-size-base);
+    }
+}
+
+.uiBody {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    color: var(--color-text);
+    font-weight: 400;
+
+    @include media(sp) {
+        font-size: var(--font-size-sm);
+    }
+}
+

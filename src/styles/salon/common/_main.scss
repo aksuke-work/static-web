@@ -1,0 +1,18 @@
+//////////////////////////////
+// main
+//////////////////////////////
+.main {
+    display: block;
+}
+
+.salonMain {
+    padding-top: 80px;
+
+    @include media(sp) {
+        padding-top: 60px;
+    }
+
+    &_type_top {
+        padding-top: 0;
+    }
+}

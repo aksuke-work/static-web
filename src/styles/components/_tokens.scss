@@ -1,0 +1,159 @@
+/**
+ * デザイントークン
+ * カラー、タイポグラフィなどのデザインシステムの基本変数を定義
+ * 2025年トレンド対応版
+ */
+
+:root {
+    // カラーパレット - 2025年トレンド対応（統一された洗練されたカラー）
+    // 統一されたプライマリカラー
+    --color-primary: #1A1F2E;
+    --color-primary-light: #2C3E50;
+    --color-primary-dark: #0F1419;
+    --color-secondary: #E8B4B8;
+    --color-secondary-light: #F5D7DA;
+    --color-secondary-dark: #D89FA4;
+    // 統一されたアクセントカラー
+    --color-accent: #667EEA;
+    --color-accent-light: #8B9AFF;
+    --color-accent-dark: #4C63D2;
+    --color-tertiary: #6C5CE7;
+    --color-tertiary-light: #8B7ED8;
+    --color-tertiary-dark: #5A4FCF;
+    
+    // ブランドカラー（強調）
+    --brand-primary: #667EEA;
+    --brand-secondary: #764BA2;
+    --brand-accent: #F5A623;
+
+    // グラデーションカラー（統一された135deg方向）
+    --gradient-primary: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+    --gradient-hero: linear-gradient(135deg, rgba(26, 31, 46, 0.95) 0%, rgba(102, 126, 234, 0.85) 100%);
+    --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.92) 100%);
+    --gradient-secondary: linear-gradient(135deg, #F093FB 0%, #F5576C 100%);
+    --gradient-accent: linear-gradient(135deg, #4FACFE 0%, #00F2FE 100%);
+    --gradient-warm: linear-gradient(135deg, #FA8BFF 0%, #2BD2FF 50%, #2BFF88 100%);
+    --gradient-cool: linear-gradient(135deg, #667EEA 0%, #764BA2 50%, #F093FB 100%);
+    --gradient-text: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+
+    // ニュートラルカラー - 洗練されたグレースケール
+    --color-bg: #FFFFFF;
+    --color-bg-gray: #FAFAFA;
+    --color-bg-gray-light: #F5F5F5;
+    --color-bg-gray-dark: #EEEEEE;
+    --color-surface: #FFFFFF;
+    --color-surface-elevated: rgba(255, 255, 255, 0.95);
+    --color-text: #1A1A1A;
+    --color-text-light: #4A4A4A;
+    --color-text-muted: #8A8A8A;
+    --color-text-disabled: #C0C0C0;
+    --color-border: #E5E5E5;
+    --color-border-light: #F0F0F0;
+    --color-border-dark: #D0D0D0;
+
+    // セマンティックカラー
+    --color-success: #10B981;
+    --color-success-light: #34D399;
+    --color-success-dark: #059669;
+    --color-error: #EF4444;
+    --color-error-light: #F87171;
+    --color-error-dark: #DC2626;
+    --color-warning: #F59E0B;
+    --color-warning-light: #FBBF24;
+    --color-warning-dark: #D97706;
+    --color-info: #3B82F6;
+    --color-info-light: #60A5FA;
+    --color-info-dark: #2563EB;
+
+    // タイポグラフィ - 2025年トレンド対応
+    --font-family-base: 'zen-kaku-gothic-new', 'Zen Kaku Gothic New', sans-serif;
+    --font-family-heading: 'zen-kaku-gothic-new', 'Zen Kaku Gothic New', sans-serif;
+    --font-family-serif: 'Zen Old Mincho', serif;
+
+    // 可変フォントサイズ（clamp関数対応）
+    --font-size-xs: clamp(1.0rem, 0.8vw + 0.6rem, 1.2rem);
+    --font-size-sm: clamp(1.2rem, 1vw + 0.8rem, 1.4rem);
+    --font-size-base: clamp(1.4rem, 1.2vw + 1rem, 1.6rem);
+    --font-size-md: clamp(1.6rem, 1.4vw + 1.2rem, 1.8rem);
+    --font-size-lg: clamp(2rem, 2vw + 1.5rem, 2.4rem);
+    --font-size-xl: clamp(2.4rem, 3vw + 1.8rem, 3.2rem);
+    --font-size-xxl: clamp(3.2rem, 4vw + 2.4rem, 4.8rem);
+    --font-size-hero: clamp(4rem, 6vw + 3rem, 7.2rem);
+
+    // 行間 - タイトな設定
+    --line-height-tight: 1.2;
+    --line-height-snug: 1.3;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.7;
+    --line-height-loose: 2;
+
+    // 字間
+    --letter-spacing-tight: -0.02em;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.05em;
+    --letter-spacing-wider: 0.1em;
+
+    // スペーシング - リズムのあるスケール
+    --spacing-xs: 0.4rem;
+    --spacing-sm: 0.8rem;
+    --spacing-md: 1.6rem;
+    --spacing-lg: 2.4rem;
+    --spacing-xl: 3.2rem;
+    --spacing-2xl: 4.8rem;
+    --spacing-3xl: 6.4rem;
+    --spacing-4xl: 8rem;
+    --spacing-5xl: 12rem;
+
+    // セクション間のスペーシング
+    --section-spacing-sm: 6rem;
+    --section-spacing-md: 8rem;
+    --section-spacing-lg: 12rem;
+    --section-spacing-xl: 16rem;
+
+    // ボーダー
+    --border-radius-sm: 0.4rem;
+    --border-radius-md: 0.8rem;
+    --border-radius-lg: 1.2rem;
+    --border-radius-xl: 1.6rem;
+    --border-radius-2xl: 2.4rem;
+    --border-radius-full: 9999px;
+    --border-width-thin: 1px;
+    --border-width-medium: 2px;
+    --border-width-thick: 3px;
+
+    // シャドウ - 多層シャドウ
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.08);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.06);
+    --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(0, 0, 0, 0.1);
+    --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+    --shadow-colored: 0 10px 30px rgba(102, 126, 234, 0.3);
+
+    // グラスモーフィズム
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-bg-dark: rgba(0, 0, 0, 0.3);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-blur: blur(10px);
+
+    // トランジション（統一されたアニメーション速度）
+    --animation-speed-fast: 0.2s;
+    --animation-speed-base: 0.4s;
+    --animation-speed-slow: 0.8s;
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    // Z-index
+    --z-base: 1;
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+}
+

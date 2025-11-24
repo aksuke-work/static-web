@@ -1,0 +1,193 @@
+/**
+ * コンポーネント名: Testimonial（お客様の声）
+ *
+ * 説明: 2025年トレンド対応のお客様の声コンポーネント
+ * 立体感強化、星評価アニメーション、引用符装飾を実装
+ *
+ * 使用例:
+ *   <div class="salonTestimonial__item">
+ *       <div class="salonTestimonial__rating">...</div>
+ *       <p class="salonTestimonial__comment">...</p>
+ *   </div>
+ */
+
+@import '../_variables';
+
+.salonTestimonial {
+    &__item {
+        position: relative;
+        background: var(--gradient-card);
+        border-radius: var(--border-radius-xl);
+        padding: var(--spacing-xl);
+        @include shadow-3d();
+        @include glass-morphism(rgba(255, 255, 255, 0.95), blur(20px));
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        transition: all var(--transition-base);
+        transform: translateZ(0);
+        will-change: transform, box-shadow;
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+
+        &.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        @include media(sp) {
+            padding: var(--spacing-lg);
+        }
+
+        // 引用符の装飾
+        &::before {
+            content: '"';
+            position: absolute;
+            top: var(--spacing-md);
+            left: var(--spacing-md);
+            font-size: 8rem;
+            font-weight: 900;
+            line-height: 1;
+            background: var(--gradient-text-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0.1;
+            font-family: serif;
+
+            @include media(sp) {
+                font-size: 6rem;
+                top: var(--spacing-sm);
+                left: var(--spacing-sm);
+            }
+        }
+
+        &:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-2xl);
+        }
+    }
+
+    // 星評価
+    &__rating {
+        display: flex;
+        gap: 0.6rem;
+        margin-bottom: var(--spacing-md);
+        align-items: center;
+    }
+
+    &__star {
+        font-size: 2.4rem;
+        color: var(--color-border);
+        transition: all var(--transition-base);
+        transform: scale(0.8);
+        opacity: 0;
+
+        @include media(sp) {
+            font-size: 2rem;
+        }
+
+        &_type_active {
+            color: #FFC107;
+            background: linear-gradient(135deg, #FFC107 0%, #FF8F00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 2px 4px rgba(255, 193, 7, 0.3));
+        }
+
+        // アニメーション
+        .salonTestimonial__item.is-visible & {
+            animation: scaleIn 0.4s var(--transition-base) forwards;
+            opacity: 1;
+            transform: scale(1);
+
+            @for $i from 1 through 5 {
+                &:nth-child(#{$i}) {
+                    animation-delay: #{$i * 0.1}s;
+                }
+            }
+        }
+    }
+
+    // コメント
+    &__comment {
+        position: relative;
+        margin-bottom: var(--spacing-lg);
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        color: var(--color-text);
+        font-style: italic;
+        padding-left: var(--spacing-md);
+        border-left: 3px solid;
+        border-image: var(--gradient-primary) 1;
+        z-index: 1;
+
+        @include media(sp) {
+            font-size: var(--font-size-sm);
+            padding-left: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+        }
+    }
+
+    // 情報エリア
+    &__info {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+        padding-top: var(--spacing-md);
+        border-top: 1px solid var(--color-border-light);
+        font-size: var(--font-size-sm);
+        color: var(--color-text-light);
+        font-weight: 500;
+
+        @include media(sp) {
+            font-size: var(--font-size-xs);
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--spacing-xs);
+            padding-top: var(--spacing-sm);
+        }
+    }
+
+    // 年齢
+    &__age {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+
+        &::before {
+            content: '👤';
+            font-size: 1.2em;
+        }
+    }
+
+    // メニュー
+    &__menu {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+        padding: 0.4rem 1rem;
+        background: var(--gradient-primary);
+        color: #fff;
+        border-radius: var(--border-radius-full);
+        font-size: var(--font-size-xs);
+        font-weight: 700;
+        box-shadow: var(--shadow-sm);
+
+        &::before {
+            content: '✂️';
+            font-size: 1.2em;
+        }
+    }
+
+    // 日付（追加要素）
+    &__date {
+        margin-left: auto;
+        font-size: var(--font-size-xs);
+        color: var(--color-text-muted);
+
+        @include media(sp) {
+            margin-left: 0;
+        }
+    }
+}
+

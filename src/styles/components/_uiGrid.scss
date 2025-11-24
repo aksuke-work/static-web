@@ -1,0 +1,40 @@
+/**
+ * グリッドコンポーネント
+ * カラム数のバリエーションを持つグリッドレイアウト
+ */
+
+.uiGrid {
+    display: grid;
+    gap: 2.4rem;
+
+    @include media(sp) {
+        gap: 1.6rem;
+    }
+
+    // 2カラム
+    &_cols_2 {
+        grid-template-columns: repeat(2, 1fr);
+
+        @include media(sp) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    // 3カラム
+    &_cols_3 {
+        grid-template-columns: repeat(3, 1fr);
+
+        @include media(tab) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include media(sp) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__item {
+        width: 100%;
+    }
+}
+

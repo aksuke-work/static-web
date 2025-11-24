@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title><%= meta.title %><% if (meta.title) %><%= siteName %></title>
+        <link rel="canonical" href="/<%= meta.url %>" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png" />
+        <meta property="og:type" content="<%= meta.siteType %>" />
+        <meta property="og:title" content="<%= meta.title %><% if (meta.title)  %><%= siteName %>" />
+        <meta property="og:description" content="<%= meta.description %>" />
+        <meta property="og:url" content="/<%= meta.url %>" />
+        <meta property="og:image" content="/images/ogp.png" />
+        <meta property="og:site_name" content="" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="<%= meta.title %><% if (meta.title)  %><%= siteName %>" />
+        <meta name="description" content="<%= meta.description %>" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="./css/style.css?t=<%= Math.floor(new Date().getTime() / 1000) %>" />
+    </head>
+    <body class="fade">
+        <header class="header header_type_top">
+            <div class="header__inner">
+                <h1 class="header__logo">
+                    <a class="header__logoLink" href="./">
+                        <img class="header__logoImg header__logoImg_type_fixed" src="./images/logo_white.svg" alt="" />
+                    </a>
+                </h1>
+                <nav class="header__nav gNav">
+                    <ul class="gNav__list">
+                        <li class="gNav__item gNav__item_type_mm">
+                            <a class="gNav__link gNav__link_type_mm" href="./about/">長良園について</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="ham" id="ham">
+                    <div class="ham__inner">
+                        <span class="ham__bar"></span>
+                        <span class="ham__bar"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="header__bg"></div>
+        </header>
+    </body>
+</html>

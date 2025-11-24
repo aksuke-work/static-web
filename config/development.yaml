@@ -1,0 +1,33 @@
+# ejsに渡され、titleタグに利用されます
+siteName: ' | サロン名'
+
+# ejsに渡され、著作権者としてコピーライトに表示されます
+copyrightOwner: '© 2025 サロン名. All rights reserved.'
+
+# サロン情報
+salon:
+    name: 'サロン名'
+    address: '〒000-0000 都道府県 市区町村 番地'
+    tel: '00-0000-0000'
+    email: 'info@salon.example.com'
+    businessHours:
+        weekday: '平日 10:00-19:00'
+        weekend: '土日祝 9:00-18:00'
+    closed: '火曜日'
+    parking: '3台完備（無料）'
+    seats: 5
+    kidsSpace: true
+
+# OGP設定
+ogp:
+    siteName: 'サロン名'
+    defaultImage: '/images/ogp.png'
+    twitterCard: 'summary_large_image'
+    twitterSite: '@salon'
+
+# SNSリンク
+social:
+    line: 'https://line.me/R/ti/p/@salon'
+    instagram: 'https://www.instagram.com/salon/'
+    twitter: ''
+    facebook: ''

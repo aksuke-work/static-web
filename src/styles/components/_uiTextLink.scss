@@ -1,0 +1,49 @@
+/**
+ * テキストリンクコンポーネント
+ * 矢印付き、下線付きなどのテキストリンクバリエーション
+ */
+
+.uiTextLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: var(--font-size-base);
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+
+    @include media(sp) {
+        font-size: var(--font-size-sm);
+    }
+
+    &:hover {
+        color: var(--color-primary-dark);
+    }
+
+    // 矢印付きリンク
+    &_type_arrow {
+        &::after {
+            content: '→';
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        &:hover {
+            &::after {
+                transform: translateX(4px);
+            }
+        }
+    }
+
+    // 下線付きリンク
+    &_type_underlined {
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+
+        &:hover {
+            text-decoration-thickness: 2px;
+        }
+    }
+}
+

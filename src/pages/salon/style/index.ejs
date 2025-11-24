@@ -1,0 +1,166 @@
+<%- include('../template/_header', {
+    meta: {
+        title: 'ギャラリー・お客様の声',
+        description: 'スタイルギャラリー、ビフォーアフター、お客様の声をご紹介します',
+        siteType: 'website',
+        url: 'style/',
+    }
+}) %>
+<div id="page-transition-overlay" class="page-transition-overlay"></div>
+<main class="salonMain salonMain_type_style">
+    <section class="salonStyleHero">
+        <div class="salonStyleHero__inner container">
+            <h1 class="salonStyleHero__title">ギャラリー</h1>
+            <p class="salonStyleHero__subtitle">お客様の仕上がりをご紹介します</p>
+        </div>
+    </section>
+
+    <section class="salonStyleGallery">
+        <div class="salonStyleGallery__inner container">
+            <h2 class="salonStyleGallery__title sectionTitle">スタイルギャラリー</h2>
+            <div class="salonStyleGallery__filter">
+                <button class="salonStyleGallery__filterButton salonStyleGallery__filterButton_type_active" data-filter="all">すべて</button>
+                <button class="salonStyleGallery__filterButton" data-filter="long">ロング</button>
+                <button class="salonStyleGallery__filterButton" data-filter="bob">ボブ</button>
+                <button class="salonStyleGallery__filterButton" data-filter="mens">メンズ</button>
+                <button class="salonStyleGallery__filterButton" data-filter="hightone">ハイトーン</button>
+            </div>
+            <div class="salonStyleGallery__list">
+                <div class="salonStyleGallery__item" data-category="long">
+                    <img class="salonStyleGallery__image" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a14e?auto=format&w=600&h=800&fit=crop&q=80" alt="ロングスタイル" loading="lazy" onerror="this.onerror=null; this.src='https://picsum.photos/600/800?random=400';" />
+                    <div class="salonStyleGallery__tags">
+                        <span class="salonStyleGallery__tag">ロング</span>
+                        <span class="salonStyleGallery__tag">カット</span>
+                    </div>
+                </div>
+                <div class="salonStyleGallery__item" data-category="bob">
+                    <img class="salonStyleGallery__image" src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&w=600&h=800&fit=crop&q=80" alt="ボブスタイル" loading="lazy" onerror="this.onerror=null; this.src='https://picsum.photos/600/800?random=401';" />
+                    <div class="salonStyleGallery__tags">
+                        <span class="salonStyleGallery__tag">ボブ</span>
+                        <span class="salonStyleGallery__tag">カラー</span>
+                    </div>
+                </div>
+                <div class="salonStyleGallery__item" data-category="mens">
+                    <img class="salonStyleGallery__image" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&w=600&h=800&fit=crop&q=80" alt="メンズスタイル" loading="lazy" onerror="this.onerror=null; this.src='https://picsum.photos/600/800?random=402';" />
+                    <div class="salonStyleGallery__tags">
+                        <span class="salonStyleGallery__tag">メンズ</span>
+                        <span class="salonStyleGallery__tag">カット</span>
+                    </div>
+                </div>
+                <div class="salonStyleGallery__item" data-category="hightone">
+                    <img class="salonStyleGallery__image" src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&w=600&h=800&fit=crop&q=80" alt="ハイトーンスタイル" loading="lazy" onerror="this.onerror=null; this.src='https://picsum.photos/600/800?random=403';" />
+                    <div class="salonStyleGallery__tags">
+                        <span class="salonStyleGallery__tag">ハイトーン</span>
+                        <span class="salonStyleGallery__tag">カラー</span>
+                    </div>
+                </div>
+                <div class="salonStyleGallery__item" data-category="long">
+                    <img class="salonStyleGallery__image" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a14e?auto=format&w=600&h=800&fit=crop&q=80" alt="ロングスタイル" loading="lazy" onerror="this.onerror=null; this.src='https://picsum.photos/600/800?random=404';" />
+                    <div class="salonStyleGallery__tags">
+                        <span class="salonStyleGallery__tag">ロング</span>
+                        <span class="salonStyleGallery__tag">パーマ</span>
+                    </div>
+                </div>
+                <div class="salonStyleGallery__item" data-category="bob">
+                    <img class="salonStyleGallery__image" src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&w=600&h=800&fit=crop&q=80" alt="ボブスタイル" loading="lazy" onerror="this.onerror=null; this.src='https://picsum.photos/600/800?random=401';" />
+                    <div class="salonStyleGallery__tags">
+                        <span class="salonStyleGallery__tag">ボブ</span>
+                        <span class="salonStyleGallery__tag">カット</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="salonBeforeAfter">
+        <div class="salonBeforeAfter__inner container">
+            <h2 class="salonBeforeAfter__title sectionTitle">ビフォー・アフター</h2>
+            <div class="salonBeforeAfter__list">
+                <div class="salonBeforeAfter__item">
+                    <div class="salonBeforeAfter__before">
+                        <img class="salonBeforeAfter__image" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a14e?auto=format&w=600&h=800&fit=crop&q=80&grayscale" alt="施術前" loading="lazy" onerror="this.onerror=null; this.src='https://picsum.photos/600/800?random=500&grayscale';" />
+                        <p class="salonBeforeAfter__label">Before</p>
+                    </div>
+                    <div class="salonBeforeAfter__after">
+                        <img class="salonBeforeAfter__image" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a14e?auto=format&w=600&h=800&fit=crop&q=80" alt="施術後" loading="lazy" onerror="this.onerror=null; this.src='https://picsum.photos/600/800?random=501';" />
+                        <p class="salonBeforeAfter__label">After</p>
+                    </div>
+                </div>
+                <div class="salonBeforeAfter__item">
+                    <div class="salonBeforeAfter__before">
+                        <img class="salonBeforeAfter__image" src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&w=600&h=800&fit=crop&q=80&grayscale" alt="施術前" loading="lazy" onerror="this.onerror=null; this.src='https://picsum.photos/600/800?random=502&grayscale';" />
+                        <p class="salonBeforeAfter__label">Before</p>
+                    </div>
+                    <div class="salonBeforeAfter__after">
+                        <img class="salonBeforeAfter__image" src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&w=600&h=800&fit=crop&q=80" alt="施術後" loading="lazy" onerror="this.onerror=null; this.src='https://picsum.photos/600/800?random=503';" />
+                        <p class="salonBeforeAfter__label">After</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="salonTestimonial">
+        <div class="salonTestimonial__inner container">
+            <h2 class="salonTestimonial__title sectionTitle">お客様の声</h2>
+            <div class="salonTestimonial__list">
+                <div class="salonTestimonial__item">
+                    <div class="salonTestimonial__rating">
+                        <span class="salonTestimonial__star salonTestimonial__star_type_active">★</span>
+                        <span class="salonTestimonial__star salonTestimonial__star_type_active">★</span>
+                        <span class="salonTestimonial__star salonTestimonial__star_type_active">★</span>
+                        <span class="salonTestimonial__star salonTestimonial__star_type_active">★</span>
+                        <span class="salonTestimonial__star salonTestimonial__star_type_active">★</span>
+                    </div>
+                    <p class="salonTestimonial__comment">とても丁寧なカウンセリングで、理想のスタイルに仕上げていただけました。スタッフの方も親切で、リラックスして施術を受けられました。</p>
+                    <div class="salonTestimonial__info">
+                        <span class="salonTestimonial__age">30代女性</span>
+                        <span class="salonTestimonial__menu">カット＋カラー</span>
+                    </div>
+                </div>
+                <div class="salonTestimonial__item">
+                    <div class="salonTestimonial__rating">
+                        <span class="salonTestimonial__star salonTestimonial__star_type_active">★</span>
+                        <span class="salonTestimonial__star salonTestimonial__star_type_active">★</span>
+                        <span class="salonTestimonial__star salonTestimonial__star_type_active">★</span>
+                        <span class="salonTestimonial__star salonTestimonial__star_type_active">★</span>
+                        <span class="salonTestimonial__star salonTestimonial__star_type_active">★</span>
+                    </div>
+                    <p class="salonTestimonial__comment">初めて利用しましたが、とても居心地の良い空間で、スタッフの方も親切でした。また利用したいと思います。</p>
+                    <div class="salonTestimonial__info">
+                        <span class="salonTestimonial__age">20代女性</span>
+                        <span class="salonTestimonial__menu">カット</span>
+                    </div>
+                </div>
+                <div class="salonTestimonial__item">
+                    <div class="salonTestimonial__rating">
+                        <span class="salonTestimonial__star salonTestimonial__star_type_active">★</span>
+                        <span class="salonTestimonial__star salonTestimonial__star_type_active">★</span>
+                        <span class="salonTestimonial__star salonTestimonial__star_type_active">★</span>
+                        <span class="salonTestimonial__star salonTestimonial__star_type_active">★</span>
+                        <span class="salonTestimonial__star salonTestimonial__star_type_active">★</span>
+                    </div>
+                    <p class="salonTestimonial__comment">ヘッドスパがとても気持ち良く、リフレッシュできました。髪の毛もツヤツヤになりました。</p>
+                    <div class="salonTestimonial__info">
+                        <span class="salonTestimonial__age">40代女性</span>
+                        <span class="salonTestimonial__menu">ヘッドスパ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="salonSns">
+        <div class="salonSns__inner container">
+            <h2 class="salonSns__title sectionTitle">Instagram</h2>
+            <p class="salonSns__text">最新のスタイルはInstagramで更新中</p>
+            <div class="salonSns__link">
+                <a class="button button_type_primary" href="https://www.instagram.com/salon/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+            </div>
+        </div>
+    </section>
+</main>
+<%- include('../template/_footer', {
+    scripts: []
+}) %>
+

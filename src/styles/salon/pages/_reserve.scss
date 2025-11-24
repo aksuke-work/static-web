@@ -1,0 +1,333 @@
+@use 'sass:math';
+@import '../_variables';
+//////////////////////////////
+// reserve
+//////////////////////////////
+
+.salonReserveHero {
+    padding: var(--section-spacing-md) 0;
+    text-align: center;
+    background: var(--gradient-hero);
+    position: relative;
+
+    @include media(sp) {
+        padding: var(--section-spacing-sm) 0;
+    }
+
+    &__title {
+        font-size: var(--font-size-xxl);
+        font-weight: 900;
+        margin-bottom: var(--spacing-md);
+        @include gradient-text(var(--gradient-text-primary));
+        @extend .fadein;
+
+        @include media(sp) {
+            font-size: var(--font-size-xl);
+        }
+    }
+
+    &__subtitle {
+        font-size: var(--font-size-md);
+        color: var(--color-text-light);
+        @extend .fadein;
+
+        @include media(sp) {
+            font-size: var(--font-size-base);
+        }
+    }
+}
+
+.salonReserveMethod {
+    padding: 6rem 0;
+
+    @include media(sp) {
+        padding: 4rem 0;
+    }
+
+    &__inner {
+    }
+
+    &__title {
+        margin-bottom: 4rem;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+
+        @include media(tab) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include media(sp) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__item {
+        background-color: #fff;
+        border-radius: 1.2rem;
+        padding: 3rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+        @include media(sp) {
+            padding: 2rem;
+        }
+    }
+
+    &__itemTitle {
+        font-size: 2.4rem;
+        font-weight: 700;
+        margin-bottom: 1.6rem;
+
+        @include media(sp) {
+            font-size: 2rem;
+        }
+    }
+
+    &__itemDescription {
+        font-size: 1.6rem;
+        line-height: 1.8;
+        color: #666;
+        margin-bottom: 2rem;
+
+        @include media(sp) {
+            font-size: 1.4rem;
+        }
+    }
+
+    &__itemFeatures {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 2.4rem;
+    }
+
+    &__itemFeature {
+        padding: 0.8rem 0;
+        font-size: 1.4rem;
+        line-height: 1.8;
+        color: #666;
+
+        @include media(sp) {
+            font-size: 1.3rem;
+        }
+
+        &::before {
+            content: '✓';
+            margin-right: 0.8rem;
+            color: #333;
+            font-weight: 700;
+        }
+    }
+
+    &__itemButton {
+        text-align: center;
+    }
+}
+
+.salonReserveForm {
+    padding: var(--section-spacing-md) 0;
+    background: linear-gradient(180deg, var(--color-bg-gray) 0%, var(--color-bg) 100%);
+
+    @include media(sp) {
+        padding: var(--section-spacing-sm) 0;
+    }
+
+    &__inner {
+        max-width: 80rem;
+        margin: 0 auto;
+    }
+
+    &__title {
+        margin-bottom: var(--spacing-2xl);
+        @extend .fadein;
+    }
+
+    &__form {
+        @include glass-morphism(rgba(255, 255, 255, 0.95), blur(20px));
+        border-radius: var(--border-radius-xl);
+        padding: var(--spacing-2xl);
+        @include shadow-3d();
+        @extend .fadein;
+
+        @include media(sp) {
+            padding: var(--spacing-lg);
+        }
+    }
+
+    &__item {
+        margin-bottom: 2.4rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__label {
+        display: block;
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+        color: #333;
+
+        @include media(sp) {
+            font-size: 1.4rem;
+        }
+    }
+
+    &__required {
+        color: #e53935;
+        font-size: 1.2rem;
+        margin-left: 0.4rem;
+    }
+
+    &__input,
+    &__select,
+    &__textarea {
+        width: 100%;
+        padding: var(--spacing-md) var(--spacing-lg);
+        border: var(--border-width-medium) solid var(--color-border);
+        border-radius: var(--border-radius-lg);
+        font-size: var(--font-size-base);
+        font-family: inherit;
+        background: rgba(255, 255, 255, 0.9);
+        transition: all var(--transition-base);
+        @extend .fadein;
+
+        @include media(sp) {
+            font-size: var(--font-size-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+        }
+
+        &:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+
+        &:hover {
+            border-color: var(--color-primary-light);
+        }
+    }
+
+    &__textarea {
+        resize: vertical;
+    }
+
+    &__submit {
+        text-align: center;
+        margin-top: 3rem;
+    }
+}
+
+.salonReservePolicy {
+    padding: 6rem 0;
+
+    @include media(sp) {
+        padding: 4rem 0;
+    }
+
+    &__inner {
+        max-width: 80rem;
+        margin: 0 auto;
+    }
+
+    &__title {
+        margin-bottom: 3rem;
+    }
+
+    &__content {
+        background-color: #fff;
+        border-radius: 1.2rem;
+        padding: 3rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+        @include media(sp) {
+            padding: 2rem;
+        }
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+    }
+
+    &__item {
+        padding: 1.2rem 0;
+        font-size: 1.6rem;
+        line-height: 1.8;
+        color: #666;
+        border-bottom: 1px solid #ddd;
+
+        @include media(sp) {
+            font-size: 1.4rem;
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &::before {
+            content: '・';
+            margin-right: 0.8rem;
+        }
+    }
+}
+
+.salonReserveFaq {
+    padding: 6rem 0;
+    background-color: #f8f8f8;
+
+    @include media(sp) {
+        padding: 4rem 0;
+    }
+
+    &__inner {
+        max-width: 80rem;
+        margin: 0 auto;
+    }
+
+    &__title {
+        margin-bottom: 4rem;
+    }
+
+    &__list {
+        display: grid;
+        gap: 2rem;
+    }
+
+    &__item {
+        background-color: #fff;
+        border-radius: 1.2rem;
+        padding: 2.4rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+        @include media(sp) {
+            padding: 2rem;
+        }
+    }
+
+    &__itemQuestion {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 1.2rem;
+        color: #333;
+
+        @include media(sp) {
+            font-size: 1.6rem;
+        }
+    }
+
+    &__itemAnswer {
+        font-size: 1.6rem;
+        line-height: 1.8;
+        color: #666;
+
+        @include media(sp) {
+            font-size: 1.4rem;
+        }
+    }
+}
+

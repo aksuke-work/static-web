@@ -1,0 +1,50 @@
+/**
+ * 見出しコンポーネント
+ * レベルと配置のバリエーションを持つ見出しコンポーネント
+ */
+
+.uiHeading {
+    margin: 0;
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: var(--line-height-tight);
+
+    // レベル別スタイル
+    &_level_h1 {
+        font-size: var(--font-size-xxl);
+        line-height: 1.2;
+
+        @include media(sp) {
+            font-size: var(--font-size-xl);
+        }
+    }
+
+    &_level_h2 {
+        font-size: var(--font-size-xl);
+        line-height: 1.3;
+
+        @include media(sp) {
+            font-size: var(--font-size-lg);
+        }
+    }
+
+    &_level_h3 {
+        font-size: var(--font-size-lg);
+        line-height: 1.4;
+
+        @include media(sp) {
+            font-size: var(--font-size-md);
+        }
+    }
+
+    // 配置バリエーション
+    &_align_left {
+        text-align: left;
+    }
+
+    &_align_center {
+        text-align: center;
+    }
+}
+

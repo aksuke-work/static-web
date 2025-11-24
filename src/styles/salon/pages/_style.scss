@@ -1,0 +1,72 @@
+@use 'sass:math';
+@import '../_variables';
+//////////////////////////////
+// style (gallery)
+//////////////////////////////
+
+.salonStyleHero {
+    padding: var(--section-spacing-md) 0;
+    text-align: center;
+    background: var(--gradient-hero);
+    position: relative;
+
+    @include media(sp) {
+        padding: var(--section-spacing-sm) 0;
+    }
+
+    &__title {
+        font-size: var(--font-size-xxl);
+        font-weight: 900;
+        margin-bottom: var(--spacing-md);
+        @include gradient-text(var(--gradient-text-primary));
+        @extend .fadein;
+
+        @include media(sp) {
+            font-size: var(--font-size-xl);
+        }
+    }
+
+    &__subtitle {
+        font-size: var(--font-size-md);
+        color: var(--color-text-light);
+        @extend .fadein;
+
+        @include media(sp) {
+            font-size: var(--font-size-base);
+        }
+    }
+}
+
+.salonSns {
+    padding: var(--section-spacing-md) 0;
+    background: linear-gradient(180deg, var(--color-bg-gray) 0%, var(--color-bg) 100%);
+
+    @include media(sp) {
+        padding: var(--section-spacing-sm) 0;
+    }
+
+    &__inner {
+        text-align: center;
+    }
+
+    &__title {
+        margin-bottom: var(--spacing-md);
+        @extend .fadein;
+    }
+
+    &__text {
+        font-size: var(--font-size-md);
+        margin-bottom: var(--spacing-xl);
+        color: var(--color-text-light);
+        @extend .fadein;
+
+        @include media(sp) {
+            font-size: var(--font-size-base);
+        }
+    }
+
+    &__link {
+        @extend .fadein;
+    }
+}
+

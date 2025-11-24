@@ -1,0 +1,265 @@
+/**
+ * コンポーネント名: StaffCard（スタッフカード）
+ *
+ * 説明: 2025年トレンド対応のスタッフカードコンポーネント
+ * 画像ホバーエフェクト、グラデーションボーダー、SNSリンクアニメーションを実装
+ *
+ * 使用例:
+ *   <div class="salonStaff__item">
+ *       <div class="salonStaff__image">...</div>
+ *       <div class="salonStaff__content">...</div>
+ *   </div>
+ */
+
+@import '../_variables';
+
+.salonStaff {
+    &__item {
+        position: relative;
+        display: flex;
+        gap: var(--spacing-xl);
+        background: var(--gradient-card);
+        border-radius: var(--border-radius-xl);
+        padding: var(--spacing-xl);
+        @include shadow-3d();
+        @include glass-morphism(rgba(255, 255, 255, 0.95), blur(20px));
+        border: 2px solid transparent;
+        transition: all var(--transition-base);
+        transform: translateZ(0);
+        will-change: transform, box-shadow;
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+
+        &.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        @include media(tab) {
+            flex-direction: column;
+            gap: var(--spacing-lg);
+            padding: var(--spacing-lg);
+        }
+
+        &:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-2xl);
+            border-image: var(--gradient-primary) 1;
+        }
+    }
+
+    // 画像コンテナ
+    &__image {
+        position: relative;
+        flex-shrink: 0;
+        width: 20rem;
+        height: 20rem;
+        border-radius: var(--border-radius-xl);
+        overflow: hidden;
+        background: var(--gradient-primary);
+        box-shadow: var(--shadow-lg);
+
+        @include media(tab) {
+            width: 100%;
+            height: auto;
+            padding-top: 75%;
+            position: relative;
+        }
+
+        // グラデーションボーダー
+        &::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: var(--border-radius-xl);
+            padding: 3px;
+            background: var(--gradient-primary);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+
+        &Img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.6s ease;
+            filter: brightness(1) saturate(1);
+            will-change: transform;
+
+            @include media(tab) {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+
+        // オーバーレイ
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
+            opacity: 0;
+            transition: opacity var(--transition-base);
+            z-index: 1;
+        }
+    }
+
+    &__item:hover &__image {
+        &::before {
+            opacity: 1;
+        }
+
+        &Img {
+            transform: scale(1.1) rotate(2deg);
+            filter: brightness(1.1) saturate(1.2);
+        }
+
+        &::after {
+            opacity: 1;
+        }
+    }
+
+    // コンテンツ
+    &__content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    // 名前
+    &__name {
+        margin-bottom: var(--spacing-xs);
+        font-size: var(--font-size-xl);
+        font-weight: 900;
+        line-height: var(--line-height-tight);
+        letter-spacing: var(--letter-spacing-tight);
+        background: var(--gradient-text-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+
+        @include media(sp) {
+            font-size: var(--font-size-lg);
+        }
+    }
+
+    // 役職
+    &__position {
+        display: inline-block;
+        padding: 0.4rem 1.2rem;
+        background: var(--gradient-primary);
+        color: #fff;
+        font-size: var(--font-size-sm);
+        font-weight: 700;
+        border-radius: var(--border-radius-full);
+        align-self: flex-start;
+        box-shadow: var(--shadow-sm);
+
+        @include media(sp) {
+            font-size: var(--font-size-xs);
+            padding: 0.3rem 1rem;
+        }
+    }
+
+    // コメント
+    &__comment {
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        color: var(--color-text);
+        flex: 1;
+
+        @include media(sp) {
+            font-size: var(--font-size-sm);
+        }
+    }
+
+    // 得意スタイル
+    &__specialty {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+        font-size: var(--font-size-sm);
+        color: var(--color-text-light);
+        font-weight: 500;
+
+        @include media(sp) {
+            font-size: var(--font-size-xs);
+        }
+
+        &::before {
+            content: '✨';
+            font-size: 1.2em;
+        }
+    }
+
+    // SNSリンク
+    &__sns {
+        display: flex;
+        gap: var(--spacing-sm);
+        margin-top: var(--spacing-sm);
+
+        &Link {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 1.6rem;
+            background: var(--gradient-primary);
+            color: #fff;
+            text-decoration: none;
+            border-radius: var(--border-radius-md);
+            font-size: var(--font-size-sm);
+            font-weight: 700;
+            transition: all var(--transition-base);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+
+            @include media(sp) {
+                padding: 0.6rem 1.2rem;
+                font-size: var(--font-size-xs);
+            }
+
+            // リップルエフェクト
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 0;
+                height: 0;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.3);
+                transform: translate(-50%, -50%);
+                transition: width 0.6s ease, height 0.6s ease;
+            }
+
+            &:hover {
+                background: var(--gradient-cool);
+                transform: translateY(-4px) scale(1.05);
+                box-shadow: var(--shadow-lg);
+
+                &::before {
+                    width: 200px;
+                    height: 200px;
+                }
+            }
+
+            &:active {
+                transform: translateY(-2px) scale(1.02);
+            }
+        }
+    }
+}
+

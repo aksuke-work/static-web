@@ -1,0 +1,64 @@
+/**
+ * 特徴リストコンポーネント
+ * サロンの「選ばれる理由」などに使える特徴リスト
+ */
+
+.uiFeatureList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3.2rem;
+
+    @include media(sp) {
+        grid-template-columns: 1fr;
+        gap: 2.4rem;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        text-align: center;
+    }
+
+    &__icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--color-bg-gray);
+        border-radius: 50%;
+        font-size: 3.2rem;
+
+        @include media(sp) {
+            width: 64px;
+            height: 64px;
+            font-size: 2.4rem;
+        }
+    }
+
+    &__title {
+        font-size: var(--font-size-lg);
+        font-weight: 700;
+        color: var(--color-text);
+        margin: 0;
+        line-height: var(--line-height-tight);
+
+        @include media(sp) {
+            font-size: var(--font-size-md);
+        }
+    }
+
+    &__text {
+        font-size: var(--font-size-base);
+        color: var(--color-text-light);
+        line-height: var(--line-height-normal);
+        margin: 0;
+
+        @include media(sp) {
+            font-size: var(--font-size-sm);
+        }
+    }
+}
+

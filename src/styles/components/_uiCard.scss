@@ -1,0 +1,141 @@
+/**
+ * カードコンポーネント
+ * サービス、スタッフ、お客様の声、ギャラリーなどのカードバリエーション
+ */
+
+.uiCard {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-surface);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+
+    &:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-4px);
+    }
+
+    &__image {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        display: block;
+    }
+
+    &__body {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        flex: 1;
+
+        @include media(sp) {
+            padding: 1.6rem;
+            gap: 1rem;
+        }
+    }
+
+    &__title {
+        font-size: var(--font-size-lg);
+        font-weight: 700;
+        color: var(--color-text);
+        line-height: var(--line-height-tight);
+        margin: 0;
+
+        @include media(sp) {
+            font-size: var(--font-size-md);
+        }
+    }
+
+    &__meta {
+        font-size: var(--font-size-sm);
+        color: var(--color-text-muted);
+        display: flex;
+        gap: 1.2rem;
+        flex-wrap: wrap;
+    }
+
+    &__metaItem {
+        font-size: var(--font-size-sm);
+        color: var(--color-text-muted);
+        margin: 0;
+    }
+
+    &__text {
+        font-size: var(--font-size-base);
+        color: var(--color-text-light);
+        line-height: var(--line-height-normal);
+        margin: 0;
+        flex: 1;
+
+        @include media(sp) {
+            font-size: var(--font-size-sm);
+        }
+    }
+
+    &__price {
+        font-size: var(--font-size-lg);
+        font-weight: 700;
+        color: var(--color-primary);
+        margin-top: auto;
+
+        @include media(sp) {
+            font-size: var(--font-size-md);
+        }
+    }
+
+    // サービスカード（メニュー用）
+    &_type_service {
+        .uiCard__body {
+            padding: 2.4rem;
+
+            @include media(sp) {
+                padding: 1.6rem;
+            }
+        }
+    }
+
+    // スタッフ紹介カード
+    &_type_staff {
+        .uiCard__image {
+            aspect-ratio: 1 / 1;
+        }
+
+        .uiCard__body {
+            text-align: center;
+        }
+    }
+
+    // お客様の声カード
+    &_type_voice {
+        .uiCard__body {
+            padding: 2.4rem;
+
+            @include media(sp) {
+                padding: 1.6rem;
+            }
+        }
+
+        .uiCard__text {
+            font-style: italic;
+        }
+    }
+
+    // ギャラリー画像用カード
+    &_type_gallery {
+        .uiCard__body {
+            padding: 1.2rem;
+
+            @include media(sp) {
+                padding: 0.8rem;
+            }
+        }
+
+        .uiCard__title {
+            font-size: var(--font-size-base);
+        }
+    }
+}
+

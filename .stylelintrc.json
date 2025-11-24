@@ -1,0 +1,10 @@
+{
+    "plugins": ["stylelint-order"],
+    "rules": {
+        "order/properties-alphabetical-order": true,
+        "block-opening-brace-space-before": "always",
+        "declaration-colon-space-after": "always-single-line",
+        "declaration-block-no-duplicate-properties": true
+    }
+}
+

@@ -1,0 +1,335 @@
+/**
+ * コンポーネント名: Gallery（ギャラリー）
+ *
+ * 説明: 2025年トレンド対応のギャラリーコンポーネント
+ * マソンリーレイアウト、遅延読み込み、ライトボックス効果を実装
+ *
+ * 使用例:
+ *   <div class="salonStyleGallery__item">
+ *       <img class="salonStyleGallery__image" src="..." alt="..." loading="lazy" />
+ *   </div>
+ */
+
+@import '../_variables';
+
+.salonStyleGallery {
+    // フィルターボタン
+    &__filter {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+        margin-bottom: var(--spacing-2xl);
+        justify-content: center;
+
+        @include media(sp) {
+            gap: var(--spacing-xs);
+            margin-bottom: var(--spacing-xl);
+        }
+    }
+
+    &__filterButton {
+        position: relative;
+        padding: 1rem 2rem;
+        background: rgba(255, 255, 255, 0.9);
+        border: var(--border-width-medium) solid var(--color-border);
+        border-radius: var(--border-radius-full);
+        font-size: var(--font-size-sm);
+        font-weight: 700;
+        color: var(--color-text-light);
+        cursor: pointer;
+        transition: all var(--transition-base);
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+
+        @include media(sp) {
+            padding: 0.8rem 1.6rem;
+            font-size: var(--font-size-xs);
+        }
+
+        // リップルエフェクト
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+            opacity: 0.2;
+        }
+
+        &:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: var(--shadow-md);
+
+            &::before {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        &_type_active {
+            background: var(--gradient-primary);
+            border-color: transparent;
+            color: #fff;
+            box-shadow: var(--shadow-lg);
+
+            &:hover {
+                transform: translateY(-2px) scale(1.05);
+                box-shadow: var(--shadow-xl);
+            }
+        }
+    }
+
+    // ギャラリーリスト（マソンリーレイアウト対応）
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: var(--spacing-lg);
+        grid-auto-rows: 10px;
+
+        @include media(tab) {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        @include media(sp) {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+        }
+    }
+
+    // ギャラリーアイテム
+    &__item {
+        position: relative;
+        border-radius: var(--border-radius-xl);
+        overflow: hidden;
+        cursor: pointer;
+        transition: all var(--transition-base);
+        transform: translateZ(0);
+        will-change: transform, box-shadow;
+        opacity: 0;
+        transform: scale(0.9);
+
+        &.is-visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        // 遅延読み込み用のプレースホルダー
+        &::before {
+            content: '';
+            display: block;
+            padding-top: 100%;
+            background: var(--gradient-primary);
+            opacity: 0.1;
+        }
+
+        &:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-2xl);
+            z-index: 10;
+        }
+    }
+
+    // 画像
+    &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.6s ease;
+        filter: brightness(1) saturate(1);
+        will-change: transform;
+
+        // 遅延読み込み用
+        &[loading='lazy'] {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+
+            &.loaded {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__item:hover &__image {
+        transform: scale(1.1) rotate(1deg);
+        filter: brightness(1.1) saturate(1.2);
+    }
+
+    // タグ
+    &__tags {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: var(--spacing-md);
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+        display: flex;
+        gap: var(--spacing-xs);
+        flex-wrap: wrap;
+        transform: translateY(100%);
+        transition: transform var(--transition-base);
+        z-index: 2;
+    }
+
+    &__item:hover &__tags {
+        transform: translateY(0);
+    }
+
+    &__tag {
+        padding: 0.4rem 1rem;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: var(--border-radius-full);
+        font-size: var(--font-size-xs);
+        font-weight: 700;
+        color: var(--color-primary);
+        box-shadow: var(--shadow-sm);
+        transition: transform var(--transition-base);
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    // ライトボックス用オーバーレイ
+    &__overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        z-index: 9998;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity var(--transition-base);
+
+        &.is-active {
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+
+    // ライトボックス画像
+    &__lightboxImage {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        max-width: 90vw;
+        max-height: 90vh;
+        object-fit: contain;
+        transform: translate(-50%, -50%) scale(0.8);
+        z-index: 9999;
+        border-radius: var(--border-radius-lg);
+        box-shadow: var(--shadow-2xl);
+        transition: transform var(--transition-base);
+        opacity: 0;
+
+        &.is-active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+    }
+}
+
+// ビフォーアフター
+.salonBeforeAfter {
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+
+        @include media(sp) {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
+    }
+
+    &__item {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-md);
+        background: var(--gradient-card);
+        border-radius: var(--border-radius-xl);
+        padding: var(--spacing-md);
+        @include shadow-3d();
+        @include glass-morphism(rgba(255, 255, 255, 0.95), blur(20px));
+        transition: all var(--transition-base);
+        opacity: 0;
+        transform: translateY(30px);
+
+        &.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        @include media(sp) {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm);
+        }
+    }
+
+    &__before,
+    &__after {
+        position: relative;
+        border-radius: var(--border-radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        transition: transform var(--transition-base);
+
+        &:hover {
+            transform: scale(1.05);
+            z-index: 1;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: filter var(--transition-base);
+    }
+
+    &__before:hover &__image,
+    &__after:hover &__image {
+        filter: brightness(1.1) saturate(1.2);
+    }
+
+    &__label {
+        position: absolute;
+        top: var(--spacing-sm);
+        left: var(--spacing-sm);
+        padding: 0.6rem 1.2rem;
+        background: var(--gradient-primary);
+        color: #fff;
+        border-radius: var(--border-radius-full);
+        font-size: var(--font-size-sm);
+        font-weight: 900;
+        letter-spacing: var(--letter-spacing-wide);
+        box-shadow: var(--shadow-md);
+        z-index: 2;
+    }
+}
+

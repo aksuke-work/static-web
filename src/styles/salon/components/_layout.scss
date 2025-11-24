@@ -1,0 +1,40 @@
+
+//////////////////////////////
+// layout
+//////////////////////////////
+.container{
+    padding-left: 30px;
+    padding-right: 30px;
+    max-width: 1160px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    @include media(nav){
+        // padding-left: 60px;
+        // padding-right: 60px;
+    }
+    @include media(sTab){
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    @include media(){
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+.pcnon{
+    display: none;
+    @include media(){
+        display: block;
+    }
+}
+
+.spnon{
+    display: block;
+    @include media(){
+        display: none;
+    }
+}
+
+

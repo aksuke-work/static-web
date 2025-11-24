@@ -1,0 +1,53 @@
+/**
+ * CTAバンドコンポーネント
+ * 予約導線に使える帯レイアウト
+ */
+
+.uiCtaBand {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+
+    @include media(sp) {
+        padding: var(--spacing-md) 0;
+    }
+
+    &__title {
+        font-size: var(--font-size-xl);
+        font-weight: 700;
+        color: var(--color-bg);
+        margin: 0 0 1.2rem 0;
+        line-height: var(--line-height-tight);
+
+        @include media(sp) {
+            font-size: var(--font-size-lg);
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__text {
+        font-size: var(--font-size-base);
+        color: var(--color-bg);
+        line-height: var(--line-height-normal);
+        margin: 0 0 2.4rem 0;
+        opacity: 0.9;
+
+        @include media(sp) {
+            font-size: var(--font-size-sm);
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        gap: 1.6rem;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        @include media(sp) {
+            gap: 1.2rem;
+        }
+    }
+}
+

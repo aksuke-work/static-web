@@ -1,0 +1,170 @@
+<%- include('../template/_header', {
+    meta: {
+        title: '予約・お問い合わせ',
+        description: 'LINE予約、電話予約、Webフォーム予約をご案内します',
+        siteType: 'website',
+        url: 'reserve/',
+    }
+}) %>
+<div id="page-transition-overlay" class="page-transition-overlay"></div>
+<main class="salonMain salonMain_type_reserve">
+    <section class="salonReserveHero">
+        <div class="salonReserveHero__inner container">
+            <h1 class="salonReserveHero__title">予約・お問い合わせ</h1>
+            <p class="salonReserveHero__subtitle">ご予約方法をご案内します</p>
+        </div>
+    </section>
+
+    <section class="salonReserveMethod">
+        <div class="salonReserveMethod__inner container">
+            <h2 class="salonReserveMethod__title sectionTitle">予約方法</h2>
+            <div class="salonReserveMethod__list">
+                <div class="salonReserveMethod__item">
+                    <h3 class="salonReserveMethod__itemTitle">LINE予約</h3>
+                    <p class="salonReserveMethod__itemDescription">LINE公式アカウントから簡単に予約できます。履歴が残るので、次回の予約もスムーズです。</p>
+                    <ul class="salonReserveMethod__itemFeatures">
+                        <li class="salonReserveMethod__itemFeature">24時間いつでも予約可能</li>
+                        <li class="salonReserveMethod__itemFeature">予約履歴が残る</li>
+                        <li class="salonReserveMethod__itemFeature">キャンペーン情報を受け取れる</li>
+                    </ul>
+                    <div class="salonReserveMethod__itemButton">
+                        <a class="reservationButton reservationButton_type_line" href="https://line.me/R/ti/p/@salon" target="_blank" rel="noopener noreferrer">
+                            <span class="reservationButton__icon">LINE</span>
+                            <span class="reservationButton__text">LINE予約する</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="salonReserveMethod__item">
+                    <h3 class="salonReserveMethod__itemTitle">電話予約</h3>
+                    <p class="salonReserveMethod__itemDescription">お電話で直接ご予約いただけます。ご希望の日時をお伝えください。</p>
+                    <ul class="salonReserveMethod__itemFeatures">
+                        <li class="salonReserveMethod__itemFeature">スタッフが直接対応</li>
+                        <li class="salonReserveMethod__itemFeature">当日の空き状況を確認できる</li>
+                        <li class="salonReserveMethod__itemFeature">質問や相談がしやすい</li>
+                    </ul>
+                    <div class="salonReserveMethod__itemButton">
+                        <a class="reservationButton reservationButton_type_tel" href="tel:00-0000-0000">
+                            <span class="reservationButton__icon">TEL</span>
+                            <span class="reservationButton__text">00-0000-0000</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="salonReserveMethod__item">
+                    <h3 class="salonReserveMethod__itemTitle">Webフォーム予約</h3>
+                    <p class="salonReserveMethod__itemDescription">Webフォームから24時間いつでもご予約いただけます。</p>
+                    <ul class="salonReserveMethod__itemFeatures">
+                        <li class="salonReserveMethod__itemFeature">24時間いつでも予約可能</li>
+                        <li class="salonReserveMethod__itemFeature">詳細な希望を記入できる</li>
+                        <li class="salonReserveMethod__itemFeature">予約確認メールが届く</li>
+                    </ul>
+                    <div class="salonReserveMethod__itemButton">
+                        <a class="reservationButton reservationButton_type_web" href="#form">
+                            <span class="reservationButton__icon">WEB</span>
+                            <span class="reservationButton__text">Webフォームで予約</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="salonReserveForm" id="form">
+        <div class="salonReserveForm__inner container">
+            <h2 class="salonReserveForm__title sectionTitle">Webフォーム予約</h2>
+            <form class="salonReserveForm__form" action="/salon/reserve/confirm/" method="post">
+                <div class="salonReserveForm__item">
+                    <label class="salonReserveForm__label" for="name">お名前 <span class="salonReserveForm__required">必須</span></label>
+                    <input class="salonReserveForm__input" type="text" id="name" name="name" required />
+                </div>
+                <div class="salonReserveForm__item">
+                    <label class="salonReserveForm__label" for="email">メールアドレス <span class="salonReserveForm__required">必須</span></label>
+                    <input class="salonReserveForm__input" type="email" id="email" name="email" required />
+                </div>
+                <div class="salonReserveForm__item">
+                    <label class="salonReserveForm__label" for="tel">電話番号 <span class="salonReserveForm__required">必須</span></label>
+                    <input class="salonReserveForm__input" type="tel" id="tel" name="tel" required />
+                </div>
+                <div class="salonReserveForm__item">
+                    <label class="salonReserveForm__label" for="date">希望日 <span class="salonReserveForm__required">必須</span></label>
+                    <input class="salonReserveForm__input" type="date" id="date" name="date" required />
+                </div>
+                <div class="salonReserveForm__item">
+                    <label class="salonReserveForm__label" for="time">希望時間 <span class="salonReserveForm__required">必須</span></label>
+                    <select class="salonReserveForm__select" id="time" name="time" required>
+                        <option value="">選択してください</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                        <option value="18:00">18:00</option>
+                    </select>
+                </div>
+                <div class="salonReserveForm__item">
+                    <label class="salonReserveForm__label" for="menu">希望メニュー <span class="salonReserveForm__required">必須</span></label>
+                    <select class="salonReserveForm__select" id="menu" name="menu" required>
+                        <option value="">選択してください</option>
+                        <option value="cut">カット</option>
+                        <option value="color">カラー</option>
+                        <option value="perm">パーマ</option>
+                        <option value="treatment">トリートメント</option>
+                        <option value="spa">ヘッドスパ</option>
+                        <option value="cut-color">カット＋カラー</option>
+                    </select>
+                </div>
+                <div class="salonReserveForm__item">
+                    <label class="salonReserveForm__label" for="message">備考・ご要望</label>
+                    <textarea class="salonReserveForm__textarea" id="message" name="message" rows="5"></textarea>
+                </div>
+                <div class="salonReserveForm__submit">
+                    <button class="button button_type_primary" type="submit">予約内容を確認する</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="salonReservePolicy">
+        <div class="salonReservePolicy__inner container">
+            <h2 class="salonReservePolicy__title sectionTitle">キャンセル・変更ポリシー</h2>
+            <div class="salonReservePolicy__content">
+                <ul class="salonReservePolicy__list">
+                    <li class="salonReservePolicy__item">キャンセル・変更は前日までにご連絡ください</li>
+                    <li class="salonReservePolicy__item">当日キャンセルの場合、キャンセル料が発生する場合がございます</li>
+                    <li class="salonReservePolicy__item">遅刻される場合は、事前にご連絡ください</li>
+                    <li class="salonReservePolicy__item">30分以上の遅刻の場合、キャンセルとさせていただく場合がございます</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="salonReserveFaq">
+        <div class="salonReserveFaq__inner container">
+            <h2 class="salonReserveFaq__title sectionTitle">よくある質問</h2>
+            <div class="salonReserveFaq__list">
+                <div class="salonReserveFaq__item">
+                    <h3 class="salonReserveFaq__itemQuestion">初回の持ち物はありますか？</h3>
+                    <p class="salonReserveFaq__itemAnswer">特にございません。タオルやシャンプーなどはすべてご用意しております。</p>
+                </div>
+                <div class="salonReserveFaq__item">
+                    <h3 class="salonReserveFaq__itemQuestion">所要時間はどのくらいですか？</h3>
+                    <p class="salonReserveFaq__itemAnswer">メニューによって異なりますが、カットで60分、カラーで90分程度です。詳しくはメニューページをご確認ください。</p>
+                </div>
+                <div class="salonReserveFaq__item">
+                    <h3 class="salonReserveFaq__itemQuestion">子ども連れでも利用できますか？</h3>
+                    <p class="salonReserveFaq__itemAnswer">はい、キッズスペースをご用意しておりますので、お子様連れでもご利用いただけます。</p>
+                </div>
+                <div class="salonReserveFaq__item">
+                    <h3 class="salonReserveFaq__itemQuestion">男性も利用できますか？</h3>
+                    <p class="salonReserveFaq__itemAnswer">はい、メンズも歓迎です。メンズカットのメニューもご用意しております。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<%- include('../template/_footer', {
+    scripts: []
+}) %>
+

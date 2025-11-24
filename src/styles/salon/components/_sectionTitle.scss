@@ -1,0 +1,213 @@
+/**
+ * コンポーネント名: SectionTitle（セクションタイトル）
+ *
+ * 説明: 2025年トレンド対応のセクションタイトルコンポーネント
+ * グラデーションテキスト、アニメーション、スクロール連動を実装
+ *
+ * 使用例:
+ *   <h2 class="sectionTitle">セクションタイトル</h2>
+ *   <h2 class="sectionTitle sectionTitle_type_gradient">グラデーションタイトル</h2>
+ */
+
+@import '../_variables';
+
+.sectionTitle {
+    font-size: clamp(3.2rem, 5vw + 2rem, 5.6rem);
+    font-weight: 900;
+    font-family: var(--font-family-heading);
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+    position: relative;
+    padding-bottom: var(--spacing-md);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s var(--transition-base), transform 0.8s var(--transition-base);
+    will-change: opacity, transform;
+
+    @include media(sp) {
+        font-size: clamp(2.4rem, 4vw + 1.5rem, 3.2rem);
+        margin-bottom: var(--spacing-xl);
+        padding-bottom: var(--spacing-sm);
+    }
+
+    // 装飾的な要素（ブランドアイデンティティ）- 左側
+    &::before {
+        content: '✦';
+        position: absolute;
+        left: -4rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2.4rem;
+        color: var(--brand-primary);
+        opacity: 0;
+        transition: opacity 0.8s var(--transition-base), transform 0.8s var(--transition-base);
+        z-index: 1;
+
+        @include media(sp) {
+            display: none;
+        }
+    }
+
+    // スクロール連動で表示
+    &.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        
+        &::before {
+            opacity: 1;
+            transform: translateY(-50%) rotate(360deg);
+        }
+    }
+
+    // アンダーライン（アニメーション付き・より太く長く）
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%) scaleX(0);
+        width: 12rem;
+        height: 0.6rem;
+        background: var(--gradient-primary);
+        border-radius: var(--border-radius-full);
+        transition: transform 0.8s var(--transition-base);
+        transform-origin: center;
+        z-index: 1;
+
+        @include media(sp) {
+            width: 8rem;
+            height: 0.4rem;
+        }
+    }
+
+    &.is-visible::after {
+        transform: translateX(-50%) scaleX(1);
+    }
+
+    // グラデーションテキスト
+    &_type_gradient {
+        @include gradient-text(var(--gradient-text-primary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    // アクセントグラデーション
+    &_type_accent {
+        @include gradient-text(var(--gradient-text-accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    // 左寄せ
+    &_type_left {
+        text-align: left;
+
+        &::after {
+            left: 0;
+            transform: translateX(0) scaleX(0);
+            transform-origin: left;
+        }
+
+        &.is-visible::after {
+            transform: translateX(0) scaleX(1);
+        }
+    }
+
+    // 右寄せ
+    &_type_right {
+        text-align: right;
+
+        &::after {
+            left: auto;
+            right: 0;
+            transform: translateX(0) scaleX(0);
+            transform-origin: right;
+        }
+
+        &.is-visible::after {
+            transform: translateX(0) scaleX(1);
+        }
+    }
+
+    // 大きなタイトル
+    &_size_large {
+        font-size: var(--font-size-xxl);
+        margin-bottom: var(--spacing-3xl);
+
+        @include media(sp) {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+    }
+
+    // 小さなタイトル
+    &_size_small {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--spacing-lg);
+
+        @include media(sp) {
+            font-size: var(--font-size-md);
+            margin-bottom: var(--spacing-md);
+        }
+    }
+
+    // 装飾付きタイトル
+    &_type_decorated {
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 4rem;
+            height: 0.2rem;
+            background: var(--gradient-primary);
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: opacity 0.8s var(--transition-base), transform 0.8s var(--transition-base);
+
+            @include media(sp) {
+                display: none;
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 4rem;
+            height: 0.2rem;
+            background: var(--gradient-primary);
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: opacity 0.8s var(--transition-base), transform 0.8s var(--transition-base);
+
+            @include media(sp) {
+                display: none;
+            }
+        }
+
+        &.is-visible {
+            &::before,
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+
+    // サブタイトル付き
+    &__subtitle {
+        display: block;
+        font-size: var(--font-size-sm);
+        font-weight: 500;
+        color: var(--color-text-light);
+        margin-top: var(--spacing-xs);
+        letter-spacing: var(--letter-spacing-wide);
+        text-transform: uppercase;
+    }
+}
+

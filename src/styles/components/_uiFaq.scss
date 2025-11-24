@@ -1,0 +1,145 @@
+/**
+ * FAQコンポーネント
+ * アコーディオン形式のFAQ（見た目のみ、JSは別途実装）
+ */
+
+.uiFaq {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    padding: 2.4rem 0;
+
+    @include media(sp) {
+        gap: 1.2rem;
+        padding: 1.6rem 0;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        padding-bottom: 1.6rem;
+        border-bottom: 1px solid var(--color-border);
+
+        &:last-child {
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        @include media(sp) {
+            gap: 1rem;
+            padding-bottom: 1.2rem;
+        }
+    }
+
+    &__question {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.2rem;
+        font-size: var(--font-size-md);
+        font-weight: 700;
+        color: var(--color-text);
+        line-height: var(--line-height-normal);
+        cursor: pointer;
+        position: relative;
+        padding-right: 3rem;
+
+        @include media(sp) {
+            font-size: var(--font-size-base);
+            padding-right: 2.4rem;
+        }
+
+        &::before {
+            content: 'Q';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background-color: var(--color-primary);
+            color: var(--color-bg);
+            border-radius: 50%;
+            font-size: var(--font-size-sm);
+            font-weight: 700;
+            flex-shrink: 0;
+
+            @include media(sp) {
+                width: 28px;
+                height: 28px;
+                font-size: var(--font-size-xs);
+            }
+        }
+
+        &::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: var(--font-size-xl);
+            font-weight: 300;
+            color: var(--color-text-muted);
+            transition: transform 0.3s ease;
+        }
+
+        &:hover {
+            color: var(--color-primary);
+        }
+
+        &.is-active {
+            color: var(--color-primary);
+
+            &::after {
+                content: '−';
+                transform: translateY(-50%) rotate(0deg);
+            }
+        }
+    }
+
+    &__item {
+        &.is-open {
+            .uiFaq__answer {
+                display: block;
+            }
+        }
+    }
+
+    &__answer {
+        padding-left: 4.4rem;
+        font-size: var(--font-size-base);
+        color: var(--color-text-light);
+        line-height: var(--line-height-normal);
+        display: none;
+
+        @include media(sp) {
+            padding-left: 3.6rem;
+            font-size: var(--font-size-sm);
+        }
+
+        &::before {
+            content: 'A';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background-color: var(--color-accent);
+            color: var(--color-bg);
+            border-radius: 50%;
+            font-size: var(--font-size-sm);
+            font-weight: 700;
+            margin-right: 1.2rem;
+            vertical-align: middle;
+
+            @include media(sp) {
+                width: 28px;
+                height: 28px;
+                font-size: var(--font-size-xs);
+                margin-right: 0.8rem;
+            }
+        }
+    }
+}
+

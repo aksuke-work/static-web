@@ -1,0 +1,36 @@
+<%- include('./template/_header', {
+    meta: {
+        title: '',
+        description: '',
+        'siteType': '',
+        url: '',
+    }
+}) -%>
+<div id="page-transition-overlay" class="page-transition-overlay"></div>
+<main class="main top">
+    <section class="topMv">
+        <div class="topMv__inner">
+        </div>
+    </section>
+    <div class="topMvNews">
+        <div class="topMvNews__container container">
+            <article class="topMvNews__article">
+                <a class="topMvNews__articleInner" href="./news/single/">
+                    <div class="topMvNews__articleInfo">
+                        <time class="topMvNews__articleInfoDate" datetime="2025-00-00">2025.00.00</time>
+                        <div class="topMvNews__articleInfoNew">NEW</div>
+                        <p class="topMvNews__articleInfoCategory">カテゴリー名</p>
+                    </div>
+                    <h2 class="topMvNews__articleTitle">最新情報のタイトルが入ります最新情報のタイトルが入ります最新情報のタイトルが入ります最新情報のタイトルが入ります</h2>
+                </a>
+            </article>
+        </div>
+    </div>
+    <section class="topBrands">
+        <div class="topBrands__container container">
+        </div>
+    </section>
+</main>
+<%- include('./template/_footer', {
+    scripts: ['./js/index.js']
+}) %>

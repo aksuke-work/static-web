@@ -1,0 +1,55 @@
+//////////////////////////////
+// title
+//////////////////////////////
+.lineTtl {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+
+  @include media() {
+    font-size: 1.2rem;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    width: 55px;
+    height: 1px;
+    background-color: #232323;
+    position: relative;
+    top: 1px;
+    margin-left: 7px;
+
+    @include media() {
+      width: 50px;
+    }
+  }
+}
+
+.borderTtl {
+  font-size: 2.4rem;
+  font-weight: 500;
+
+  @include media() {
+    font-size: 2rem;
+    line-height: lh(40, 70);
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: repeating-linear-gradient(
+      to right,
+      #8cd0df 0 33.333%,
+      #7fc697 33.333% 66.666%,
+      #d7a476 66.666% 100%
+    );
+    margin-top: 10px;
+
+    @include media() {
+      margin-top: 10px;
+    }
+  }
+}

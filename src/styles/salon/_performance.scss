@@ -1,0 +1,80 @@
+/**
+ * パフォーマンス最適化
+ * アニメーション最適化、画像遅延読み込み、60fps維持のためのスタイル
+ */
+
+// ============================================
+// GPU アクセラレーション
+// ============================================
+.gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+// ============================================
+// 画像遅延読み込み
+// ============================================
+img[loading='lazy'] {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    &.loaded {
+        opacity: 1;
+    }
+}
+
+// プレースホルダー背景
+.image-placeholder {
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    background-size: 200% 200%;
+    animation: shimmer 2s ease infinite;
+}
+
+// ============================================
+// アニメーション最適化
+// ============================================
+// will-change の適切な使用
+.animate-on-scroll {
+    will-change: opacity, transform;
+
+    &.is-visible {
+        will-change: auto;
+    }
+}
+
+// transform と opacity のみを使用（60fps維持）
+.smooth-animation {
+    transition: transform var(--transition-base), opacity var(--transition-base);
+    transform: translateZ(0);
+}
+
+// ============================================
+// レンダリング最適化
+// ============================================
+// コンテンツの重複描画を防ぐ
+.optimize-rendering {
+    contain: layout style paint;
+}
+
+// スクロールパフォーマンス向上
+.smooth-scroll {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+// ============================================
+// メディアクエリ最適化
+// ============================================
+// メディアクエリの範囲を明確にする
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+

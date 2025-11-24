@@ -1,0 +1,74 @@
+/**
+ * ステップリストコンポーネント
+ * ご利用の流れなど、番号付きのステップリスト
+ */
+
+.uiStepList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2.4rem;
+
+    @include media(sp) {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        position: relative;
+        padding-top: 4rem;
+
+        @include media(sp) {
+            padding-top: 3.2rem;
+        }
+    }
+
+    &__number {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--color-primary);
+        color: var(--color-bg);
+        border-radius: 50%;
+        font-size: var(--font-size-lg);
+        font-weight: 700;
+        line-height: 1;
+
+        @include media(sp) {
+            width: 40px;
+            height: 40px;
+            font-size: var(--font-size-md);
+        }
+    }
+
+    &__title {
+        font-size: var(--font-size-lg);
+        font-weight: 700;
+        color: var(--color-text);
+        margin: 0;
+        line-height: var(--line-height-tight);
+
+        @include media(sp) {
+            font-size: var(--font-size-md);
+        }
+    }
+
+    &__text {
+        font-size: var(--font-size-base);
+        color: var(--color-text-light);
+        line-height: var(--line-height-normal);
+        margin: 0;
+
+        @include media(sp) {
+            font-size: var(--font-size-sm);
+        }
+    }
+}
+

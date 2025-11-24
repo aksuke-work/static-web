@@ -1,0 +1,90 @@
+@use 'sass:math';
+
+/**
+ * Salon専用変数定義
+ * 2025年トレンド対応のデザインシステム変数
+ */
+
+// カラーパレット（Salon専用）
+$salon-primary: #2C3E50;
+$salon-primary-light: #34495E;
+$salon-primary-dark: #1A252F;
+$salon-secondary: #E8B4B8;
+$salon-accent: #F5A623;
+$salon-accent-gradient: linear-gradient(135deg, #F5A623 0%, #FFB84D 100%);
+
+// グラデーション
+$gradient-hero: linear-gradient(135deg, rgba(44, 62, 80, 0.9) 0%, rgba(118, 75, 162, 0.8) 100%);
+$gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+$gradient-text-primary: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+$gradient-text-accent: linear-gradient(135deg, #F5A623 0%, #FFB84D 100%);
+
+// スペーシング（Salon専用）
+$salon-section-padding: (
+    sm: 6rem,
+    md: 8rem,
+    lg: 12rem,
+    xl: 16rem
+);
+
+// アニメーション設定
+$animation-duration-fast: 0.15s;
+$animation-duration-base: 0.3s;
+$animation-duration-slow: 0.5s;
+$animation-easing: cubic-bezier(0.4, 0, 0.2, 1);
+$animation-easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+// ブレークポイント（既存の$responsiveマップを使用）
+
+// Mixin: グラデーションテキスト
+@mixin gradient-text($gradient: var(--gradient-text)) {
+    background: $gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+// Mixin: グラスモーフィズム
+@mixin glass-morphism($bg: var(--glass-bg), $blur: var(--glass-blur)) {
+    background: $bg;
+    backdrop-filter: $blur;
+    -webkit-backdrop-filter: $blur;
+    border: 1px solid var(--glass-border);
+}
+
+// Mixin: 3Dシャドウ
+@mixin shadow-3d($color: rgba(0, 0, 0, 0.1)) {
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.1),
+        0 1px 8px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+// Mixin: ホバーリフト
+@mixin hover-lift($distance: -8px, $shadow: var(--shadow-xl)) {
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    
+    &:hover {
+        transform: translateY($distance);
+        box-shadow: $shadow;
+    }
+}
+
+// Mixin: スクロールフェードイン
+@mixin scroll-fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s var(--transition-base), transform 0.8s var(--transition-base);
+    
+    &.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Mixin: パララックス
+@mixin parallax($speed: 0.5) {
+    transform: translateZ(0);
+    will-change: transform;
+}
+

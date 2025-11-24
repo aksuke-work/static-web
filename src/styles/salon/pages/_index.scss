@@ -1,0 +1,705 @@
+@use 'sass:math';
+@import '../_variables';
+//////////////////////////////
+// index (TOP)
+//////////////////////////////
+
+.salonMain {
+    &_type_top {
+        padding-top: 0;
+    }
+}
+
+// ヘッダーの高さ分のパディングを追加（TOPページ以外）
+.salonMain:not(.salonMain_type_top) {
+    padding-top: 80px;
+
+    @include media(sp) {
+        padding-top: 60px;
+    }
+}
+
+// ヒーローセクション（フルスクリーン）
+.salonHero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    @include parallax();
+
+    @include media(sp) {
+        min-height: 90vh;
+    }
+
+    // パーティクル風の装飾要素
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 50% 20%, rgba(102, 126, 234, 0.2) 0%, transparent 40%);
+        animation: float 20s ease-in-out infinite;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+
+    &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+
+        &Img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.15);
+            filter: brightness(0.9) contrast(1.1);
+            transition: transform 0.1s ease-out, filter 0.1s ease-out;
+            will-change: transform, filter;
+        }
+    }
+
+    // オーバーレイ（洗練されたグラデーション）
+    &__bg::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            135deg,
+            rgba(26, 31, 46, 0.85) 0%,
+            rgba(102, 126, 234, 0.75) 50%,
+            rgba(118, 75, 162, 0.8) 100%
+        );
+        z-index: 1;
+    }
+
+    &__inner {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+    }
+
+    &__content {
+        text-align: center;
+        color: #fff;
+        padding: var(--spacing-3xl) var(--spacing-lg);
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s var(--transition-base) 0.3s forwards;
+
+        @include media(sp) {
+            padding: var(--spacing-2xl) var(--spacing-md);
+        }
+    }
+
+    &__catchcopy {
+        font-size: clamp(4.8rem, 7vw + 3.5rem, 8rem);
+        font-weight: 900;
+        line-height: 1.1;
+        letter-spacing: -0.04em;
+        margin-bottom: var(--spacing-md);
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.9) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+
+        @include media(sp) {
+            font-size: clamp(3.2rem, 5vw + 2rem, 4.8rem);
+        }
+    }
+
+    &__subtitle {
+        font-size: var(--font-size-lg);
+        line-height: var(--line-height-relaxed);
+        margin-bottom: var(--spacing-xl);
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        opacity: 0.95;
+
+        @include media(sp) {
+            font-size: var(--font-size-base);
+            margin-bottom: var(--spacing-lg);
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        gap: var(--spacing-md);
+        justify-content: center;
+        flex-wrap: wrap;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1s var(--transition-base) 0.6s forwards;
+
+        @include media(sp) {
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+    }
+}
+
+.salonConcept {
+    // 前のセクションとオーバーラップ
+    margin-top: -10rem;
+    padding: calc(var(--section-spacing-xl) + 10rem) 0 var(--section-spacing-xl);
+    background: linear-gradient(180deg, var(--color-bg-gray) 0%, var(--color-bg) 100%);
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+
+    @include media(sp) {
+        margin-top: -5rem;
+        padding: calc(var(--section-spacing-md) + 5rem) 0 var(--section-spacing-md);
+    }
+
+    // 斜めのセクション分割
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10rem;
+        background: linear-gradient(135deg, var(--color-bg-gray) 0%, transparent 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+        z-index: 0;
+
+        @include media(sp) {
+            height: 5rem;
+            clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+        }
+    }
+
+    // 装飾要素
+    &::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 40rem;
+        height: 40rem;
+        background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+        border-radius: 50%;
+        z-index: 0;
+    }
+
+    &__inner {
+        position: relative;
+        z-index: 1;
+    }
+
+    &__title {
+        @extend .fadein;
+    }
+
+    &__content {
+        max-width: 90rem;
+        margin: 0 auto;
+    }
+
+    &__text {
+        font-size: var(--font-size-md);
+        line-height: var(--line-height-relaxed);
+        margin-bottom: var(--spacing-lg);
+        text-align: center;
+        color: var(--color-text);
+        @extend .fadein;
+
+        @include media(sp) {
+            font-size: var(--font-size-base);
+            margin-bottom: var(--spacing-md);
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.salonPopularMenu {
+    padding: var(--section-spacing-xl) 0;
+    background: var(--color-bg);
+
+    @include media(sp) {
+        padding: var(--section-spacing-md) 0;
+    }
+
+    &__inner {
+    }
+
+    &__title {
+        @extend .fadein;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-2xl);
+        margin-bottom: var(--spacing-3xl);
+
+        // より大胆な非対称配置（モダンなデザイントレンド）
+        & > :nth-child(1) {
+            grid-column: span 1;
+            transform: rotate(-1deg);
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+            @include media(tab) {
+                transform: none;
+            }
+
+            @include media(sp) {
+                transform: none;
+            }
+        }
+
+        & > :nth-child(2) {
+            grid-column: span 1;
+            margin-top: var(--spacing-2xl);
+            transform: rotate(1deg);
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+            @include media(tab) {
+                margin-top: 0;
+                transform: none;
+            }
+
+            @include media(sp) {
+                margin-top: 0;
+                transform: none;
+            }
+        }
+
+        & > :nth-child(3) {
+            grid-column: span 1;
+            transform: rotate(-0.5deg);
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+            @include media(tab) {
+                transform: none;
+            }
+
+            @include media(sp) {
+                transform: none;
+            }
+        }
+
+        // ホバー時に元に戻る
+        & > :nth-child(n):hover {
+            transform: rotate(0deg) scale(1.05) !important;
+        }
+
+        @include media(tab) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        @include media(sp) {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
+    }
+
+    &__button {
+        text-align: center;
+        @extend .fadein;
+    }
+}
+
+.salonFirstTime {
+    // 前のセクションとオーバーラップ
+    margin-top: -8rem;
+    padding: calc(var(--section-spacing-xl) + 8rem) 0 var(--section-spacing-xl);
+    background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-gray) 100%);
+    position: relative;
+    z-index: 1;
+
+    @include media(sp) {
+        margin-top: -4rem;
+        padding: calc(var(--section-spacing-md) + 4rem) 0 var(--section-spacing-md);
+    }
+
+    // 斜めのセクション分割
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 8rem;
+        background: linear-gradient(135deg, var(--color-bg) 0%, transparent 100%);
+        clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
+        z-index: 0;
+
+        @include media(sp) {
+            height: 4rem;
+            clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 100%);
+        }
+    }
+
+    &__inner {
+        position: relative;
+        z-index: 1;
+    }
+
+    &__title {
+        @extend .fadein;
+    }
+
+    &__flow {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--spacing-xl);
+
+        @include media(tab) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        @include media(sp) {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
+    }
+
+    &__flowItem {
+        text-align: center;
+        @extend .fadein;
+        transition: transform var(--transition-base);
+
+        &:hover {
+            transform: translateY(-8px);
+        }
+    }
+
+    &__flowNumber {
+        width: 8rem;
+        height: 8rem;
+        border-radius: 50%;
+        background: var(--gradient-primary);
+        color: #fff;
+        font-size: var(--font-size-xl);
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto var(--spacing-md);
+        box-shadow: var(--shadow-lg);
+        transition: all var(--transition-base);
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            opacity: 0.3;
+            filter: blur(10px);
+            z-index: -1;
+        }
+
+        @include media(sp) {
+            width: 6rem;
+            height: 6rem;
+            font-size: var(--font-size-lg);
+        }
+
+        .salonFirstTime__flowItem:hover & {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: var(--shadow-xl);
+        }
+    }
+
+    &__flowTitle {
+        font-size: var(--font-size-lg);
+        font-weight: 900;
+        margin-bottom: var(--spacing-sm);
+        background: var(--gradient-text-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+
+        @include media(sp) {
+            font-size: var(--font-size-md);
+        }
+    }
+
+    &__flowText {
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        color: var(--color-text-light);
+
+        @include media(sp) {
+            font-size: var(--font-size-sm);
+        }
+    }
+}
+
+.salonNews {
+    // 前のセクションとオーバーラップ
+    margin-top: -6rem;
+    padding: calc(var(--section-spacing-xl) + 6rem) 0 var(--section-spacing-xl);
+    background: var(--color-bg);
+    position: relative;
+    z-index: 2;
+
+    @include media(sp) {
+        margin-top: -3rem;
+        padding: calc(var(--section-spacing-md) + 3rem) 0 var(--section-spacing-md);
+    }
+
+    // 斜めのセクション分割
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 6rem;
+        background: linear-gradient(135deg, var(--color-bg-gray) 0%, transparent 100%);
+        clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
+        z-index: 0;
+
+        @include media(sp) {
+            height: 3rem;
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        }
+    }
+
+    &__inner {
+        position: relative;
+        z-index: 1;
+    }
+
+    &__title {
+        @extend .fadein;
+    }
+
+    &__list {
+        max-width: 90rem;
+        margin: 0 auto var(--spacing-2xl);
+    }
+
+    &__item {
+        border-bottom: 1px solid var(--color-border-light);
+        transition: background-color var(--transition-base);
+        @extend .fadein;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &:hover {
+            background-color: var(--color-bg-gray);
+        }
+    }
+
+    &__article {
+        padding: var(--spacing-lg) 0;
+        display: flex;
+        align-items: flex-start;
+        gap: var(--spacing-lg);
+        transition: transform var(--transition-base);
+
+        @include media(sp) {
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-md) 0;
+        }
+
+        &:hover {
+            transform: translateX(8px);
+
+            @include media(sp) {
+                transform: none;
+            }
+        }
+    }
+
+    &__date {
+        font-size: var(--font-size-sm);
+        color: var(--color-text-light);
+        white-space: nowrap;
+        font-weight: 500;
+    }
+
+    &__category {
+        display: inline-block;
+        padding: 0.4rem 1.2rem;
+        background: var(--gradient-primary);
+        color: #fff;
+        font-size: var(--font-size-xs);
+        font-weight: 700;
+        border-radius: var(--border-radius-full);
+        white-space: nowrap;
+        box-shadow: var(--shadow-sm);
+    }
+
+    &__articleTitle {
+        font-size: var(--font-size-base);
+        font-weight: 700;
+        flex: 1;
+        line-height: var(--line-height-relaxed);
+
+        @include media(sp) {
+            font-size: var(--font-size-sm);
+        }
+
+        &Link {
+            color: inherit;
+            text-decoration: none;
+            transition: color var(--transition-base);
+            border-radius: var(--border-radius-sm);
+
+            &:hover {
+                color: var(--color-primary);
+                background: var(--gradient-text-primary);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            // フォーカス状態（アクセシビリティ向上）
+            &:focus-visible {
+                outline: 3px solid var(--color-accent);
+                outline-offset: 2px;
+            }
+        }
+    }
+
+    &__button {
+        text-align: center;
+        @extend .fadein;
+    }
+}
+
+.salonAccess {
+    // 前のセクションとオーバーラップ
+    margin-top: -5rem;
+    padding: calc(var(--section-spacing-xl) + 5rem) 0 var(--section-spacing-xl);
+    background: linear-gradient(180deg, var(--color-bg-gray) 0%, var(--color-bg) 100%);
+    position: relative;
+    z-index: 1;
+
+    @include media(sp) {
+        margin-top: -3rem;
+        padding: calc(var(--section-spacing-md) + 3rem) 0 var(--section-spacing-md);
+    }
+
+    // 斜めのセクション分割
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5rem;
+        background: linear-gradient(135deg, var(--color-bg) 0%, transparent 100%);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        z-index: 0;
+
+        @include media(sp) {
+            height: 3rem;
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+        }
+    }
+
+    &__inner {
+        position: relative;
+        z-index: 1;
+    }
+
+    &__title {
+        @extend .fadein;
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-2xl);
+
+        @include media(sp) {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
+    }
+
+    &__map {
+        border-radius: var(--border-radius-xl);
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        transition: transform var(--transition-base);
+        @extend .fadein;
+
+        &:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-xl);
+        }
+
+        &Image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    }
+
+    &__info {
+        @extend .fadein;
+    }
+
+    &__infoItem {
+        margin-bottom: var(--spacing-lg);
+        padding-bottom: var(--spacing-md);
+        border-bottom: 1px solid var(--color-border-light);
+
+        &:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+    }
+
+    &__infoDt {
+        font-size: var(--font-size-sm);
+        font-weight: 700;
+        margin-bottom: var(--spacing-xs);
+        color: var(--color-text-light);
+        text-transform: uppercase;
+        letter-spacing: var(--letter-spacing-wide);
+    }
+
+    &__infoDd {
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        color: var(--color-text);
+    }
+
+    &__button {
+        margin-top: var(--spacing-lg);
+    }
+}

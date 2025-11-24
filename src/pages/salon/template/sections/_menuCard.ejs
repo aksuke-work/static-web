@@ -1,0 +1,36 @@
+<% 
+    const menuCardData = typeof menuCard !== 'undefined' ? menuCard : {
+        name: 'メニュー名',
+        description: 'メニューの説明が入ります',
+        time: '60分',
+        price: '5,000円',
+        image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a14e?auto=format&w=800&h=600&fit=crop&q=80',
+        link: '/salon/menu/'
+    };
+%>
+<div class="menuCard">
+    <% if (menuCardData.image) { %>
+        <div class="menuCard__image">
+            <a class="menuCard__imageLink" href="<%= menuCardData.link %>">
+                <img class="menuCard__imageImg" src="<%= menuCardData.image %>" alt="<%= menuCardData.name %>" loading="lazy" onerror="this.onerror=null; this.src='https://picsum.photos/800/600?random=' + Math.floor(Math.random() * 1000);" />
+            </a>
+        </div>
+    <% } %>
+    <div class="menuCard__content">
+        <h3 class="menuCard__name">
+            <a class="menuCard__nameLink" href="<%= menuCardData.link %>"><%= menuCardData.name %></a>
+        </h3>
+        <% if (menuCardData.description) { %>
+            <p class="menuCard__description"><%= menuCardData.description %></p>
+        <% } %>
+        <div class="menuCard__info">
+            <% if (menuCardData.time) { %>
+                <span class="menuCard__time"><%= menuCardData.time %></span>
+            <% } %>
+            <% if (menuCardData.price) { %>
+                <span class="menuCard__price"><%= menuCardData.price %><small class="menuCard__priceUnit">（税込）</small></span>
+            <% } %>
+        </div>
+    </div>
+</div>
+

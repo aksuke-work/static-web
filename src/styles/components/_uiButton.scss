@@ -1,0 +1,88 @@
+/**
+ * ボタンコンポーネント
+ * プライマリ、セカンダリ、アウトラインなどのボタンバリエーション
+ */
+
+.uiButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem 2.4rem;
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+    font-family: var(--font-family-base);
+    white-space: nowrap;
+
+    @include media(sp) {
+        padding: 1rem 2rem;
+        font-size: var(--font-size-sm);
+    }
+
+    // タイプ別スタイル
+    &_type_primary {
+        background-color: var(--color-primary);
+        color: var(--color-bg);
+
+        &:hover {
+            background-color: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+    }
+
+    &_type_secondary {
+        background-color: var(--color-accent);
+        color: var(--color-bg);
+
+        &:hover {
+            background-color: var(--color-accent-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+    }
+
+    &_type_outline {
+        background-color: transparent;
+        color: var(--color-primary);
+        border-color: var(--color-primary);
+
+        &:hover {
+            background-color: var(--color-primary);
+            color: var(--color-bg);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+    }
+
+    // サイズバリエーション
+    &_size_lg {
+        padding: 1.6rem 3.2rem;
+        font-size: var(--font-size-md);
+
+        @include media(sp) {
+            padding: 1.4rem 2.8rem;
+            font-size: var(--font-size-base);
+        }
+    }
+
+    &_size_md {
+        padding: 1.2rem 2.4rem;
+        font-size: var(--font-size-base);
+    }
+
+    &_size_sm {
+        padding: 0.8rem 1.6rem;
+        font-size: var(--font-size-sm);
+
+        @include media(sp) {
+            padding: 0.6rem 1.2rem;
+            font-size: var(--font-size-xs);
+        }
+    }
+}
+

@@ -1,0 +1,6 @@
+{
+  "$schema": "https://markuplint.dev/schemas/markuplintrc.json",
+  "rules": {
+    "class-naming": false
+  }
+}
