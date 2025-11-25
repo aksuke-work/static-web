@@ -8,10 +8,10 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 var(--spacing-lg);
 
     @media screen and (max-width: 768px) {
-        padding: 0 1.6rem;
+        padding: 0 var(--spacing-md);
     }
 }
 
@@ -31,10 +31,10 @@
     }
 
     &__header {
-        margin-bottom: 3.2rem;
+        margin-bottom: var(--spacing-xl);
 
         @media screen and (max-width: 768px) {
-            margin-bottom: 2.4rem;
+            margin-bottom: var(--spacing-lg);
         }
     }
 

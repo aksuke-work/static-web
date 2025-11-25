@@ -5,7 +5,10 @@
    Menu Page - 2025 Modern Luxury Design
    ========================================================================== */
 
-// Hero Section
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
 .salonMenuHero {
     position: relative;
     height: 50vh;
@@ -18,6 +21,7 @@
 
     @include media(sp) {
         min-height: 300px;
+        height: 40vh;
     }
 
     &__bg {
@@ -50,149 +54,496 @@
         position: relative;
         z-index: 2;
         text-align: center;
+        padding: 0 var(--spacing-lg);
+        max-width: $container-width-lg;
+        margin: 0 auto;
+
+        @include media(sp) {
+            padding: 0 var(--spacing-md);
+        }
     }
 
     &__title {
         font-family: $font-serif;
-        font-size: $font-size-xxl;
+        font-size: clamp(4rem, 6vw + 2rem, 6.4rem);
         font-weight: 300;
         letter-spacing: $letter-spacing-widest;
-        text-transform: uppercase;
+        margin-bottom: var(--spacing-md);
 
         @include media(sp) {
-            font-size: $font-size-xl;
+            font-size: clamp(3.2rem, 8vw, 4.8rem);
+        }
+    }
+
+    &__subtitle {
+        font-size: var(--font-size-md);
+        font-weight: 300;
+        letter-spacing: $letter-spacing-wide;
+        opacity: 0.9;
+
+        @include media(sp) {
+            font-size: var(--font-size-base);
         }
     }
 }
 
-// Menu Sections
-.salonMenuList,
-.salonMenuSet {
-    padding: map-get($salon-section-padding, xl) 0;
+/* ==========================================================================
+   Menu List Sections
+   ========================================================================== */
+
+.salonMenuList {
+    padding: var(--section-spacing-lg) 0;
+    background-color: $color-bg;
 
     @include media(sp) {
-        padding: map-get($salon-section-padding, md) 0;
+        padding: var(--section-spacing-md) 0;
     }
 
     &:nth-child(even) {
         background-color: $color-secondary;
     }
-}
 
-.salonMenuList__inner,
-.salonMenuSet__inner {
-    max-width: $container-width-lg;
-    margin: 0 auto;
-    padding: 0 $spacing-lg;
+    &__inner {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-xl);
 
-    @include media(sp) {
-        padding: 0 $spacing-md;
+        @include media(sp) {
+            padding: 0 var(--spacing-md);
+        }
     }
-}
 
-.salonMenuList__title,
-.salonMenuSet__title {
-    @extend .uiHeading_level_h2;
-}
-
-// Menu Items
-.salonMenuList__items {
-    display: grid;
-    gap: $spacing-xl;
-}
-
-.salonMenuList__item {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: $spacing-md;
-    padding-bottom: $spacing-md;
-    border-bottom: 1px solid rgba($color-primary, 0.1);
-
-    @include media(sp) {
-        grid-template-columns: 1fr;
+    &__title {
+        @extend .uiHeading_level_h2;
     }
-}
 
-.salonMenuList__itemName {
-    font-family: $font-serif;
-    font-size: $font-size-lg;
-    font-weight: 400;
-    color: $color-primary;
-    margin-bottom: $spacing-xs;
-}
-
-.salonMenuList__itemDescription {
-    font-size: $font-size-sm;
-    line-height: $line-height-relaxed;
-    color: $color-text-light;
-}
-
-.salonMenuList__itemPrice {
-    font-family: $font-serif;
-    font-size: $font-size-xl;
-    font-weight: 500;
-    color: $color-accent;
-    white-space: nowrap;
-
-    @include media(sp) {
-        text-align: right;
+    &__items {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xl);
     }
-}
 
-// Set Menu Cards
-.salonMenuSet__list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: $spacing-xl;
+    &__item {
+        padding: var(--spacing-lg);
+        background: rgba($color-bg, 0.5);
+        border-radius: $border-radius-md;
+        border-left: 4px solid $color-accent;
+        transition: all $transition-base;
 
-    @include media(sp) {
-        grid-template-columns: 1fr;
+        @include media(sp) {
+            padding: var(--spacing-md);
+        }
+
+        &:hover {
+            background: $color-bg;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transform: translateX(4px);
+        }
     }
-}
 
-.salonMenuSet__card {
-    background-color: $color-bg;
-    padding: $spacing-xl;
-    @include hover-lift;
+    &__itemName {
+        font-family: $font-serif;
+        font-size: var(--font-size-xl);
+        font-weight: 500;
+        color: $color-primary;
+        margin-bottom: var(--spacing-sm);
 
-    @include media(sp) {
-        padding: $spacing-lg;
+        @include media(sp) {
+            font-size: var(--font-size-lg);
+        }
     }
-}
 
-.salonMenuSet__cardTitle {
-    font-family: $font-serif;
-    font-size: $font-size-xl;
-    font-weight: 400;
-    color: $color-primary;
-    margin-bottom: $spacing-md;
-}
+    &__itemDescription {
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        color: $color-text-light;
+        margin-bottom: var(--spacing-md);
 
-.salonMenuSet__cardItems {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 $spacing-lg 0;
-}
+        @include media(sp) {
+            font-size: var(--font-size-sm);
+        }
+    }
 
-.salonMenuSet__cardItem {
-    font-size: $font-size-sm;
-    line-height: $line-height-relaxed;
-    color: $color-text-light;
-    padding-left: $spacing-md;
-    position: relative;
+    &__itemInfo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--spacing-md);
 
-    &::before {
-        content: '・';
-        position: absolute;
-        left: 0;
+        @include media(sp) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+        }
+    }
+
+    &__itemTime {
+        font-size: var(--font-size-sm);
+        color: $color-text-light;
+
+        @include media(sp) {
+            font-size: var(--font-size-xs);
+        }
+    }
+
+    &__itemPrice {
+        font-family: $font-serif;
+        font-size: var(--font-size-xl);
+        font-weight: 600;
         color: $color-accent;
+
+        @include media(sp) {
+            font-size: var(--font-size-lg);
+        }
     }
 }
 
-.salonMenuSet__cardPrice {
-    font-family: $font-serif;
-    font-size: $font-size-xxl;
-    font-weight: 500;
-    color: $color-accent;
-    text-align: right;
+/* ==========================================================================
+   Set Menu Section
+   ========================================================================== */
+
+.salonMenuSet {
+    padding: var(--section-spacing-lg) 0;
+    background-color: $color-bg-gray;
+
+    @include media(sp) {
+        padding: var(--section-spacing-md) 0;
+    }
+
+    &__inner {
+        max-width: $container-width-lg;
+        margin: 0 auto;
+        padding: 0 var(--spacing-xl);
+
+        @include media(sp) {
+            padding: 0 var(--spacing-md);
+        }
+    }
+
+    &__title {
+        @extend .uiHeading_level_h2;
+    }
+
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+
+        @include media(sp) {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
+    }
+
+    &__item {
+        background-color: $color-bg;
+        padding: var(--spacing-2xl);
+        border-radius: $border-radius-lg;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: all $transition-base;
+        position: relative;
+        overflow: hidden;
+
+        @include media(sp) {
+            padding: var(--spacing-xl);
+        }
+
+        // 背景装飾
+        &::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: rgba($color-accent, 0.05);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        &:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+    }
+
+    &__itemName {
+        font-family: $font-serif;
+        font-size: var(--font-size-xl);
+        font-weight: 600;
+        color: $color-primary;
+        margin-bottom: var(--spacing-md);
+        position: relative;
+        z-index: 1;
+
+        @include media(sp) {
+            font-size: var(--font-size-lg);
+        }
+    }
+
+    &__itemDescription {
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        color: $color-text-light;
+        margin-bottom: var(--spacing-lg);
+        position: relative;
+        z-index: 1;
+
+        @include media(sp) {
+            font-size: var(--font-size-sm);
+        }
+    }
+
+    &__itemInfo {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding-top: var(--spacing-lg);
+        border-top: 1px solid rgba($color-primary, 0.1);
+        position: relative;
+        z-index: 1;
+
+        @include media(sp) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+        }
+    }
+
+    &__itemTime {
+        font-size: var(--font-size-sm);
+        color: $color-text-light;
+    }
+
+    &__itemPrice {
+        font-family: $font-serif;
+        font-size: var(--font-size-xxl);
+        font-weight: 700;
+        color: $color-accent;
+        line-height: 1;
+
+        @include media(sp) {
+            font-size: var(--font-size-xl);
+        }
+    }
+
+    &__itemPriceNote {
+        display: block;
+        font-size: var(--font-size-xs);
+        font-weight: 400;
+        color: $color-text-light;
+        margin-top: var(--spacing-xs);
+    }
+}
+
+/* ==========================================================================
+   Option Section
+   ========================================================================== */
+
+.salonMenuOption {
+    padding: var(--section-spacing-lg) 0;
+    background-color: $color-bg;
+
+    @include media(sp) {
+        padding: var(--section-spacing-md) 0;
+    }
+
+    &__inner {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-xl);
+
+        @include media(sp) {
+            padding: 0 var(--spacing-md);
+        }
+    }
+
+    &__title {
+        @extend .uiHeading_level_h2;
+    }
+
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-md);
+
+        @include media(sp) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--spacing-md);
+        background: $color-bg-gray;
+        border-radius: $border-radius-sm;
+
+        @include media(sp) {
+            padding: var(--spacing-sm) var(--spacing-md);
+        }
+    }
+
+    &__itemName {
+        font-size: var(--font-size-base);
+        color: $color-text;
+
+        @include media(sp) {
+            font-size: var(--font-size-sm);
+        }
+    }
+
+    &__itemPrice {
+        font-family: $font-serif;
+        font-size: var(--font-size-lg);
+        font-weight: 600;
+        color: $color-accent;
+
+        @include media(sp) {
+            font-size: var(--font-size-md);
+        }
+    }
+}
+
+/* ==========================================================================
+   Discount Section
+   ========================================================================== */
+
+.salonMenuDiscount {
+    padding: var(--section-spacing-lg) 0;
+    background-color: $color-secondary;
+
+    @include media(sp) {
+        padding: var(--section-spacing-md) 0;
+    }
+
+    &__inner {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-xl);
+
+        @include media(sp) {
+            padding: 0 var(--spacing-md);
+        }
+    }
+
+    &__title {
+        @extend .uiHeading_level_h2;
+    }
+
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+
+        @include media(sp) {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
+    }
+
+    &__item {
+        background: $color-bg;
+        padding: var(--spacing-xl);
+        border-radius: $border-radius-md;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+        @include media(sp) {
+            padding: var(--spacing-lg);
+        }
+    }
+
+    &__itemName {
+        font-family: $font-serif;
+        font-size: var(--font-size-xl);
+        font-weight: 600;
+        color: $color-accent;
+        margin-bottom: var(--spacing-md);
+
+        @include media(sp) {
+            font-size: var(--font-size-lg);
+        }
+    }
+
+    &__itemDescription {
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        color: $color-text;
+
+        @include media(sp) {
+            font-size: var(--font-size-sm);
+        }
+    }
+}
+
+/* ==========================================================================
+   Note Section
+   ========================================================================== */
+
+.salonMenuNote {
+    padding: var(--section-spacing-lg) 0;
+    background-color: $color-bg-gray;
+
+    @include media(sp) {
+        padding: var(--section-spacing-md) 0;
+    }
+
+    &__inner {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-xl);
+
+        @include media(sp) {
+            padding: 0 var(--spacing-md);
+        }
+    }
+
+    &__title {
+        @extend .uiHeading_level_h2;
+    }
+
+    &__content {
+        background: $color-bg;
+        padding: var(--spacing-xl);
+        border-radius: $border-radius-md;
+        border-left: 4px solid $color-accent;
+
+        @include media(sp) {
+            padding: var(--spacing-lg);
+        }
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__item {
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        color: $color-text;
+        padding-left: var(--spacing-lg);
+        position: relative;
+        margin-bottom: var(--spacing-md);
+
+        @include media(sp) {
+            font-size: var(--font-size-sm);
+            padding-left: var(--spacing-md);
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &::before {
+            content: '※';
+            position: absolute;
+            left: 0;
+            color: $color-accent;
+            font-weight: 600;
+        }
+    }
 }

@@ -5,7 +5,10 @@
    About Page - 2025 Modern Luxury Design
    ========================================================================== */
 
-// Hero Section
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
 .salonAboutHero {
     position: relative;
     height: 50vh;
@@ -18,6 +21,7 @@
 
     @include media(sp) {
         min-height: 300px;
+        height: 40vh;
     }
 
     &__bg {
@@ -50,146 +54,445 @@
         position: relative;
         z-index: 2;
         text-align: center;
+        padding: 0 var(--spacing-lg);
+        max-width: $container-width-lg;
+        margin: 0 auto;
+
+        @include media(sp) {
+            padding: 0 var(--spacing-md);
+        }
     }
 
     &__title {
         font-family: $font-serif;
-        font-size: $font-size-xxl;
+        font-size: clamp(4rem, 6vw + 2rem, 6.4rem);
         font-weight: 300;
         letter-spacing: $letter-spacing-widest;
-        text-transform: uppercase;
+        margin-bottom: var(--spacing-md);
 
         @include media(sp) {
-            font-size: $font-size-xl;
+            font-size: clamp(3.2rem, 8vw, 4.8rem);
+        }
+    }
+
+    &__subtitle {
+        font-size: var(--font-size-md);
+        font-weight: 300;
+        letter-spacing: $letter-spacing-wide;
+        opacity: 0.9;
+
+        @include media(sp) {
+            font-size: var(--font-size-base);
         }
     }
 }
 
-// Content Sections
-.salonAboutConcept,
-.salonAboutAccess,
-.salonAboutGallery {
-    padding: map-get($salon-section-padding, xl) 0;
+/* ==========================================================================
+   Concept Section
+   ========================================================================== */
 
-    @include media(sp) {
-        padding: map-get($salon-section-padding, md) 0;
-    }
-
-    &:nth-child(even) {
-        background-color: $color-secondary;
-    }
-}
-
-.salonAboutConcept__inner,
-.salonAboutAccess__inner,
-.salonAboutGallery__inner {
-    max-width: $container-width-lg;
-    margin: 0 auto;
-    padding: 0 $spacing-lg;
-
-    @include media(sp) {
-        padding: 0 $spacing-md;
-    }
-}
-
-.salonAboutConcept__title,
-.salonAboutAccess__title,
-.salonAboutGallery__title {
-    @extend .uiHeading_level_h2;
-}
-
-.salonAboutConcept__text {
-    font-size: $font-size-md;
-    line-height: $line-height-relaxed;
-    color: $color-text-light;
-    margin-bottom: $spacing-md;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-
-    @include media(sp) {
-        font-size: $font-size-base;
-    }
-}
-
-// Gallery Grid
-.salonGallery__list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: $spacing-lg;
-
-    @include media(tab) {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    @include media(sp) {
-        grid-template-columns: 1fr;
-    }
-}
-
-.salonGallery__item {
-    overflow: hidden;
-    @include hover-lift;
-}
-
-.salonGallery__image {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    transition: transform $transition-slow;
-
-    .salonGallery__item:hover & {
-        transform: scale(1.05);
-    }
-}
-
-.salonGallery__caption {
-    padding: $spacing-md;
-    font-size: $font-size-sm;
-    text-align: center;
+.salonAboutConcept {
+    padding: var(--section-spacing-lg) 0;
     background-color: $color-bg;
-}
-
-// Access Map
-.salonAboutAccess__map {
-    width: 100%;
-    height: 400px;
-    margin-top: $spacing-xl;
 
     @include media(sp) {
-        height: 300px;
+        padding: var(--section-spacing-md) 0;
     }
 
-    iframe {
+    &__inner {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-xl);
+
+        @include media(sp) {
+            padding: 0 var(--spacing-md);
+        }
+    }
+
+    &__title {
+        @extend .uiHeading_level_h2;
+    }
+
+    &__content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    &__subtitle {
+        font-family: $font-serif;
+        font-size: var(--font-size-lg);
+        font-weight: 600;
+        color: $color-accent;
+        margin-bottom: var(--spacing-md);
+        margin-top: var(--spacing-xl);
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        @include media(sp) {
+            font-size: var(--font-size-md);
+        }
+    }
+
+    &__text {
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        color: $color-text-light;
+        margin-bottom: var(--spacing-lg);
+
+        @include media(sp) {
+            font-size: var(--font-size-sm);
+        }
+    }
+
+    &__strengths {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 var(--spacing-lg) 0;
+    }
+
+    &__strength {
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        color: $color-text;
+        padding-left: var(--spacing-lg);
+        position: relative;
+        margin-bottom: var(--spacing-md);
+
+        @include media(sp) {
+            font-size: var(--font-size-sm);
+            padding-left: var(--spacing-md);
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.8em;
+            width: 6px;
+            height: 6px;
+            background: $color-accent;
+            border-radius: 50%;
+        }
+    }
+}
+
+/* ==========================================================================
+   Staff Section
+   ========================================================================== */
+
+.salonStaff {
+    padding: var(--section-spacing-lg) 0;
+    background-color: $color-secondary;
+
+    @include media(sp) {
+        padding: var(--section-spacing-md) 0;
+    }
+
+    &__inner {
+        max-width: $container-width-lg;
+        margin: 0 auto;
+        padding: 0 var(--spacing-xl);
+
+        @include media(sp) {
+            padding: 0 var(--spacing-md);
+        }
+    }
+
+    &__title {
+        @extend .uiHeading_level_h2;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-2xl);
+
+        @include media(sp) {
+            gap: var(--spacing-xl);
+        }
+    }
+
+    &__item {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: var(--spacing-2xl);
+        background: $color-bg;
+        border-radius: $border-radius-lg;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        opacity: 1 !important;
+        transform: none !important;
+
+        @include media(tab) {
+            grid-template-columns: 250px 1fr;
+            gap: var(--spacing-xl);
+        }
+
+        @include media(sp) {
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+    }
+
+    &__image {
         width: 100%;
         height: 100%;
-        border: none;
+        overflow: hidden;
+
+        @include media(sp) {
+            height: 400px;
+        }
+    }
+
+    &__imageImg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__content {
+        padding: var(--spacing-xl);
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+
+        @include media(sp) {
+            padding: var(--spacing-lg);
+        }
+    }
+
+    &__name {
+        font-family: $font-serif;
+        font-size: var(--font-size-xl);
+        font-weight: 600;
+        color: $color-primary;
+        margin-bottom: var(--spacing-xs);
+
+        @include media(sp) {
+            font-size: var(--font-size-lg);
+        }
+    }
+
+    &__position {
+        font-size: var(--font-size-sm);
+        color: $color-accent;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: var(--spacing-md);
+    }
+
+    &__comment {
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        color: $color-text-light;
+
+        @include media(sp) {
+            font-size: var(--font-size-sm);
+        }
+    }
+
+    &__specialty {
+        font-size: var(--font-size-sm);
+        color: $color-text;
+        padding: var(--spacing-sm) var(--spacing-md);
+        background: rgba($color-accent, 0.1);
+        border-radius: $border-radius-sm;
+        display: inline-block;
+        align-self: flex-start;
+    }
+
+    &__sns {
+        margin-top: auto;
+    }
+
+    &__snsLink {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+        font-size: var(--font-size-sm);
+        color: $color-accent;
+        text-decoration: none;
+        transition: color $transition-base;
+
+        &:hover {
+            color: darken($color-accent, 10%);
+        }
     }
 }
 
-.salonAboutAccess__info {
-    margin-top: $spacing-xl;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: $spacing-lg;
+/* ==========================================================================
+   Gallery Section
+   ========================================================================== */
+
+.salonGallery {
+    padding: var(--section-spacing-lg) 0;
+    background-color: $color-bg;
 
     @include media(sp) {
-        grid-template-columns: 1fr;
+        padding: var(--section-spacing-md) 0;
+    }
+
+    &__inner {
+        max-width: $container-width-lg;
+        margin: 0 auto;
+        padding: 0 var(--spacing-xl);
+
+        @include media(sp) {
+            padding: 0 var(--spacing-md);
+        }
+    }
+
+    &__title {
+        @extend .uiHeading_level_h2;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-xl);
+
+        @include media(tab) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include media(sp) {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
+    }
+
+    &__item {
+        background: $color-bg;
+        border-radius: $border-radius-md;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: all $transition-base;
+
+        &:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        transition: transform $transition-slow;
+
+        .salonGallery__item:hover & {
+            transform: scale(1.05);
+        }
+
+        @include media(sp) {
+            height: 250px;
+        }
+    }
+
+    &__caption {
+        padding: var(--spacing-md);
+        font-size: var(--font-size-sm);
+        text-align: center;
+        color: $color-text;
+        font-weight: 500;
     }
 }
 
-.salonAboutAccess__infoItem {
-    dt {
-        font-family: $font-serif;
-        font-size: $font-size-md;
-        margin-bottom: $spacing-sm;
-        color: $color-primary;
+/* ==========================================================================
+   Info Section
+   ========================================================================== */
+
+.salonInfo {
+    padding: var(--section-spacing-lg) 0;
+    background-color: $color-bg-gray;
+
+    @include media(sp) {
+        padding: var(--section-spacing-md) 0;
     }
 
-    dd {
-        font-size: $font-size-base;
-        line-height: $line-height-relaxed;
+    &__inner {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-xl);
+
+        @include media(sp) {
+            padding: 0 var(--spacing-md);
+        }
+    }
+
+    &__title {
+        @extend .uiHeading_level_h2;
+    }
+
+    &__list {
+        background: $color-bg;
+        border-radius: $border-radius-lg;
+        padding: var(--spacing-xl);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+        @include media(sp) {
+            padding: var(--spacing-lg);
+        }
+    }
+
+    &__item {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: var(--spacing-lg);
+        padding: var(--spacing-lg) 0;
+        border-bottom: 1px solid rgba($color-primary, 0.1);
+
+        @include media(sp) {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-md) 0;
+        }
+
+        &:first-child {
+            padding-top: 0;
+        }
+
+        &:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+    }
+
+    &__dt {
+        font-size: var(--font-size-sm);
         color: $color-text-light;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+
+        @include media(sp) {
+            font-size: var(--font-size-xs);
+        }
+    }
+
+    &__dd {
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        color: $color-text;
+        margin: 0;
+
+        @include media(sp) {
+            font-size: var(--font-size-sm);
+        }
+    }
+
+    &__link {
+        color: $color-accent;
+        text-decoration: none;
+        transition: color $transition-base;
+
+        &:hover {
+            color: darken($color-accent, 10%);
+        }
     }
 }
+
+

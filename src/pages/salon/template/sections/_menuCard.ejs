@@ -12,7 +12,7 @@
     <% if (menuCardData.image) { %>
         <div class="menuCard__image">
             <a class="menuCard__imageLink" href="<%= menuCardData.link %>">
-                <img class="menuCard__imageImg" src="<%= menuCardData.image %>" alt="<%= menuCardData.name %>" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/667eea/ffffff?text=' + encodeURIComponent('<%= menuCardData.name %>');" />
+                <img class="menuCard__imageImg" src="<%= menuCardData.image %>" alt="<%= menuCardData.name %>" loading="eager" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/667eea/ffffff?text=' + encodeURIComponent('<%= menuCardData.name %>');" />
             </a>
         </div>
     <% } %>

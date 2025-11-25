@@ -5,10 +5,10 @@
 
 .uiGrid {
     display: grid;
-    gap: 2.4rem;
+    gap: var(--spacing-lg);
 
     @include media(sp) {
-        gap: 1.6rem;
+        gap: var(--spacing-md);
     }
 
     // 2カラム

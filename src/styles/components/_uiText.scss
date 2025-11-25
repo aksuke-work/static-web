@@ -8,19 +8,23 @@
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     font-weight: 400;
+    margin-bottom: var(--spacing-lg);
 
     @include media(sp) {
         font-size: var(--font-size-base);
+        margin-bottom: var(--spacing-md);
     }
 }
 
 .uiBody {
     font-size: var(--font-size-base);
     line-height: var(--line-height-normal);
-    color: var(--color-text);
+    color: var(--color-text-light);
     font-weight: 400;
+    margin-bottom: var(--spacing-md);
 
     @include media(sp) {
         font-size: var(--font-size-sm);
+        margin-bottom: var(--spacing-sm);
     }
 }

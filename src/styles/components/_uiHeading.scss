@@ -8,35 +8,45 @@
     font-family: var(--font-family-base);
     font-weight: 700;
     color: var(--color-text);
-    line-height: var(--line-height-tight);
+    line-height: var(--line-height-snug);
 
     // レベル別スタイル
     &_level_h1 {
         font-size: var(--font-size-xxl);
-        line-height: 1.2;
+        line-height: var(--line-height-tight);
+        letter-spacing: var(--letter-spacing-tighter);
+        font-weight: 700;
+        margin-bottom: var(--spacing-xl);
 
         @include media(sp) {
             font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-lg);
         }
     }
 
     &_level_h2 {
-        font-size: clamp(4rem, 5vw + 3rem, 6.4rem);
-        line-height: 1.05;
-        letter-spacing: -0.05em;
-        font-weight: 900;
+        font-size: var(--font-size-xl);
+        line-height: var(--line-height-snug);
+        letter-spacing: var(--letter-spacing-tight);
+        font-weight: 700;
+        margin-bottom: var(--spacing-lg);
 
         @include media(sp) {
-            font-size: clamp(2.4rem, 4vw + 2rem, 3.6rem);
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-md);
         }
     }
 
     &_level_h3 {
         font-size: var(--font-size-lg);
-        line-height: 1.4;
+        line-height: var(--line-height-snug);
+        letter-spacing: var(--letter-spacing-normal);
+        font-weight: 600;
+        margin-bottom: var(--spacing-md);
 
         @include media(sp) {
             font-size: var(--font-size-md);
+            margin-bottom: var(--spacing-sm);
         }
     }
 

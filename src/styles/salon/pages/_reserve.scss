@@ -5,7 +5,10 @@
    Reserve Page - 2025 Modern Luxury Design
    ========================================================================== */
 
-// Hero Section
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
 .salonReserveHero {
     position: relative;
     height: 50vh;
@@ -18,6 +21,7 @@
 
     @include media(sp) {
         min-height: 300px;
+        height: 40vh;
     }
 
     &__bg {
@@ -50,143 +54,328 @@
         position: relative;
         z-index: 2;
         text-align: center;
+        padding: 0 var(--spacing-lg);
+        max-width: $container-width-lg;
+        margin: 0 auto;
+
+        @include media(sp) {
+            padding: 0 var(--spacing-md);
+        }
     }
 
     &__title {
         font-family: $font-serif;
-        font-size: $font-size-xxl;
+        font-size: clamp(4rem, 6vw + 2rem, 6.4rem);
         font-weight: 300;
         letter-spacing: $letter-spacing-widest;
-        text-transform: uppercase;
+        margin-bottom: var(--spacing-md);
 
         @include media(sp) {
-            font-size: $font-size-xl;
+            font-size: clamp(3.2rem, 8vw, 4.8rem);
+        }
+    }
+
+    &__subtitle {
+        font-size: var(--font-size-md);
+        font-weight: 300;
+        letter-spacing: $letter-spacing-wide;
+        opacity: 0.9;
+
+        @include media(sp) {
+            font-size: var(--font-size-base);
         }
     }
 }
 
-// Reserve Methods
-.salonReserveMethods {
-    padding: map-get($salon-section-padding, xl) 0;
+/* ==========================================================================
+   Reserve Method Section
+   ========================================================================== */
+
+.salonReserveMethod {
+    padding: var(--section-spacing-lg) 0;
+    background-color: $color-bg;
 
     @include media(sp) {
-        padding: map-get($salon-section-padding, md) 0;
+        padding: var(--section-spacing-md) 0;
+    }
+
+    &__inner {
+        max-width: $container-width-lg;
+        margin: 0 auto;
+        padding: 0 var(--spacing-xl);
+
+        @include media(sp) {
+            padding: 0 var(--spacing-md);
+        }
+    }
+
+    &__title {
+        @extend .uiHeading_level_h2;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-xl);
+
+        @include media(tab) {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
+    }
+
+    &__item {
+        background-color: $color-bg;
+        padding: var(--spacing-2xl);
+        border-radius: $border-radius-lg;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: all $transition-base;
+        text-align: center;
+
+        @include media(sp) {
+            padding: var(--spacing-xl);
+        }
+
+        &:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+    }
+
+    &__itemTitle {
+        font-family: $font-serif;
+        font-size: var(--font-size-xl);
+        font-weight: 600;
+        color: $color-primary;
+        margin-bottom: var(--spacing-md);
+
+        @include media(sp) {
+            font-size: var(--font-size-lg);
+        }
+    }
+
+    &__itemDescription {
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        color: $color-text-light;
+        margin-bottom: var(--spacing-lg);
+
+        @include media(sp) {
+            font-size: var(--font-size-sm);
+        }
+    }
+
+    &__itemFeatures {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 var(--spacing-xl) 0;
+        text-align: left;
+    }
+
+    &__itemFeature {
+        font-size: var(--font-size-sm);
+        line-height: var(--line-height-relaxed);
+        color: $color-text;
+        padding-left: var(--spacing-md);
+        position: relative;
+        margin-bottom: var(--spacing-sm);
+
+        &::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: $color-accent;
+            font-weight: 700;
+        }
+    }
+
+    &__itemButton {
+        .uiButton {
+            width: 100%;
+        }
     }
 }
 
-.salonReserveMethods__inner {
-    max-width: $container-width-md;
-    margin: 0 auto;
-    padding: 0 $spacing-lg;
+/* ==========================================================================
+   Reserve Form Section
+   ========================================================================== */
 
-    @include media(sp) {
-        padding: 0 $spacing-md;
-    }
-}
-
-.salonReserveMethods__title {
-    @extend .uiHeading_level_h2;
-}
-
-.salonReserveMethods__list {
-    display: grid;
-    gap: $spacing-xl;
-}
-
-.salonReserveMethods__item {
-    background-color: $color-secondary;
-    padding: $spacing-xl;
-    text-align: center;
-    @include hover-lift;
-
-    @include media(sp) {
-        padding: $spacing-lg;
-    }
-}
-
-.salonReserveMethods__itemTitle {
-    font-family: $font-serif;
-    font-size: $font-size-xl;
-    font-weight: 400;
-    color: $color-primary;
-    margin-bottom: $spacing-md;
-}
-
-.salonReserveMethods__itemDescription {
-    font-size: $font-size-base;
-    line-height: $line-height-relaxed;
-    color: $color-text-light;
-    margin-bottom: $spacing-lg;
-}
-
-// Contact Form
 .salonReserveForm {
-    padding: map-get($salon-section-padding, xl) 0;
+    padding: var(--section-spacing-lg) 0;
     background-color: $color-secondary;
 
     @include media(sp) {
-        padding: map-get($salon-section-padding, md) 0;
+        padding: var(--section-spacing-md) 0;
+    }
+
+    &__inner {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-xl);
+
+        @include media(sp) {
+            padding: 0 var(--spacing-md);
+        }
+    }
+
+    &__title {
+        @extend .uiHeading_level_h2;
     }
 }
 
-.salonReserveForm__inner {
-    max-width: $container-width-md;
-    margin: 0 auto;
-    padding: 0 $spacing-lg;
+/* ==========================================================================
+   Policy Section
+   ========================================================================== */
+
+.salonReservePolicy {
+    padding: var(--section-spacing-lg) 0;
+    background-color: $color-bg-gray;
 
     @include media(sp) {
-        padding: 0 $spacing-md;
+        padding: var(--section-spacing-md) 0;
+    }
+
+    &__inner {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-xl);
+
+        @include media(sp) {
+            padding: 0 var(--spacing-md);
+        }
+    }
+
+    &__title {
+        @extend .uiHeading_level_h2;
+    }
+
+    &__content {
+        background: $color-bg;
+        padding: var(--spacing-xl);
+        border-radius: $border-radius-md;
+        border-left: 4px solid $color-accent;
+
+        @include media(sp) {
+            padding: var(--spacing-lg);
+        }
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__item {
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        color: $color-text;
+        padding-left: var(--spacing-lg);
+        position: relative;
+        margin-bottom: var(--spacing-md);
+
+        @include media(sp) {
+            font-size: var(--font-size-sm);
+            padding-left: var(--spacing-md);
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &::before {
+            content: '※';
+            position: absolute;
+            left: 0;
+            color: $color-accent;
+            font-weight: 600;
+        }
     }
 }
 
-.salonReserveForm__title {
-    @extend .uiHeading_level_h2;
-}
+/* ==========================================================================
+   FAQ Section
+   ========================================================================== */
 
-.salonReserveForm__form {
+.salonReserveFaq {
+    padding: var(--section-spacing-lg) 0;
     background-color: $color-bg;
-    padding: $spacing-2xl;
 
     @include media(sp) {
-        padding: $spacing-lg;
+        padding: var(--section-spacing-md) 0;
     }
-}
 
-.salonReserveForm__field {
-    margin-bottom: $spacing-xl;
-}
+    &__inner {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-xl);
 
-.salonReserveForm__label {
-    display: block;
-    font-size: $font-size-base;
-    font-weight: 500;
-    color: $color-primary;
-    margin-bottom: $spacing-sm;
-}
-
-.salonReserveForm__input,
-.salonReserveForm__textarea,
-.salonReserveForm__select {
-    width: 100%;
-    padding: $spacing-md;
-    font-size: $font-size-base;
-    font-family: $font-sans;
-    color: $color-text;
-    background-color: $color-bg;
-    border: 1px solid rgba($color-primary, 0.2);
-    transition: border-color $transition-fast;
-
-    &:focus {
-        outline: none;
-        border-color: $color-accent;
+        @include media(sp) {
+            padding: 0 var(--spacing-md);
+        }
     }
-}
 
-.salonReserveForm__textarea {
-    min-height: 150px;
-    resize: vertical;
-}
+    &__title {
+        @extend .uiHeading_level_h2;
+    }
 
-.salonReserveForm__submit {
-    width: 100%;
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+
+    &__item {
+        background: $color-bg-gray;
+        padding: var(--spacing-xl);
+        border-radius: $border-radius-md;
+        border-left: 4px solid $color-accent;
+
+        @include media(sp) {
+            padding: var(--spacing-lg);
+        }
+    }
+
+    &__itemQuestion {
+        font-family: $font-serif;
+        font-size: var(--font-size-lg);
+        font-weight: 600;
+        color: $color-primary;
+        margin-bottom: var(--spacing-md);
+        position: relative;
+        padding-left: var(--spacing-lg);
+
+        @include media(sp) {
+            font-size: var(--font-size-md);
+        }
+
+        &::before {
+            content: 'Q';
+            position: absolute;
+            left: 0;
+            color: $color-accent;
+            font-weight: 700;
+        }
+    }
+
+    &__itemAnswer {
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        color: $color-text-light;
+        margin: 0;
+        padding-left: var(--spacing-lg);
+        position: relative;
+
+        @include media(sp) {
+            font-size: var(--font-size-sm);
+        }
+
+        &::before {
+            content: 'A';
+            position: absolute;
+            left: 0;
+            color: $color-text-light;
+            font-weight: 600;
+        }
+    }
 }
