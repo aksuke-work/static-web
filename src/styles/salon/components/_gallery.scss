@@ -63,22 +63,24 @@
 
     &__filterButton {
         position: relative;
-        padding: 1rem 2rem;
-        background: rgba(255, 255, 255, 0.9);
-        border: var(--border-width-medium) solid var(--color-border);
-        border-radius: var(--border-radius-full);
-        font-size: var(--font-size-sm);
-        font-weight: 700;
-        color: var(--color-text-light);
+        padding: 1rem 2rem !important;
+        background: rgba(255, 255, 255, 0.9) !important;
+        border: var(--border-width-medium) solid var(--color-border) !important;
+        border-radius: var(--border-radius-full) !important;
+        font-size: var(--font-size-sm) !important;
+        font-weight: 700 !important;
+        color: var(--color-text-light) !important;
         cursor: pointer;
         transition: all var(--transition-base);
         overflow: hidden;
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
+        // .uiButton_type_outlineのスタイルを上書き
+        background-color: rgba(255, 255, 255, 0.9) !important;
 
         @include media(sp) {
-            padding: 0.8rem 1.6rem;
-            font-size: var(--font-size-xs);
+            padding: 0.8rem 1.6rem !important;
+            font-size: var(--font-size-xs) !important;
         }
 
         // リップルエフェクト
@@ -94,13 +96,15 @@
             transform: translate(-50%, -50%);
             transition: width 0.6s ease, height 0.6s ease;
             opacity: 0.2;
+            z-index: 0;
         }
 
         &:hover {
-            border-color: var(--color-primary);
-            color: var(--color-primary);
+            border-color: var(--color-primary) !important;
+            color: var(--color-primary) !important;
             transform: translateY(-2px) scale(1.05);
             box-shadow: var(--shadow-md);
+            background-color: rgba(255, 255, 255, 0.95) !important;
 
             &::before {
                 width: 200px;
@@ -109,14 +113,16 @@
         }
 
         &_type_active {
-            background: var(--gradient-primary);
-            border-color: transparent;
-            color: #fff;
+            background: var(--gradient-primary) !important;
+            border-color: transparent !important;
+            color: #fff !important;
             box-shadow: var(--shadow-lg);
 
             &:hover {
                 transform: translateY(-2px) scale(1.05);
                 box-shadow: var(--shadow-xl);
+                background: var(--gradient-primary) !important;
+                color: #fff !important;
             }
         }
     }

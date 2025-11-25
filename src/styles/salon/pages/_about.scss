@@ -269,6 +269,11 @@
         font-weight: 600;
         color: $color-primary;
         margin-bottom: var(--spacing-xs);
+        // グラデーションテキストのスタイルをリセット
+        background: none;
+        -webkit-background-clip: unset;
+        -webkit-text-fill-color: unset;
+        background-clip: unset;
 
         @include media(sp) {
             font-size: var(--font-size-lg);

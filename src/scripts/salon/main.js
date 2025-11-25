@@ -21,7 +21,7 @@
     
     // 初期表示時に表示領域内のfadein要素を即座に表示
     function showVisibleFadeinElements() {
-        const fadeinElements = document.querySelectorAll('.fadein');
+        const fadeinElements = document.querySelectorAll('.fadein, .salonStaff__item, .salonStyleGallery__item');
         const viewportHeight = window.innerHeight;
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         const viewportBottom = scrollTop + viewportHeight + 200; // 200px余裕を持たせる
@@ -57,7 +57,7 @@ $(document).ready(function () {
 
     // スクロールアニメーション（.fadein要素に.jsActiveを付与）
     function checkFadeIn() {
-        $('.fadein').each(function (index) {
+        $('.fadein, .salonStaff__item, .salonStyleGallery__item').each(function (index) {
             const $element = $(this);
             if (!$element.hasClass('jsActive') && !$element.hasClass('is-visible')) {
                 const elementTop = $element.offset().top;
@@ -69,7 +69,7 @@ $(document).ready(function () {
                 if (elementTop < triggerPoint) {
                     // 段階的な遅延を追加
                     setTimeout(function () {
-                        $element.addClass('jsActive');
+                        $element.addClass('is-visible');
                     }, index * 50);
                 }
             }
@@ -78,7 +78,7 @@ $(document).ready(function () {
 
     // 初期表示時に表示領域内の要素を即座に表示
     setTimeout(function () {
-        $('.fadein').each(function (index) {
+        $('.fadein, .salonStaff__item, .salonStyleGallery__item').each(function (index) {
             const $element = $(this);
             if ($element.length && $element.offset()) {
                 const elementTop = $element.offset().top;
@@ -138,10 +138,27 @@ $(document).ready(function () {
         $(this).addClass('salonStyleGallery__filterButton_type_active');
 
         if (filter === 'all') {
-            $('.salonStyleGallery__item').fadeIn(300);
+            $('.salonStyleGallery__item').each(function (index) {
+                const $item = $(this);
+                setTimeout(function () {
+                    $item.fadeIn(300).addClass('is-visible');
+                }, index * 50);
+            });
         } else {
-            $('.salonStyleGallery__item').fadeOut(300);
-            $(`.salonStyleGallery__item[data-category="${filter}"]`).fadeIn(300);
+            $('.salonStyleGallery__item').each(function (index) {
+                const $item = $(this);
+                setTimeout(function () {
+                    $item.fadeOut(300, function () {
+                        $(this).removeClass('is-visible');
+                    });
+                }, index * 30);
+            });
+            $(`.salonStyleGallery__item[data-category="${filter}"]`).each(function (index) {
+                const $item = $(this);
+                setTimeout(function () {
+                    $item.fadeIn(300).addClass('is-visible');
+                }, index * 50);
+            });
         }
     });
 
@@ -230,6 +247,60 @@ $(document).ready(function () {
                         trigger: card,
                         start: 'top 90%',
                         toggleActions: 'play none none reverse',
+                    },
+                }
+            );
+        });
+
+        // スタッフカードの個別アニメーション
+        gsap.utils.toArray('.salonStaff__item').forEach(function (card, index) {
+            gsap.fromTo(
+                card,
+                {
+                    opacity: 0,
+                    y: 30,
+                    scale: 0.95,
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    delay: index * 0.1,
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 85%',
+                        toggleActions: 'play none none reverse',
+                    },
+                    onStart: function() {
+                        card.classList.add('is-visible');
+                    },
+                }
+            );
+        });
+
+        // ギャラリーアイテムの個別アニメーション
+        gsap.utils.toArray('.salonStyleGallery__item').forEach(function (item, index) {
+            gsap.fromTo(
+                item,
+                {
+                    opacity: 0,
+                    scale: 0.9,
+                },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    delay: index * 0.1,
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 85%',
+                        toggleActions: 'play none none reverse',
+                    },
+                    onStart: function() {
+                        item.classList.add('is-visible');
                     },
                 }
             );
