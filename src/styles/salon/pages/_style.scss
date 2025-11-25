@@ -1,72 +1,189 @@
 @use 'sass:math';
-@import '../_variables';
-//////////////////////////////
-// style (gallery)
-//////////////////////////////
+@import '../variables';
 
+/* ==========================================================================
+   Style/Gallery Page - 2025 Modern Luxury Design
+   ========================================================================== */
+
+// Hero Section
 .salonStyleHero {
-    padding: var(--section-spacing-md) 0;
-    text-align: center;
-    background: var(--gradient-hero);
     position: relative;
+    height: 50vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: $color-text-white;
 
     @include media(sp) {
-        padding: var(--section-spacing-sm) 0;
+        min-height: 300px;
     }
 
-    &__title {
-        font-size: var(--font-size-xxl);
-        font-weight: 900;
-        margin-bottom: var(--spacing-md);
-        @include gradient-text(var(--gradient-text-primary));
-        @extend .fadein;
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
 
-        @include media(sp) {
-            font-size: var(--font-size-xl);
+        &__after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $gradient-overlay;
+            z-index: 1;
         }
-    }
 
-    &__subtitle {
-        font-size: var(--font-size-md);
-        color: var(--color-text-light);
-        @extend .fadein;
-
-        @include media(sp) {
-            font-size: var(--font-size-base);
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
-    }
-}
-
-.salonSns {
-    padding: var(--section-spacing-md) 0;
-    background: linear-gradient(180deg, var(--color-bg-gray) 0%, var(--color-bg) 100%);
-
-    @include media(sp) {
-        padding: var(--section-spacing-sm) 0;
     }
 
     &__inner {
+        position: relative;
+        z-index: 2;
         text-align: center;
     }
 
     &__title {
-        margin-bottom: var(--spacing-md);
-        @extend .fadein;
-    }
-
-    &__text {
-        font-size: var(--font-size-md);
-        margin-bottom: var(--spacing-xl);
-        color: var(--color-text-light);
-        @extend .fadein;
+        font-family: $font-serif;
+        font-size: $font-size-xxl;
+        font-weight: 300;
+        letter-spacing: $letter-spacing-widest;
+        text-transform: uppercase;
 
         @include media(sp) {
-            font-size: var(--font-size-base);
+            font-size: $font-size-xl;
         }
-    }
-
-    &__link {
-        @extend .fadein;
     }
 }
 
+// Gallery Grid
+.salonStyleGallery {
+    padding: map-get($salon-section-padding, xl) 0;
+
+    @include media(sp) {
+        padding: map-get($salon-section-padding, md) 0;
+    }
+}
+
+.salonStyleGallery__inner {
+    max-width: $container-width-lg;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+
+    @include media(sp) {
+        padding: 0 $spacing-md;
+    }
+}
+
+.salonStyleGallery__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-lg;
+
+    @include media(tab) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include media(sp) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.salonStyleGallery__item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+    @include hover-lift;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform $transition-slow;
+    }
+
+    &:hover img {
+        transform: scale(1.1);
+    }
+}
+
+// Before/After Section
+.salonStyleBeforeAfter {
+    padding: map-get($salon-section-padding, xl) 0;
+    background-color: $color-secondary;
+
+    @include media(sp) {
+        padding: map-get($salon-section-padding, md) 0;
+    }
+}
+
+.salonStyleBeforeAfter__inner {
+    max-width: $container-width-lg;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+
+    @include media(sp) {
+        padding: 0 $spacing-md;
+    }
+}
+
+.salonStyleBeforeAfter__title {
+    @extend .uiHeading_level_h2;
+}
+
+.salonStyleBeforeAfter__list {
+    display: grid;
+    gap: $spacing-2xl;
+}
+
+.salonStyleBeforeAfter__item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-xl;
+    background-color: $color-bg;
+    padding: $spacing-xl;
+
+    @include media(sp) {
+        grid-template-columns: 1fr;
+        padding: $spacing-lg;
+    }
+}
+
+.salonStyleBeforeAfter__imageWrap {
+    position: relative;
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+.salonStyleBeforeAfter__label {
+    position: absolute;
+    top: $spacing-md;
+    left: $spacing-md;
+    background-color: rgba($color-primary, 0.8);
+    color: $color-text-white;
+    padding: $spacing-xs $spacing-md;
+    font-size: $font-size-sm;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wide;
+}
+
+.salonStyleBeforeAfter__description {
+    font-size: $font-size-sm;
+    line-height: $line-height-relaxed;
+    color: $color-text-light;
+    margin-top: $spacing-md;
+}

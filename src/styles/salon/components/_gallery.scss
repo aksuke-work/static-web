@@ -13,6 +13,40 @@
 @import '../_variables';
 
 .salonStyleGallery {
+    margin-top: -12rem;
+    padding: calc(var(--section-spacing-xl) + 12rem) 0 var(--section-spacing-xl);
+    background: linear-gradient(180deg, var(--color-bg-gray) 0%, var(--color-bg) 100%);
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 12rem;
+        background: linear-gradient(135deg, var(--color-bg-gray) 0%, transparent 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%);
+        z-index: 0;
+    }
+
+    @include media(sp) {
+        margin-top: -6rem;
+        padding: calc(var(--section-spacing-md) + 6rem) 0 var(--section-spacing-md);
+    }
+
+    &__inner {
+        position: relative;
+        z-index: 1;
+    }
+
+    &__title {
+        margin-bottom: var(--spacing-3xl);
+        @extend .fadein;
+    }
+
     // フィルターボタン
     &__filter {
         display: flex;

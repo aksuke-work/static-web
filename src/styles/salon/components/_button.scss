@@ -1,230 +1,110 @@
-/**
- * コンポーネント名: Button（ボタン）
- *
- * 説明: 2025年トレンド対応のボタンコンポーネント
- * グラデーション、リップルエフェクト、3Dシャドウを実装
- *
- * 使用例:
- *   <a class="button button_type_primary">ボタン</a>
- *   <a class="button button_type_gradient">グラデーションボタン</a>
- *   <a class="button button_type_outline">アウトラインボタン</a>
- */
+@use 'sass:math';
+@import '../variables';
 
-@import '../_variables';
+/* ==========================================================================
+   Button Component - 2025 Modern Luxury
+   ========================================================================== */
 
-.button {
-    position: relative;
+.uiButton {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.8rem;
-    padding: 1.4rem 3.2rem;
-    border-radius: var(--border-radius-lg);
-    font-size: var(--font-size-base);
-    font-weight: 700;
-    font-family: var(--font-family-base);
+    gap: $spacing-sm;
+    padding: $spacing-md $spacing-xl;
+    font-family: $font-serif;
+    font-size: $font-size-base;
+    font-weight: 400;
+    letter-spacing: $letter-spacing-wide;
+    text-transform: uppercase;
     text-decoration: none;
-    letter-spacing: var(--letter-spacing-wide);
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
     cursor: pointer;
-    border: var(--border-width-medium) solid transparent;
+    transition: all $transition-base;
+    position: relative;
     overflow: hidden;
-    transform: translateZ(0);
-    will-change: transform, box-shadow;
-    backface-visibility: hidden;
 
     @include media(sp) {
-        padding: 1.2rem 2.4rem;
-        font-size: var(--font-size-sm);
+        padding: $spacing-sm $spacing-lg;
+        font-size: $font-size-sm;
     }
 
-    // リップルエフェクト用の疑似要素（改善）
-    &::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.5);
-        transform: translate(-50%, -50%);
-        transition:
-            width 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-            height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-            opacity 0.6s ease;
-        pointer-events: none;
-        opacity: 0;
-    }
-
-    &:active::before {
-        width: 400px;
-        height: 400px;
-        opacity: 1;
-        animation: ripple 0.6s ease-out;
-    }
-
-    // より滑らかなホバーエフェクト
-    &:hover {
-        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    // ローディング状態
-    &_type_loading {
-        pointer-events: none;
-        opacity: 0.7;
-
-        &::after {
-            content: '';
-            display: inline-block;
-            width: 1.6rem;
-            height: 1.6rem;
-            margin-left: 0.8rem;
-            border: 2px solid currentColor;
-            border-top-color: transparent;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-    }
-
-    // プライマリボタン
+    // Primary Button
     &_type_primary {
-        background: var(--color-primary);
-        color: #fff;
-        box-shadow: var(--shadow-md);
+        background-color: $color-primary;
+        color: $color-text-white;
+        border-color: $color-primary;
 
         &:hover {
-            background: var(--color-primary-dark);
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: var(--shadow-xl);
+            background-color: $color-primary-light;
+            border-color: $color-primary-light;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba($color-primary, 0.2);
         }
 
         &:active {
-            transform: translateY(-2px) scale(1);
-            box-shadow: var(--shadow-md);
+            transform: translateY(0);
         }
     }
 
-    // グラデーションボタン
-    &_type_gradient {
-        background: var(--gradient-primary);
-        color: #fff;
-        box-shadow: var(--shadow-colored);
-
-        &:hover {
-            background: var(--gradient-cool);
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
-        }
-
-        &:active {
-            transform: translateY(-2px) scale(1);
-        }
-    }
-
-    // アウトラインボタン
+    // Outline Button
     &_type_outline {
-        background: transparent;
-        color: var(--color-primary);
-        border-color: var(--color-primary);
-        box-shadow: none;
+        background-color: transparent;
+        color: $color-text-white;
+        border-color: $color-text-white;
 
         &:hover {
-            background: var(--color-primary);
-            color: #fff;
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: var(--shadow-lg);
+            background-color: $color-text-white;
+            color: $color-primary;
         }
 
-        &:active {
-            transform: translateY(-2px) scale(1);
+        // Dark background variant
+        .salonConcept &,
+        .salonPopularMenu & {
+            color: $color-primary;
+            border-color: $color-primary;
+
+            &:hover {
+                background-color: $color-primary;
+                color: $color-text-white;
+            }
         }
     }
 
-    // セカンダリボタン
-    &_type_secondary {
-        background: var(--color-secondary);
-        color: #fff;
-        box-shadow: var(--shadow-md);
+    // Accent Button
+    &_type_accent {
+        background-color: $color-accent;
+        color: $color-text-white;
+        border-color: $color-accent;
 
         &:hover {
-            background: var(--color-secondary-dark);
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: var(--shadow-xl);
-        }
-
-        &:active {
-            transform: translateY(-2px) scale(1);
+            background-color: darken($color-accent, 10%);
+            border-color: darken($color-accent, 10%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba($color-accent, 0.2);
         }
     }
 
-    // グラスモーフィズムボタン
-    &_type_glass {
-        @include glass-morphism();
-        color: var(--color-primary);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-
-        &:hover {
-            background: rgba(255, 255, 255, 0.9);
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: var(--shadow-xl);
-        }
-
-        &:active {
-            transform: translateY(-2px) scale(1);
-        }
+    // Size Variants
+    &_size_sm {
+        padding: $spacing-xs $spacing-md;
+        font-size: $font-size-sm;
     }
 
-    // 3Dボタン
-    &_type_3d {
-        background: var(--gradient-primary);
-        color: #fff;
-        @include shadow-3d();
-        transform: perspective(1000px) rotateX(0deg);
-
-        &:hover {
-            transform: perspective(1000px) rotateX(-5deg) translateY(-4px);
-            box-shadow:
-                0 20px 40px rgba(0, 0, 0, 0.2),
-                0 10px 20px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        }
-
-        &:active {
-            transform: perspective(1000px) rotateX(0deg) translateY(-2px);
-        }
-    }
-
-    // サイズバリエーション
-    &_size_small {
-        padding: 0.8rem 1.6rem;
-        font-size: var(--font-size-sm);
-        border-radius: var(--border-radius-md);
+    &_size_lg {
+        padding: $spacing-lg $spacing-2xl;
+        font-size: $font-size-md;
 
         @include media(sp) {
-            padding: 0.6rem 1.2rem;
-            font-size: var(--font-size-xs);
+            padding: $spacing-md $spacing-xl;
         }
     }
 
-    &_size_large {
-        padding: 1.8rem 4rem;
-        font-size: var(--font-size-lg);
-        border-radius: var(--border-radius-xl);
-
-        @include media(sp) {
-            padding: 1.4rem 3.2rem;
-            font-size: var(--font-size-md);
-        }
-    }
-
-    // フル幅ボタン
+    // Full Width
     &_type_full {
         width: 100%;
     }
 
-    // 無効状態
+    // Disabled State
     &:disabled,
     &_type_disabled {
         opacity: 0.5;
@@ -232,25 +112,28 @@
         pointer-events: none;
     }
 
-    // フォーカス状態（アクセシビリティ向上）
-    &:focus-visible {
-        outline: 3px solid var(--color-accent);
-        outline-offset: 2px;
-        box-shadow:
-            0 0 0 3px rgba(102, 126, 234, 0.3),
-            var(--shadow-lg);
+    &__text {
+        position: relative;
+        z-index: 1;
+    }
+
+    &__icon {
+        font-size: 0.9em;
     }
 }
 
-// ボタングループ
-.buttonGroup {
+/* ==========================================================================
+   Button Group
+   ========================================================================== */
+
+.uiButtonGroup {
     display: flex;
-    gap: 1.6rem;
+    gap: $spacing-md;
     flex-wrap: wrap;
 
     @include media(sp) {
         flex-direction: column;
-        gap: 1.2rem;
+        gap: $spacing-sm;
     }
 
     &_type_center {

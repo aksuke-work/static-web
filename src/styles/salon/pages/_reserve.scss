@@ -1,280 +1,192 @@
 @use 'sass:math';
-@import '../_variables';
-//////////////////////////////
-// reserve
-//////////////////////////////
+@import '../variables';
 
+/* ==========================================================================
+   Reserve Page - 2025 Modern Luxury Design
+   ========================================================================== */
+
+// Hero Section
 .salonReserveHero {
-    padding: var(--section-spacing-md) 0;
-    text-align: center;
-    background: var(--gradient-hero);
     position: relative;
+    height: 50vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: $color-text-white;
 
     @include media(sp) {
-        padding: var(--section-spacing-sm) 0;
+        min-height: 300px;
     }
 
-    &__title {
-        font-size: var(--font-size-xxl);
-        font-weight: 900;
-        margin-bottom: var(--spacing-md);
-        @include gradient-text(var(--gradient-text-primary));
-        @extend .fadein;
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
 
-        @include media(sp) {
-            font-size: var(--font-size-xl);
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $gradient-overlay;
+            z-index: 1;
         }
-    }
 
-    &__subtitle {
-        font-size: var(--font-size-md);
-        color: var(--color-text-light);
-        @extend .fadein;
-
-        @include media(sp) {
-            font-size: var(--font-size-base);
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
-    }
-}
-
-.salonReserveMethod {
-    padding: var(--section-spacing-md) 0;
-
-    @include media(sp) {
-        padding: var(--section-spacing-sm) 0;
     }
 
     &__inner {
-    }
-
-    &__title {
-        margin-bottom: var(--spacing-2xl);
-    }
-
-    &__list {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: var(--spacing-xl);
-
-        @include media(tab) {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        @include media(sp) {
-            grid-template-columns: 1fr;
-        }
-    }
-
-    &__item {
-        background-color: var(--color-surface);
-        border-radius: var(--border-radius-lg);
-        padding: var(--spacing-xl);
-        box-shadow: var(--shadow-sm);
-        transition: all var(--transition-base);
-
-        &:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-
-        @include media(sp) {
-            padding: var(--spacing-lg);
-        }
-    }
-
-    &__itemTitle {
-        font-size: var(--font-size-xl);
-        font-weight: 700;
-        margin-bottom: var(--spacing-md);
-
-        @include media(sp) {
-            font-size: var(--font-size-lg);
-        }
-    }
-
-    &__itemDescription {
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-relaxed);
-        color: var(--color-text-light);
-        margin-bottom: var(--spacing-lg);
-
-        @include media(sp) {
-            font-size: var(--font-size-sm);
-        }
-    }
-
-    &__itemFeatures {
-        list-style: none;
-        padding: 0;
-        margin-bottom: var(--spacing-xl);
-    }
-
-    &__itemFeature {
-        padding: var(--spacing-sm) 0;
-        font-size: var(--font-size-sm);
-        line-height: var(--line-height-relaxed);
-        color: var(--color-text-light);
-
-        @include media(sp) {
-            font-size: var(--font-size-xs);
-        }
-
-        &::before {
-            content: '✓';
-            margin-right: var(--spacing-sm);
-            color: var(--color-primary);
-            font-weight: 700;
-        }
-    }
-
-    &__itemButton {
+        position: relative;
+        z-index: 2;
         text-align: center;
     }
+
+    &__title {
+        font-family: $font-serif;
+        font-size: $font-size-xxl;
+        font-weight: 300;
+        letter-spacing: $letter-spacing-widest;
+        text-transform: uppercase;
+
+        @include media(sp) {
+            font-size: $font-size-xl;
+        }
+    }
 }
 
+// Reserve Methods
+.salonReserveMethods {
+    padding: map-get($salon-section-padding, xl) 0;
+
+    @include media(sp) {
+        padding: map-get($salon-section-padding, md) 0;
+    }
+}
+
+.salonReserveMethods__inner {
+    max-width: $container-width-md;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+
+    @include media(sp) {
+        padding: 0 $spacing-md;
+    }
+}
+
+.salonReserveMethods__title {
+    @extend .uiHeading_level_h2;
+}
+
+.salonReserveMethods__list {
+    display: grid;
+    gap: $spacing-xl;
+}
+
+.salonReserveMethods__item {
+    background-color: $color-secondary;
+    padding: $spacing-xl;
+    text-align: center;
+    @include hover-lift;
+
+    @include media(sp) {
+        padding: $spacing-lg;
+    }
+}
+
+.salonReserveMethods__itemTitle {
+    font-family: $font-serif;
+    font-size: $font-size-xl;
+    font-weight: 400;
+    color: $color-primary;
+    margin-bottom: $spacing-md;
+}
+
+.salonReserveMethods__itemDescription {
+    font-size: $font-size-base;
+    line-height: $line-height-relaxed;
+    color: $color-text-light;
+    margin-bottom: $spacing-lg;
+}
+
+// Contact Form
 .salonReserveForm {
-    padding: var(--section-spacing-md) 0;
-    background: linear-gradient(180deg, var(--color-bg-gray) 0%, var(--color-bg) 100%);
+    padding: map-get($salon-section-padding, xl) 0;
+    background-color: $color-secondary;
 
     @include media(sp) {
-        padding: var(--section-spacing-sm) 0;
-    }
-
-    &__inner {
-        max-width: 80rem;
-        margin: 0 auto;
-    }
-
-    &__title {
-        margin-bottom: var(--spacing-2xl);
-        @extend .fadein;
-    }
-
-    &__form {
-        background: var(--color-surface);
-        border-radius: var(--border-radius-xl);
-        padding: var(--spacing-2xl);
-        box-shadow: var(--shadow-lg);
-        @extend .fadein;
-
-        @include media(sp) {
-            padding: var(--spacing-lg);
-        }
+        padding: map-get($salon-section-padding, md) 0;
     }
 }
 
-.salonReservePolicy {
-    padding: var(--section-spacing-md) 0;
+.salonReserveForm__inner {
+    max-width: $container-width-md;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
 
     @include media(sp) {
-        padding: var(--section-spacing-sm) 0;
-    }
-
-    &__inner {
-        max-width: 80rem;
-        margin: 0 auto;
-    }
-
-    &__title {
-        margin-bottom: var(--spacing-xl);
-    }
-
-    &__content {
-        background-color: var(--color-surface);
-        border-radius: var(--border-radius-lg);
-        padding: var(--spacing-xl);
-        box-shadow: var(--shadow-sm);
-
-        @include media(sp) {
-            padding: var(--spacing-lg);
-        }
-    }
-
-    &__list {
-        list-style: none;
-        padding: 0;
-    }
-
-    &__item {
-        padding: var(--spacing-md) 0;
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-relaxed);
-        color: var(--color-text-light);
-        border-bottom: var(--border-width-thin) solid var(--color-border);
-
-        @include media(sp) {
-            font-size: var(--font-size-sm);
-        }
-
-        &:last-child {
-            border-bottom: none;
-        }
-
-        &::before {
-            content: '・';
-            margin-right: var(--spacing-sm);
-        }
+        padding: 0 $spacing-md;
     }
 }
 
-.salonReserveFaq {
-    padding: var(--section-spacing-md) 0;
-    background-color: var(--color-bg-gray);
+.salonReserveForm__title {
+    @extend .uiHeading_level_h2;
+}
+
+.salonReserveForm__form {
+    background-color: $color-bg;
+    padding: $spacing-2xl;
 
     @include media(sp) {
-        padding: var(--section-spacing-sm) 0;
-    }
-
-    &__inner {
-        max-width: 80rem;
-        margin: 0 auto;
-    }
-
-    &__title {
-        margin-bottom: var(--spacing-2xl);
-    }
-
-    &__list {
-        display: grid;
-        gap: var(--spacing-lg);
-    }
-
-    &__item {
-        background-color: var(--color-surface);
-        border-radius: var(--border-radius-lg);
-        padding: var(--spacing-xl);
-        box-shadow: var(--shadow-sm);
-        transition: all var(--transition-base);
-
-        &:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        @include media(sp) {
-            padding: var(--spacing-lg);
-        }
-    }
-
-    &__itemQuestion {
-        font-size: var(--font-size-lg);
-        font-weight: 700;
-        margin-bottom: var(--spacing-md);
-        color: var(--color-text);
-
-        @include media(sp) {
-            font-size: var(--font-size-base);
-        }
-    }
-
-    &__itemAnswer {
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-relaxed);
-        color: var(--color-text-light);
-
-        @include media(sp) {
-            font-size: var(--font-size-sm);
-        }
+        padding: $spacing-lg;
     }
 }
 
+.salonReserveForm__field {
+    margin-bottom: $spacing-xl;
+}
+
+.salonReserveForm__label {
+    display: block;
+    font-size: $font-size-base;
+    font-weight: 500;
+    color: $color-primary;
+    margin-bottom: $spacing-sm;
+}
+
+.salonReserveForm__input,
+.salonReserveForm__textarea,
+.salonReserveForm__select {
+    width: 100%;
+    padding: $spacing-md;
+    font-size: $font-size-base;
+    font-family: $font-sans;
+    color: $color-text;
+    background-color: $color-bg;
+    border: 1px solid rgba($color-primary, 0.2);
+    transition: border-color $transition-fast;
+
+    &:focus {
+        outline: none;
+        border-color: $color-accent;
+    }
+}
+
+.salonReserveForm__textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.salonReserveForm__submit {
+    width: 100%;
+}

@@ -2,8 +2,8 @@
     const heroData = typeof hero !== 'undefined' ? hero : {
         catchcopy: '都町でゆったり、隠れ家サロン',
         subtitle: 'あなただけの特別な時間を',
-        image: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&w=1920&h=1080&fit=crop&q=80',
-        imageSp: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&w=768&h=1024&fit=crop&q=80',
+        image: '/images/salon/hero_top.png',
+        imageSp: '/images/salon/hero_top.png',
         reservationButtons: {
             line: 'https://line.me/R/ti/p/@salon',
             web: '/salon/reserve/',
@@ -15,7 +15,7 @@
     <div class="salonHero__bg">
         <picture class="salonHero__image">
             <source media="(max-width: 768px)" srcset="<%= heroData.imageSp || heroData.image %>" />
-            <img class="salonHero__imageImg" src="<%= heroData.image %>" alt="サロンイメージ" loading="eager" onerror="this.onerror=null; this.src='https://picsum.photos/1920/1080?random=1';" />
+            <img class="salonHero__imageImg" src="<%= heroData.image %>" alt="サロンイメージ" loading="eager" onerror="this.onerror=null; this.src='https://via.placeholder.com/1920x1080/667eea/ffffff?text=Salon+Hero';" />
         </picture>
     </div>
     <div class="salonHero__inner container">

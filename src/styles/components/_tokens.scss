@@ -26,14 +26,17 @@
     --brand-secondary: #764ba2;
     --brand-accent: #f5a623;
 
-    // グラデーションカラー（3種類に統一）
+    // グラデーションカラー（3種類に統一・強化）
     --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-primary-bright: linear-gradient(135deg, #7c8ff0 0%, #8a5fb8 100%);
     --gradient-accent: linear-gradient(135deg, #f5a623 0%, #ffb84d 100%);
+    --gradient-accent-bright: linear-gradient(135deg, #ffb84d 0%, #ffc966 100%);
     --gradient-neutral: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
-    // 互換性のための既存変数（非推奨）
-    --gradient-hero: linear-gradient(135deg, rgba(26, 31, 46, 0.95) 0%, rgba(102, 126, 234, 0.85) 100%);
+    // 互換性のための既存変数（非推奨・強化）
+    --gradient-hero: linear-gradient(135deg, rgba(26, 31, 46, 0.92) 0%, rgba(102, 126, 234, 0.88) 50%, rgba(118, 75, 162, 0.9) 100%);
     --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.92) 100%);
     --gradient-text: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-text-bright: linear-gradient(135deg, #7c8ff0 0%, #8a5fb8 50%, #9b6bc4 100%);
 
     // ニュートラルカラー - 洗練されたグレースケール
     --color-bg: #ffffff;
@@ -108,7 +111,7 @@
     --section-spacing-sm: var(--spacing-2xl); // 4.8rem
     --section-spacing-md: var(--spacing-3xl); // 6.4rem
     --section-spacing-lg: var(--spacing-4xl); // 8rem
-    --section-spacing-xl: var(--spacing-5xl); // 12rem
+    --section-spacing-xl: 16rem; // 16rem（拡大）
 
     // ボーダー（役割を明確化）
     --border-radius-sm: 0.4rem;

@@ -1,8 +1,9 @@
 @use 'sass:math';
-@import '../_variables';
-//////////////////////////////
-// index (TOP)
-//////////////////////////////
+@import '../variables';
+
+/* ==========================================================================
+   Top Page - 2025 Modern Luxury Design
+   ========================================================================== */
 
 .salonMain {
     &_type_top {
@@ -10,44 +11,49 @@
     }
 }
 
-// ヘッダーの高さ分のパディングを追加（TOPページ以外）
-.salonMain:not(.salonMain_type_top) {
-    padding-top: 80px;
+/* ==========================================================================
+   Common UI Components
+   ========================================================================== */
 
-    @include media(sp) {
-        padding-top: 60px;
+.uiHeading {
+    font-family: $font-serif;
+    font-weight: 400;
+    letter-spacing: $letter-spacing-base;
+    color: $color-primary;
+    
+    &_level_h2 {
+        font-size: $font-size-xxl;
+        margin-bottom: $spacing-xl;
+        text-align: center;
+        position: relative;
+        
+        &::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 1px;
+            background-color: $color-accent;
+            margin: $spacing-md auto 0;
+        }
     }
 }
 
-// ヒーローセクション（フルスクリーン）
+/* ==========================================================================
+   Hero Section - Fullscreen with Parallax
+   ========================================================================== */
+
 .salonHero {
     position: relative;
-    min-height: 100vh;
+    height: 100vh;
+    min-height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    @include parallax();
+    color: $color-text-white;
 
     @include media(sp) {
-        min-height: 90vh;
-    }
-
-    // パーティクル風の装飾要素
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image:
-            radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.3) 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.3) 0%, transparent 50%),
-            radial-gradient(circle at 50% 20%, rgba(102, 126, 234, 0.2) 0%, transparent 40%);
-        animation: float 20s ease-in-out infinite;
-        z-index: 1;
-        pointer-events: none;
+        min-height: 500px;
     }
 
     &__bg {
@@ -57,646 +63,300 @@
         width: 100%;
         height: 100%;
         z-index: 0;
-    }
 
-    &__image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-
-        &Img {
+        &::after {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transform: scale(1.15);
-            filter: brightness(0.9) contrast(1.1);
-            transition:
-                transform 0.1s ease-out,
-                filter 0.1s ease-out;
-            will-change: transform, filter;
+            background: $gradient-overlay;
+            z-index: 1;
         }
     }
 
-    // オーバーレイ（洗練されたグラデーション）
-    &__bg::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
+    &__image {
         width: 100%;
         height: 100%;
-        background: linear-gradient(135deg, rgba(26, 31, 46, 0.85) 0%, rgba(102, 126, 234, 0.75) 50%, rgba(118, 75, 162, 0.8) 100%);
-        z-index: 1;
+        
+        &Img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: heroZoom 20s ease-in-out infinite alternate;
+        }
     }
 
     &__inner {
         position: relative;
         z-index: 2;
-        width: 100%;
-    }
-
-    &__content {
         text-align: center;
-        color: #fff;
-        padding: var(--spacing-3xl) var(--spacing-lg);
-        opacity: 0;
-        transform: translateY(30px);
-        animation: fadeInUp 1s var(--transition-base) 0.3s forwards;
+        padding: 0 $spacing-lg;
+        max-width: $container-width-md;
+        margin: 0 auto;
 
         @include media(sp) {
-            padding: var(--spacing-2xl) var(--spacing-md);
+            padding: 0 $spacing-md;
         }
     }
 
+    &__content {
+        animation: heroFadeIn 1.5s ease-out forwards;
+        opacity: 0;
+    }
+
     &__catchcopy {
-        font-size: clamp(4.8rem, 7vw + 3.5rem, 8rem);
-        font-weight: 900;
-        line-height: 1.1;
-        letter-spacing: -0.04em;
-        margin-bottom: var(--spacing-md);
-        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-        background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.9) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        font-family: $font-serif;
+        font-size: $font-size-display;
+        font-weight: 300;
+        line-height: $line-height-tight;
+        letter-spacing: $letter-spacing-wide;
+        margin-bottom: $spacing-lg;
+        text-shadow: 0 4px 20px rgba(0,0,0,0.3);
 
         @include media(sp) {
-            font-size: clamp(3.2rem, 5vw + 2rem, 4.8rem);
+            font-size: clamp(3.2rem, 8vw, 4.8rem);
         }
     }
 
     &__subtitle {
-        font-size: var(--font-size-lg);
-        line-height: var(--line-height-relaxed);
-        margin-bottom: var(--spacing-xl);
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        opacity: 0.95;
+        font-size: $font-size-lg;
+        font-weight: 300;
+        letter-spacing: $letter-spacing-widest;
+        margin-bottom: $spacing-2xl;
+        opacity: 0.9;
 
         @include media(sp) {
-            font-size: var(--font-size-base);
-            margin-bottom: var(--spacing-lg);
+            font-size: $font-size-md;
+            margin-bottom: $spacing-xl;
         }
     }
 
     &__buttons {
         display: flex;
-        gap: var(--spacing-md);
+        gap: $spacing-md;
         justify-content: center;
         flex-wrap: wrap;
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeInUp 1s var(--transition-base) 0.6s forwards;
 
         @include media(sp) {
             flex-direction: column;
-            gap: var(--spacing-sm);
+            gap: $spacing-sm;
+        }
+    }
+
+    &__scrollIndicator {
+        position: absolute;
+        bottom: $spacing-xl;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        animation: scrollBounce 2s ease-in-out infinite;
+
+        @include media(sp) {
+            bottom: $spacing-lg;
+        }
+
+        &Text {
+            font-size: $font-size-xs;
+            letter-spacing: $letter-spacing-widest;
+            text-transform: uppercase;
+            margin-bottom: $spacing-xs;
+        }
+
+        &Icon {
+            width: 1px;
+            height: 40px;
+            background-color: $color-text-white;
+            margin: 0 auto;
+            opacity: 0.6;
         }
     }
 }
 
+/* ==========================================================================
+   Concept Section - Split Layout
+   ========================================================================== */
+
 .salonConcept {
-    // 前のセクションとオーバーラップ
-    margin-top: -10rem;
-    padding: calc(var(--section-spacing-xl) + 10rem) 0 var(--section-spacing-xl);
-    background: linear-gradient(180deg, var(--color-bg-gray) 0%, var(--color-bg) 100%);
-    position: relative;
-    overflow: hidden;
-    z-index: 2;
+    padding: map-get($salon-section-padding, xl) 0;
+    background-color: $color-bg;
 
     @include media(sp) {
-        margin-top: -5rem;
-        padding: calc(var(--section-spacing-md) + 5rem) 0 var(--section-spacing-md);
-    }
-
-    // 斜めのセクション分割
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 10rem;
-        background: linear-gradient(135deg, var(--color-bg-gray) 0%, transparent 100%);
-        clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-        z-index: 0;
-
-        @include media(sp) {
-            height: 5rem;
-            clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
-        }
-    }
-
-    // 装飾要素
-    &::after {
-        content: '';
-        position: absolute;
-        top: -50%;
-        right: -10%;
-        width: 40rem;
-        height: 40rem;
-        background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
-        border-radius: 50%;
-        z-index: 0;
+        padding: map-get($salon-section-padding, md) 0;
     }
 
     &__inner {
-        position: relative;
-        z-index: 1;
+        max-width: $container-width-lg;
+        margin: 0 auto;
+        padding: 0 $spacing-lg;
+
+        @include media(sp) {
+            padding: 0 $spacing-md;
+        }
     }
 
     &__title {
-        @extend .fadein;
+        @extend .uiHeading_level_h2;
     }
 
     &__content {
-        max-width: 90rem;
+        max-width: 800px;
         margin: 0 auto;
+        text-align: center;
     }
 
     &__text {
-        font-size: var(--font-size-md);
-        line-height: var(--line-height-relaxed);
-        margin-bottom: var(--spacing-lg);
-        text-align: center;
-        color: var(--color-text);
-        @extend .fadein;
-
-        @include media(sp) {
-            font-size: var(--font-size-base);
-            margin-bottom: var(--spacing-md);
-        }
+        font-size: $font-size-md;
+        line-height: $line-height-relaxed;
+        color: $color-text-light;
+        margin-bottom: $spacing-lg;
 
         &:last-child {
             margin-bottom: 0;
         }
+
+        @include media(sp) {
+            font-size: $font-size-base;
+        }
     }
 }
 
+/* ==========================================================================
+   Popular Menu Section - Card Grid
+   ========================================================================== */
+
 .salonPopularMenu {
-    padding: var(--section-spacing-xl) 0;
-    background: var(--color-bg);
+    padding: map-get($salon-section-padding, xl) 0;
+    background-color: $color-secondary;
 
     @include media(sp) {
-        padding: var(--section-spacing-md) 0;
+        padding: map-get($salon-section-padding, md) 0;
     }
 
     &__inner {
+        max-width: $container-width-lg;
+        margin: 0 auto;
+        padding: 0 $spacing-lg;
+
+        @include media(sp) {
+            padding: 0 $spacing-md;
+        }
     }
 
     &__title {
-        @extend .fadein;
+        @extend .uiHeading_level_h2;
     }
 
     &__list {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: var(--spacing-2xl);
-        margin-bottom: var(--spacing-3xl);
-
-        // より大胆な非対称配置（モダンなデザイントレンド）
-        & > :nth-child(1) {
-            grid-column: span 1;
-            transform: rotate(-1deg);
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-
-            @include media(tab) {
-                transform: none;
-            }
-
-            @include media(sp) {
-                transform: none;
-            }
-        }
-
-        & > :nth-child(2) {
-            grid-column: span 1;
-            margin-top: var(--spacing-2xl);
-            transform: rotate(1deg);
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-
-            @include media(tab) {
-                margin-top: 0;
-                transform: none;
-            }
-
-            @include media(sp) {
-                margin-top: 0;
-                transform: none;
-            }
-        }
-
-        & > :nth-child(3) {
-            grid-column: span 1;
-            transform: rotate(-0.5deg);
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-
-            @include media(tab) {
-                transform: none;
-            }
-
-            @include media(sp) {
-                transform: none;
-            }
-        }
-
-        // ホバー時に元に戻る
-        & > :nth-child(n):hover {
-            transform: rotate(0deg) scale(1.05) !important;
-        }
+        gap: $spacing-xl;
 
         @include media(tab) {
             grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-lg);
         }
 
         @include media(sp) {
             grid-template-columns: 1fr;
-            gap: var(--spacing-lg);
-        }
-    }
-
-    &__button {
-        text-align: center;
-        @extend .fadein;
-    }
-}
-
-.salonFirstTime {
-    // 前のセクションとオーバーラップ
-    margin-top: -8rem;
-    padding: calc(var(--section-spacing-xl) + 8rem) 0 var(--section-spacing-xl);
-    background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-gray) 100%);
-    position: relative;
-    z-index: 1;
-
-    @include media(sp) {
-        margin-top: -4rem;
-        padding: calc(var(--section-spacing-md) + 4rem) 0 var(--section-spacing-md);
-    }
-
-    // 斜めのセクション分割
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 8rem;
-        background: linear-gradient(135deg, var(--color-bg) 0%, transparent 100%);
-        clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
-        z-index: 0;
-
-        @include media(sp) {
-            height: 4rem;
-            clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 100%);
-        }
-    }
-
-    &__inner {
-        position: relative;
-        z-index: 1;
-    }
-
-    &__title {
-        @extend .fadein;
-    }
-
-    &__flow {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: var(--spacing-xl);
-
-        @include media(tab) {
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-lg);
-        }
-
-        @include media(sp) {
-            grid-template-columns: 1fr;
-            gap: var(--spacing-lg);
-        }
-    }
-
-    &__flowItem {
-        text-align: center;
-        @extend .fadein;
-        transition: transform var(--transition-base);
-
-        &:hover {
-            transform: translateY(-8px);
-        }
-    }
-
-    &__flowNumber {
-        width: 8rem;
-        height: 8rem;
-        border-radius: 50%;
-        background: var(--gradient-primary);
-        color: #fff;
-        font-size: var(--font-size-xl);
-        font-weight: 900;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto var(--spacing-md);
-        box-shadow: var(--shadow-lg);
-        transition: all var(--transition-base);
-        position: relative;
-
-        &::before {
-            content: '';
-            position: absolute;
-            inset: -3px;
-            border-radius: 50%;
-            background: var(--gradient-primary);
-            opacity: 0.3;
-            filter: blur(10px);
-            z-index: -1;
-        }
-
-        @include media(sp) {
-            width: 6rem;
-            height: 6rem;
-            font-size: var(--font-size-lg);
-        }
-
-        .salonFirstTime__flowItem:hover & {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: var(--shadow-xl);
-        }
-    }
-
-    &__flowTitle {
-        font-size: var(--font-size-lg);
-        font-weight: 900;
-        margin-bottom: var(--spacing-sm);
-        background: var(--gradient-text-primary);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-
-        @include media(sp) {
-            font-size: var(--font-size-md);
-        }
-    }
-
-    &__flowText {
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-relaxed);
-        color: var(--color-text-light);
-
-        @include media(sp) {
-            font-size: var(--font-size-sm);
+            gap: $spacing-lg;
         }
     }
 }
 
-.salonNews {
-    // 前のセクションとオーバーラップ
-    margin-top: -6rem;
-    padding: calc(var(--section-spacing-xl) + 6rem) 0 var(--section-spacing-xl);
-    background: var(--color-bg);
-    position: relative;
-    z-index: 2;
+/* ==========================================================================
+   Menu Card Component
+   ========================================================================== */
 
-    @include media(sp) {
-        margin-top: -3rem;
-        padding: calc(var(--section-spacing-md) + 3rem) 0 var(--section-spacing-md);
-    }
+.salonMenuCard {
+    background-color: $color-bg;
+    overflow: hidden;
+    transition: all $transition-base;
+    @include hover-lift;
 
-    // 斜めのセクション分割
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
+    &__image {
         width: 100%;
-        height: 6rem;
-        background: linear-gradient(135deg, var(--color-bg-gray) 0%, transparent 100%);
-        clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
-        z-index: 0;
-
-        @include media(sp) {
-            height: 3rem;
-            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
-        }
-    }
-
-    &__inner {
-        position: relative;
-        z-index: 1;
-    }
-
-    &__title {
-        @extend .fadein;
-    }
-
-    &__list {
-        max-width: 90rem;
-        margin: 0 auto var(--spacing-2xl);
-    }
-
-    &__item {
-        border-bottom: var(--border-width-thin) solid var(--color-border-light);
-        transition: background-color var(--transition-base);
-        @extend .fadein;
-
-        &:last-child {
-            border-bottom: none;
-        }
-
-        &:hover {
-            background-color: var(--color-bg-gray);
-        }
-    }
-
-    &__article {
-        padding: var(--spacing-lg) 0;
-        display: flex;
-        align-items: flex-start;
-        gap: var(--spacing-lg);
-        transition: transform var(--transition-base);
-
-        @include media(sp) {
-            flex-direction: column;
-            gap: var(--spacing-sm);
-            padding: var(--spacing-md) 0;
-        }
-
-        &:hover {
-            transform: translateX(8px);
-
-            @include media(sp) {
-                transform: none;
-            }
-        }
-    }
-
-    &__date {
-        font-size: var(--font-size-sm);
-        color: var(--color-text-light);
-        white-space: nowrap;
-        font-weight: 500;
-    }
-
-    &__category {
-        display: inline-block;
-        padding: var(--spacing-xs) var(--spacing-md);
-        background: var(--gradient-primary);
-        color: #fff;
-        font-size: var(--font-size-xs);
-        font-weight: 700;
-        border-radius: var(--border-radius-full);
-        white-space: nowrap;
-        box-shadow: var(--shadow-sm);
-    }
-
-    &__articleTitle {
-        font-size: var(--font-size-base);
-        font-weight: 700;
-        flex: 1;
-        line-height: var(--line-height-relaxed);
-
-        @include media(sp) {
-            font-size: var(--font-size-sm);
-        }
-
-        &Link {
-            color: inherit;
-            text-decoration: none;
-            transition: color var(--transition-base);
-            border-radius: var(--border-radius-sm);
-
-            &:hover {
-                color: var(--color-primary);
-                background: var(--gradient-text-primary);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-            }
-
-            // フォーカス状態（アクセシビリティ向上）
-            &:focus-visible {
-                outline: 3px solid var(--color-accent);
-                outline-offset: 2px;
-            }
-        }
-    }
-
-    &__button {
-        text-align: center;
-        @extend .fadein;
-    }
-}
-
-.salonAccess {
-    // 前のセクションとオーバーラップ
-    margin-top: -5rem;
-    padding: calc(var(--section-spacing-xl) + 5rem) 0 var(--section-spacing-xl);
-    background: linear-gradient(180deg, var(--color-bg-gray) 0%, var(--color-bg) 100%);
-    position: relative;
-    z-index: 1;
-
-    @include media(sp) {
-        margin-top: -3rem;
-        padding: calc(var(--section-spacing-md) + 3rem) 0 var(--section-spacing-md);
-    }
-
-    // 斜めのセクション分割
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 5rem;
-        background: linear-gradient(135deg, var(--color-bg) 0%, transparent 100%);
-        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
-        z-index: 0;
-
-        @include media(sp) {
-            height: 3rem;
-            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
-        }
-    }
-
-    &__inner {
-        position: relative;
-        z-index: 1;
-    }
-
-    &__title {
-        @extend .fadein;
-    }
-
-    &__content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--spacing-2xl);
-
-        @include media(sp) {
-            grid-template-columns: 1fr;
-            gap: var(--spacing-lg);
-        }
-    }
-
-    &__map {
-        border-radius: var(--border-radius-xl);
+        height: 280px;
         overflow: hidden;
-        box-shadow: var(--shadow-lg);
-        transition: transform var(--transition-base);
-        @extend .fadein;
+        position: relative;
 
-        &:hover {
-            transform: scale(1.02);
-            box-shadow: var(--shadow-xl);
-        }
-
-        &Image {
+        img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
+            transition: transform $transition-slow;
         }
+    }
+
+    &:hover &__image img {
+        transform: scale(1.05);
+    }
+
+    &__content {
+        padding: $spacing-lg;
+
+        @include media(sp) {
+            padding: $spacing-md;
+        }
+    }
+
+    &__name {
+        font-family: $font-serif;
+        font-size: $font-size-xl;
+        font-weight: 400;
+        color: $color-primary;
+        margin-bottom: $spacing-sm;
+    }
+
+    &__description {
+        font-size: $font-size-sm;
+        line-height: $line-height-relaxed;
+        color: $color-text-light;
+        margin-bottom: $spacing-md;
     }
 
     &__info {
-        @extend .fadein;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: $spacing-md;
+        border-top: 1px solid rgba($color-primary, 0.1);
     }
 
-    &__infoItem {
-        margin-bottom: var(--spacing-lg);
-        padding-bottom: var(--spacing-md);
-        border-bottom: var(--border-width-thin) solid var(--color-border-light);
-
-        &:last-child {
-            margin-bottom: 0;
-            border-bottom: none;
-        }
+    &__time {
+        font-size: $font-size-xs;
+        color: $color-text-light;
     }
 
-    &__infoDt {
-        font-size: var(--font-size-sm);
-        font-weight: 700;
-        margin-bottom: var(--spacing-xs);
-        color: var(--color-text-light);
-        text-transform: uppercase;
-        letter-spacing: var(--letter-spacing-wide);
+    &__price {
+        font-family: $font-serif;
+        font-size: $font-size-lg;
+        font-weight: 500;
+        color: $color-accent;
     }
+}
 
-    &__infoDd {
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-relaxed);
-        color: var(--color-text);
-    }
+/* ==========================================================================
+   Animations
+   ========================================================================== */
 
-    &__button {
-        margin-top: var(--spacing-lg);
+@keyframes heroZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+@keyframes heroFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
     }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scrollBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
 }

@@ -1,400 +1,198 @@
 @use 'sass:math';
-@import '../_variables';
-//////////////////////////////
-// menu
-//////////////////////////////
+@import '../variables';
 
+/* ==========================================================================
+   Menu Page - 2025 Modern Luxury Design
+   ========================================================================== */
+
+// Hero Section
 .salonMenuHero {
-    padding: var(--section-spacing-md) 0;
-    text-align: center;
-    background: var(--gradient-hero);
     position: relative;
+    height: 50vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: $color-text-white;
 
     @include media(sp) {
-        padding: var(--section-spacing-sm) 0;
+        min-height: 300px;
     }
 
-    &__title {
-        font-size: var(--font-size-xxl);
-        font-weight: 900;
-        margin-bottom: var(--spacing-md);
-        @include gradient-text(var(--gradient-text-primary));
-        @extend .fadein;
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
 
-        @include media(sp) {
-            font-size: var(--font-size-xl);
-        }
-    }
-
-    &__subtitle {
-        font-size: var(--font-size-md);
-        color: var(--color-text-light);
-        @extend .fadein;
-
-        @include media(sp) {
-            font-size: var(--font-size-base);
-        }
-    }
-}
-
-.salonMenuList {
-    padding: var(--section-spacing-md) 0;
-    background: var(--color-bg);
-
-    @include media(sp) {
-        padding: var(--section-spacing-sm) 0;
-    }
-
-    &__inner {
-    }
-
-    &__title {
-        margin-bottom: var(--spacing-xl);
-        @extend .fadein;
-    }
-
-    &__items {
-        display: grid;
-        gap: var(--spacing-lg);
-    }
-
-    &__item {
-        @include glass-morphism(rgba(255, 255, 255, 0.95), blur(20px));
-        border-radius: var(--border-radius-xl);
-        padding: var(--spacing-xl);
-        @include shadow-3d();
-        transition: all var(--transition-base);
-        @extend .fadein;
-
-        &:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-2xl);
-        }
-
-        @include media(sp) {
-            padding: var(--spacing-lg);
-        }
-    }
-
-    &__itemName {
-        font-size: var(--font-size-xl);
-        font-weight: 700;
-        margin-bottom: var(--spacing-md);
-
-        @include media(sp) {
-            font-size: var(--font-size-lg);
-        }
-    }
-
-    &__itemDescription {
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-relaxed);
-        color: var(--color-text-light);
-        margin-bottom: var(--spacing-md);
-
-        @include media(sp) {
-            font-size: var(--font-size-sm);
-        }
-    }
-
-    &__itemInfo {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--spacing-lg);
-
-        @include media(sp) {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: var(--spacing-sm);
-        }
-    }
-
-    &__itemTime {
-        font-size: var(--font-size-sm);
-        color: var(--color-text-muted);
-    }
-
-    &__itemPrice {
-        font-size: var(--font-size-lg);
-        font-weight: 700;
-        color: var(--color-text);
-
-        @include media(sp) {
-            font-size: var(--font-size-md);
-        }
-    }
-}
-
-.salonMenuSet {
-    padding: var(--section-spacing-md) 0;
-    background: linear-gradient(180deg, var(--color-bg-gray) 0%, var(--color-bg) 100%);
-
-    @include media(sp) {
-        padding: var(--section-spacing-sm) 0;
-    }
-
-    &__inner {
-    }
-
-    &__title {
-        margin-bottom: var(--spacing-xl);
-        @extend .fadein;
-    }
-
-    &__items {
-        display: grid;
-        gap: var(--spacing-lg);
-    }
-
-    &__item {
-        background: var(--gradient-card);
-        border-radius: var(--border-radius-xl);
-        padding: var(--spacing-xl);
-        @include shadow-3d();
-        border: 3px solid;
-        border-image: var(--gradient-primary) 1;
-        position: relative;
-        overflow: hidden;
-        transition: all var(--transition-base);
-        @extend .fadein;
-
-        &::before {
-            content: 'おすすめ';
+        &::after {
+            content: '';
             position: absolute;
-            top: var(--spacing-md);
-            right: var(--spacing-md);
-            padding: 0.4rem 1.2rem;
-            background: var(--gradient-primary);
-            color: #fff;
-            font-size: var(--font-size-xs);
-            font-weight: 900;
-            border-radius: var(--border-radius-full);
-            box-shadow: var(--shadow-md);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $gradient-overlay;
             z-index: 1;
         }
 
-        &:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: var(--shadow-2xl);
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
-
-        @include media(sp) {
-            padding: var(--spacing-lg);
-        }
-    }
-
-    &__itemName {
-        font-size: var(--font-size-xl);
-        font-weight: 700;
-        margin-bottom: var(--spacing-md);
-
-        @include media(sp) {
-            font-size: var(--font-size-lg);
-        }
-    }
-
-    &__itemDescription {
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-relaxed);
-        color: var(--color-text-light);
-        margin-bottom: var(--spacing-md);
-
-        @include media(sp) {
-            font-size: var(--font-size-sm);
-        }
-    }
-
-    &__itemInfo {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--spacing-lg);
-
-        @include media(sp) {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: var(--spacing-sm);
-        }
-    }
-
-    &__itemTime {
-        font-size: var(--font-size-sm);
-        color: var(--color-text-muted);
-    }
-
-    &__itemPrice {
-        font-size: var(--font-size-lg);
-        font-weight: 700;
-        color: var(--color-text);
-
-        @include media(sp) {
-            font-size: var(--font-size-md);
-        }
-
-        &Note {
-            display: block;
-            font-size: var(--font-size-xs);
-            font-weight: 400;
-            color: var(--color-error);
-            margin-top: var(--spacing-xs);
-        }
-    }
-}
-
-.salonMenuOption {
-    padding: var(--section-spacing-md) 0;
-
-    @include media(sp) {
-        padding: var(--section-spacing-sm) 0;
     }
 
     &__inner {
-    }
-
-    &__title {
-        margin-bottom: var(--spacing-xl);
-    }
-
-    &__items {
-        display: grid;
-        gap: var(--spacing-md);
-        max-width: 60rem;
-        margin: 0 auto;
-    }
-
-    &__item {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: var(--spacing-md) var(--spacing-lg);
-        background-color: var(--color-surface);
-        border-radius: var(--border-radius-md);
-        box-shadow: var(--shadow-sm);
-        transition: all var(--transition-base);
-
-        &:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-    }
-
-    &__itemName {
-        font-size: var(--font-size-base);
-        font-weight: 700;
-    }
-
-    &__itemPrice {
-        font-size: var(--font-size-base);
-        font-weight: 700;
-        color: var(--color-text);
-    }
-}
-
-.salonMenuDiscount {
-    padding: var(--section-spacing-md) 0;
-    background-color: var(--color-bg-gray);
-
-    @include media(sp) {
-        padding: var(--section-spacing-sm) 0;
-    }
-
-    &__inner {
-    }
-
-    &__title {
-        margin-bottom: var(--spacing-xl);
-    }
-
-    &__items {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-lg);
-
-        @include media(sp) {
-            grid-template-columns: 1fr;
-        }
-    }
-
-    &__item {
-        background-color: var(--color-surface);
-        border-radius: var(--border-radius-lg);
-        padding: var(--spacing-xl);
-        box-shadow: var(--shadow-sm);
+        position: relative;
+        z-index: 2;
         text-align: center;
-        transition: all var(--transition-base);
-
-        &:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-
-        @include media(sp) {
-            padding: var(--spacing-lg);
-        }
-    }
-
-    &__itemName {
-        font-size: var(--font-size-lg);
-        font-weight: 700;
-        margin-bottom: var(--spacing-md);
-        color: var(--color-error);
-    }
-
-    &__itemDescription {
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-relaxed);
-        color: var(--color-text-light);
-
-        @include media(sp) {
-            font-size: var(--font-size-sm);
-        }
-    }
-}
-
-.salonMenuNote {
-    padding: var(--section-spacing-md) 0;
-
-    @include media(sp) {
-        padding: var(--section-spacing-sm) 0;
-    }
-
-    &__inner {
     }
 
     &__title {
-        margin-bottom: var(--spacing-xl);
-    }
-
-    &__content {
-        max-width: 80rem;
-        margin: 0 auto;
-    }
-
-    &__list {
-        list-style: none;
-        padding: 0;
-    }
-
-    &__item {
-        padding: var(--spacing-md) 0;
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-relaxed);
-        color: var(--color-text-light);
-        border-bottom: var(--border-width-thin) solid var(--color-border);
+        font-family: $font-serif;
+        font-size: $font-size-xxl;
+        font-weight: 300;
+        letter-spacing: $letter-spacing-widest;
+        text-transform: uppercase;
 
         @include media(sp) {
-            font-size: var(--font-size-sm);
-        }
-
-        &:last-child {
-            border-bottom: none;
-        }
-
-        &::before {
-            content: '・';
-            margin-right: var(--spacing-sm);
+            font-size: $font-size-xl;
         }
     }
 }
 
+// Menu Sections
+.salonMenuList,
+.salonMenuSet {
+    padding: map-get($salon-section-padding, xl) 0;
+
+    @include media(sp) {
+        padding: map-get($salon-section-padding, md) 0;
+    }
+
+    &:nth-child(even) {
+        background-color: $color-secondary;
+    }
+}
+
+.salonMenuList__inner,
+.salonMenuSet__inner {
+    max-width: $container-width-lg;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+
+    @include media(sp) {
+        padding: 0 $spacing-md;
+    }
+}
+
+.salonMenuList__title,
+.salonMenuSet__title {
+    @extend .uiHeading_level_h2;
+}
+
+// Menu Items
+.salonMenuList__items {
+    display: grid;
+    gap: $spacing-xl;
+}
+
+.salonMenuList__item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: $spacing-md;
+    padding-bottom: $spacing-md;
+    border-bottom: 1px solid rgba($color-primary, 0.1);
+
+    @include media(sp) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.salonMenuList__itemName {
+    font-family: $font-serif;
+    font-size: $font-size-lg;
+    font-weight: 400;
+    color: $color-primary;
+    margin-bottom: $spacing-xs;
+}
+
+.salonMenuList__itemDescription {
+    font-size: $font-size-sm;
+    line-height: $line-height-relaxed;
+    color: $color-text-light;
+}
+
+.salonMenuList__itemPrice {
+    font-family: $font-serif;
+    font-size: $font-size-xl;
+    font-weight: 500;
+    color: $color-accent;
+    white-space: nowrap;
+
+    @include media(sp) {
+        text-align: right;
+    }
+}
+
+// Set Menu Cards
+.salonMenuSet__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-xl;
+
+    @include media(sp) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.salonMenuSet__card {
+    background-color: $color-bg;
+    padding: $spacing-xl;
+    @include hover-lift;
+
+    @include media(sp) {
+        padding: $spacing-lg;
+    }
+}
+
+.salonMenuSet__cardTitle {
+    font-family: $font-serif;
+    font-size: $font-size-xl;
+    font-weight: 400;
+    color: $color-primary;
+    margin-bottom: $spacing-md;
+}
+
+.salonMenuSet__cardItems {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 $spacing-lg 0;
+}
+
+.salonMenuSet__cardItem {
+    font-size: $font-size-sm;
+    line-height: $line-height-relaxed;
+    color: $color-text-light;
+    padding-left: $spacing-md;
+    position: relative;
+
+    &::before {
+        content: '・';
+        position: absolute;
+        left: 0;
+        color: $color-accent;
+    }
+}
+
+.salonMenuSet__cardPrice {
+    font-family: $font-serif;
+    font-size: $font-size-xxl;
+    font-weight: 500;
+    color: $color-accent;
+    text-align: right;
+}

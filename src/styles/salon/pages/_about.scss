@@ -1,403 +1,195 @@
 @use 'sass:math';
-@import '../_variables';
-//////////////////////////////
-// about
-//////////////////////////////
+@import '../variables';
 
+/* ==========================================================================
+   About Page - 2025 Modern Luxury Design
+   ========================================================================== */
+
+// Hero Section
 .salonAboutHero {
-    padding: var(--section-spacing-md) 0;
-    text-align: center;
-    background: var(--gradient-hero);
     position: relative;
+    height: 50vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
+    color: $color-text-white;
 
-    &::before {
-        content: '';
+    @include media(sp) {
+        min-height: 300px;
+    }
+
+    &__bg {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
         z-index: 0;
-    }
 
-    @include media(sp) {
-        padding: var(--section-spacing-sm) 0;
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $gradient-overlay;
+            z-index: 1;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 
     &__inner {
         position: relative;
-        z-index: 1;
+        z-index: 2;
+        text-align: center;
     }
 
     &__title {
-        font-size: var(--font-size-xxl);
-        font-weight: 900;
-        margin-bottom: var(--spacing-md);
-        @include gradient-text(var(--gradient-text-primary));
-        @extend .fadein;
+        font-family: $font-serif;
+        font-size: $font-size-xxl;
+        font-weight: 300;
+        letter-spacing: $letter-spacing-widest;
+        text-transform: uppercase;
 
         @include media(sp) {
-            font-size: var(--font-size-xl);
-        }
-    }
-
-    &__subtitle {
-        font-size: var(--font-size-md);
-        color: var(--color-text-light);
-        @extend .fadein;
-
-        @include media(sp) {
-            font-size: var(--font-size-base);
+            font-size: $font-size-xl;
         }
     }
 }
 
-.salonAboutConcept {
-    padding: var(--section-spacing-md) 0;
-    background: var(--color-bg);
+// Content Sections
+.salonAboutConcept,
+.salonAboutAccess,
+.salonAboutGallery {
+    padding: map-get($salon-section-padding, xl) 0;
 
     @include media(sp) {
-        padding: var(--section-spacing-sm) 0;
+        padding: map-get($salon-section-padding, md) 0;
     }
 
-    &__inner {
-    }
-
-    &__title {
-        margin-bottom: var(--spacing-2xl);
-        @extend .fadein;
-    }
-
-    &__content {
-        max-width: 90rem;
-        margin: 0 auto;
-    }
-
-    &__subtitle {
-        font-size: var(--font-size-xl);
-        font-weight: 900;
-        margin-bottom: var(--spacing-md);
-        text-align: center;
-        @include gradient-text(var(--gradient-text-primary));
-        @extend .fadein;
-
-        @include media(sp) {
-            font-size: var(--font-size-lg);
-        }
-    }
-
-    &__text {
-        font-size: var(--font-size-md);
-        line-height: var(--line-height-relaxed);
-        margin-bottom: var(--spacing-xl);
-        text-align: center;
-        color: var(--color-text);
-        @extend .fadein;
-
-        @include media(sp) {
-            font-size: var(--font-size-base);
-        }
-    }
-
-    &__strengths {
-        list-style: none;
-        padding: 0;
-        margin-bottom: var(--spacing-xl);
-    }
-
-    &__strength {
-        padding: var(--spacing-md) 0;
-        font-size: var(--font-size-md);
-        line-height: var(--line-height-relaxed);
-        text-align: center;
-        @extend .fadein;
-
-        @include media(sp) {
-            font-size: var(--font-size-base);
-        }
-
-        &::before {
-            content: '✨';
-            margin-right: var(--spacing-sm);
-            font-size: 1.2em;
-        }
+    &:nth-child(even) {
+        background-color: $color-secondary;
     }
 }
 
-.salonStaff {
-    padding: var(--section-spacing-md) 0;
-    background: linear-gradient(180deg, var(--color-bg-gray) 0%, var(--color-bg) 100%);
+.salonAboutConcept__inner,
+.salonAboutAccess__inner,
+.salonAboutGallery__inner {
+    max-width: $container-width-lg;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
 
     @include media(sp) {
-        padding: var(--section-spacing-sm) 0;
-    }
-
-    &__inner {
-    }
-
-    &__title {
-        margin-bottom: var(--spacing-2xl);
-        @extend .fadein;
-    }
-
-    &__list {
-        display: grid;
-        gap: var(--spacing-xl);
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-
-        @include media(tab) {
-            grid-template-columns: 1fr;
-        }
+        padding: 0 $spacing-md;
     }
 }
 
-.salonGallery {
-    padding: var(--section-spacing-md) 0;
-    background: var(--color-bg);
+.salonAboutConcept__title,
+.salonAboutAccess__title,
+.salonAboutGallery__title {
+    @extend .uiHeading_level_h2;
+}
+
+.salonAboutConcept__text {
+    font-size: $font-size-md;
+    line-height: $line-height-relaxed;
+    color: $color-text-light;
+    margin-bottom: $spacing-md;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 
     @include media(sp) {
-        padding: var(--section-spacing-sm) 0;
+        font-size: $font-size-base;
+    }
+}
+
+// Gallery Grid
+.salonGallery__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-lg;
+
+    @include media(tab) {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    &__inner {
+    @include media(sp) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.salonGallery__item {
+    overflow: hidden;
+    @include hover-lift;
+}
+
+.salonGallery__image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform $transition-slow;
+
+    .salonGallery__item:hover & {
+        transform: scale(1.05);
+    }
+}
+
+.salonGallery__caption {
+    padding: $spacing-md;
+    font-size: $font-size-sm;
+    text-align: center;
+    background-color: $color-bg;
+}
+
+// Access Map
+.salonAboutAccess__map {
+    width: 100%;
+    height: 400px;
+    margin-top: $spacing-xl;
+
+    @include media(sp) {
+        height: 300px;
     }
 
-    &__title {
-        margin-bottom: var(--spacing-2xl);
-        @extend .fadein;
-    }
-
-    &__list {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: var(--spacing-lg);
-
-        @include media(tab) {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        @include media(sp) {
-            grid-template-columns: 1fr;
-        }
-    }
-
-    &__item {
-        border-radius: var(--border-radius-xl);
-        overflow: hidden;
-        box-shadow: var(--shadow-md);
-        transition: all var(--transition-base);
-        @extend .fadein;
-
-        &:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
-        }
-    }
-
-    &__image {
+    iframe {
         width: 100%;
         height: 100%;
-        object-fit: cover;
-        display: block;
-        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    &__item:hover &__image {
-        transform: scale(1.1);
-    }
-
-    &__caption {
-        margin-top: var(--spacing-sm);
-        font-size: var(--font-size-base);
-        text-align: center;
-        color: var(--color-text-light);
-        font-weight: 500;
-
-        @include media(sp) {
-            font-size: var(--font-size-sm);
-        }
+        border: none;
     }
 }
 
-.salonInfo {
-    padding: var(--section-spacing-md) 0;
-    background-color: var(--color-bg-gray);
+.salonAboutAccess__info {
+    margin-top: $spacing-xl;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-lg;
 
     @include media(sp) {
-        padding: var(--section-spacing-sm) 0;
-    }
-
-    &__inner {
-    }
-
-    &__title {
-        margin-bottom: var(--spacing-2xl);
-    }
-
-    &__list {
-        max-width: 60rem;
-        margin: 0 auto;
-    }
-
-    &__item {
-        display: flex;
-        padding: var(--spacing-lg) 0;
-        border-bottom: var(--border-width-thin) solid var(--color-border);
-
-        @include media(sp) {
-            flex-direction: column;
-            gap: var(--spacing-sm);
-        }
-
-        &:last-child {
-            border-bottom: none;
-        }
-    }
-
-    &__dt {
-        width: 20rem;
-        font-size: var(--font-size-base);
-        font-weight: 700;
-        color: var(--color-text-light);
-        flex-shrink: 0;
-
-        @include media(sp) {
-            width: 100%;
-        }
-    }
-
-    &__dd {
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-relaxed);
-        flex: 1;
-
-        @include media(sp) {
-            font-size: var(--font-size-sm);
-        }
-    }
-
-    &__link {
-        color: inherit;
-        text-decoration: none;
-
-        &:hover {
-            opacity: 0.7;
-        }
+        grid-template-columns: 1fr;
     }
 }
 
-.salonAccess {
-    padding: var(--section-spacing-md) 0;
-
-    @include media(sp) {
-        padding: var(--section-spacing-sm) 0;
+.salonAboutAccess__infoItem {
+    dt {
+        font-family: $font-serif;
+        font-size: $font-size-md;
+        margin-bottom: $spacing-sm;
+        color: $color-primary;
     }
 
-    &__inner {
-    }
-
-    &__title {
-        margin-bottom: var(--spacing-2xl);
-    }
-
-    &__content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--spacing-xl);
-
-        @include media(sp) {
-            grid-template-columns: 1fr;
-            gap: var(--spacing-lg);
-        }
-    }
-
-    &__map {
-        border-radius: var(--border-radius-lg);
-        overflow: hidden;
-        height: 45rem;
-
-        @include media(sp) {
-            height: 30rem;
-        }
-
-        &Iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    }
-
-    &__info {
-    }
-
-    &__infoItem {
-        margin-bottom: var(--spacing-lg);
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-
-    &__infoDt {
-        font-size: var(--font-size-base);
-        font-weight: 700;
-        margin-bottom: var(--spacing-sm);
-        color: var(--color-text-light);
-    }
-
-    &__infoDd {
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-relaxed);
-    }
-
-    &__route {
-        margin-top: var(--spacing-xl);
-        padding-top: var(--spacing-xl);
-        border-top: var(--border-width-thin) solid var(--color-border);
-    }
-
-    &__routeTitle {
-        font-size: var(--font-size-lg);
-        font-weight: 700;
-        margin-bottom: var(--spacing-md);
-    }
-
-    &__routeList {
-        list-style: decimal;
-        padding-left: var(--spacing-lg);
-    }
-
-    &__routeItem {
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-relaxed);
-        margin-bottom: var(--spacing-md);
-
-        @include media(sp) {
-            font-size: var(--font-size-sm);
-        }
-    }
-
-    &__parking {
-        margin-top: var(--spacing-xl);
-        padding-top: var(--spacing-xl);
-        border-top: var(--border-width-thin) solid var(--color-border);
-    }
-
-    &__parkingTitle {
-        font-size: var(--font-size-lg);
-        font-weight: 700;
-        margin-bottom: var(--spacing-md);
-    }
-
-    &__parkingText {
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-relaxed);
-        color: var(--color-text-light);
-
-        @include media(sp) {
-            font-size: var(--font-size-sm);
-        }
+    dd {
+        font-size: $font-size-base;
+        line-height: $line-height-relaxed;
+        color: $color-text-light;
     }
 }

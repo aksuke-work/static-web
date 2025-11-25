@@ -2,89 +2,189 @@
 
 /**
  * Salon専用変数定義
- * 2025年トレンド対応のデザインシステム変数
+ * 2025 Modern Luxury Design System
+ * Concept: Fluid Elegance & Timeless Minimal
  */
 
-// カラーパレット（Salon専用）
-$salon-primary: #2C3E50;
-$salon-primary-light: #34495E;
-$salon-primary-dark: #1A252F;
-$salon-secondary: #E8B4B8;
-$salon-accent: #F5A623;
-$salon-accent-gradient: linear-gradient(135deg, #F5A623 0%, #FFB84D 100%);
+// ==========================================================================
+// Color Palette
+// ==========================================================================
 
-// グラデーション
-$gradient-hero: linear-gradient(135deg, rgba(44, 62, 80, 0.9) 0%, rgba(118, 75, 162, 0.8) 100%);
-$gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
-$gradient-text-primary: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
-$gradient-text-accent: linear-gradient(135deg, #F5A623 0%, #FFB84D 100%);
+// Primary Colors
+$color-primary: #1a1a1a;       // Charcoal Black - 深みのある黒
+$color-primary-light: #333333; // Dark Gray
+$color-secondary: #f5f5f0;     // Greige - 温かみのあるオフホワイト
+$color-accent: #c5a059;        // Champagne Gold - 上品なゴールド
 
-// スペーシング（Salon専用）
+// Text Colors
+$color-text: #2c2c2c;          // 基本テキスト色
+$color-text-light: #666666;    // サブテキスト色
+$color-text-white: #ffffff;    // 白テキスト
+
+// Background Colors
+$color-bg: #ffffff;            // 基本背景色
+$color-bg-gray: #f9f9f9;       // 薄いグレー背景
+$color-bg-dark: #111111;       // ダークモード風背景
+
+// Gradients
+$gradient-primary: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+$gradient-gold: linear-gradient(135deg, #c5a059 0%, #e0c080 100%);
+$gradient-overlay: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5));
+
+// ==========================================================================
+// Typography
+// ==========================================================================
+
+// Font Families
+$font-serif: "Cormorant Garamond", "Shippori Mincho", "Noto Serif JP", serif; // 見出し用（英語・日本語）
+$font-sans: "Zen Kaku Gothic New", "Helvetica Neue", Helvetica, Arial, sans-serif; // 本文用
+
+// Font Sizes (Fluid Typography)
+$font-size-xs: clamp(1.0rem, 0.9vw, 1.2rem);
+$font-size-sm: clamp(1.2rem, 1.1vw, 1.4rem);
+$font-size-base: clamp(1.4rem, 1.3vw, 1.6rem);
+$font-size-md: clamp(1.6rem, 1.5vw, 1.8rem);
+$font-size-lg: clamp(2.0rem, 2.0vw, 2.4rem);
+$font-size-xl: clamp(2.4rem, 3.0vw, 3.2rem);
+$font-size-xxl: clamp(3.2rem, 5.0vw, 6.4rem);
+$font-size-display: clamp(4.0rem, 8.0vw, 12.0rem); // インパクトのある見出し用
+
+// Line Heights
+$line-height-tight: 1.2;
+$line-height-base: 1.6;
+$line-height-relaxed: 1.8;
+
+// Letter Spacing
+$letter-spacing-tight: -0.02em;
+$letter-spacing-base: 0.05em;
+$letter-spacing-wide: 0.1em;
+$letter-spacing-widest: 0.2em;
+
+// ==========================================================================
+// Spacing & Layout
+// ==========================================================================
+
+// Section Spacing
+$spacing-xs: 0.8rem;
+$spacing-sm: 1.6rem;
+$spacing-md: 3.2rem;
+$spacing-lg: 6.4rem;
+$spacing-xl: 12.0rem;
+$spacing-2xl: 20.0rem;
+
 $salon-section-padding: (
-    sm: 6rem,
-    md: 8rem,
-    lg: 12rem,
-    xl: 16rem
+    sm: $spacing-md,
+    md: $spacing-lg,
+    lg: $spacing-xl,
+    xl: $spacing-2xl
 );
 
-// アニメーション設定
-$animation-duration-fast: 0.15s;
-$animation-duration-base: 0.3s;
-$animation-duration-slow: 0.5s;
-$animation-easing: cubic-bezier(0.4, 0, 0.2, 1);
-$animation-easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+// Container Width
+$container-width-sm: 640px;
+$container-width-md: 1024px;
+$container-width-lg: 1440px;
 
-// ブレークポイント（既存の$responsiveマップを使用）
+// Border Radius
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 16px;
+$border-radius-full: 9999px;
 
-// Mixin: グラデーションテキスト
-@mixin gradient-text($gradient: var(--gradient-text)) {
-    background: $gradient;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
+// ==========================================================================
+// Animation & Transitions
+// ==========================================================================
 
-// Mixin: グラスモーフィズム
-@mixin glass-morphism($bg: var(--glass-bg), $blur: var(--glass-blur)) {
-    background: $bg;
-    backdrop-filter: $blur;
-    -webkit-backdrop-filter: $blur;
-    border: 1px solid var(--glass-border);
-}
+$transition-fast: 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+$transition-base: 0.6s cubic-bezier(0.22, 1, 0.36, 1); // Custom Ease
+$transition-slow: 1.0s cubic-bezier(0.22, 1, 0.36, 1);
 
-// Mixin: 3Dシャドウ
-@mixin shadow-3d($color: rgba(0, 0, 0, 0.1)) {
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.1),
-        0 1px 8px rgba(0, 0, 0, 0.05),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
+// ==========================================================================
+// Mixins
+// ==========================================================================
 
-// Mixin: ホバーリフト
-@mixin hover-lift($distance: -8px, $shadow: var(--shadow-xl)) {
-    transition: transform var(--transition-base), box-shadow var(--transition-base);
-    
-    &:hover {
-        transform: translateY($distance);
-        box-shadow: $shadow;
+// Media Queries
+$breakpoints: (
+    'sp': 'screen and (max-width: 767px)',
+    'tab': 'screen and (min-width: 768px) and (max-width: 1024px)',
+    'pc': 'screen and (min-width: 1025px)',
+    'ipad': 'screen and (max-width: 1024px)'
+) !default;
+
+@mixin media($breakpoint: 'sp') {
+    $media-query: map-get($breakpoints, $breakpoint);
+    @if $media-query {
+        @media #{$media-query} {
+            @content;
+        }
     }
 }
 
-// Mixin: スクロールフェードイン
-@mixin scroll-fade-in {
+// Flexbox Utilities
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+// Absolute Center
+@mixin absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// Text Truncate
+@mixin text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// Glassmorphism
+@mixin glass-morphism($bg-color: rgba(255, 255, 255, 0.1), $blur: blur(10px)) {
+    background: $bg-color;
+    backdrop-filter: $blur;
+    -webkit-backdrop-filter: $blur;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+// Gradient Text
+@mixin gradient-text($gradient) {
+    background: $gradient;
+}
+
+// Hover Lift
+@mixin hover-lift {
+    transition: transform $transition-fast, box-shadow $transition-fast;
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+}
+
+// 3D Shadow
+@mixin shadow-3d {
+    box-shadow: 
+        0 1px 3px rgba(0,0,0,0.12),
+        0 1px 2px rgba(0,0,0,0.24);
+}
+
+// Fade In Animation Class
+.fadein {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s var(--transition-base), transform 0.8s var(--transition-base);
+    transform: translateY(20px);
+    transition: opacity $transition-base, transform $transition-base;
     
     &.is-visible {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-// Mixin: パララックス
-@mixin parallax($speed: 0.5) {
-    transform: translateZ(0);
-    will-change: transform;
 }
 

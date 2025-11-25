@@ -4,7 +4,7 @@
         description: 'メニューの説明が入ります',
         time: '60分',
         price: '5,000円',
-        image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a14e?auto=format&w=800&h=600&fit=crop&q=80',
+        image: 'https://picsum.photos/800/600?random=30',
         link: '/salon/menu/'
     };
 %>
@@ -12,7 +12,7 @@
     <% if (menuCardData.image) { %>
         <div class="menuCard__image">
             <a class="menuCard__imageLink" href="<%= menuCardData.link %>">
-                <img class="menuCard__imageImg" src="<%= menuCardData.image %>" alt="<%= menuCardData.name %>" loading="lazy" onerror="this.onerror=null; this.src='https://picsum.photos/800/600?random=' + Math.floor(Math.random() * 1000);" />
+                <img class="menuCard__imageImg" src="<%= menuCardData.image %>" alt="<%= menuCardData.name %>" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/667eea/ffffff?text=' + encodeURIComponent('<%= menuCardData.name %>');" />
             </a>
         </div>
     <% } %>

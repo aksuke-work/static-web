@@ -22,7 +22,7 @@
         <meta name="description" content="<%= meta.description %>" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
         <% if (meta.url && meta.url.indexOf('design-system') !== -1) { %>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -30,38 +30,60 @@
         <link rel="stylesheet" href="/css/salon/style.css?t=<%= Math.floor(new Date().getTime() / 1000) %>" />
     </head>
     <body class="fade">
-        <header class="header<% if (!meta.url || meta.url === '') { %> header_type_top<% } %>">
+        <script>
+            // ページ読み込み時に即座にfadeクラスを削除（JavaScript読み込み前でも動作）
+            (function() {
+                if (document.body) {
+                    document.body.classList.remove('fade');
+                    document.body.classList.add('loaded');
+                } else {
+                    // bodyがまだ存在しない場合は、DOMContentLoadedを待つ
+                    if (document.addEventListener) {
+                        document.addEventListener('DOMContentLoaded', function() {
+                            document.body.classList.remove('fade');
+                            document.body.classList.add('loaded');
+                        });
+                    } else if (document.attachEvent) {
+                        document.attachEvent('onreadystatechange', function() {
+                            if (document.readyState === 'complete') {
+                                document.body.classList.remove('fade');
+                                document.body.classList.add('loaded');
+                            }
+                        });
+                    }
+                }
+            })();
+        </script>
+        <header class="header js-header">
             <div class="header__inner">
                 <h1 class="header__logo">
                     <a class="header__logoLink" href="/salon/">
-                        <span class="header__logoText"><%= typeof config !== 'undefined' && config.salon && config.salon.name ? config.salon.name : 'サロン名' %></span>
+                        <img class="header__logoImg" src="/images/salon/logo.svg" alt="Lumière" width="120" height="32" />
                     </a>
                 </h1>
                 <nav class="header__nav gNav">
                     <ul class="gNav__list">
-                        <li class="gNav__item">
-                            <a class="gNav__link" href="/salon/">TOP</a>
-                        </li>
-                        <li class="gNav__item">
-                            <a class="gNav__link" href="/salon/menu/">メニュー</a>
-                        </li>
-                        <li class="gNav__item">
-                            <a class="gNav__link" href="/salon/about/">店舗情報</a>
-                        </li>
-                        <li class="gNav__item">
-                            <a class="gNav__link" href="/salon/style/">ギャラリー</a>
-                        </li>
-                        <li class="gNav__item">
-                            <a class="gNav__link" href="/salon/reserve/">予約</a>
-                        </li>
+                        <li class="gNav__item"><a class="gNav__link" href="/salon/">Top</a></li>
+                        <li class="gNav__item"><a class="gNav__link" href="/salon/about/">About</a></li>
+                        <li class="gNav__item"><a class="gNav__link" href="/salon/menu/">Menu</a></li>
+                        <li class="gNav__item"><a class="gNav__link" href="/salon/style/">Gallery</a></li>
+                        <li class="gNav__item"><a class="gNav__link" href="/salon/reserve/">Reserve</a></li>
                     </ul>
                 </nav>
-                <div class="ham js-toggle-menu" id="ham">
-                    <div class="ham__inner">
-                        <span class="ham__bar"></span>
-                        <span class="ham__bar"></span>
-                    </div>
-                </div>
+                <button class="ham js-toggle-menu" type="button" aria-label="メニューを開く">
+                    <span class="ham__line"></span>
+                    <span class="ham__line"></span>
+                </button>
             </div>
-            <div class="header__bg"></div>
+            <div class="header__overlay js-nav-overlay">
+                <nav class="header__overlayNav">
+                    <ul class="header__overlayList">
+                        <li class="header__overlayItem"><a class="header__overlayLink" href="/salon/">Top</a></li>
+                        <li class="header__overlayItem"><a class="header__overlayLink" href="/salon/about/">About</a></li>
+                        <li class="header__overlayItem"><a class="header__overlayLink" href="/salon/menu/">Menu</a></li>
+                        <li class="header__overlayItem"><a class="header__overlayLink" href="/salon/style/">Gallery</a></li>
+                        <li class="header__overlayItem"><a class="header__overlayLink" href="/salon/reserve/">Reserve</a></li>
+                    </ul>
+                </nav>
+            </div>
         </header>

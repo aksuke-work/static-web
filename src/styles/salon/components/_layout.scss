@@ -9,15 +9,7 @@
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    @include media(nav){
-        // padding-left: 60px;
-        // padding-right: 60px;
-    }
-    @include media(sTab){
-        padding-left: 30px;
-        padding-right: 30px;
-    }
-    @include media(){
+    @include media('sp'){
         padding-left: 30px;
         padding-right: 30px;
     }
@@ -25,14 +17,14 @@
 
 .pcnon{
     display: none;
-    @include media(){
+    @include media('sp'){
         display: block;
     }
 }
 
 .spnon{
     display: block;
-    @include media(){
+    @include media('sp'){
         display: none;
     }
 }

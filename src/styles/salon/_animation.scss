@@ -15,10 +15,16 @@
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     pointer-events: all;
     opacity: 1;
-    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 9999;
 
     &.is-hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    // JavaScriptが読み込まれる前に非表示にするためのフォールバック
+    &.loaded {
         opacity: 0;
         pointer-events: none;
     }
@@ -45,6 +51,30 @@ body.is-transitioning {
     0% {
         opacity: 0;
         transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// ヒーローセクション用のフェードインアニメーション（より大きな移動距離）
+@keyframes fadeInUpHero {
+    0% {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// ボタン用のフェードインアニメーション
+@keyframes fadeInUpButtons {
+    0% {
+        opacity: 0;
+        transform: translateY(60px);
     }
     100% {
         opacity: 1;
@@ -241,15 +271,27 @@ body.is-transitioning {
 // ============================================
 .fadein {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(80px);
     transition:
-        opacity 0.8s var(--transition-base),
-        transform 0.8s var(--transition-base);
+        opacity 1s var(--transition-base),
+        transform 1s var(--transition-base);
     will-change: opacity, transform;
+    
+    // フォールバック: JavaScriptが読み込まれる前に表示されるようにする
+    // 初期表示時に表示領域内の要素は自動的に表示される
+    animation: fadeInUp 1s ease-out 0.3s forwards;
 
     &.jsActive {
         opacity: 1;
         transform: translateY(0);
+        animation: none; // JavaScriptが読み込まれた後はアニメーションを無効化
+    }
+
+    // 初期表示時は即座に表示（ページ読み込み時に表示領域内の要素）
+    &.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        animation: none; // JavaScriptが読み込まれた後はアニメーションを無効化
     }
 
     &.spAnimationNone {
@@ -257,6 +299,7 @@ body.is-transitioning {
             transform: none;
             transition: none;
             opacity: 1;
+            animation: none;
         }
     }
 
@@ -264,6 +307,7 @@ body.is-transitioning {
         transition: none;
         opacity: 1;
         transform: none;
+        animation: none;
     }
 }
 

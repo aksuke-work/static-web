@@ -9,6 +9,9 @@
 <div id="page-transition-overlay" class="page-transition-overlay"></div>
 <main class="salonMain salonMain_type_about">
     <section class="salonAboutHero">
+        <div class="salonAboutHero__bg">
+            <img src="/images/salon/hero_about.png" alt="店舗情報" loading="eager" />
+        </div>
         <div class="salonAboutHero__inner container">
             <h1 class="salonAboutHero__title">店舗情報</h1>
             <p class="salonAboutHero__subtitle">サロンについて</p>
@@ -39,7 +42,7 @@
             <div class="salonStaff__list">
                 <div class="salonStaff__item">
                     <div class="salonStaff__image">
-                        <img class="salonStaff__imageImg" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&w=600&h=800&fit=crop&q=80" alt="スタッフ1" loading="lazy" onerror="this.onerror=null; this.src='https://picsum.photos/600/800?random=200';" />
+                        <img class="salonStaff__imageImg" src="https://picsum.photos/600/800?random=100" alt="スタッフ1" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x800/667eea/ffffff?text=Staff+1';" />
                     </div>
                     <div class="salonStaff__content">
                         <h3 class="salonStaff__name">スタッフ名1</h3>
@@ -53,7 +56,7 @@
                 </div>
                 <div class="salonStaff__item">
                     <div class="salonStaff__image">
-                        <img class="salonStaff__imageImg" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&w=600&h=800&fit=crop&q=80" alt="スタッフ2" loading="lazy" onerror="this.onerror=null; this.src='https://picsum.photos/600/800?random=201';" />
+                        <img class="salonStaff__imageImg" src="https://picsum.photos/600/800?random=101" alt="スタッフ2" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x800/667eea/ffffff?text=Staff+2';" />
                     </div>
                     <div class="salonStaff__content">
                         <h3 class="salonStaff__name">スタッフ名2</h3>
@@ -74,15 +77,15 @@
             <h2 class="salonGallery__title uiHeading uiHeading_level_h2">店内写真・設備紹介</h2>
             <div class="salonGallery__list">
                 <div class="salonGallery__item">
-                    <img class="salonGallery__image" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&w=800&h=600&fit=crop&q=80" alt="施術スペース" loading="lazy" onerror="this.onerror=null; this.src='https://picsum.photos/800/600?random=300';" />
+                    <img class="salonGallery__image" src="/images/salon/interior_1.png" alt="施術スペース" loading="lazy" />
                     <p class="salonGallery__caption">施術スペース</p>
                 </div>
                 <div class="salonGallery__item">
-                    <img class="salonGallery__image" src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&w=800&h=600&fit=crop&q=80" alt="シャンプー台" loading="lazy" onerror="this.onerror=null; this.src='https://picsum.photos/800/600?random=301';" />
+                    <img class="salonGallery__image" src="https://picsum.photos/800/600?random=201" alt="シャンプー台" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/667eea/ffffff?text=Shampoo+Area';" />
                     <p class="salonGallery__caption">シャンプー台</p>
                 </div>
                 <div class="salonGallery__item">
-                    <img class="salonGallery__image" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a14e?auto=format&w=800&h=600&fit=crop&q=80" alt="待合スペース" loading="lazy" onerror="this.onerror=null; this.src='https://picsum.photos/800/600?random=302';" />
+                    <img class="salonGallery__image" src="https://picsum.photos/800/600?random=202" alt="待合スペース" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/667eea/ffffff?text=Waiting+Area';" />
                     <p class="salonGallery__caption">待合スペース</p>
                 </div>
             </div>
@@ -100,7 +103,7 @@
                 <% if (typeof config !== 'undefined' && config.salon && config.salon.address) { %>
                 <div class="salonInfo__item">
                     <dt class="salonInfo__dt">住所</dt>
-                    <dd class="salonInfo__dd"><%= config.salon.address.replace(/ /g, '<br class="pcnon">') %></dd>
+                    <dd class="salonInfo__dd"><%- config.salon.address.replace(/ /g, '<br class="pcnon">') %></dd>
                 </div>
                 <% } %>
                 <% if (typeof config !== 'undefined' && config.salon && config.salon.tel) { %>

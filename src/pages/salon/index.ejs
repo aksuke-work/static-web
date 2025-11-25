@@ -8,19 +8,31 @@
 }) %>
 <div id="page-transition-overlay" class="page-transition-overlay"></div>
 <main class="salonMain salonMain_type_top">
-    <%- include('./template/sections/_hero', {
-        hero: {
-            catchcopy: '都町でゆったり、隠れ家サロン',
-            subtitle: 'あなただけの特別な時間を',
-            image: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&w=1920&h=1080&fit=crop&q=80',
-            imageSp: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&w=768&h=1024&fit=crop&q=80',
-            reservationButtons: {
-                line: typeof config !== 'undefined' && config.social && config.social.line ? config.social.line : 'https://line.me/R/ti/p/@salon',
-                web: '/salon/reserve/',
-                tel: typeof config !== 'undefined' && config.salon && config.salon.tel ? 'tel:' + config.salon.tel : 'tel:00-0000-0000'
-            }
-        }
-    }) %>
+    <section class="salonHero">
+        <div class="salonHero__bg">
+            <picture class="salonHero__image">
+                <img class="salonHero__imageImg" src="/images/salon/hero_top.png" alt="Lumière Salon" loading="eager" />
+            </picture>
+        </div>
+        <div class="salonHero__inner">
+            <div class="salonHero__content">
+                <h1 class="salonHero__catchcopy">Timeless<br>Elegance</h1>
+                <p class="salonHero__subtitle">あなただけの特別な時間を</p>
+                <div class="salonHero__buttons">
+                    <a class="uiButton uiButton_type_primary uiButton_size_lg" href="/salon/reserve/">
+                        <span class="uiButton__text">ご予約</span>
+                    </a>
+                    <a class="uiButton uiButton_type_outline uiButton_size_lg" href="/salon/menu/">
+                        <span class="uiButton__text">メニュー</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="salonHero__scrollIndicator">
+            <p class="salonHero__scrollIndicatorText">Scroll</p>
+            <div class="salonHero__scrollIndicatorIcon"></div>
+        </div>
+    </section>
 
     <section class="salonConcept">
         <div class="salonConcept__inner container">
@@ -43,7 +55,7 @@
                         description: 'お客様の骨格や髪質に合わせた、最適なカットスタイルをご提案します',
                         time: '60分',
                         price: '5,000円',
-                        image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a14e?auto=format&w=800&h=600&fit=crop&q=80',
+                        image: 'https://picsum.photos/800/600?random=10',
                         link: '/salon/menu/#cut'
                     }
                 }) %>
@@ -53,7 +65,7 @@
                         description: 'お肌のトーンに合わせた、自然で美しいカラーリングを施します',
                         time: '90分',
                         price: '8,000円',
-                        image: 'https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&w=800&h=600&fit=crop&q=80',
+                        image: 'https://picsum.photos/800/600?random=11',
                         link: '/salon/menu/#color'
                     }
                 }) %>
@@ -63,7 +75,7 @@
                         description: '頭皮と髪をリフレッシュ。リラックスできる特別な時間をお過ごしください',
                         time: '45分',
                         price: '6,000円',
-                        image: 'https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&w=800&h=600&fit=crop&q=80',
+                        image: 'https://picsum.photos/800/600?random=12',
                         link: '/salon/menu/#spa'
                     }
                 }) %>
@@ -145,7 +157,7 @@
             <h2 class="salonAccess__title uiHeading uiHeading_level_h2">アクセス</h2>
             <div class="salonAccess__content">
                 <div class="salonAccess__map">
-                    <img class="salonAccess__mapImage" src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&w=800&h=600&fit=crop&q=80" alt="アクセスマップ" loading="lazy" onerror="this.onerror=null; this.src='https://picsum.photos/800/600?random=100';" />
+                    <img class="salonAccess__mapImage" src="https://picsum.photos/800/600?random=20" alt="アクセスマップ" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/667eea/ffffff?text=Access+Map';" />
                 </div>
                 <div class="salonAccess__info">
                     <dl class="salonAccess__infoItem">
@@ -154,7 +166,7 @@
                     </dl>
                     <dl class="salonAccess__infoItem">
                         <dt class="salonAccess__infoDt">住所</dt>
-                        <dd class="salonAccess__infoDd"><%= typeof config !== 'undefined' && config.salon && config.salon.address ? config.salon.address.replace(/ /g, '<br class="pcnon">') : '〒000-0000<br class="pcnon">都道府県 市区町村 番地' %></dd>
+                        <dd class="salonAccess__infoDd"><%- typeof config !== 'undefined' && config.salon && config.salon.address ? config.salon.address.replace(/ /g, '<br class="pcnon">') : '〒000-0000<br class="pcnon">都道府県 市区町村 番地' %></dd>
                     </dl>
                     <% if (typeof config !== 'undefined' && config.salon && config.salon.parking) { %>
                     <dl class="salonAccess__infoItem">

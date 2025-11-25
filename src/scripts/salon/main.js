@@ -2,14 +2,117 @@
  * サロンサイト用JavaScript
  */
 
+// ページ読み込み前から実行（即座にオーバーレイを非表示）
+(function () {
+    function removeOverlays() {
+        if (typeof $ !== 'undefined') {
+            $('body').removeClass('fade').addClass('loaded');
+            $('.page-transition-overlay').addClass('is-hidden loaded');
+        } else {
+            // jQueryが読み込まれる前の場合
+            document.body.classList.remove('fade');
+            document.body.classList.add('loaded');
+            const overlay = document.querySelector('.page-transition-overlay');
+            if (overlay) {
+                overlay.classList.add('is-hidden', 'loaded');
+            }
+        }
+    }
+    
+    // 初期表示時に表示領域内のfadein要素を即座に表示
+    function showVisibleFadeinElements() {
+        const fadeinElements = document.querySelectorAll('.fadein');
+        const viewportHeight = window.innerHeight;
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const viewportBottom = scrollTop + viewportHeight + 200; // 200px余裕を持たせる
+        
+        fadeinElements.forEach(function(element, index) {
+            const rect = element.getBoundingClientRect();
+            const elementTop = scrollTop + rect.top;
+            
+            if (elementTop < viewportBottom && !element.classList.contains('jsActive') && !element.classList.contains('is-visible')) {
+                // 段階的な遅延を追加
+                setTimeout(function() {
+                    element.classList.add('is-visible');
+                }, index * 30);
+            }
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            removeOverlays();
+            setTimeout(showVisibleFadeinElements, 100);
+        });
+    } else {
+        removeOverlays();
+        setTimeout(showVisibleFadeinElements, 100);
+    }
+})();
+
 $(document).ready(function () {
-    // ページ読み込み時のフェードイン処理
+    // ページ読み込み時のフェードイン処理（念のため再度実行）
+    $('body').removeClass('fade').addClass('loaded');
+    $('.page-transition-overlay').addClass('is-hidden loaded');
+
+    // スクロールアニメーション（.fadein要素に.jsActiveを付与）
+    function checkFadeIn() {
+        $('.fadein').each(function (index) {
+            const $element = $(this);
+            if (!$element.hasClass('jsActive') && !$element.hasClass('is-visible')) {
+                const elementTop = $element.offset().top;
+                const elementBottom = elementTop + $element.outerHeight();
+                const viewportTop = $(window).scrollTop();
+                const viewportBottom = viewportTop + $(window).height();
+                const triggerPoint = viewportBottom - 100; // 100px手前で表示
+
+                if (elementTop < triggerPoint) {
+                    // 段階的な遅延を追加
+                    setTimeout(function () {
+                        $element.addClass('jsActive');
+                    }, index * 50);
+                }
+            }
+        });
+    }
+
+    // 初期表示時に表示領域内の要素を即座に表示
     setTimeout(function () {
-        $('body').removeClass('fade');
+        $('.fadein').each(function (index) {
+            const $element = $(this);
+            if ($element.length && $element.offset()) {
+                const elementTop = $element.offset().top;
+                const viewportBottom = $(window).height() + 200; // 200px余裕を持たせる
+
+                if (elementTop < viewportBottom && !$element.hasClass('jsActive') && !$element.hasClass('is-visible')) {
+                    // 表示領域内の要素は即座に表示
+                    setTimeout(function () {
+                        $element.addClass('is-visible');
+                    }, index * 30);
+                }
+            }
+        });
+        
+        // salonConceptセクション内の要素を確実に表示（オーバーラップしているため）
+        $('.salonConcept .fadein').each(function (index) {
+            const $element = $(this);
+            if (!$element.hasClass('jsActive') && !$element.hasClass('is-visible')) {
+                setTimeout(function () {
+                    $element.addClass('is-visible');
+                }, index * 50);
+            }
+        });
     }, 100);
 
-    // ページ遷移オーバーレイの非表示
-    $('.page-transition-overlay').addClass('is-hidden');
+    // スクロール時にアニメーションをチェック
+    $(window).on('scroll', function () {
+        checkFadeIn();
+    });
+
+    // リサイズ時もチェック
+    $(window).on('resize', function () {
+        checkFadeIn();
+    });
     // ハンバーガーメニューのトグル
     $('.js-toggle-menu').on('click', function () {
         $('.gNav').toggleClass('isActive');
@@ -169,7 +272,7 @@ $(document).ready(function () {
                     },
                 }
             );
-            
+
             // アンダーラインのアニメーション
             const underline = title.querySelector('::after');
             if (underline) {
