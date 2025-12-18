@@ -7,36 +7,38 @@
 :root {
     // カラーパレット - 2025年トレンド対応（統一された洗練されたカラー）
     // プライマリカラー（統一）
-    --color-primary: #667eea;
-    --color-primary-light: #8b9aff;
-    --color-primary-dark: #4c63d2;
-    --color-secondary: #e8b4b8;
-    --color-secondary-light: #f5d7da;
-    --color-secondary-dark: #d89fa4;
-    // セカンダリカラー（アクセント）
-    --color-accent: #f5a623;
-    --color-accent-light: #ffb84d;
-    --color-accent-dark: #e8960f;
-    --color-tertiary: #6c5ce7;
+    // プライマリカラー（炭黒 / Charcoal Black）
+    --color-primary: #1a1a1a;
+    --color-primary-light: #333333;
+    --color-primary-dark: #000000;
+    --color-secondary: #f5f5f0; // グレージュ
+    --color-secondary-light: #ffffff;
+    --color-secondary-dark: #e8e8e3;
+    // セカンダリカラー（アクセント / Champagne Gold）
+    --color-accent: #c5a059;
+    --color-accent-light: #e0c080;
+    --color-accent-dark: #a68541;
+    --color-tertiary: #2c2c2c;
     --color-tertiary-light: #8b7ed8;
     --color-tertiary-dark: #5a4fcf;
 
     // ブランドカラー（強調）
-    --brand-primary: #667eea;
-    --brand-secondary: #764ba2;
-    --brand-accent: #f5a623;
+    // ブランドカラー（強調）
+    --brand-primary: #1a1a1a;
+    --brand-secondary: #c5a059;
+    --brand-accent: #c5a059;
+    --brand-gold: #c5a059;
 
-    // グラデーションカラー（3種類に統一・強化）
-    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --gradient-primary-bright: linear-gradient(135deg, #7c8ff0 0%, #8a5fb8 100%);
-    --gradient-accent: linear-gradient(135deg, #f5a623 0%, #ffb84d 100%);
-    --gradient-accent-bright: linear-gradient(135deg, #ffb84d 0%, #ffc966 100%);
-    --gradient-neutral: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
+    // グラデーションカラー（洗練された2025年トレンド）
+    --gradient-primary: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+    --gradient-accent: linear-gradient(135deg, #c5a059 0%, #e0c080 100%);
+    --gradient-gold: linear-gradient(135deg, #c5a059 0%, #e0c080 100%);
+    --gradient-neutral: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
     // 互換性のための既存変数（非推奨・強化）
     --gradient-hero: linear-gradient(135deg, rgba(26, 31, 46, 0.92) 0%, rgba(102, 126, 234, 0.88) 50%, rgba(118, 75, 162, 0.9) 100%);
     --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.92) 100%);
-    --gradient-text: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --gradient-text-bright: linear-gradient(135deg, #7c8ff0 0%, #8a5fb8 50%, #9b6bc4 100%);
+    --gradient-text: linear-gradient(135deg, #1a1a1a 0%, #c5a059 100%);
+    --gradient-text-bright: linear-gradient(135deg, #c5a059 0%, #e0c080 100%);
 
     // ニュートラルカラー - 洗練されたグレースケール
     --color-bg: #ffffff;
@@ -70,8 +72,8 @@
 
     // タイポグラフィ - 2025年トレンド対応
     --font-family-base: 'zen-kaku-gothic-new', 'Zen Kaku Gothic New', sans-serif;
-    --font-family-heading: 'zen-kaku-gothic-new', 'Zen Kaku Gothic New', sans-serif;
-    --font-family-serif: 'Zen Old Mincho', serif;
+    --font-family-heading: "Cormorant Garamond", "Shippori Mincho", "Noto Serif JP", serif;
+    --font-family-serif: "Cormorant Garamond", "Shippori Mincho", "Noto Serif JP", serif;
 
     // 可変フォントサイズ（1.25倍比率ベースの洗練されたスケール）
     --font-size-xs: clamp(1.2rem, 0.9vw + 0.9rem, 1.3rem);      // 12-13px

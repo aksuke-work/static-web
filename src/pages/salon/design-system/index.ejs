@@ -20,6 +20,7 @@
                     <li class="designSystem__navItem"><a href="#navigation" class="designSystem__navLink">Navigation</a></li>
                     <li class="designSystem__navItem"><a href="#feedback" class="designSystem__navLink">Feedback</a></li>
                     <li class="designSystem__navItem"><a href="#ui-elements" class="designSystem__navLink">UI Elements</a></li>
+                    <li class="designSystem__navItem"><a href="#salon-specials" class="designSystem__navLink">Salon Specials</a></li>
                     <li class="designSystem__navItem"><a href="#animation" class="designSystem__navLink">Animation</a></li>
                     <li class="designSystem__navItem"><a href="#links" class="designSystem__navLink">Text Links</a></li>
                     <li class="designSystem__navItem"><a href="#sections" class="designSystem__navLink">Sections / Grid</a></li>
@@ -31,7 +32,15 @@
             </nav>
         </aside>
         <div class="designSystem__main">
-            <h1 class="designSystem__title">Design System</h1>
+            <h1 class="designSystem__title" style="font-family: var(--font-family-serif);">Design System</h1>
+            <div class="designSystem__intro">
+                <p class="uiLead" style="font-family: var(--font-family-serif);">Fluid Elegance & Timeless Minimal</p>
+                <p class="uiBody">
+                    このデザインシステムは、洗練された「流麗なエレガンス」と「時代を超越したミニマリズム」を具現化するための指針です。<br>
+                    情緒的な見出しには経年美を感じさせる **明朝体（Serif）** を、機能的な情報や操作UIには現代的な **ゴシック体（Sans-serif）** を採用し、
+                    伝統とモダンが共存するサロン体験を提供します。
+                </p>
+            </div>
 
         <!-- Colors -->
         <section id="colors" class="uiSection designSystem__section designSystem__section_isOpen">
@@ -44,27 +53,27 @@
                     <div class="dsColorPalette">
                         <div class="dsColorPalette__item">
                             <div class="dsColorPalette__chip dsColorPalette__chip_color_primary"></div>
-                            <p class="dsColorPalette__label">Primary: #667eea</p>
+                            <p class="dsColorPalette__label">Base Black: #1a1a1a</p>
                         </div>
                         <div class="dsColorPalette__item">
                             <div class="dsColorPalette__chip dsColorPalette__chip_color_accent"></div>
-                            <p class="dsColorPalette__label">Accent: #f5a623</p>
+                            <p class="dsColorPalette__label">Champagne Gold: #c5a059</p>
                         </div>
                         <div class="dsColorPalette__item">
                             <div class="dsColorPalette__chip dsColorPalette__chip_color_bg"></div>
-                            <p class="dsColorPalette__label">Background: #ffffff</p>
+                            <p class="dsColorPalette__label">White: #ffffff</p>
                         </div>
                         <div class="dsColorPalette__item">
                             <div class="dsColorPalette__chip dsColorPalette__chip_color_bgGray"></div>
-                            <p class="dsColorPalette__label">Background Gray: #fafafa</p>
+                            <p class="dsColorPalette__label">Greige: #f5f5f0</p>
                         </div>
                         <div class="dsColorPalette__item">
                             <div class="dsColorPalette__chip dsColorPalette__chip_color_text"></div>
-                            <p class="dsColorPalette__label">Text: #1a1a1a</p>
+                            <p class="dsColorPalette__label">Text: #2c2c2c</p>
                         </div>
                         <div class="dsColorPalette__item">
                             <div class="dsColorPalette__chip dsColorPalette__chip_color_textLight"></div>
-                            <p class="dsColorPalette__label">Text Light: #4a4a4a</p>
+                            <p class="dsColorPalette__label">Sub Text: #666666</p>
                         </div>
                     </div>
                 </div>
@@ -204,24 +213,17 @@
                 <div class="designSystem__sectionContent">
                     <div class="dsTypography">
                         <div class="dsTypography__item">
-                            <p class="dsTypography__label">H1 - clamp(4.8rem, 5vw + 3.6rem, 7.2rem) / 1.1 / -0.05em</p>
-                            <h1 class="dsTypography__sample uiHeading uiHeading_level_h1">都町でゆったり、隠れ家サロン</h1>
+                            <p class="dsTypography__label">Serif Heading (Cormorant Garamond / 明朝体) - High Elegance</p>
+                            <h1 class="dsTypography__sample uiHeading uiHeading_level_h1" style="font-family: var(--font-family-serif);">Fluid Elegance & Timeless Minimal</h1>
+                            <h2 class="dsTypography__sample uiHeading uiHeading_level_h2" style="font-family: var(--font-family-serif);">都町でゆったり、隠れ家サロン</h2>
                         </div>
                         <div class="dsTypography__item">
-                            <p class="dsTypography__label">H2 - clamp(3.2rem, 3vw + 2.4rem, 4.8rem) / 1.25 / -0.03em</p>
-                            <h2 class="dsTypography__sample uiHeading uiHeading_level_h2">あなただけの特別な時間を</h2>
+                            <p class="dsTypography__label">Sans-serif Body (Zen Kaku Gothic New / ゴシック体) - Modern Clarity</p>
+                            <p class="dsTypography__sample uiBody" style="font-family: var(--font-family-base);">私たちは、お客様一人ひとりに寄り添い、最適なスタイルをご提案いたします。リラックスできる空間と、丁寧なカウンセリングで、あなたの理想を実現します。</p>
                         </div>
                         <div class="dsTypography__item">
-                            <p class="dsTypography__label">H3 - clamp(2.4rem, 2vw + 1.8rem, 3.2rem) / 1.25 / 0</p>
-                            <h3 class="dsTypography__sample uiHeading uiHeading_level_h3">コンセプト</h3>
-                        </div>
-                        <div class="dsTypography__item">
-                            <p class="dsTypography__label">Lead - clamp(1.8rem, 1.4vw + 1.4rem, 2.2rem) / 1.75</p>
-                            <p class="dsTypography__sample uiLead">都心の喧騒から離れた、静かな隠れ家のような空間で、あなただけの特別な時間をお過ごしください。</p>
-                        </div>
-                        <div class="dsTypography__item">
-                            <p class="dsTypography__label">Body - clamp(1.6rem, 1.2vw + 1.2rem, 1.8rem) / 1.6</p>
-                            <p class="dsTypography__sample uiBody">私たちは、お客様一人ひとりに寄り添い、最適なスタイルをご提案いたします。リラックスできる空間と、丁寧なカウンセリングで、あなたの理想を実現します。</p>
+                            <p class="dsTypography__label">Lead Text (Serif Lead) - Sophisticated Intro</p>
+                            <p class="dsTypography__sample uiLead" style="font-family: var(--font-family-serif);">都心の喧騒から離れた、静かな隠れ家のような空間で、あなただけの特別な時間をお過ごしください。</p>
                         </div>
                     </div>
                 </div>
@@ -284,8 +286,6 @@
             </div>
         </section>
 
-        </section>
-
         <!-- Buttons -->
         <section id="buttons" class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
@@ -295,18 +295,11 @@
                 </h2>
                 <div class="designSystem__sectionContent">
                     <div class="designSystem__componentGroup">
-                        <h3 class="uiHeading uiHeading_level_h3">Primary</h3>
+                        <h3 class="uiHeading uiHeading_level_h3">Primary & Accent (Gothic for UI)</h3>
                         <div class="designSystem__buttonGroup">
-                            <a class="uiButton uiButton_type_primary uiButton_size_lg" href="#">Large Button</a>
-                            <a class="uiButton uiButton_type_primary uiButton_size_md" href="#">Medium Button</a>
-                            <a class="uiButton uiButton_type_primary uiButton_size_sm" href="#">Small Button</a>
-                        </div>
-                    </div>
-                    <div class="designSystem__componentGroup">
-                        <h3 class="uiHeading uiHeading_level_h3">Secondary & Accent</h3>
-                        <div class="designSystem__buttonGroup">
-                            <a class="uiButton uiButton_type_secondary" href="#">Secondary</a>
-                            <a class="uiButton uiButton_type_accent" href="#">Accent</a>
+                            <a class="uiButton uiButton_type_primary uiButton_size_lg" href="#">Reservation / Large</a>
+                            <a class="uiButton uiButton_type_primary uiButton_size_md" href="#">Primary / Medium</a>
+                            <a class="uiButton uiButton_type_accent uiButton_size_md" href="#">Accent / Gold</a>
                         </div>
                     </div>
                     <div class="designSystem__componentGroup">
@@ -548,7 +541,7 @@
                     <div class="designSystem__componentGroup">
                         <h3 class="uiHeading uiHeading_level_h3">Modal</h3>
                         <button class="uiButton uiButton_type_primary" onclick="document.getElementById('demo-modal').classList.add('uiModal_isOpen')">Open Modal</button>
-                        
+
                         <!-- Demo Modal -->
                         <div class="uiModal" id="demo-modal">
                             <div class="uiModal__overlay" onclick="document.getElementById('demo-modal').classList.remove('uiModal_isOpen')"></div>
@@ -642,13 +635,71 @@
                             <p class="uiBody">Dotted Divider</p>
                             <hr class="uiDivider uiDivider_type_dotted">
                             <p class="uiBody">
-                                Vertical Divider: 
+                                Vertical Divider:
                                 <span>Item 1</span>
                                 <span class="uiDivider uiDivider_vertical"></span>
                                 <span>Item 2</span>
                                 <span class="uiDivider uiDivider_vertical"></span>
                                 <span>Item 3</span>
                             </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Salon Components -->
+        <section id="salon-specials" class="uiSection designSystem__section designSystem__section_isOpen">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Salon Specific Components</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">Section Titles</h3>
+                        <div class="designSystem__component" style="background: #fff; padding: 4rem 2rem;">
+                            <h2 class="sectionTitle is-visible">Section Title Pattern</h2>
+                            <h2 class="sectionTitle sectionTitle_type_gradient is-visible" style="margin-top: 4rem;">Gradient Title</h2>
+                            <h2 class="sectionTitle sectionTitle_type_left is-visible" style="margin-top: 4rem;">
+                                <span class="sectionTitle__subtitle">Subtitle Text</span>
+                                Left Aligned
+                            </h2>
+                        </div>
+                    </div>
+
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">FAQ Badges</h3>
+                        <div class="designSystem__component" style="background: #fff; padding: 2rem;">
+                            <div class="salonReserveFaq" style="max-width: 800px; margin: 0 auto;">
+                                <div class="salonReserveFaq__item" open>
+                                    <div class="salonReserveFaq__itemQuestion">
+                                        これは質問（Qバッジ）の表示例です。
+                                    </div>
+                                    <div class="salonReserveFaq__itemAnswer">
+                                        <div class="salonReserveFaq__itemAnswerContent">
+                                            <p>これは回答（Aラベル）の表示例です。文字色や余白を調整し、非常に読みやすく洗練されたデザインになっています。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">Menu Cards (Mini)</h3>
+                        <div class="uiGrid uiGrid_cols_3">
+                            <div class="uiGrid__item">
+                                <article class="salonMenuCard">
+                                    <div class="salonMenuCard__image">
+                                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&q=80&w=800" alt="Sample">
+                                    </div>
+                                    <div class="salonMenuCard__content">
+                                        <h4 class="salonMenuCard__title">Design Cut</h4>
+                                        <p class="salonMenuCard__price">¥6,600</p>
+                                    </div>
+                                </article>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -805,22 +856,19 @@
                 </h2>
                 <div class="designSystem__sectionContent">
                     <div class="designSystem__componentGroup">
-                                    <p class="uiCard__text">お肌のトーンに合わせた、自然で美しいカラーリングを施します</p>
-                                    <p class="uiCard__price">8,000円</p>
+                        <p class="uiCard__text">お肌のトーンに合わせた、自然で美しいカラーリングを施します</p>
+                        <p class="uiCard__price">8,000円</p>
+                    </div>
+                    <div class="uiGrid__item">
+                        <div class="uiCard uiCard_type_service">
+                            <img class="uiCard__image" src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=800&h=600&fit=crop" alt="ヘッドスパ" />
+                            <div class="uiCard__body">
+                                <h4 class="uiCard__title">ヘッドスパ</h4>
+                                <div class="uiCard__meta">
+                                    <span class="uiCard__metaItem">45分</span>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="uiGrid__item">
-                            <div class="uiCard uiCard_type_service">
-                                <img class="uiCard__image" src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=800&h=600&fit=crop" alt="ヘッドスパ" />
-                                <div class="uiCard__body">
-                                    <h4 class="uiCard__title">ヘッドスパ</h4>
-                                    <div class="uiCard__meta">
-                                        <span class="uiCard__metaItem">45分</span>
-                                    </div>
-                                    <p class="uiCard__text">頭皮と髪をリフレッシュ。リラックスできる特別な時間をお過ごしください</p>
-                                    <p class="uiCard__price">6,000円</p>
-                                </div>
+                                <p class="uiCard__text">頭皮と髪をリフレッシュ。リラックスできる特別な時間をお過ごしください</p>
+                                <p class="uiCard__price">6,000円</p>
                             </div>
                         </div>
                     </div>
@@ -907,10 +955,8 @@
                         </div>
                     </div>
                 </div>
-                </div>
             </div>
         </section>
-
         <!-- Lists -->
         <section id="lists" class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
@@ -2284,7 +2330,6 @@
                 </div>
             </div>
         </section>
-    </div>
     </div>
     </div>
 </main>

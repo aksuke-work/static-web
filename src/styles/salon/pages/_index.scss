@@ -375,6 +375,7 @@
     }
 
     &__subtitle {
+        font-family: $font-serif; // サブタイトルは明朝体
         font-size: $font-size-xs;
         color: $color-text-light;
         letter-spacing: 0.2em;
@@ -504,6 +505,7 @@
     }
 
     &__category {
+        font-family: $font-sans; // カテゴリはゴシック体
         font-size: 11px;
         color: rgba($color-text, 0.5);
         letter-spacing: 0.1em;
@@ -520,8 +522,8 @@
     }
 
     &__price {
+        font-family: $font-serif; // 価格は明朝体でエレガントに
         font-size: $font-size-sm;
-        font-family: sans-serif;
         color: rgba($color-text, 0.8);
     }
 }

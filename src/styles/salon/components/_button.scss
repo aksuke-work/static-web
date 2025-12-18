@@ -11,9 +11,9 @@
     justify-content: center;
     gap: $spacing-sm;
     padding: $spacing-md $spacing-xl;
-    font-family: $font-serif;
+    font-family: $font-sans; // ボタンUIはゴシック体で可読性重視
     font-size: $font-size-base;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: $letter-spacing-wide;
     text-transform: uppercase;
     text-decoration: none;

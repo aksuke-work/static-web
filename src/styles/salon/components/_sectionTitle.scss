@@ -210,6 +210,7 @@
     // サブタイトル付き
     &__subtitle {
         display: block;
+        font-family: $font-serif; // サブタイトルも明朝体に
         font-size: var(--font-size-sm);
         font-weight: 500;
         color: var(--color-text-light);

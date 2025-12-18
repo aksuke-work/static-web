@@ -169,9 +169,10 @@
 
     // タイトル
     &__name {
+        font-family: $font-serif; // 商品名は明朝体
         margin-bottom: var(--spacing-sm);
         font-size: var(--font-size-lg);
-        font-weight: 900;
+        font-weight: 400; // 厚みを抑えてエレガントに
         line-height: var(--line-height-tight);
         letter-spacing: var(--letter-spacing-tight);
         color: var(--color-text);
@@ -253,8 +254,9 @@
 
     // 価格
     &__price {
+        font-family: $font-serif; // 価格は明朝体
         font-size: var(--font-size-lg);
-        font-weight: 900;
+        font-weight: 500;
         background: var(--gradient-text-accent);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;

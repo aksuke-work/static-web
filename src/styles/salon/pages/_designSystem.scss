@@ -5,6 +5,12 @@
 .designSystem {
     padding: var(--spacing-lg) 0;
     background-color: var(--color-bg);
+    background-image:
+        radial-gradient(circle at 2px 2px, rgba(0, 0, 0, 0.01) 1px, transparent 0),
+        linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px); // 微細なテクスチャ
+    background-size:
+        24px 24px,
+        100% 24px;
 
     @include media(sp) {
         padding: var(--spacing-md) 0;
@@ -12,12 +18,14 @@
 
     &__container {
         display: flex;
+        width: 100%; // コンテナ全体の幅を100%に固定
         gap: var(--spacing-2xl);
         max-width: 1600px;
         margin: 0 auto;
         padding: 0 var(--spacing-lg);
         position: relative;
-
+        box-sizing: border-box;
+        // flex-direction: column;
         @include media(sp) {
             flex-direction: column;
             padding: 0 var(--spacing-md);
@@ -25,35 +33,43 @@
     }
 
     &__sidebar {
-        width: 280px;
-        flex-shrink: 0;
+        width: 260px;
+        flex: 0 0 260px; // 幅を固定し、伸縮させない
         position: sticky;
-        top: 100px;
-        height: calc(100vh - 120px);
+        top: 120px;
+        height: calc(100vh - 160px);
         overflow-y: auto;
         padding-right: var(--spacing-md);
-        border-right: 1px solid var(--color-border-light);
+        border-right: 1px solid rgba(0, 0, 0, 0.05);
 
         @include media(sp) {
-            display: none; // Mobile: Hide sidebar or make it a drawer (simplifying for now)
+            display: none;
         }
 
-        // Custom scrollbar
         &::-webkit-scrollbar {
-            width: 4px;
-        }
-        &::-webkit-scrollbar-track {
-            background: transparent;
+            width: 3px;
         }
         &::-webkit-scrollbar-thumb {
-            background: var(--color-border);
-            border-radius: 4px;
+            background: var(--color-accent);
+            border-radius: 3px;
         }
     }
 
     &__main {
-        flex: 1;
-        min-width: 0; // Prevent flex item from overflowing
+        flex: 1 1 0; // 残りの幅を占有し、ベース幅を0に設定
+        min-width: 0; // Flexアイテムのオーバーフロー防止
+
+        // グローバルな .uiSection の 100vw ブレイクアウトをデザインシステム内では無効化
+        .uiSection {
+            width: 100% !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            box-sizing: border-box;
+        }
+
+        @include media(sp) {
+            width: 100%;
+        }
     }
 
     &__navList {
@@ -71,33 +87,35 @@
         padding: var(--spacing-xs) var(--spacing-sm);
         color: var(--color-text-light);
         text-decoration: none;
+        font-family: var(--font-family-base); // ナビはゴシック体
         font-size: var(--font-size-sm);
         border-radius: var(--border-radius-sm);
         transition: all var(--transition-fast);
         font-weight: 500;
 
         &:hover {
-            color: var(--color-primary);
+            color: var(--color-accent);
             background-color: var(--color-bg-gray);
         }
 
         &.is-active {
-            color: var(--color-primary);
-            background-color: rgba(var(--color-primary-rgb), 0.05);
+            color: var(--color-accent);
+            background-color: rgba(197, 160, 89, 0.05); // Accent color with low opacity
             font-weight: 700;
-            border-left: 3px solid var(--color-primary);
+            border-left: 3px solid var(--color-accent);
         }
     }
 
     &__title {
+        font-family: var(--font-family-serif);
         font-size: var(--font-size-xxl);
-        font-weight: 900;
+        font-weight: 500;
         color: var(--color-text);
-        text-align: left; // Changed from center
-        margin: 0 0 var(--spacing-2xl) 0;
+        text-align: left;
+        margin: 0 0 var(--spacing-3xl) 0;
         padding-bottom: var(--spacing-lg);
-        border-bottom: var(--border-width-medium) solid var(--color-border);
-        letter-spacing: var(--letter-spacing-tight);
+        border-bottom: 1px solid var(--color-border);
+        letter-spacing: 0.05em;
         line-height: var(--line-height-tight);
 
         @include media(sp) {
@@ -105,6 +123,31 @@
             margin-bottom: var(--spacing-xl);
             padding-bottom: var(--spacing-md);
             text-align: center;
+        }
+    }
+
+    &__intro {
+        margin-bottom: var(--spacing-3xl);
+        padding-left: var(--spacing-lg);
+        border-left: 2px solid var(--color-accent); // Gold accent
+        max-width: 800px;
+
+        .uiLead {
+            margin-bottom: var(--spacing-xs);
+            color: var(--color-accent);
+            font-size: 1.25em;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .uiBody {
+            color: var(--color-text-light);
+            line-height: 2;
+        }
+
+        @include media(sp) {
+            padding-left: var(--spacing-md);
+            margin-bottom: var(--spacing-2xl);
         }
     }
 
@@ -123,18 +166,19 @@
     }
 
     &__sectionTitle {
+        font-family: var(--font-family-serif); // 明朝体へ
         font-size: var(--font-size-xl);
-        font-weight: 700;
+        font-weight: 500;
         color: var(--color-text);
         margin: 0;
         padding: var(--spacing-md) 0;
         padding-right: 4rem;
-        border-bottom: var(--border-width-medium) solid var(--color-border);
+        border-bottom: 1px solid var(--color-border);
         position: relative;
         cursor: pointer;
         user-select: none;
         transition: color var(--transition-base);
-        letter-spacing: var(--letter-spacing-normal);
+        letter-spacing: 0.05em;
         line-height: var(--line-height-snug);
 
         @include media(sp) {
@@ -180,7 +224,9 @@
         font-weight: 300;
         color: var(--color-text-light);
         line-height: 1;
-        transition: transform var(--transition-base), color var(--transition-base);
+        transition:
+            transform var(--transition-base),
+            color var(--transition-base);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -507,11 +553,12 @@
             margin: 0 0 var(--spacing-lg) 0;
             padding-bottom: var(--spacing-md);
             border-bottom: var(--border-width-thin) solid var(--color-border-light);
+            font-family: var(--font-family-serif); // 明朝体へ
             font-size: var(--font-size-lg);
-            font-weight: 700;
+            font-weight: 500;
             color: var(--color-text);
             position: relative;
-            letter-spacing: var(--letter-spacing-normal);
+            letter-spacing: 0.05em;
             line-height: var(--line-height-snug);
 
             @include media(sp) {
@@ -596,7 +643,9 @@
         background: var(--color-bg-gray);
         padding: var(--spacing-lg);
         border-radius: var(--border-radius-md);
-        transition: transform var(--transition-base), box-shadow var(--transition-base);
+        transition:
+            transform var(--transition-base),
+            box-shadow var(--transition-base);
 
         &:hover {
             transform: translateY(-2px);
@@ -633,7 +682,9 @@
         aspect-ratio: 1;
         border-radius: var(--border-radius-md);
         box-shadow: var(--shadow-sm);
-        transition: transform var(--transition-base), box-shadow var(--transition-base);
+        transition:
+            transform var(--transition-base),
+            box-shadow var(--transition-base);
 
         &:hover {
             transform: translateY(-4px);
@@ -721,15 +772,14 @@
 
 // デザインシステムページ内のヘッダー表示調整
 .designSystem {
-    // ヘッダーコンポーネントのラッパー調整
+    // ヘッダーコンポーネントの表示調整（ブレイクアウトハックの修正）
     .designSystem__componentGroup {
-        // ヘッダーを含むラッパーdivのスタイル調整
-        > div[style*="position: relative"] {
-            position: relative !important;
-            width: 100vw !important;
-            margin-left: calc((100vw - 100%) / -2) !important;
-            margin-right: calc((100vw - 100%) / -2) !important;
-            overflow: visible !important;
+        // コンテンツ幅に収めるように修正（100vwハックの削除）
+        > div[style*='position: relative'] {
+            position: relative;
+            width: 100%;
+            margin: 0;
+            overflow: hidden;
         }
     }
 
@@ -737,41 +787,20 @@
     .header {
         &.header_type_designSystem {
             position: relative !important;
+            width: 100% !important;
+            margin: 2rem 0 !important;
             top: auto !important;
             left: auto !important;
-            width: 100vw !important;
-            margin-left: calc((100vw - 100%) / -2) !important;
-            margin-right: calc((100vw - 100%) / -2) !important;
-        }
-
-        &_type_transparent {
-            &.header_type_designSystem {
-                background: transparent !important;
-                backdrop-filter: none !important;
-                -webkit-backdrop-filter: none !important;
-                box-shadow: none !important;
-            }
-        }
-
-        &_type_cta {
-            &.header_type_designSystem {
-                .header__inner {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                }
-            }
         }
     }
 
     // class="uiHeader"のデザインシステムページ用調整
     .uiHeader {
         position: relative !important;
+        width: 100% !important;
+        margin: 2rem 0 !important;
         top: auto !important;
         left: auto !important;
-        width: 100vw !important;
-        margin-left: calc((100vw - 100%) / -2) !important;
-        margin-right: calc((100vw - 100%) / -2) !important;
     }
 
     // class="uiFooter"のデザインシステムページ用調整
@@ -883,7 +912,6 @@
         font-weight: 700;
         // ... (existing content) ...
 
-
         font-family: var(--font-family-base);
         text-align: left;
         margin: 0;
@@ -986,7 +1014,9 @@
         position: relative;
         box-shadow: var(--shadow-lg);
         transform: translateY(0);
-        transition: transform 0.3s var(--transition-base), box-shadow 0.3s var(--transition-base);
+        transition:
+            transform 0.3s var(--transition-base),
+            box-shadow 0.3s var(--transition-base);
 
         @include media(sp) {
             font-size: clamp(2rem, 3vw + 1.2rem, 3rem);
@@ -1018,8 +1048,6 @@
         }
     }
 }
-
-
 
 @keyframes rotate {
     from {
@@ -1059,17 +1087,44 @@
         position: relative;
 
         // Radius Previews
-        &_radius_sm { border-radius: var(--border-radius-sm); background-color: var(--color-primary); }
-        &_radius_md { border-radius: var(--border-radius-md); background-color: var(--color-primary); }
-        &_radius_lg { border-radius: var(--border-radius-lg); background-color: var(--color-primary); }
-        &_radius_xl { border-radius: var(--border-radius-xl); background-color: var(--color-primary); }
-        &_radius_full { border-radius: var(--border-radius-full); background-color: var(--color-primary); }
+        &_radius_sm {
+            border-radius: var(--border-radius-sm);
+            background-color: var(--color-primary);
+        }
+        &_radius_md {
+            border-radius: var(--border-radius-md);
+            background-color: var(--color-primary);
+        }
+        &_radius_lg {
+            border-radius: var(--border-radius-lg);
+            background-color: var(--color-primary);
+        }
+        &_radius_xl {
+            border-radius: var(--border-radius-xl);
+            background-color: var(--color-primary);
+        }
+        &_radius_full {
+            border-radius: var(--border-radius-full);
+            background-color: var(--color-primary);
+        }
 
         // Shadow Previews
-        &_shadow_sm { box-shadow: var(--shadow-sm); background-color: #fff; }
-        &_shadow_md { box-shadow: var(--shadow-md); background-color: #fff; }
-        &_shadow_lg { box-shadow: var(--shadow-lg); background-color: #fff; }
-        &_shadow_xl { box-shadow: var(--shadow-xl); background-color: #fff; }
+        &_shadow_sm {
+            box-shadow: var(--shadow-sm);
+            background-color: #fff;
+        }
+        &_shadow_md {
+            box-shadow: var(--shadow-md);
+            background-color: #fff;
+        }
+        &_shadow_lg {
+            box-shadow: var(--shadow-lg);
+            background-color: #fff;
+        }
+        &_shadow_xl {
+            box-shadow: var(--shadow-xl);
+            background-color: #fff;
+        }
     }
 
     &__label {
@@ -1123,4 +1178,3 @@
         margin: 0;
     }
 }
-

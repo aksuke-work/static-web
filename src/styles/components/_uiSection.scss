@@ -52,9 +52,13 @@
         color: var(--color-bg);
 
         .uiHeading,
-        .uiLead,
+        .uiLead {
+            color: var(--color-bg);
+            font-family: var(--font-family-heading); // 明朝体を継承
+        }
         .uiBody {
             color: var(--color-bg);
+            font-family: var(--font-family-base); // ゴシック体を継承
         }
     }
 
