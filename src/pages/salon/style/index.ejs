@@ -13,62 +13,65 @@
             <img src="/images/salon/hero_style.png" alt="ギャラリー" loading="eager" />
         </div>
         <div class="salonStyleHero__inner">
-            <h1 class="salonStyleHero__title">ギャラリー</h1>
-            <p class="salonStyleHero__subtitle">お客様の仕上がりをご紹介します</p>
+            <h1 class="salonStyleHero__title fadein">Gallery</h1>
+            <p class="salonStyleHero__subtitle fadein delay-200">スタイルギャラリー</p>
         </div>
     </section>
 
-    <section class="salonStyleGallery">
+    <section class="salonStyleGallery" id="gallery">
         <div class="salonStyleGallery__inner">
-            <h2 class="salonStyleGallery__title uiHeading uiHeading_level_h2">スタイルギャラリー</h2>
-            <div class="salonStyleGallery__filter">
-                <button class="uiButton uiButton_type_outline salonStyleGallery__filterButton salonStyleGallery__filterButton_type_active" data-filter="all">すべて</button>
-                <button class="uiButton uiButton_type_outline salonStyleGallery__filterButton" data-filter="long">ロング</button>
-                <button class="uiButton uiButton_type_outline salonStyleGallery__filterButton" data-filter="bob">ボブ</button>
-                <button class="uiButton uiButton_type_outline salonStyleGallery__filterButton" data-filter="mens">メンズ</button>
-                <button class="uiButton uiButton_type_outline salonStyleGallery__filterButton" data-filter="hightone">ハイトーン</button>
+            <h2 class="salonStyleGallery__title uiHeading uiHeading_level_h2 fadein">スタイルギャラリー</h2>
+            <p class="salonStyleGallery__description fadein delay-100">
+                カテゴリー別フィルター機能を標準搭載。お客様が目的の施術例をすぐに見つけられます。
+            </p>
+            <div class="salonStyleGallery__filter fadein delay-200">
+                <button class="salonStyleGallery__filterButton salonStyleGallery__filterButton_type_active" data-filter="all">すべて</button>
+                <button class="salonStyleGallery__filterButton" data-filter="long">ロング</button>
+                <button class="salonStyleGallery__filterButton" data-filter="bob">ボブ</button>
+                <button class="salonStyleGallery__filterButton" data-filter="mens">メンズ</button>
+                <button class="salonStyleGallery__filterButton" data-filter="hightone">ハイトーン</button>
             </div>
             <div class="salonStyleGallery__list">
-                <div class="salonStyleGallery__item" data-category="long">
+                <div class="salonStyleGallery__item fadein delay-300" data-category="long">
                     <img class="salonStyleGallery__image" src="https://picsum.photos/600/800?random=300" alt="ロングスタイル" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x800/667eea/ffffff?text=Long+Style';" />
                     <div class="salonStyleGallery__tags">
-                        <span class="salonStyleGallery__tag">ロング</span>
-                        <span class="salonStyleGallery__tag">カット</span>
+                        <span class="salonStyleGallery__tag">Long</span>
+                        <span class="salonStyleGallery__tag">Cut</span>
                     </div>
                 </div>
-                <div class="salonStyleGallery__item" data-category="bob">
+                <div class="salonStyleGallery__item fadein delay-400" data-category="bob">
                     <img class="salonStyleGallery__image" src="https://picsum.photos/600/800?random=301" alt="ボブスタイル" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x800/667eea/ffffff?text=Bob+Style';" />
                     <div class="salonStyleGallery__tags">
-                        <span class="salonStyleGallery__tag">ボブ</span>
-                        <span class="salonStyleGallery__tag">カラー</span>
+                        <span class="salonStyleGallery__tag">Bob</span>
+                        <span class="salonStyleGallery__tag">Color</span>
                     </div>
                 </div>
-                <div class="salonStyleGallery__item" data-category="mens">
+                <div class="salonStyleGallery__item fadein delay-500" data-category="mens">
                     <img class="salonStyleGallery__image" src="https://picsum.photos/600/800?random=302" alt="メンズスタイル" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x800/667eea/ffffff?text=Mens+Style';" />
                     <div class="salonStyleGallery__tags">
-                        <span class="salonStyleGallery__tag">メンズ</span>
-                        <span class="salonStyleGallery__tag">カット</span>
+                        <span class="salonStyleGallery__tag">Mens</span>
+                        <span class="salonStyleGallery__tag">Cut</span>
                     </div>
                 </div>
-                <div class="salonStyleGallery__item" data-category="hightone">
+                <div class="salonStyleGallery__item fadein delay-300" data-category="hightone">
                     <img class="salonStyleGallery__image" src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&w=600&h=800&fit=crop&q=80" alt="ハイトーンスタイル" loading="lazy" onerror="this.onerror=null; this.src='https://picsum.photos/600/800?random=403';" />
                     <div class="salonStyleGallery__tags">
-                        <span class="salonStyleGallery__tag">ハイトーン</span>
-                        <span class="salonStyleGallery__tag">カラー</span>
+                        <span class="salonStyleGallery__tag">Hightone</span>
+                        <span class="salonStyleGallery__tag">Color</span>
                     </div>
                 </div>
-                <div class="salonStyleGallery__item" data-category="long">
+                <div class="salonStyleGallery__item fadein delay-400" data-category="long">
                     <img class="salonStyleGallery__image" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a14e?auto=format&w=600&h=800&fit=crop&q=80" alt="ロングスタイル" loading="lazy" onerror="this.onerror=null; this.src='https://picsum.photos/600/800?random=404';" />
                     <div class="salonStyleGallery__tags">
-                        <span class="salonStyleGallery__tag">ロング</span>
-                        <span class="salonStyleGallery__tag">パーマ</span>
+                        <span class="salonStyleGallery__tag">Long</span>
+                        <span class="salonStyleGallery__tag">Perm</span>
                     </div>
                 </div>
-                <div class="salonStyleGallery__item" data-category="bob">
+                <div class="salonStyleGallery__item fadein delay-500" data-category="bob">
                     <img class="salonStyleGallery__image" src="https://picsum.photos/600/800?random=301" alt="ボブスタイル" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x800/667eea/ffffff?text=Bob+Style';" />
                     <div class="salonStyleGallery__tags">
-                        <span class="salonStyleGallery__tag">ボブ</span>
-                        <span class="salonStyleGallery__tag">カット</span>
+                        <span class="salonStyleGallery__tag">Bob</span>
+                        <span class="salonStyleGallery__tag">Cut</span>
                     </div>
                 </div>
             </div>
@@ -77,9 +80,13 @@
 
     <section class="salonBeforeAfter">
         <div class="salonBeforeAfter__inner">
-            <h2 class="salonBeforeAfter__title uiHeading uiHeading_level_h2">ビフォー・アフター</h2>
+            <h2 class="salonBeforeAfter__title uiHeading uiHeading_level_h2 fadein">施術ビフォーアフター</h2>
+            <p class="salonBeforeAfter__description fadein delay-100">
+                お客様の変化を視覚的に伝える、美容室サイト必須のコンテンツです。<br>
+                施術内容や担当スタイリスト情報も表示できます。
+            </p>
             <div class="salonBeforeAfter__list">
-                <div class="salonBeforeAfter__item">
+                <div class="salonBeforeAfter__item fadein delay-200">
                     <div class="salonBeforeAfter__before">
                         <img class="salonBeforeAfter__image" src="https://picsum.photos/600/800?random=400" style="filter: grayscale(100%);" alt="施術前" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x800/999999/ffffff?text=Before';" />
                         <p class="salonBeforeAfter__label">Before</p>
@@ -88,8 +95,12 @@
                         <img class="salonBeforeAfter__image" src="https://picsum.photos/600/800?random=401" alt="施術後" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x800/667eea/ffffff?text=After';" />
                         <p class="salonBeforeAfter__label">After</p>
                     </div>
+                    <div class="salonBeforeAfter__info">
+                        <p class="salonBeforeAfter__service">カット + カラー + トリートメント</p>
+                        <p class="salonBeforeAfter__stylist">担当：田中 美咲</p>
+                    </div>
                 </div>
-                <div class="salonBeforeAfter__item">
+                <div class="salonBeforeAfter__item fadein delay-300">
                     <div class="salonBeforeAfter__before">
                         <img class="salonBeforeAfter__image" src="https://picsum.photos/600/800?random=400" style="filter: grayscale(100%);" alt="施術前" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x800/999999/ffffff?text=Before';" />
                         <p class="salonBeforeAfter__label">Before</p>
@@ -98,6 +109,10 @@
                         <img class="salonBeforeAfter__image" src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&w=600&h=800&fit=crop&q=80" alt="施術後" loading="lazy" onerror="this.onerror=null; this.src='https://picsum.photos/600/800?random=503';" />
                         <p class="salonBeforeAfter__label">After</p>
                     </div>
+                    <div class="salonBeforeAfter__info">
+                        <p class="salonBeforeAfter__service">ハイトーンカラー + ブリーチ</p>
+                        <p class="salonBeforeAfter__stylist">担当：佐藤 健太</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -105,9 +120,9 @@
 
     <section class="salonTestimonial">
         <div class="salonTestimonial__inner">
-            <h2 class="salonTestimonial__title uiHeading uiHeading_level_h2">お客様の声</h2>
+            <h2 class="salonTestimonial__title uiHeading uiHeading_level_h2 fadein">お客様の声</h2>
             <div class="salonTestimonial__list">
-                <div class="salonTestimonial__item">
+                <div class="salonTestimonial__item fadein delay-200">
                     <div class="salonTestimonial__rating">
                         <span class="salonTestimonial__star salonTestimonial__star_type_active">★</span>
                         <span class="salonTestimonial__star salonTestimonial__star_type_active">★</span>
@@ -117,11 +132,17 @@
                     </div>
                     <p class="salonTestimonial__comment">とても丁寧なカウンセリングで、理想のスタイルに仕上げていただけました。スタッフの方も親切で、リラックスして施術を受けられました。</p>
                     <div class="salonTestimonial__info">
-                        <span class="salonTestimonial__age">30代女性</span>
-                        <span class="salonTestimonial__menu">カット＋カラー</span>
+                        <div class="salonTestimonial__row">
+                            <span class="salonTestimonial__name">M.K様</span>
+                            <span class="salonTestimonial__age">30代女性</span>
+                        </div>
+                        <div class="salonTestimonial__row">
+                            <span class="salonTestimonial__location">表参道店</span>
+                            <span class="salonTestimonial__menu">カット＋カラー</span>
+                        </div>
                     </div>
                 </div>
-                <div class="salonTestimonial__item">
+                <div class="salonTestimonial__item fadein delay-300">
                     <div class="salonTestimonial__rating">
                         <span class="salonTestimonial__star salonTestimonial__star_type_active">★</span>
                         <span class="salonTestimonial__star salonTestimonial__star_type_active">★</span>
@@ -131,11 +152,17 @@
                     </div>
                     <p class="salonTestimonial__comment">初めて利用しましたが、とても居心地の良い空間で、スタッフの方も親切でした。また利用したいと思います。</p>
                     <div class="salonTestimonial__info">
-                        <span class="salonTestimonial__age">20代女性</span>
-                        <span class="salonTestimonial__menu">カット</span>
+                        <div class="salonTestimonial__row">
+                            <span class="salonTestimonial__name">A.S様</span>
+                            <span class="salonTestimonial__age">20代女性</span>
+                        </div>
+                        <div class="salonTestimonial__row">
+                            <span class="salonTestimonial__location">渋谷店</span>
+                            <span class="salonTestimonial__menu">カット</span>
+                        </div>
                     </div>
                 </div>
-                <div class="salonTestimonial__item">
+                <div class="salonTestimonial__item fadein delay-400">
                     <div class="salonTestimonial__rating">
                         <span class="salonTestimonial__star salonTestimonial__star_type_active">★</span>
                         <span class="salonTestimonial__star salonTestimonial__star_type_active">★</span>
@@ -145,8 +172,14 @@
                     </div>
                     <p class="salonTestimonial__comment">ヘッドスパがとても気持ち良く、リフレッシュできました。髪の毛もツヤツヤになりました。</p>
                     <div class="salonTestimonial__info">
-                        <span class="salonTestimonial__age">40代女性</span>
-                        <span class="salonTestimonial__menu">ヘッドスパ</span>
+                        <div class="salonTestimonial__row">
+                            <span class="salonTestimonial__name">Y.T様</span>
+                            <span class="salonTestimonial__age">40代女性</span>
+                        </div>
+                        <div class="salonTestimonial__row">
+                            <span class="salonTestimonial__location">銀座店</span>
+                            <span class="salonTestimonial__menu">ヘッドスパ</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -155,10 +188,10 @@
 
     <section class="salonSns">
         <div class="salonSns__inner">
-            <h2 class="salonSns__title uiHeading uiHeading_level_h2">Instagram</h2>
-            <p class="salonSns__text">最新のスタイルはInstagramで更新中</p>
+            <h2 class="salonSns__title uiHeading uiHeading_level_h2 fadein">Instagram</h2>
+            <p class="salonSns__text fadein delay-200">最新のスタイルはInstagramで更新中</p>
             <% if (typeof config !== 'undefined' && config.social && config.social.instagram) { %>
-            <div class="salonSns__link">
+            <div class="salonSns__link fadein delay-300">
                 <a class="uiButton uiButton_type_primary" href="<%= config.social.instagram %>" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
             </div>
             <% } %>

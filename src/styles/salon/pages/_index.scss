@@ -12,57 +12,191 @@
 }
 
 /* ==========================================================================
-   Common UI Components
+   Hero Section
    ========================================================================== */
 
-.uiHeading {
-    font-family: $font-serif;
-    font-weight: 400;
-    letter-spacing: $letter-spacing-base;
-    color: $color-primary;
-    
-    &_level_h2 {
-        font-size: $font-size-xxl;
-        margin-bottom: $spacing-xl;
-        text-align: center;
-        position: relative;
-        
-        &::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 1px;
-            background-color: $color-accent;
-            margin: $spacing-md auto 0;
-        }
-    }
-}
-
 /* ==========================================================================
-   Hero Section - Fullscreen with Parallax
+   Hero Section - Cinematic Asymmetry
    ========================================================================== */
 
 .salonHero {
     position: relative;
     height: 100vh;
-    min-height: 600px;
+    min-height: 700px;
     display: flex;
     align-items: center;
-    justify-content: center;
     overflow: hidden;
-    color: $color-text-white;
+    background-color: $color-bg; 
 
     @include media(sp) {
-        min-height: 500px;
+        height: 100svh; // Use svh for mobile
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-bottom: $spacing-3xl;
     }
 
-    &__bg {
+    // Visual Area (Right side)
+    &__visual {
         position: absolute;
         top: 0;
-        left: 0;
-        width: 100%;
+        right: 0;
+        width: 60%; 
         height: 100%;
         z-index: 0;
+        overflow: hidden;
+        clip-path: inset(0 0 0 0); // Prepare for reveal animation
+        
+        // Initial state for animation
+        opacity: 0;
+        transform: scale(1.1);
+        animation: heroVisualReveal 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+        @include media(sp) {
+            width: 100%;
+            height: 100%;
+            mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+        }
+    }
+
+    &__imageWrapper {
+        width: 100%;
+        height: 100%;
+        // Parallax effect will be handled by simple GSAP or just CSS parallax
+        transform-origin: center center;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        // Subtle movement instead of cheap zoom
+        animation: subtleDrift 20s infinite alternate linear;
+    }
+
+    // Content Area (Left side)
+    &__content {
+        position: relative;
+        z-index: 2;
+        width: 50%; 
+        padding-left: 8vw;
+        color: $color-text; // Dark text on light side, or standard
+        
+        // Mobile specific
+        @include media(sp) {
+            width: 100%;
+            padding: 0 $spacing-lg;
+            color: $color-text; // Ensure visibility on mobile if bg is light
+            margin-bottom: 10vh;
+        }
+    }
+
+    &__textWrapper {
+        position: relative;
+    }
+
+    &__catchcopy {
+        font-family: $font-serif;
+        font-size: clamp(4.5rem, 9vw, 11rem);
+        font-weight: 300;
+        line-height: 0.95;
+        letter-spacing: -0.03em;
+        margin-bottom: $spacing-lg;
+        color: $color-text; // Ensuring text color matches theme
+        
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        @include media(sp) {
+           color: $color-text-white; // White text on mobile hero image
+           text-shadow: 0 4px 24px rgba(0,0,0,0.3); // Subtle shadow for readability on image
+        }
+    }
+
+    &__revealText {
+        display: block;
+        overflow: hidden;
+        
+        span {
+            display: inline-block;
+            transform: translateY(110%);
+            opacity: 0;
+            animation: textSlideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @for $i from 1 through 2 {
+            &:nth-child(#{$i}) span {
+                animation-delay: #{0.2 + ($i * 0.15)}s;
+            }
+        }
+
+        &:last-child {
+            margin-left: 1.2em; 
+            font-style: italic; // Add elegance
+            
+            @include media(sp) {
+                margin-left: 0.5em;
+            }
+        }
+    }
+
+    &__subtitle {
+        font-size: $font-size-md;
+        font-weight: 400;
+        line-height: 1.6;
+        letter-spacing: 0.05em;
+        opacity: 0;
+        margin-left: 0.5em;
+        color: rgba($color-text, 0.8);
+        animation: fadeIn 1s ease-out 1.2s forwards;
+
+        @include media(sp) {
+            color: rgba(255, 255, 255, 0.9);
+            margin-left: 0;
+            font-size: $font-size-sm;
+        }
+    }
+
+    // Scroll Indicator - Modern Line
+    &__scrollIndicator {
+        position: absolute;
+        bottom: 0;
+        left: 8vw; 
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $spacing-sm;
+        
+        @include media(sp) {
+            left: $spacing-lg;
+            bottom: $spacing-lg;
+        }
+    }
+
+    &__scrollText {
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        writing-mode: vertical-rl;
+        color: rgba($color-text, 0.6);
+
+        @include media(sp) {
+             color: rgba(255,255,255, 0.8);
+        }
+    }
+
+    &__scrollLine {
+        width: 1px;
+        height: 80px;
+        background-color: rgba($color-text, 0.2);
+        position: relative;
+        overflow: hidden;
+
+        @include media(sp) {
+            background-color: rgba(255,255,255, 0.3);
+        }
 
         &::after {
             content: '';
@@ -71,107 +205,39 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: $gradient-overlay;
-            z-index: 1;
+            background-color: $color-text;
+            animation: scrollDown 2s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+            
+            @include media(sp) {
+                background-color: #fff;
+            }
         }
     }
+}
 
-    &__image {
-        width: 100%;
-        height: 100%;
-        
-        &Img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            animation: heroZoom 20s ease-in-out infinite alternate;
-        }
-    }
+// Keyframes
+@keyframes heroVisualReveal {
+    0% { opacity: 0; transform: scale(1.1); clip-path: inset(0 100% 0 0); }
+    100% { opacity: 1; transform: scale(1); clip-path: inset(0 0 0 0); }
+}
 
-    &__inner {
-        position: relative;
-        z-index: 2;
-        text-align: center;
-        padding: 0 $spacing-lg;
-        max-width: $container-width-md;
-        margin: 0 auto;
+@keyframes textSlideUp {
+    0% { transform: translateY(110%) rotate(3deg); opacity: 0; }
+    100% { transform: translateY(0) rotate(0); opacity: 1; }
+}
 
-        @include media(sp) {
-            padding: 0 $spacing-md;
-        }
-    }
+@keyframes subtleDrift {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.08); } // Very subtle zoom
+}
 
-    &__content {
-        animation: heroFadeIn 1.5s ease-out forwards;
-        opacity: 0;
-    }
+@keyframes scrollDown {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
 
-    &__catchcopy {
-        font-family: $font-serif;
-        font-size: $font-size-display;
-        font-weight: 300;
-        line-height: $line-height-tight;
-        letter-spacing: $letter-spacing-wide;
-        margin-bottom: $spacing-lg;
-        text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-
-        @include media(sp) {
-            font-size: clamp(3.2rem, 8vw, 4.8rem);
-        }
-    }
-
-    &__subtitle {
-        font-size: $font-size-lg;
-        font-weight: 300;
-        letter-spacing: $letter-spacing-widest;
-        margin-bottom: $spacing-2xl;
-        opacity: 0.9;
-
-        @include media(sp) {
-            font-size: $font-size-md;
-            margin-bottom: $spacing-xl;
-        }
-    }
-
-    &__buttons {
-        display: flex;
-        gap: $spacing-md;
-        justify-content: center;
-        flex-wrap: wrap;
-
-        @include media(sp) {
-            flex-direction: column;
-            gap: $spacing-sm;
-        }
-    }
-
-    &__scrollIndicator {
-        position: absolute;
-        bottom: $spacing-xl;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 2;
-        animation: scrollBounce 2s ease-in-out infinite;
-
-        @include media(sp) {
-            bottom: $spacing-lg;
-        }
-
-        &Text {
-            font-size: $font-size-xs;
-            letter-spacing: $letter-spacing-widest;
-            text-transform: uppercase;
-            margin-bottom: $spacing-xs;
-        }
-
-        &Icon {
-            width: 1px;
-            height: 40px;
-            background-color: $color-text-white;
-            margin: 0 auto;
-            opacity: 0.6;
-        }
-    }
+@keyframes fadeIn {
+    to { opacity: 1; }
 }
 
 /* ==========================================================================
@@ -179,510 +245,556 @@
    ========================================================================== */
 
 .salonConcept {
-    padding: var(--section-spacing-lg) 0;
-    background-color: $color-bg;
-
-    @include media(sp) {
-        padding: var(--section-spacing-md) 0;
-    }
+    padding: $spacing-3xl 0;
+    margin-top: -10vh; // Overlap properly
+    background-color: transparent; // Let body texture show
+    position: relative;
+    z-index: 5;
 
     &__inner {
-        max-width: $container-width-lg;
-        margin: 0 auto;
-        padding: 0 var(--spacing-xl);
+        display: flex;
+        align-items: center;
+        gap: 8vw; // Larger gap for tension
+        position: relative;
 
         @include media(sp) {
-            padding: 0 var(--spacing-md);
+            flex-direction: column;
+            gap: $spacing-xl;
+            margin-top: 0;
+        }
+    }
+
+    &__image {
+        width: 40%;
+        flex-shrink: 0;
+        position: relative;
+        box-shadow: 20px 20px 60px rgba(0,0,0,0.1); // Soft shadow for depth
+
+        &::before {
+            display: none; // Remove border outline - too cliche
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            filter: sepia(10%) contrast(1.05); // Global mood
+        }
+
+        @include media(sp) {
+            width: 100%;
+            box-shadow: none;
+        }
+    }
+
+    &__content {
+        flex: 1;
+        padding-top: $spacing-3xl; // Push down for asymmetry
+        
+        @include media(sp) {
+            padding-top: 0;
+            padding-right: 0;
+            text-align: center;
         }
     }
 
     &__title {
-        @extend .uiHeading_level_h2;
+        // Background text
+        font-family: $font-serif;
+        font-size: 15rem;
+        opacity: 0.03;
+        position: absolute;
+        top: -8rem;
+        right: -5rem;
+        z-index: -1;
+        white-space: nowrap;
+        pointer-events: none;
+
+        @include media(sp) {
+            font-size: 6rem;
+            top: -2rem;
+            right: 0;
+            left: 0;
+            text-align: center;
+            opacity: 0.05;
+        }
     }
 
-    &__content {
-        max-width: 800px;
-        margin: 0 auto;
-        text-align: center;
+    &__lead {
+        font-family: $font-serif;
+        font-size: clamp(2rem, 3vw, 2.8rem);
+        margin-bottom: $spacing-lg;
+        line-height: 1.6;
+        font-weight: 300;
+        letter-spacing: 0.05em;
     }
 
     &__text {
-        font-size: var(--font-size-md);
-        line-height: var(--line-height-relaxed);
-        color: $color-text-light;
-        margin-bottom: var(--spacing-xl);
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-
+        font-size: $font-size-base;
+        color: rgba($color-text, 0.7);
+        margin-bottom: $spacing-lg;
+        max-width: 500px;
+        line-height: 2;
+        
         @include media(sp) {
-            font-size: var(--font-size-base);
-            margin-bottom: var(--spacing-lg);
+            margin: 0 auto $spacing-lg;
         }
     }
 }
 
 /* ==========================================================================
-   Popular Menu Section
+   Menu Section - Broken Grid
    ========================================================================== */
 
-.salonPopularMenu {
-    padding: var(--section-spacing-lg) 0;
-    background-color: $color-secondary;
-
-    @include media(sp) {
-        padding: var(--section-spacing-md) 0;
-    }
-
-    &__inner {
-        max-width: $container-width-lg;
-        margin: 0 auto;
-        padding: 0 var(--spacing-xl);
+.salonMenu {
+    padding: $spacing-3xl 0;
+    
+    &__header {
+        text-align: left;
+        margin-bottom: $spacing-3xl;
+        padding-left: 5vw;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        padding-bottom: $spacing-md;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
 
         @include media(sp) {
-            padding: 0 var(--spacing-md);
+            text-align: center;
+            padding-left: 0;
+            flex-direction: column;
+            align-items: center;
+            gap: $spacing-sm;
+        }
+    }
+    
+    &__title.uiHeading_level_h2 {
+        margin-bottom: 0;
+        font-size: clamp(3rem, 5vw, 4.5rem);
+    }
+
+    &__subtitle {
+        font-size: $font-size-xs;
+        color: $color-text-light;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+    }
+
+    &__grid {
+        display: grid;
+        // 3 columns layout: 1 big col, 2 small cols
+        grid-template-columns: repeat(12, 1fr);
+        gap: $spacing-xl;
+        
+        @include media(sp) {
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-2xl;
         }
     }
 
-    &__title {
-        @extend .uiHeading_level_h2;
+    // Special items handling - breaking the grid
+    &__item {
+        position: relative;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        
+        &:hover {
+           transform: translateY(-5px); 
+        }
+
+        // Featured Item
+        &:first-child {
+            grid-column: 2 / 7; // Left side
+            margin-top: 0;
+        }
+        
+        // Secondary Items
+        &:nth-child(2) {
+            grid-column: 8 / 12; // Right side
+            margin-top: $spacing-3xl; // Push down for staggered effect
+        }
+
+        &:nth-child(3) {
+            grid-column: 7 / 11; // Middle-ish
+            margin-top: -$spacing-2xl; // Overlap or pull up
+            z-index: 2;
+        }
+    }
+
+    &__column {
+        // Deprecated wrapper - we use grid items directly in new layout if possible
+        // But for backward compatibility with EJS structure:
+        grid-column: 8 / 13;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-2xl;
+        padding-top: $spacing-3xl;
+
+        @include media(sp) {
+            padding-top: 0;
+            gap: $spacing-xl;
+        }
+        
+        .salonMenu__item {
+             margin: 0; // Reset individual margins inside column
+        }
+    }
+
+    &__link {
+        display: block;
+        text-decoration: none;
+        color: $color-text;
+        
+        &:hover {
+            .salonMenu__image {
+                transform: scale(1.05);
+            }
+            .salonMenu__viewMore {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    }
+
+    &__imageWrapper {
+        width: 100%;
+        aspect-ratio: 3/4;
+        overflow: hidden;
+        margin-bottom: $spacing-md;
+        position: relative;
+        background-color: #f0f0f0;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+        will-change: transform;
+    }
+
+    &__viewMore {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.9);
+        color: #fff;
+        font-size: $font-size-sm;
+        letter-spacing: 0.1em;
+        padding: 1rem 2rem;
+        border: 1px solid rgba(255,255,255,0.8);
+        background: rgba(0,0,0,0.1);
+        backdrop-filter: blur(2px);
+        opacity: 0;
+        transition: all 0.4s ease;
+        z-index: 2;
+        white-space: nowrap;
+    }
+
+    &__info {
+        padding-left: $spacing-xs;
+        border-left: 1px solid transparent;
+        transition: border-color 0.3s ease;
+        
+        .salonMenu__link:hover & {
+            border-left-color: $color-accent;
+        }
+    }
+
+    &__category {
+        font-size: 11px;
+        color: rgba($color-text, 0.5);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    &__name {
+        font-family: $font-serif;
+        font-size: $font-size-md; // Smaller refined size
+        margin-bottom: 4px;
+        font-weight: 400;
+    }
+
+    &__price {
+        font-size: $font-size-sm;
+        font-family: sans-serif;
+        color: rgba($color-text, 0.8);
+    }
+}
+
+/* ==========================================================================
+   News Section - Minimal List
+   ========================================================================== */
+
+/* ==========================================================================
+   News Section - Editorial List
+   ========================================================================== */
+
+.salonNews {
+    padding: $spacing-3xl 0;
+    background-color: $color-bg;
+
+    &__inner {
+        display: flex;
+        gap: $spacing-3xl;
+        
+        @include media(sp) {
+            flex-direction: column;
+            gap: $spacing-xl;
+        }
+    }
+
+    &__header {
+        width: 30%;
+        position: relative;
+        
+        @include media(sp) {
+            width: 100%;
+            text-align: center;
+        }
+
+        &::after {
+            // Decorative vertical line
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 1px;
+            background: linear-gradient(to bottom, $color-text 0%, rgba($color-text, 0) 100%);
+            
+            @include media(sp) {
+                display: none;
+            }
+        }
+    }
+    
+    &__title.uiHeading_level_h2 {
+         margin-bottom: $spacing-md;
+    }
+
+    &__content {
+        flex: 1;
+        padding-top: $spacing-lg;
     }
 
     &__list {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: var(--spacing-xl);
+        padding-top: $spacing-md; // Add a little space instead of border
+    }
 
-        @include media(tab) {
-            grid-template-columns: repeat(2, 1fr);
+    &__item {
+        border-bottom: 1px solid rgba($color-text, 0.1);
+        transition: border-color 0.3s ease;
+
+        &:first-child {
+            border-top: 1px solid rgba($color-text, 0.1);
+        }
+
+        &:hover {
+            border-bottom-color: $color-text;
+        }
+    }
+
+    &__link {
+        display: grid;
+        grid-template-columns: 140px 100px 1fr 40px; // Grid layout for precision
+        align-items: center;
+        padding: $spacing-lg 0;
+        text-decoration: none;
+        color: $color-text;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        
+        &:hover {
+            padding-left: $spacing-md;
+            background-color: rgba($color-text, 0.02); // Subtle highlight
+            
+            .salonNews__arrow {
+                transform: translateX(5px);
+                opacity: 1;
+            }
         }
 
         @include media(sp) {
-            grid-template-columns: 1fr;
-            gap: var(--spacing-lg);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: $spacing-sm;
+            padding: $spacing-md 0;
+        }
+    }
+
+    &__date {
+        font-family: $font-serif; // Serif matches brand better than monospace
+        font-size: $font-size-base;
+        color: $color-text;
+        letter-spacing: 0.05em;
+    }
+
+    &__category {
+        font-size: 10px;
+        border: 1px solid $color-text;
+        padding: 4px 12px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        border-radius: 20px; // Pill shape for modern touch
+        justify-self: start;
+        transition: all 0.3s ease;
+        
+        .salonNews__link:hover & {
+            background-color: $color-text;
+            color: $color-text-white;
+        }
+    }
+
+    &__articleTitle {
+        font-size: $font-size-md; // Slightly larger
+        font-weight: 300;
+        padding-left: $spacing-md;
+        
+        @include media(sp) {
+            padding-left: 0;
+        }
+    }
+    
+    &__arrow {
+        opacity: 0;
+        transform: translateX(-10px);
+        transition: all 0.4s ease;
+        color: $color-accent;
+        
+        @include media(sp) {
+            display: none;
         }
     }
 
     &__button {
-        text-align: center;
-        margin-top: var(--spacing-2xl);
+        margin-top: $spacing-2xl;
+        text-align: right;
 
         @include media(sp) {
-            margin-top: var(--spacing-xl);
+            text-align: center;
         }
     }
 }
 
 /* ==========================================================================
-   Menu Card Component
+   Access Section - Immersive Glass
    ========================================================================== */
 
-.salonMenuCard {
-    background-color: $color-bg;
+.salonAccess {
+    position: relative;
+    padding: $spacing-3xl 0;
+    color: $color-text-white;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
     overflow: hidden;
-    transition: all $transition-base;
-    @include hover-lift;
+    isolation: isolate; // Create stacking context
 
-    &__image {
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        height: 280px;
-        overflow: hidden;
-        position: relative;
+        height: 100%;
+        z-index: 0; // Standard stacking
+        pointer-events: none;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); // Lighter overlay for more vibrancy
+        }
 
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform $transition-slow;
+            filter: grayscale(30%); // Mood
         }
-    }
-
-    &:hover &__image img {
-        transform: scale(1.05);
     }
 
     &__content {
-        padding: var(--spacing-xl);
-
-        @include media(sp) {
-            padding: var(--spacing-lg);
-        }
-    }
-
-    &__name {
-        font-family: $font-serif;
-        font-size: var(--font-size-lg);
-        font-weight: 400;
-        color: $color-primary;
-        margin-bottom: var(--spacing-md);
-    }
-
-    &__description {
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-relaxed);
-        color: $color-text-light;
-        margin-bottom: var(--spacing-lg);
-    }
-
-    &__info {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-top: var(--spacing-md);
-        border-top: 1px solid rgba($color-primary, 0.1);
-    }
-
-    &__time {
-        font-size: var(--font-size-sm);
-        color: $color-text-light;
-    }
-
-    &__price {
-        font-family: $font-serif;
-        font-size: var(--font-size-lg);
-        font-weight: 500;
-        color: $color-accent;
-    }
-}
-
-/* ==========================================================================
-   First Time Section - Modern Card Design
-   ========================================================================== */
-
-.salonFirstTime {
-    padding: var(--section-spacing-lg) 0;
-    background-color: $color-bg;
-
-    @include media(sp) {
-        padding: var(--section-spacing-md) 0;
-    }
-
-    &__inner {
-        max-width: $container-width-lg;
-        margin: 0 auto;
-        padding: 0 var(--spacing-xl);
-
-        @include media(sp) {
-            padding: 0 var(--spacing-md);
-        }
-    }
-
-    &__title {
-        @extend .uiHeading_level_h2;
-    }
-
-    &__flow {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-xl);
-
-        @include media(sp) {
-            grid-template-columns: 1fr;
-            gap: var(--spacing-lg);
-        }
-    }
-
-    &__flowItem {
         position: relative;
-        background: $color-bg;
-        padding: var(--spacing-2xl);
-        border-radius: $border-radius-lg;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        transition: all $transition-base;
-        overflow: hidden;
-
-        @include media(sp) {
-            padding: var(--spacing-xl);
-        }
-
-        // 背景の大きな番号
-        &::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            right: -10px;
-            font-size: clamp(8rem, 12vw, 12rem);
-            font-weight: 700;
-            color: rgba($color-accent, 0.06);
-            font-family: $font-serif;
-            line-height: 1;
-            pointer-events: none;
-
-            @include media(sp) {
-                font-size: clamp(6rem, 10vw, 8rem);
-            }
-        }
-
-        &:nth-child(1)::before { content: '01'; }
-        &:nth-child(2)::before { content: '02'; }
-        &:nth-child(3)::before { content: '03'; }
-        &:nth-child(4)::before { content: '04'; }
-
-        &:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-        }
-    }
-
-    &__flowNumber {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 56px;
-        height: 56px;
-        background: $gradient-gold;
-        color: $color-bg;
-        border-radius: 50%;
-        font-weight: 700;
-        font-size: var(--font-size-lg);
-        margin-bottom: var(--spacing-lg);
-        position: relative;
-        z-index: 1;
-
-        @include media(sp) {
-            width: 48px;
-            height: 48px;
-            font-size: var(--font-size-md);
-            margin-bottom: var(--spacing-md);
-        }
-    }
-
-    &__flowTitle {
-        font-family: $font-serif;
-        font-size: var(--font-size-xl);
-        font-weight: 600;
-        color: $color-primary;
-        margin-bottom: var(--spacing-md);
-        position: relative;
-        z-index: 1;
-
-        @include media(sp) {
-            font-size: var(--font-size-lg);
-        }
-    }
-
-    &__flowText {
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-relaxed);
-        color: $color-text-light;
-        position: relative;
-        z-index: 1;
-
-        @include media(sp) {
-            font-size: var(--font-size-sm);
-        }
-    }
-}
-
-/* ==========================================================================
-   News Section - Refined List Design
-   ========================================================================== */
-
-.salonNews {
-    padding: var(--section-spacing-lg) 0;
-    background-color: $color-bg-gray;
-
-    @include media(sp) {
-        padding: var(--section-spacing-md) 0;
-    }
-
-    &__inner {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 0 var(--spacing-xl);
-
-        @include media(sp) {
-            padding: 0 var(--spacing-md);
-        }
-    }
-
-    &__title {
-        @extend .uiHeading_level_h2;
-    }
-
-    &__list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    &__item {
-        border-bottom: 1px solid rgba($color-primary, 0.1);
-        transition: background-color $transition-base;
-
-        &:last-child {
-            border-bottom: none;
-        }
-
-        &:hover {
-            background-color: rgba($color-accent, 0.03);
-        }
-    }
-
-    &__article {
-        display: grid;
-        grid-template-columns: auto auto 1fr;
-        gap: var(--spacing-lg);
-        padding: var(--spacing-lg) 0;
-        align-items: center;
-
-        @include media(sp) {
-            grid-template-columns: 1fr;
-            gap: var(--spacing-sm);
-            padding: var(--spacing-md) 0;
-        }
-    }
-
-    &__date {
-        font-size: var(--font-size-sm);
-        color: $color-text-light;
-        font-family: monospace;
-        font-weight: 500;
-
-        @include media(sp) {
-            font-size: var(--font-size-xs);
-        }
-    }
-
-    &__category {
-        display: inline-block;
-        padding: 0.4rem 1.2rem;
-        background: rgba($color-accent, 0.1);
-        color: $color-accent;
-        border-radius: $border-radius-sm;
-        font-size: var(--font-size-xs);
-        font-weight: 600;
-        white-space: nowrap;
-
-        @include media(sp) {
-            padding: 0.3rem 1rem;
-        }
-    }
-
-    &__articleTitle {
-        font-size: var(--font-size-base);
-        font-weight: 500;
-        margin: 0;
-
-        @include media(sp) {
-            font-size: var(--font-size-sm);
-        }
-    }
-
-    &__articleLink {
-        color: $color-text;
-        text-decoration: none;
-        transition: color $transition-base;
-
-        &:hover {
-            color: $color-accent;
-        }
-    }
-
-    &__button {
-        text-align: center;
-        margin-top: var(--spacing-2xl);
-
-        @include media(sp) {
-            margin-top: var(--spacing-xl);
-        }
-    }
-}
-
-/* ==========================================================================
-   Access Section - Two Column Layout
-   ========================================================================== */
-
-.salonAccess {
-    padding: var(--section-spacing-lg) 0;
-    background-color: $color-bg;
-
-    @include media(sp) {
-        padding: var(--section-spacing-md) 0;
-    }
-
-    &__inner {
-        max-width: $container-width-lg;
-        margin: 0 auto;
-        padding: 0 var(--spacing-xl);
-
-        @include media(sp) {
-            padding: 0 var(--spacing-md);
-        }
-    }
-
-    &__title {
-        @extend .uiHeading_level_h2;
-    }
-
-    &__content {
-        display: grid;
-        grid-template-columns: 1.2fr 1fr;
-        gap: var(--spacing-2xl);
-
-        @include media(tab) {
-            grid-template-columns: 1fr;
-            gap: var(--spacing-xl);
-        }
-    }
-
-    &__map {
-        border-radius: $border-radius-lg;
-        overflow: hidden;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-        height: 400px;
-
-        @include media(sp) {
-            height: 300px;
-        }
-    }
-
-    &__mapImage {
+        z-index: 1; // Ensure content is above bg
         width: 100%;
-        height: 100%;
-        object-fit: cover;
     }
 
-    &__info {
-        display: flex;
-        flex-direction: column;
-        gap: var(--spacing-lg);
-    }
-
-    &__infoItem {
-        padding: var(--spacing-lg);
-        background: $color-bg-gray;
-        border-radius: $border-radius-md;
-        border-left: 4px solid $color-accent;
+    &__box {
+        max-width: 450px;
+        margin-left: auto; 
+        margin-right: 5vw;
+        background: rgba(255, 255, 255, 0.05); // Ultra subtle
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: $spacing-2xl;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 
         @include media(sp) {
-            padding: var(--spacing-md);
+            margin: 0 auto;
+            padding: $spacing-lg;
+            width: 90%;
         }
     }
 
-    &__infoDt {
-        font-size: var(--font-size-sm);
-        color: $color-text-light;
-        font-weight: 600;
-        margin-bottom: var(--spacing-sm);
-        text-transform: uppercase;
+    &__title {
+        color: $color-text-white;
+        text-align: left;
+        margin-bottom: $spacing-xl;
+        font-family: $font-serif;
+        font-size: 4rem;
+        
+        &::after {
+           display: none; // Minimalist
+        }
+    }
+
+    &__address {
+        font-size: $font-size-lg;
+        margin-bottom: $spacing-lg;
+        font-family: $font-serif;
+        line-height: 1.6;
         letter-spacing: 0.05em;
     }
 
-    &__infoDd {
-        font-size: var(--font-size-base);
-        color: $color-text;
-        line-height: var(--line-height-relaxed);
-        margin: 0;
-
-        @include media(sp) {
-            font-size: var(--font-size-sm);
+    &__info {
+        font-size: $font-size-sm;
+        opacity: 0.9;
+        margin-bottom: $spacing-xl;
+        border-left: 2px solid $color-accent;
+        padding-left: $spacing-md;
+        
+        p {
+            margin-bottom: $spacing-xs;
+            letter-spacing: 0.1em;
         }
     }
-
-    &__button {
-        margin-top: var(--spacing-md);
+    
+    &__link {
+        display: inline-block;
+        color: $color-accent;
+        text-decoration: none;
+        font-size: $font-size-sm;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        border-bottom: 1px solid currentColor;
+        padding-bottom: 2px;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            color: $color-text-white;
+            border-bottom-color: transparent;
+        }
     }
 }
 
@@ -693,20 +805,4 @@
 @keyframes heroZoom {
     0% { transform: scale(1); }
     100% { transform: scale(1.1); }
-}
-
-@keyframes heroFadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes scrollBounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(10px); }
 }

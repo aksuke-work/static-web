@@ -27,13 +27,13 @@
         transition: all var(--transition-base);
         transform: translateZ(0);
         will-change: transform, box-shadow;
-        opacity: 0;
-        transform: translateY(30px) scale(0.95);
+        // opacity: 0; // Handled by global utility
+        // transform: translateY(30px) scale(0.95);
 
-        &.is-visible {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
+        // &.is-visible {
+        //     opacity: 1;
+        //     transform: translateY(0) scale(1);
+        // }
 
         @include media(tab) {
             flex-direction: column;
@@ -145,7 +145,7 @@
         font-weight: 900;
         line-height: var(--line-height-tight);
         letter-spacing: var(--letter-spacing-tight);
-        background: var(--gradient-text-primary);
+        background: var(--gradient-text);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -246,7 +246,7 @@
             }
 
             &:hover {
-                background: var(--gradient-cool);
+                background: var(--gradient-primary-bright);
                 transform: translateY(-4px) scale(1.05);
                 box-shadow: var(--shadow-lg);
 

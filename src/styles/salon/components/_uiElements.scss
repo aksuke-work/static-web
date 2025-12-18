@@ -1,0 +1,103 @@
+@use 'sass:math';
+@import '../variables';
+
+/* ==========================================================================
+   UI Elements - 2025 Modern Luxury
+   ========================================================================== */
+
+/* Badge */
+.uiBadge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25em 0.8em;
+    font-size: $font-size-xs;
+    font-weight: 700;
+    line-height: 1;
+    border-radius: $border-radius-full;
+    white-space: nowrap;
+    vertical-align: middle;
+
+    &_type_primary {
+        background-color: $color-primary;
+        color: $color-text-white;
+    }
+
+    &_type_secondary {
+        background-color: $color-secondary;
+        color: $color-text-white;
+    }
+
+    &_type_accent {
+        background-color: $color-accent;
+        color: $color-text-white;
+    }
+
+    &_type_outline {
+        background-color: transparent;
+        border: 1px solid currentColor;
+        color: $color-text;
+    }
+
+    &_size_sm {
+        font-size: 0.7rem;
+        padding: 0.2em 0.6em;
+    }
+
+    &_size_lg {
+        font-size: $font-size-sm;
+        padding: 0.4em 1em;
+    }
+}
+
+/* Tag */
+.uiTag {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    padding: 0.4em 0.8em;
+    font-size: $font-size-xs;
+    color: $color-text;
+    background-color: $color-bg-gray;
+    border-radius: $border-radius-sm;
+    text-decoration: none;
+    transition: all $transition-fast;
+
+    &:hover {
+        background-color: darken($color-bg-gray, 5%);
+        color: $color-primary;
+    }
+
+    &__icon {
+        font-size: 1.1em;
+    }
+}
+
+/* Divider */
+.uiDivider {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: $color-border;
+    margin: $spacing-xl 0;
+    border: none;
+
+    &_type_dashed {
+        background-color: transparent;
+        border-top: 1px dashed $color-border;
+    }
+
+    &_type_dotted {
+        background-color: transparent;
+        border-top: 1px dotted $color-border;
+    }
+    
+    &_vertical {
+        display: inline-block;
+        width: 1px;
+        height: 1em;
+        background-color: $color-border;
+        margin: 0 $spacing-sm;
+        vertical-align: middle;
+    }
+}

@@ -64,13 +64,12 @@
     }
 
     &:hover {
-        transform: translateY(-30px) scale(1.08) perspective(1000px) rotateX(-8deg) rotateY(4deg);
+        transform: translateY(-8px) scale(1.02);
         box-shadow:
-            0 50px 100px rgba(0, 0, 0, 0.3),
-            0 30px 60px rgba(0, 0, 0, 0.25),
+            0 20px 40px rgba(0, 0, 0, 0.1),
+            0 10px 20px rgba(0, 0, 0, 0.05),
             0 0 0 1px rgba(255, 255, 255, 0.7),
-            inset 0 1px 0 rgba(255, 255, 255, 0.9),
-            0 0 80px rgba(102, 126, 234, 0.4);
+            inset 0 1px 0 rgba(255, 255, 255, 0.9);
 
         // グラデーションボーダーの表示
         &::after {
@@ -299,5 +298,37 @@
 
     &:hover &__badge {
         transform: scale(1);
+    }
+
+    // 横型バリエーション
+    &_type_horizontal {
+        display: flex;
+        flex-direction: row;
+
+        @include media(sp) {
+            flex-direction: column;
+        }
+
+        .menuCard__image {
+            width: 40%;
+            padding-top: 0;
+            min-height: 100%;
+
+            @include media(sp) {
+                width: 100%;
+                padding-top: 60%;
+            }
+        }
+
+        .menuCard__content {
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            @include media(sp) {
+                width: 100%;
+            }
+        }
     }
 }

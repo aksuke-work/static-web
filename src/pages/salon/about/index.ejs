@@ -9,63 +9,86 @@
 <div id="page-transition-overlay" class="page-transition-overlay"></div>
 <main class="salonMain salonMain_type_about">
     <section class="salonAboutHero">
-        <div class="salonAboutHero__bg">
-            <img src="/images/salon/hero_about.png" alt="店舗情報" loading="eager" />
+        <div class="salonAboutHero__visual">
+            <div class="salonAboutHero__imageWrapper">
+                <img class="salonAboutHero__image" src="/images/salon/hero_about.png" alt="About Us" loading="eager" />
+            </div>
         </div>
-        <div class="salonAboutHero__inner">
-            <h1 class="salonAboutHero__title">店舗情報</h1>
-            <p class="salonAboutHero__subtitle">サロンについて</p>
+        <div class="salonAboutHero__content">
+            <div class="salonAboutHero__textWrapper">
+                <h1 class="salonAboutHero__title">
+                    <span class="salonAboutHero__revealText"><span>About</span></span>
+                    <span class="salonAboutHero__revealText"><span>Us</span></span>
+                </h1>
+                <p class="salonAboutHero__subtitle fadein delay-200">
+                    美意識と静寂が<br>交差する場所
+                </p>
+            </div>
         </div>
     </section>
 
     <section class="salonAboutConcept">
+        <div class="salonAboutConcept__bgText">Concept</div>
         <div class="salonAboutConcept__inner">
-            <h2 class="salonAboutConcept__title uiHeading uiHeading_level_h2">サロンについて</h2>
-            <div class="salonAboutConcept__content">
-                <h3 class="salonAboutConcept__subtitle">コンセプト</h3>
-                <p class="salonAboutConcept__text">都心の喧騒から離れた、静かな隠れ家のような空間で、お客様一人ひとりに寄り添ったサービスを提供しています。</p>
-                <h3 class="salonAboutConcept__subtitle">サロンの強み</h3>
-                <ul class="salonAboutConcept__strengths">
-                    <li class="salonAboutConcept__strength">丁寧なカウンセリングで、お客様の理想を実現</li>
-                    <li class="salonAboutConcept__strength">リラックスできる空間と、プロフェッショナルな技術</li>
-                    <li class="salonAboutConcept__strength">お客様一人ひとりに合わせた、オーダーメイドのスタイル</li>
-                </ul>
-                <h3 class="salonAboutConcept__subtitle">ターゲット</h3>
-                <p class="salonAboutConcept__text">30代女性を中心に、幅広い年齢層のお客様にご利用いただいています。メンズも歓迎です。</p>
+            <div class="salonAboutConcept__header fadein">
+                <h2 class="salonAboutConcept__title uiHeading uiHeading_level_h2">Concept</h2>
+                <p class="salonAboutConcept__lead">
+                    余白を楽しみ、<br>
+                    本質を見つめる。
+                </p>
+            </div>
+            <div class="salonAboutConcept__content fadein delay-200">
+                <p class="salonAboutConcept__text">
+                    私たちは、ヘアデザインを通じて<br>
+                    お客様の「在り方」を表現します。<br>
+                    装飾的であることよりも、<br>
+                    内側から溢れ出る美しさを大切にしています。
+                </p>
+                <div class="salonAboutConcept__features">
+                    <div class="salonAboutConcept__feature">
+                        <span class="salonAboutConcept__number">01</span>
+                        <h3 class="salonAboutConcept__subtitle">Counseling</h3>
+                        <p class="salonAboutConcept__desc">言葉にならない「なりたい」を汲み取る。</p>
+                    </div>
+                    <div class="salonAboutConcept__feature">
+                        <span class="salonAboutConcept__number">02</span>
+                        <h3 class="salonAboutConcept__subtitle">Space</h3>
+                        <p class="salonAboutConcept__desc">五感を解き放つ、ミニマルな空間。</p>
+                    </div>
+                    <div class="salonAboutConcept__feature">
+                        <span class="salonAboutConcept__number">03</span>
+                        <h3 class="salonAboutConcept__subtitle">Technique</h3>
+                        <p class="salonAboutConcept__desc">骨格を美しく魅せる、建築的なカット。</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="salonStaff">
         <div class="salonStaff__inner">
-            <h2 class="salonStaff__title uiHeading uiHeading_level_h2">スタッフ紹介</h2>
+            <div class="salonStaff__header fadein">
+                <h2 class="salonStaff__title uiHeading uiHeading_level_h2">Staff</h2>
+            </div>
             <div class="salonStaff__list">
-                <div class="salonStaff__item">
+                <div class="salonStaff__item fadein">
                     <div class="salonStaff__image">
-                        <img class="salonStaff__imageImg" src="https://picsum.photos/600/800?random=100" alt="スタッフ1" loading="eager" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x800/667eea/ffffff?text=Staff+1';" />
+                        <img class="salonStaff__imageImg" src="/images/salon/about/staff_01.jpg" alt="Sakura Tanaka" loading="lazy" />
                     </div>
                     <div class="salonStaff__content">
-                        <h3 class="salonStaff__name">スタッフ名1</h3>
-                        <p class="salonStaff__position">スタイリスト</p>
-                        <p class="salonStaff__comment">お客様の理想を実現するため、丁寧なカウンセリングを心がけています。</p>
-                        <p class="salonStaff__specialty">得意スタイル：ロング、ボブ</p>
-                        <div class="salonStaff__sns">
-                            <a class="salonStaff__snsLink" href="https://www.instagram.com/staff1/" target="_blank" rel="noopener noreferrer">Instagram</a>
-                        </div>
+                        <p class="salonStaff__position">Top Stylist</p>
+                        <h3 class="salonStaff__name">Sakura Tanaka</h3>
+                        <p class="salonStaff__comment">毎日のスタイリングが楽しくなるような、再現性の高いカットを心がけています。</p>
                     </div>
                 </div>
-                <div class="salonStaff__item">
+                <div class="salonStaff__item fadein delay-100">
                     <div class="salonStaff__image">
-                        <img class="salonStaff__imageImg" src="https://picsum.photos/600/800?random=101" alt="スタッフ2" loading="eager" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x800/667eea/ffffff?text=Staff+2';" />
+                        <img class="salonStaff__imageImg" src="/images/salon/about/staff_02.jpg" alt="Yuki Sato" loading="lazy" />
                     </div>
                     <div class="salonStaff__content">
-                        <h3 class="salonStaff__name">スタッフ名2</h3>
-                        <p class="salonStaff__position">カラーリスト</p>
-                        <p class="salonStaff__comment">お肌のトーンに合わせた、自然で美しいカラーリングを得意としています。</p>
-                        <p class="salonStaff__specialty">得意スタイル：ハイトーン、グラデーション</p>
-                        <div class="salonStaff__sns">
-                            <a class="salonStaff__snsLink" href="https://www.instagram.com/staff2/" target="_blank" rel="noopener noreferrer">Instagram</a>
-                        </div>
+                        <p class="salonStaff__position">Colorist</p>
+                        <h3 class="salonStaff__name">Yuki Sato</h3>
+                        <p class="salonStaff__comment">透明感のあるカラーや、デザインカラーもお任せください。</p>
                     </div>
                 </div>
             </div>
@@ -74,19 +97,27 @@
 
     <section class="salonGallery">
         <div class="salonGallery__inner">
-            <h2 class="salonGallery__title uiHeading uiHeading_level_h2">店内写真・設備紹介</h2>
-            <div class="salonGallery__list">
-                <div class="salonGallery__item">
-                    <img class="salonGallery__image" src="/images/salon/interior_1.png" alt="施術スペース" loading="eager" />
-                    <p class="salonGallery__caption">施術スペース</p>
+            <div class="salonGallery__header fadein">
+                <h2 class="salonGallery__title uiHeading uiHeading_level_h2">Gallery</h2>
+            </div>
+            <div class="salonGallery__grid">
+                <div class="salonGallery__item fadein">
+                    <figure class="salonGallery__figure">
+                        <img class="salonGallery__image" src="/images/salon/interior_1.png" alt="Main Floor" loading="lazy" />
+                        <figcaption class="salonGallery__caption">Main Floor</figcaption>
+                    </figure>
                 </div>
-                <div class="salonGallery__item">
-                    <img class="salonGallery__image" src="https://picsum.photos/800/600?random=201" alt="シャンプー台" loading="eager" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/667eea/ffffff?text=Shampoo+Area';" />
-                    <p class="salonGallery__caption">シャンプー台</p>
+                <div class="salonGallery__item fadein delay-100">
+                    <figure class="salonGallery__figure">
+                        <img class="salonGallery__image" src="https://picsum.photos/800/1000?random=201" alt="Shampoo Booth" loading="lazy" />
+                        <figcaption class="salonGallery__caption">Shampoo Booth</figcaption>
+                    </figure>
                 </div>
-                <div class="salonGallery__item">
-                    <img class="salonGallery__image" src="https://picsum.photos/800/600?random=202" alt="待合スペース" loading="eager" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/667eea/ffffff?text=Waiting+Area';" />
-                    <p class="salonGallery__caption">待合スペース</p>
+                <div class="salonGallery__item fadein delay-200">
+                    <figure class="salonGallery__figure">
+                        <img class="salonGallery__image" src="https://picsum.photos/1000/800?random=202" alt="Waiting Area" loading="lazy" />
+                        <figcaption class="salonGallery__caption">Waiting Area</figcaption>
+                    </figure>
                 </div>
             </div>
         </div>
@@ -94,92 +125,57 @@
 
     <section class="salonInfo">
         <div class="salonInfo__inner">
-            <h2 class="salonInfo__title uiHeading uiHeading_level_h2">サロン情報</h2>
-            <dl class="salonInfo__list">
+            <h2 class="salonInfo__title uiHeading uiHeading_level_h2 fadein">Information</h2>
+            <dl class="salonInfo__list fadein delay-200">
                 <div class="salonInfo__item">
-                    <dt class="salonInfo__dt">店名</dt>
-                    <dd class="salonInfo__dd"><%= typeof config !== 'undefined' && config.salon && config.salon.name ? config.salon.name : 'サロン名' %></dd>
+                    <dt class="salonInfo__dt">Salon Name</dt>
+                    <dd class="salonInfo__dd"><%= typeof config !== 'undefined' && config.salon && config.salon.name ? config.salon.name : 'Lumière Salon' %></dd>
                 </div>
-                <% if (typeof config !== 'undefined' && config.salon && config.salon.address) { %>
                 <div class="salonInfo__item">
-                    <dt class="salonInfo__dt">住所</dt>
-                    <dd class="salonInfo__dd"><%- config.salon.address.replace(/ /g, '<br class="pcnon">') %></dd>
+                    <dt class="salonInfo__dt">Address</dt>
+                    <dd class="salonInfo__dd"><%- typeof config !== 'undefined' && config.salon && config.salon.address ? config.salon.address.replace(/ /g, '<br>') : '〒107-0062<br>東京都港区南青山3-1-1' %></dd>
                 </div>
-                <% } %>
-                <% if (typeof config !== 'undefined' && config.salon && config.salon.tel) { %>
                 <div class="salonInfo__item">
-                    <dt class="salonInfo__dt">電話番号</dt>
+                    <dt class="salonInfo__dt">Tel</dt>
                     <dd class="salonInfo__dd">
-                        <a class="salonInfo__link" href="tel:<%= config.salon.tel %>"><%= config.salon.tel %></a>
+                        <a class="salonInfo__link" href="tel:03-1234-5678">03-1234-5678</a>
                     </dd>
                 </div>
-                <% } %>
-                <% if (typeof config !== 'undefined' && config.salon && config.salon.businessHours) { %>
                 <div class="salonInfo__item">
-                    <dt class="salonInfo__dt">営業時間</dt>
-                    <dd class="salonInfo__dd"><%= config.salon.businessHours.weekday %><br class="pcnon"><%= config.salon.businessHours.weekend %></dd>
+                    <dt class="salonInfo__dt">Open</dt>
+                    <dd class="salonInfo__dd">10:00 - 20:00</dd>
                 </div>
-                <% } %>
-                <% if (typeof config !== 'undefined' && config.salon && config.salon.closed) { %>
                 <div class="salonInfo__item">
-                    <dt class="salonInfo__dt">定休日</dt>
-                    <dd class="salonInfo__dd"><%= config.salon.closed %></dd>
+                    <dt class="salonInfo__dt">Close</dt>
+                    <dd class="salonInfo__dd">Tuesday</dd>
                 </div>
-                <% } %>
                 <div class="salonInfo__item">
-                    <dt class="salonInfo__dt">支払い方法</dt>
-                    <dd class="salonInfo__dd">現金、クレジットカード、QR決済、電子マネー</dd>
+                    <dt class="salonInfo__dt">Payment</dt>
+                    <dd class="salonInfo__dd">Cash, Credit Card, QR Payment</dd>
                 </div>
-                <% if (typeof config !== 'undefined' && config.salon && config.salon.seats) { %>
-                <div class="salonInfo__item">
-                    <dt class="salonInfo__dt">席数</dt>
-                    <dd class="salonInfo__dd"><%= config.salon.seats %>席</dd>
-                </div>
-                <% } %>
-                <% if (typeof config !== 'undefined' && config.salon && config.salon.parking) { %>
-                <div class="salonInfo__item">
-                    <dt class="salonInfo__dt">駐車場</dt>
-                    <dd class="salonInfo__dd"><%= config.salon.parking %></dd>
-                </div>
-                <% } %>
-                <% if (typeof config !== 'undefined' && config.salon && config.salon.kidsSpace !== undefined) { %>
-                <div class="salonInfo__item">
-                    <dt class="salonInfo__dt">キッズスペース</dt>
-                    <dd class="salonInfo__dd"><%= config.salon.kidsSpace ? 'あり' : 'なし' %></dd>
-                </div>
-                <% } %>
             </dl>
         </div>
     </section>
 
     <section class="salonAccess" id="access">
         <div class="salonAccess__inner">
-            <h2 class="salonAccess__title uiHeading uiHeading_level_h2">アクセス詳細</h2>
-            <div class="salonAccess__content">
+            <h2 class="salonAccess__title uiHeading uiHeading_level_h2 fadein">Access</h2>
+            <div class="salonAccess__content fadein delay-200">
                 <div class="salonAccess__map">
                     <iframe class="salonAccess__mapIframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.747975468372!2d139.74324421525823!3d35.65858048019498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b9a6b8c1e6d%3A0x1c3e3b3b3b3b3b3b!2z44CSMTAwLTAwMDAg5p2x5Lqs6YO95riL6LC35Yy65p2x5Lqs77yR5LiB55uu77yV4oiS77yW!5e0!3m2!1sja!2sjp!4v1234567890123!5m2!1sja!2sjp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div class="salonAccess__info">
                     <dl class="salonAccess__infoItem">
-                        <dt class="salonAccess__infoDt">最寄り駅</dt>
-                        <dd class="salonAccess__infoDd">○○駅 徒歩5分</dd>
-                    </dl>
-                    <dl class="salonAccess__infoItem">
-                        <dt class="salonAccess__infoDt">バス停</dt>
-                        <dd class="salonAccess__infoDd">○○バス停 徒歩3分</dd>
+                        <dt class="salonAccess__infoDt">Station</dt>
+                        <dd class="salonAccess__infoDd">Omotesando Sta. 5min walk</dd>
                     </dl>
                     <div class="salonAccess__route">
-                        <h3 class="salonAccess__routeTitle">道順</h3>
+                        <h3 class="salonAccess__routeTitle">Route</h3>
                         <ol class="salonAccess__routeList">
-                            <li class="salonAccess__routeItem">○○駅の○○出口を出る</li>
-                            <li class="salonAccess__routeItem">○○通りを直進</li>
-                            <li class="salonAccess__routeItem">○○交差点を右折</li>
-                            <li class="salonAccess__routeItem">徒歩5分で到着</li>
+                            <li class="salonAccess__routeItem">表参道駅 A4出口を出て左へ</li>
+                            <li class="salonAccess__routeItem">最初の交差点を右折</li>
+                            <li class="salonAccess__routeItem">突き当たりを左折してすぐ</li>
                         </ol>
-                    </div>
-                    <div class="salonAccess__parking">
-                        <h3 class="salonAccess__parkingTitle">駐車場のご案内</h3>
-                        <p class="salonAccess__parkingText">店舗の裏手に3台分の駐車場をご用意しています。無料でご利用いただけます。</p>
                     </div>
                 </div>
             </div>

@@ -56,63 +56,44 @@ $(document).ready(function () {
     $('.page-transition-overlay').addClass('is-hidden loaded');
 
     // スクロールアニメーション（.fadein要素に.jsActiveを付与）
+    // Unified FadeIn Logic
     function checkFadeIn() {
-        $('.fadein, .salonStaff__item, .salonStyleGallery__item').each(function (index) {
-            const $element = $(this);
-            if (!$element.hasClass('jsActive') && !$element.hasClass('is-visible')) {
-                const elementTop = $element.offset().top;
-                const elementBottom = elementTop + $element.outerHeight();
-                const viewportTop = $(window).scrollTop();
-                const viewportBottom = viewportTop + $(window).height();
-                const triggerPoint = viewportBottom - 100; // 100px手前で表示
+        const targets = document.querySelectorAll('.fadein, .salonStaff__item, .salonStyleGallery__item');
+        const viewportBottom = window.innerHeight + window.pageYOffset + 100; // Buffer
 
-                if (elementTop < triggerPoint) {
-                    // 段階的な遅延を追加
-                    setTimeout(function () {
-                        $element.addClass('is-visible');
-                    }, index * 50);
-                }
+        targets.forEach((element, index) => {
+            if (element.classList.contains('is-visible')) return;
+
+            const rect = element.getBoundingClientRect();
+            const elementTop = rect.top + window.pageYOffset;
+
+            if (elementTop < viewportBottom) {
+                // Use a slight staggered delay based on index relative to the viewport/loop
+                // But keep it snappy
+                setTimeout(() => {
+                    element.classList.add('is-visible');
+                    element.style.opacity = '1'; // Force inline style for safety
+                    element.style.transform = 'translateY(0)'; // Force reset transform
+                }, 100); 
             }
         });
     }
 
-    // 初期表示時に表示領域内の要素を即座に表示
-    setTimeout(function () {
-        $('.fadein, .salonStaff__item, .salonStyleGallery__item').each(function (index) {
-            const $element = $(this);
-            if ($element.length && $element.offset()) {
-                const elementTop = $element.offset().top;
-                const viewportBottom = $(window).height() + 200; // 200px余裕を持たせる
-
-                if (elementTop < viewportBottom && !$element.hasClass('jsActive') && !$element.hasClass('is-visible')) {
-                    // 表示領域内の要素は即座に表示
-                    setTimeout(function () {
-                        $element.addClass('is-visible');
-                    }, index * 30);
-                }
+    // Run on load, scroll, and resize
+    window.addEventListener('scroll', checkFadeIn);
+    window.addEventListener('resize', checkFadeIn);
+    
+    // Initial check with a small delay to ensure layout is ready
+    setTimeout(checkFadeIn, 100);
+    // Failsafe: Force show everything after 3 seconds if something goes wrong
+    setTimeout(() => {
+        document.querySelectorAll('.fadein').forEach(el => {
+            if (getComputedStyle(el).opacity === '0') {
+                el.classList.add('is-visible');
+                el.style.opacity = '1';
             }
         });
-        
-        // salonConceptセクション内の要素を確実に表示（オーバーラップしているため）
-        $('.salonConcept .fadein').each(function (index) {
-            const $element = $(this);
-            if (!$element.hasClass('jsActive') && !$element.hasClass('is-visible')) {
-                setTimeout(function () {
-                    $element.addClass('is-visible');
-                }, index * 50);
-            }
-        });
-    }, 100);
-
-    // スクロール時にアニメーションをチェック
-    $(window).on('scroll', function () {
-        checkFadeIn();
-    });
-
-    // リサイズ時もチェック
-    $(window).on('resize', function () {
-        checkFadeIn();
-    });
+    }, 3000);
     // ハンバーガーメニューのトグル
     $('.js-toggle-menu').on('click', function () {
         $('.gNav').toggleClass('isActive');
@@ -140,23 +121,33 @@ $(document).ready(function () {
         if (filter === 'all') {
             $('.salonStyleGallery__item').each(function (index) {
                 const $item = $(this);
+                // Remove hidden class and add visible class with delay
                 setTimeout(function () {
-                    $item.fadeIn(300).addClass('is-visible');
+                    $item.css('display', 'block');
+                    setTimeout(function() {
+                        $item.addClass('is-visible');
+                    }, 10);
                 }, index * 50);
             });
         } else {
-            $('.salonStyleGallery__item').each(function (index) {
+            // Hide non-matching items
+            $('.salonStyleGallery__item').each(function () {
                 const $item = $(this);
-                setTimeout(function () {
-                    $item.fadeOut(300, function () {
-                        $(this).removeClass('is-visible');
-                    });
-                }, index * 30);
+                const category = $item.data('category');
+                if (category !== filter) {
+                    $item.removeClass('is-visible');
+                    setTimeout(function () {
+                        $item.css('display', 'none');
+                    }, 300);
+                }
             });
+            
+            // Show matching items with delay
             $(`.salonStyleGallery__item[data-category="${filter}"]`).each(function (index) {
                 const $item = $(this);
+                $item.css('display', 'block');
                 setTimeout(function () {
-                    $item.fadeIn(300).addClass('is-visible');
+                    $item.addClass('is-visible');
                 }, index * 50);
             });
         }
@@ -254,56 +245,65 @@ $(document).ready(function () {
 
         // スタッフカードの個別アニメーション
         gsap.utils.toArray('.salonStaff__item').forEach(function (card, index) {
-            gsap.fromTo(
-                card,
-                {
-                    opacity: 0,
-                    y: 30,
-                    scale: 0.95,
-                },
-                {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    duration: 0.8,
-                    ease: 'power3.out',
-                    delay: index * 0.1,
-                    scrollTrigger: {
-                        trigger: card,
-                        start: 'top 85%',
-                        toggleActions: 'play none none reverse',
+            // カードの位置を確認
+            const cardTop = card.getBoundingClientRect().top + window.pageYOffset;
+            const viewportHeight = window.innerHeight;
+            const isInViewport = cardTop < (window.pageYOffset + viewportHeight);
+
+            // 初期表示領域内の要素は即座に表示
+            if (isInViewport) {
+                gsap.set(card, { opacity: 1, y: 0, scale: 1 });
+                card.classList.add('is-visible');
+            } else {
+                // 表示領域外の要素のみアニメーション
+                gsap.fromTo(
+                    card,
+                    {
+                        opacity: 0,
+                        y: 30,
+                        scale: 0.95,
                     },
-                    onStart: function() {
-                        card.classList.add('is-visible');
-                    },
-                }
-            );
+                    {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: 0.8,
+                        ease: 'power3.out',
+                        delay: index * 0.1,
+                        scrollTrigger: {
+                            trigger: card,
+                            start: 'top 85%',
+                            toggleActions: 'play none none reverse',
+                        },
+                        onStart: function() {
+                            card.classList.add('is-visible');
+                        },
+                    }
+                );
+            }
         });
 
         // ギャラリーアイテムの個別アニメーション
         gsap.utils.toArray('.salonStyleGallery__item').forEach(function (item, index) {
-            gsap.fromTo(
-                item,
-                {
-                    opacity: 0,
-                    scale: 0.9,
+            // Skip GSAP animation for gallery items, use CSS-based animation instead
+            // This prevents conflicts with the filter functionality
+            const observer = new IntersectionObserver(
+                function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting && !item.classList.contains('is-visible')) {
+                            setTimeout(function() {
+                                item.classList.add('is-visible');
+                            }, index * 100);
+                            observer.unobserve(item);
+                        }
+                    });
                 },
                 {
-                    opacity: 1,
-                    scale: 1,
-                    duration: 0.8,
-                    ease: 'power3.out',
-                    delay: index * 0.1,
-                    scrollTrigger: {
-                        trigger: item,
-                        start: 'top 85%',
-                        toggleActions: 'play none none reverse',
-                    },
-                    onStart: function() {
-                        item.classList.add('is-visible');
-                    },
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -100px 0px'
                 }
             );
+            observer.observe(item);
         });
 
         // パララックス効果（ヒーロー画像）

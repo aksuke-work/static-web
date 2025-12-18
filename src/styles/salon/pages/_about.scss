@@ -2,407 +2,501 @@
 @import '../variables';
 
 /* ==========================================================================
-   About Page - 2025 Modern Luxury Design
+   About Page - Fluid Elegance Refinement
    ========================================================================== */
 
 /* ==========================================================================
-   Hero Section
+   Hero Section - Asymmetry & Reveal
    ========================================================================== */
-
 .salonAboutHero {
     position: relative;
-    height: 50vh;
-    min-height: 400px;
+    min-height: 80vh;
+    background-color: $color-bg;
     display: flex;
     align-items: center;
-    justify-content: center;
     overflow: hidden;
-    color: $color-text-white;
 
     @include media(sp) {
-        min-height: 300px;
-        height: 40vh;
+        flex-direction: column-reverse; // Image on top (functionally), text below
+        height: auto;
+        min-height: 100svh;
+        padding-top: 80px; 
     }
 
-    &__bg {
+    // Right Side: Visual
+    &__visual {
         position: absolute;
         top: 0;
-        left: 0;
-        width: 100%;
+        right: 0;
+        width: 55%;
         height: 100%;
-        z-index: 0;
+        overflow: hidden;
 
-        &::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+        @include media(sp) {
+            position: relative;
             width: 100%;
-            height: 100%;
-            background: $gradient-overlay;
-            z-index: 1;
-        }
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: 50vh;
         }
     }
 
-    &__inner {
+    &__imageWrapper {
+        width: 100%;
+        height: 100%;
+        clip-path: inset(0 0 0 100%); // Start hidden from left
+        animation: heroRevealRight 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        
+        @include media(sp) {
+            clip-path: inset(100% 0 0 0); // From top on mobile
+            animation-name: heroRevealDown;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.2);
+        animation: subtleZoom 10s infinite alternate ease-in-out;
+    }
+
+    // Left Side: Content
+    &__content {
         position: relative;
         z-index: 2;
-        text-align: center;
-        padding: 0 var(--spacing-lg);
-        max-width: $container-width-lg;
-        margin: 0 auto;
+        width: 45%;
+        padding-left: 8vw;
+        padding-right: $spacing-xl;
 
         @include media(sp) {
-            padding: 0 var(--spacing-md);
+            width: 100%;
+            padding: $spacing-2xl $spacing-lg;
         }
     }
 
     &__title {
         font-family: $font-serif;
-        font-size: clamp(4rem, 6vw + 2rem, 6.4rem);
-        font-weight: 300;
-        letter-spacing: $letter-spacing-widest;
-        margin-bottom: var(--spacing-md);
+        font-size: clamp(5rem, 8vw, 9rem);
+        line-height: 0.9;
+        margin-bottom: $spacing-xl;
+        color: $color-text;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-        @include media(sp) {
-            font-size: clamp(3.2rem, 8vw, 4.8rem);
+    &__revealText {
+        display: block;
+        overflow: hidden;
+        
+        span {
+            display: inline-block;
+            transform: translateY(110%);
+            opacity: 0;
+            animation: textSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        &:nth-child(1) span { animation-delay: 0.2s; }
+        &:nth-child(2) span { 
+            animation-delay: 0.35s; 
+            margin-left: 1em; // Step look
+            font-style: italic;
         }
     }
 
     &__subtitle {
         font-size: var(--font-size-md);
-        font-weight: 300;
-        letter-spacing: $letter-spacing-wide;
-        opacity: 0.9;
-
-        @include media(sp) {
-            font-size: var(--font-size-base);
-        }
+        line-height: 2;
+        letter-spacing: 0.1em;
+        color: rgba($color-text, 0.8);
+        border-left: 1px solid $color-accent;
+        padding-left: $spacing-lg;
+        margin-left: 5px;
     }
 }
 
+// Animations
+@keyframes heroRevealRight {
+    to { clip-path: inset(0 0 0 0); }
+}
+@keyframes heroRevealDown {
+    to { clip-path: inset(0 0 0 0); }
+}
+@keyframes subtleZoom {
+    to { transform: scale(1.1); }
+}
+
 /* ==========================================================================
-   Concept Section
+   Concept Section - Typography & Depth
    ========================================================================== */
-
 .salonAboutConcept {
-    padding: var(--section-spacing-lg) 0;
-    background-color: $color-bg;
+    position: relative;
+    padding: var(--section-spacing-xl) 0;
+    overflow: hidden;
 
-    @include media(sp) {
-        padding: var(--section-spacing-md) 0;
+    &__bgText {
+        position: absolute;
+        top: 0;
+        left: -5vw;
+        font-size: 25vw;
+        font-family: $font-serif;
+        color: rgba($color-text, 0.02); // Very subtle
+        line-height: 1;
+        pointer-events: none;
+        z-index: 0;
     }
 
     &__inner {
-        max-width: 900px;
+        position: relative;
+        z-index: 1;
+        max-width: 1000px;
         margin: 0 auto;
         padding: 0 var(--spacing-xl);
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: $spacing-3xl;
 
         @include media(sp) {
-            padding: 0 var(--spacing-md);
+            grid-template-columns: 1fr;
+            gap: $spacing-xl;
+            padding: 0 $spacing-lg;
+        }
+    }
+
+    &__header {
+        @include media(sp) {
+            margin-bottom: $spacing-xl;
         }
     }
 
     &__title {
-        @extend .uiHeading_level_h2;
+        margin-bottom: $spacing-xl;
+    }
+
+    &__lead {
+        font-family: $font-serif;
+        font-size: clamp(2.4rem, 4vw, 3.2rem);
+        line-height: 1.5;
+        font-weight: 400;
     }
 
     &__content {
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    &__subtitle {
-        font-family: $font-serif;
-        font-size: var(--font-size-lg);
-        font-weight: 600;
-        color: $color-accent;
-        margin-bottom: var(--spacing-md);
-        margin-top: var(--spacing-xl);
-
-        &:first-child {
-            margin-top: 0;
-        }
-
+        padding-top: $spacing-3xl; // Staggered layout
+        
         @include media(sp) {
-            font-size: var(--font-size-md);
+            padding-top: 0;
         }
     }
 
     &__text {
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-relaxed);
-        color: $color-text-light;
-        margin-bottom: var(--spacing-lg);
+        font-feature-settings: "palt";
+        line-height: 2.2;
+        color: rgba($color-text, 0.8);
+        margin-bottom: $spacing-3xl;
+    }
+
+    &__features {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-xl;
+    }
+
+    &__feature {
+        display: grid;
+        grid-template-columns: 5rem 18rem 1fr; // Grid layout: Number | Title | Desc
+        align-items: center;
+        gap: $spacing-md;
+        padding-bottom: $spacing-lg;
+        border-bottom: 1px solid rgba($color-text, 0.1);
+        transition: all 0.3s ease;
+
+        &:hover {
+            border-bottom-color: $color-accent;
+            padding-left: $spacing-sm;
+            
+            .salonAboutConcept__number {
+                color: $color-accent;
+                transform: translateX(5px);
+            }
+        }
 
         @include media(sp) {
-            font-size: var(--font-size-sm);
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-xs;
+            align-items: flex-start;
+            padding-left: 0;
+            padding-bottom: $spacing-md;
         }
     }
 
-    &__strengths {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 var(--spacing-lg) 0;
-    }
-
-    &__strength {
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-relaxed);
+    &__number {
+        font-family: $font-serif;
+        font-size: 2rem;
+        font-weight: 400;
         color: $color-text;
-        padding-left: var(--spacing-lg);
-        position: relative;
-        margin-bottom: var(--spacing-md);
-
+        position: static; // Reset absolute
+        transition: all 0.3s ease;
+        
         @include media(sp) {
-            font-size: var(--font-size-sm);
-            padding-left: var(--spacing-md);
+            font-size: 1.4rem;
+            color: $color-accent;
+            margin-bottom: 0.5rem;
         }
+    }
 
-        &::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.8em;
-            width: 6px;
-            height: 6px;
-            background: $color-accent;
-            border-radius: 50%;
+    &__subtitle {
+        font-family: $font-serif;
+        font-size: 2.8rem;
+        font-weight: 400;
+        line-height: 1;
+        
+        @include media(sp) {
+            font-size: 2.4rem;
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    &__desc {
+        font-size: var(--font-size-sm);
+        color: rgba($color-text, 0.7);
+        text-align: right; // Balance the grid
+        
+        @include media(sp) {
+            text-align: left;
+            padding-left: 0;
         }
     }
 }
 
 /* ==========================================================================
-   Staff Section
+   Staff Section - Editorial & Cool
    ========================================================================== */
-
 .salonStaff {
-    padding: var(--section-spacing-lg) 0;
-    background-color: $color-secondary;
-
-    @include media(sp) {
-        padding: var(--section-spacing-md) 0;
-    }
+    padding: var(--section-spacing-xl) 0;
+    background-color: transparent !important;
 
     &__inner {
         max-width: $container-width-lg;
         margin: 0 auto;
         padding: 0 var(--spacing-xl);
-
+        
         @include media(sp) {
-            padding: 0 var(--spacing-md);
+            padding: 0 $spacing-lg;
         }
     }
 
-    &__title {
-        @extend .uiHeading_level_h2;
+    &__header {
+        margin-bottom: $spacing-3xl;
+        text-align: center;
     }
 
     &__list {
-        display: flex;
-        flex-direction: column;
-        gap: var(--spacing-2xl);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10vw; // More space for elegance
 
         @include media(sp) {
-            gap: var(--spacing-xl);
+            grid-template-columns: 1fr;
+            gap: 120px; // Large gap on mobile for scroll impact
         }
     }
 
     &__item {
-        display: grid;
-        grid-template-columns: 300px 1fr;
-        gap: var(--spacing-2xl);
-        background: $color-bg;
-        border-radius: $border-radius-lg;
-        overflow: hidden;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        opacity: 1 !important;
-        transform: none !important;
-
-        @include media(tab) {
-            grid-template-columns: 250px 1fr;
-            gap: var(--spacing-xl);
+        position: relative;
+        display: block; // Reset flex
+        margin-bottom: $spacing-xl;
+        
+        // Staggered vertical separation
+        &:nth-child(even) {
+            margin-top: 150px;
+            
+            @include media(sp) {
+                margin-top: 0;
+            }
         }
 
-        @include media(sp) {
-            grid-template-columns: 1fr;
-            gap: 0;
+        &:hover {
+            .salonStaff__image img {
+                transform: scale(1.1);
+                filter: grayscale(0%);
+            }
+            .salonStaff__content {
+                transform: translateY(-20px);
+            }
         }
     }
 
     &__image {
         width: 100%;
-        height: 100%;
+        aspect-ratio: 0.8; // Taller portrait ratio
         overflow: hidden;
+        position: relative;
+        z-index: 1;
 
-        @include media(sp) {
-            height: 400px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 1.2s ease;
+            filter: grayscale(100%) contrast(0.95); // Moody monochrome default
         }
-    }
-
-    &__imageImg {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
     }
 
     &__content {
-        padding: var(--spacing-xl);
-        display: flex;
-        flex-direction: column;
-        gap: var(--spacing-md);
+        position: relative;
+        z-index: 2;
+        margin-top: -60px; // OVERLAP
+        margin-left: 20px;
+        background: transparent;
+        transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        pointer-events: none; // Let clicks pass to image if needed
 
         @include media(sp) {
-            padding: var(--spacing-lg);
-        }
-    }
-
-    &__name {
-        font-family: $font-serif;
-        font-size: var(--font-size-xl);
-        font-weight: 600;
-        color: $color-primary;
-        margin-bottom: var(--spacing-xs);
-        // グラデーションテキストのスタイルをリセット
-        background: none;
-        -webkit-background-clip: unset;
-        -webkit-text-fill-color: unset;
-        background-clip: unset;
-
-        @include media(sp) {
-            font-size: var(--font-size-lg);
+            margin-top: -40px;
+            margin-left: 10px;
         }
     }
 
     &__position {
-        font-size: var(--font-size-sm);
-        color: $color-accent;
-        font-weight: 600;
+        display: inline-block;
+        font-size: 11px;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
-        margin-bottom: var(--spacing-md);
+        letter-spacing: 0.25em;
+        color: $color-text;
+        background: #fff; // Tag style
+        padding: 2px 8px; // Reduced vertical padding
+        margin-bottom: 5px; // Tighter
+    }
+
+    &__name {
+        font-family: $font-serif;
+        font-size: 6rem;
+        font-weight: 300; // Thin elegance
+        line-height: 0.9; // Tighter line height
+        letter-spacing: -0.02em;
+        color: $color-text;
+        margin-bottom: 10px; // Reduced margin
+        mix-blend-mode: exclusion; // Cool effect over image/bg
+        color: #fff; // Optimized for exclusion
+        
+        @include media(sp) {
+            font-size: 4.8rem;
+        }
     }
 
     &__comment {
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-relaxed);
-        color: $color-text-light;
-
-        @include media(sp) {
-            font-size: var(--font-size-sm);
-        }
-    }
-
-    &__specialty {
-        font-size: var(--font-size-sm);
-        color: $color-text;
-        padding: var(--spacing-sm) var(--spacing-md);
-        background: rgba($color-accent, 0.1);
-        border-radius: $border-radius-sm;
-        display: inline-block;
-        align-self: flex-start;
-    }
-
-    &__sns {
-        margin-top: auto;
-    }
-
-    &__snsLink {
-        display: inline-flex;
-        align-items: center;
-        gap: var(--spacing-xs);
-        font-size: var(--font-size-sm);
-        color: $color-accent;
-        text-decoration: none;
-        transition: color $transition-base;
-
-        &:hover {
-            color: darken($color-accent, 10%);
-        }
+        font-size: 13px;
+        line-height: 1.6; // Slightly tighter
+        color: rgba($color-text, 0.8);
+        max-width: 300px;
+        margin-top: 10px; // Reduced from 20px
+        padding-left: 15px;
+        border-left: 1px solid rgba($color-text, 0.2);
+        background: rgba(255, 255, 255, 0.8); // Readable backdrop if needed
+        backdrop-filter: blur(5px);
+        padding: 10px; // Reduced from 15px
+        mix-blend-mode: normal;
     }
 }
 
 /* ==========================================================================
-   Gallery Section
+   Gallery Section - Broken Grid
    ========================================================================== */
-
 .salonGallery {
-    padding: var(--section-spacing-lg) 0;
-    background-color: $color-bg;
-
-    @include media(sp) {
-        padding: var(--section-spacing-md) 0;
-    }
-
+    padding: var(--section-spacing-xl) 0;
+    
     &__inner {
         max-width: $container-width-lg;
         margin: 0 auto;
         padding: 0 var(--spacing-xl);
 
         @include media(sp) {
-            padding: 0 var(--spacing-md);
+            padding: 0 $spacing-lg;
         }
     }
 
-    &__title {
-        @extend .uiHeading_level_h2;
-    }
-
-    &__list {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: var(--spacing-xl);
-
-        @include media(tab) {
-            grid-template-columns: repeat(2, 1fr);
-        }
+    &__header {
+        margin-bottom: $spacing-3xl;
+        // Right align title for variety
+        text-align: right;
+        border-bottom: 1px solid rgba($color-text, 0.1);
+        padding-bottom: $spacing-md;
 
         @include media(sp) {
-            grid-template-columns: 1fr;
-            gap: var(--spacing-lg);
+            text-align: left;
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: $spacing-xl;
+        
+        @include media(sp) {
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-xl;
         }
     }
 
     &__item {
-        background: $color-bg;
-        border-radius: $border-radius-md;
-        overflow: hidden;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        transition: all $transition-base;
+        position: relative;
 
+        // Broken Grid Logic
+        &:nth-child(1) {
+            grid-column: 1 / 8; // Left Large
+        }
+        
+        &:nth-child(2) {
+            grid-column: 9 / 13; // Right Small
+            margin-top: 100px;
+        }
+
+        &:nth-child(3) {
+            grid-column: 4 / 10; // Center Wide
+            margin-top: -50px;
+            z-index: 2; // Overlap potential
+        }
+    }
+
+    &__figure {
+        margin: 0;
+        position: relative;
+        overflow: hidden;
+        
+        // Hover effect helper
         &:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+            .salonGallery__image {
+                transform: scale(1.05); // More subtle
+            }
+            .salonGallery__caption {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     }
 
     &__image {
         width: 100%;
-        height: 300px;
-        object-fit: cover;
-        transition: transform $transition-slow;
-
-        .salonGallery__item:hover & {
-            transform: scale(1.05);
-        }
-
-        @include media(sp) {
-            height: 250px;
-        }
+        height: auto;
+        display: block;
+        transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     &__caption {
-        padding: var(--spacing-md);
-        font-size: var(--font-size-sm);
-        text-align: center;
+        position: absolute;
+        bottom: $spacing-md;
+        left: $spacing-md;
+        background: #fff;
         color: $color-text;
-        font-weight: 500;
+        padding: 5px 15px;
+        font-family: $font-serif;
+        font-size: 12px;
+        letter-spacing: 0.05em;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.4s ease;
     }
 }
 
@@ -411,15 +505,15 @@
    ========================================================================== */
 
 .salonInfo {
-    padding: var(--section-spacing-lg) 0;
-    background-color: $color-bg-gray;
+    padding: var(--section-spacing-xl) 0;
+    background: linear-gradient(180deg, $color-bg 0%, rgba($color-bg-gray, 0.3) 100%);
 
     @include media(sp) {
-        padding: var(--section-spacing-md) 0;
+        padding: var(--section-spacing-lg) 0;
     }
 
     &__inner {
-        max-width: 900px;
+        max-width: 800px;
         margin: 0 auto;
         padding: 0 var(--spacing-xl);
 
@@ -433,71 +527,181 @@
     }
 
     &__list {
-        background: $color-bg;
-        border-radius: $border-radius-lg;
-        padding: var(--spacing-xl);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        border-top: 1px solid rgba($color-text, 0.2);
+        background: transparent;
+        border-radius: 0;
+        padding: var(--spacing-xl) 0;
+        box-shadow: none;
 
         @include media(sp) {
-            padding: var(--spacing-lg);
+            padding: var(--spacing-lg) 0;
         }
     }
 
     &__item {
-        display: grid;
-        grid-template-columns: 150px 1fr;
-        gap: var(--spacing-lg);
+        display: flex;
         padding: var(--spacing-lg) 0;
-        border-bottom: 1px solid rgba($color-primary, 0.1);
+        border-bottom: 1px solid rgba($color-text, 0.1);
+        transition: all $transition-base;
 
         @include media(sp) {
-            grid-template-columns: 1fr;
-            gap: var(--spacing-sm);
-            padding: var(--spacing-md) 0;
+            flex-direction: column;
+            gap: var(--spacing-xs);
         }
 
-        &:first-child {
-            padding-top: 0;
+        &:hover {
+            padding-left: var(--spacing-sm);
+            background: transparent;
+            border-bottom-color: $color-accent;
         }
 
         &:last-child {
             border-bottom: none;
-            padding-bottom: 0;
         }
     }
 
     &__dt {
-        font-size: var(--font-size-sm);
-        color: $color-text-light;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-
-        @include media(sp) {
-            font-size: var(--font-size-xs);
-        }
-    }
-
-    &__dd {
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-relaxed);
+        width: 200px;
+        font-family: $font-serif;
+        font-weight: 500;
         color: $color-text;
-        margin: 0;
 
         @include media(sp) {
+            width: 100%;
             font-size: var(--font-size-sm);
         }
     }
 
-    &__link {
-        color: $color-accent;
-        text-decoration: none;
-        transition: color $transition-base;
+    &__dd {
+        flex: 1;
+        color: rgba($color-text, 0.8);
+        line-height: var(--line-height-relaxed);
+    }
 
+    &__link {
+        text-decoration: underline;
+        transition: all $transition-base;
+        
         &:hover {
-            color: darken($color-accent, 10%);
+            color: $color-accent;
+            text-decoration: none;
         }
     }
+}
+
+/* ==========================================================================
+   Access Section
+   ========================================================================== */
+
+.salonAccess {
+    padding: var(--section-spacing-xl) 0;
+    background: $color-bg-gray;
+
+    @include media(sp) {
+        padding: var(--section-spacing-lg) 0;
+    }
+
+    &__inner {
+        max-width: $container-width-lg;
+        margin: 0 auto;
+        padding: 0 var(--spacing-xl);
+
+        @include media(sp) {
+            padding: 0 var(--spacing-md);
+        }
+    }
+
+    &__title {
+        @extend .uiHeading_level_h2;
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: var(--spacing-2xl);
+
+        @include media(tab) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__map {
+        height: 500px;
+        border-radius: 0;
+        overflow: hidden;
+        box-shadow: none;
+
+        iframe {
+            filter: grayscale(100%) contrast(0.9) brightness(1.1);
+            transition: filter 0.5s ease;
+        }
+
+        &:hover iframe {
+            filter: grayscale(0%);
+        }
+
+        @include media(sp) {
+            height: 300px;
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xl);
+    }
+
+    &__infoItem {
+        border-left: 4px solid $color-accent;
+        padding-left: var(--spacing-lg);
+        transition: all $transition-base;
+
+        &:hover {
+            border-left-width: 6px;
+            padding-left: var(--spacing-xl);
+        }
+    }
+
+    &__infoDt {
+        font-size: var(--font-size-xs);
+        color: $color-accent;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: var(--spacing-xs);
+        font-weight: 600;
+    }
+
+    &__infoDd {
+        font-size: var(--font-size-lg);
+        font-family: $font-serif;
+        font-weight: 500;
+    }
+
+    &__routeTitle,
+    &__parkingTitle {
+        font-size: var(--font-size-md);
+        margin-bottom: var(--spacing-md);
+        font-weight: 600;
+    }
+
+    &__routeList {
+        list-style: decimal;
+        padding-left: 1.5em;
+        color: $color-text-light;
+    }
+
+    &__routeItem {
+        margin-bottom: var(--spacing-xs);
+    }
+
+    &__parkingText {
+        color: $color-text-light;
+    }
+}
+
+@keyframes heroZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
 }
 
 

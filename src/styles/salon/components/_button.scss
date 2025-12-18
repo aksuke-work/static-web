@@ -37,8 +37,8 @@
         &:hover {
             background-color: $color-primary-light;
             border-color: $color-primary-light;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba($color-primary, 0.2);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba($color-primary, 0.15);
         }
 
         &:active {
@@ -84,6 +84,46 @@
         }
     }
 
+    // Ghost Button
+    &_type_ghost {
+        background-color: transparent;
+        color: $color-text;
+        border-color: transparent;
+
+        &:hover {
+            background-color: rgba($color-text, 0.05);
+            color: $color-primary;
+        }
+    }
+
+    // Icon Only Button
+    &_type_icon {
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 1.2rem;
+
+        @include media(sp) {
+            width: 36px;
+            height: 36px;
+            font-size: 1rem;
+        }
+    }
+
+    // With Icon (Text + Icon)
+    &_withIcon {
+        gap: $spacing-sm;
+
+        .uiButton__icon {
+            transition: transform $transition-fast;
+        }
+
+        &:hover .uiButton__icon {
+            transform: translateX(4px);
+        }
+    }
+
     // Size Variants
     &_size_sm {
         padding: $spacing-xs $spacing-md;
@@ -118,7 +158,8 @@
     }
 
     &__icon {
-        font-size: 0.9em;
+        font-size: 1.1em;
+        line-height: 1;
     }
 }
 

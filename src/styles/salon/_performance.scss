@@ -17,7 +17,8 @@
 // 画像遅延読み込み
 // ============================================
 img[loading='lazy'] {
-    opacity: 0;
+    // opacity: 0; // JS is not implemented yet, so we show it by default
+    opacity: 1;
     transition: opacity 0.3s ease;
 
     &.loaded {

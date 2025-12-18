@@ -7,11 +7,34 @@
     }
 }) %>
 <main class="designSystem">
-    <div class="uiContainer">
-        <h1 class="designSystem__title">Design System</h1>
+    <div class="designSystem__container">
+        <aside class="designSystem__sidebar">
+            <nav class="designSystem__nav">
+                <ul class="designSystem__navList">
+                    <li class="designSystem__navItem"><a href="#colors" class="designSystem__navLink">Colors</a></li>
+                    <li class="designSystem__navItem"><a href="#tokens" class="designSystem__navLink">Design Tokens</a></li>
+                    <li class="designSystem__navItem"><a href="#typography" class="designSystem__navLink">Typography</a></li>
+                    <li class="designSystem__navItem"><a href="#headings" class="designSystem__navLink">Headings / Text</a></li>
+                    <li class="designSystem__navItem"><a href="#buttons" class="designSystem__navLink">Buttons</a></li>
+                    <li class="designSystem__navItem"><a href="#forms" class="designSystem__navLink">Forms</a></li>
+                    <li class="designSystem__navItem"><a href="#navigation" class="designSystem__navLink">Navigation</a></li>
+                    <li class="designSystem__navItem"><a href="#feedback" class="designSystem__navLink">Feedback</a></li>
+                    <li class="designSystem__navItem"><a href="#ui-elements" class="designSystem__navLink">UI Elements</a></li>
+                    <li class="designSystem__navItem"><a href="#animation" class="designSystem__navLink">Animation</a></li>
+                    <li class="designSystem__navItem"><a href="#links" class="designSystem__navLink">Text Links</a></li>
+                    <li class="designSystem__navItem"><a href="#sections" class="designSystem__navLink">Sections / Grid</a></li>
+                    <li class="designSystem__navItem"><a href="#cards" class="designSystem__navLink">Cards</a></li>
+                    <li class="designSystem__navItem"><a href="#lists" class="designSystem__navLink">Lists</a></li>
+                    <li class="designSystem__navItem"><a href="#header" class="designSystem__navLink">Header Patterns</a></li>
+                    <li class="designSystem__navItem"><a href="#hero" class="designSystem__navLink">Hero Patterns</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <div class="designSystem__main">
+            <h1 class="designSystem__title">Design System</h1>
 
         <!-- Colors -->
-        <section class="uiSection designSystem__section designSystem__section_isOpen">
+        <section id="colors" class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
                 <h2 class="designSystem__sectionTitle js-designSystem-toggle">
                     <span class="designSystem__sectionTitleText">Colors</span>
@@ -48,8 +71,131 @@
             </div>
         </section>
 
+        <!-- Tokens -->
+        <section id="tokens" class="uiSection designSystem__section designSystem__section_isOpen">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Design Tokens</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">Border Radius</h3>
+                        <div class="dsTokenGrid">
+                            <div class="dsTokenCard">
+                                <div class="dsTokenCard__preview dsTokenCard__preview_radius_sm"></div>
+                                <p class="dsTokenCard__label">sm (2px)</p>
+                                <p class="dsTokenCard__value">$border-radius-sm</p>
+                            </div>
+                            <div class="dsTokenCard">
+                                <div class="dsTokenCard__preview dsTokenCard__preview_radius_md"></div>
+                                <p class="dsTokenCard__label">md (4px)</p>
+                                <p class="dsTokenCard__value">$border-radius-md</p>
+                            </div>
+                            <div class="dsTokenCard">
+                                <div class="dsTokenCard__preview dsTokenCard__preview_radius_lg"></div>
+                                <p class="dsTokenCard__label">lg (8px)</p>
+                                <p class="dsTokenCard__value">$border-radius-lg</p>
+                            </div>
+                            <div class="dsTokenCard">
+                                <div class="dsTokenCard__preview dsTokenCard__preview_radius_xl"></div>
+                                <p class="dsTokenCard__label">xl (16px)</p>
+                                <p class="dsTokenCard__value">$border-radius-xl</p>
+                            </div>
+                            <div class="dsTokenCard">
+                                <div class="dsTokenCard__preview dsTokenCard__preview_radius_full"></div>
+                                <p class="dsTokenCard__label">full (9999px)</p>
+                                <p class="dsTokenCard__value">$border-radius-full</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">Shadows</h3>
+                        <div class="dsTokenGrid">
+                            <div class="dsTokenCard">
+                                <div class="dsTokenCard__preview dsTokenCard__preview_shadow_sm"></div>
+                                <p class="dsTokenCard__label">sm</p>
+                                <p class="dsTokenCard__value">$shadow-sm</p>
+                            </div>
+                            <div class="dsTokenCard">
+                                <div class="dsTokenCard__preview dsTokenCard__preview_shadow_md"></div>
+                                <p class="dsTokenCard__label">md</p>
+                                <p class="dsTokenCard__value">$shadow-md</p>
+                            </div>
+                            <div class="dsTokenCard">
+                                <div class="dsTokenCard__preview dsTokenCard__preview_shadow_lg"></div>
+                                <p class="dsTokenCard__label">lg</p>
+                                <p class="dsTokenCard__value">$shadow-lg</p>
+                            </div>
+                            <div class="dsTokenCard">
+                                <div class="dsTokenCard__preview dsTokenCard__preview_shadow_xl"></div>
+                                <p class="dsTokenCard__label">xl</p>
+                                <p class="dsTokenCard__value">$shadow-xl</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">Spacing</h3>
+                        <div class="dsSpacingList">
+                            <div class="dsSpacingItem">
+                                <div class="dsSpacingItem__preview" style="width: 0.5rem;"></div>
+                                <div class="dsSpacingItem__info">
+                                    <p class="dsSpacingItem__label">xs (0.5rem / 8px)</p>
+                                    <p class="dsSpacingItem__value">$spacing-xs</p>
+                                </div>
+                            </div>
+                            <div class="dsSpacingItem">
+                                <div class="dsSpacingItem__preview" style="width: 0.75rem;"></div>
+                                <div class="dsSpacingItem__info">
+                                    <p class="dsSpacingItem__label">sm (0.75rem / 12px)</p>
+                                    <p class="dsSpacingItem__value">$spacing-sm</p>
+                                </div>
+                            </div>
+                            <div class="dsSpacingItem">
+                                <div class="dsSpacingItem__preview" style="width: 1rem;"></div>
+                                <div class="dsSpacingItem__info">
+                                    <p class="dsSpacingItem__label">md (1rem / 16px)</p>
+                                    <p class="dsSpacingItem__value">$spacing-md</p>
+                                </div>
+                            </div>
+                            <div class="dsSpacingItem">
+                                <div class="dsSpacingItem__preview" style="width: 1.5rem;"></div>
+                                <div class="dsSpacingItem__info">
+                                    <p class="dsSpacingItem__label">lg (1.5rem / 24px)</p>
+                                    <p class="dsSpacingItem__value">$spacing-lg</p>
+                                </div>
+                            </div>
+                            <div class="dsSpacingItem">
+                                <div class="dsSpacingItem__preview" style="width: 2rem;"></div>
+                                <div class="dsSpacingItem__info">
+                                    <p class="dsSpacingItem__label">xl (2rem / 32px)</p>
+                                    <p class="dsSpacingItem__value">$spacing-xl</p>
+                                </div>
+                            </div>
+                            <div class="dsSpacingItem">
+                                <div class="dsSpacingItem__preview" style="width: 3rem;"></div>
+                                <div class="dsSpacingItem__info">
+                                    <p class="dsSpacingItem__label">2xl (3rem / 48px)</p>
+                                    <p class="dsSpacingItem__value">$spacing-2xl</p>
+                                </div>
+                            </div>
+                            <div class="dsSpacingItem">
+                                <div class="dsSpacingItem__preview" style="width: 4rem;"></div>
+                                <div class="dsSpacingItem__info">
+                                    <p class="dsSpacingItem__label">3xl (4rem / 64px)</p>
+                                    <p class="dsSpacingItem__value">$spacing-3xl</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Typography -->
-        <section class="uiSection designSystem__section designSystem__section_isOpen">
+        <section id="typography" class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
                 <h2 class="designSystem__sectionTitle js-designSystem-toggle">
                     <span class="designSystem__sectionTitleText">Typography</span>
@@ -83,7 +229,7 @@
         </section>
 
         <!-- Headings / Text -->
-        <section class="uiSection designSystem__section designSystem__section_isOpen">
+        <section id="headings" class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
                 <h2 class="designSystem__sectionTitle js-designSystem-toggle">
                     <span class="designSystem__sectionTitleText">Headings / Text</span>
@@ -138,8 +284,10 @@
             </div>
         </section>
 
+        </section>
+
         <!-- Buttons -->
-        <section class="uiSection designSystem__section designSystem__section_isOpen">
+        <section id="buttons" class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
                 <h2 class="designSystem__sectionTitle js-designSystem-toggle">
                     <span class="designSystem__sectionTitleText">Buttons</span>
@@ -155,19 +303,36 @@
                         </div>
                     </div>
                     <div class="designSystem__componentGroup">
-                        <h3 class="uiHeading uiHeading_level_h3">Secondary</h3>
+                        <h3 class="uiHeading uiHeading_level_h3">Secondary & Accent</h3>
                         <div class="designSystem__buttonGroup">
-                            <a class="uiButton uiButton_type_secondary uiButton_size_lg" href="#">Large Button</a>
-                            <a class="uiButton uiButton_type_secondary uiButton_size_md" href="#">Medium Button</a>
-                            <a class="uiButton uiButton_type_secondary uiButton_size_sm" href="#">Small Button</a>
+                            <a class="uiButton uiButton_type_secondary" href="#">Secondary</a>
+                            <a class="uiButton uiButton_type_accent" href="#">Accent</a>
                         </div>
                     </div>
                     <div class="designSystem__componentGroup">
-                        <h3 class="uiHeading uiHeading_level_h3">Outline</h3>
+                        <h3 class="uiHeading uiHeading_level_h3">Outline & Ghost</h3>
+                        <div class="designSystem__buttonGroup" style="background: #333; padding: 1rem; border-radius: 8px;">
+                            <a class="uiButton uiButton_type_outline" href="#">Outline</a>
+                            <a class="uiButton uiButton_type_ghost" href="#" style="color: #fff;">Ghost</a>
+                        </div>
+                    </div>
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">With Icon</h3>
                         <div class="designSystem__buttonGroup">
-                            <a class="uiButton uiButton_type_outline uiButton_size_lg" href="#">Large Button</a>
-                            <a class="uiButton uiButton_type_outline uiButton_size_md" href="#">Medium Button</a>
-                            <a class="uiButton uiButton_type_outline uiButton_size_sm" href="#">Small Button</a>
+                            <a class="uiButton uiButton_type_primary uiButton_withIcon" href="#">
+                                <span class="uiButton__text">Next Step</span>
+                                <span class="uiButton__icon">→</span>
+                            </a>
+                            <a class="uiButton uiButton_type_outline uiButton_withIcon" href="#">
+                                <span class="uiButton__icon">←</span>
+                                <span class="uiButton__text">Back</span>
+                            </a>
+                            <button class="uiButton uiButton_type_icon uiButton_type_primary">
+                                <span class="uiButton__icon">♥</span>
+                            </button>
+                            <button class="uiButton uiButton_type_icon uiButton_type_outline" style="color: #333; border-color: #333;">
+                                <span class="uiButton__icon">✖</span>
+                            </button>
                         </div>
                     </div>
                     <div class="designSystem__componentGroup">
@@ -175,7 +340,373 @@
                         <div class="designSystem__buttonGroup">
                             <button class="uiButton uiButton_type_primary" type="button">Normal</button>
                             <button class="uiButton uiButton_type_primary uiButton_isDisabled" type="button" disabled>Disabled</button>
-                            <button class="uiButton uiButton_type_primary uiButton_isLoading" type="button">Loading</button>
+                            <button class="uiButton uiButton_type_primary uiButton_isLoading" type="button">Loading...</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Forms -->
+        <section id="forms" class="uiSection designSystem__section designSystem__section_isOpen">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Forms</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">Input Fields</h3>
+                        <div class="uiGrid uiGrid_cols_2">
+                            <div class="uiGrid__item">
+                                <div class="uiFormGroup">
+                                    <label class="uiFormGroup__label" for="input-text">Text Input</label>
+                                    <input class="uiInput" type="text" id="input-text" placeholder="テキストを入力してください">
+                                </div>
+                            </div>
+                            <div class="uiGrid__item">
+                                <div class="uiFormGroup">
+                                    <label class="uiFormGroup__label" for="input-email">Email Input</label>
+                                    <input class="uiInput" type="email" id="input-email" placeholder="example@email.com">
+                                    <span class="uiFormGroup__help">メールアドレスを入力してください</span>
+                                </div>
+                            </div>
+                            <div class="uiGrid__item">
+                                <div class="uiFormGroup">
+                                    <label class="uiFormGroup__label" for="input-disabled">Disabled Input</label>
+                                    <input class="uiInput" type="text" id="input-disabled" placeholder="無効化されています" disabled>
+                                </div>
+                            </div>
+                            <div class="uiGrid__item">
+                                <div class="uiFormGroup">
+                                    <label class="uiFormGroup__label" for="input-error">Error State</label>
+                                    <input class="uiInput" type="text" id="input-error" value="無効な値">
+                                    <span class="uiFormGroup__error">入力内容を確認してください</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">Textarea & Select</h3>
+                        <div class="uiGrid uiGrid_cols_2">
+                            <div class="uiGrid__item">
+                                <div class="uiFormGroup">
+                                    <label class="uiFormGroup__label" for="textarea">Textarea</label>
+                                    <textarea class="uiTextarea" id="textarea" placeholder="お問い合わせ内容を入力してください"></textarea>
+                                </div>
+                            </div>
+                            <div class="uiGrid__item">
+                                <div class="uiFormGroup">
+                                    <label class="uiFormGroup__label" for="select">Select Box</label>
+                                    <select class="uiSelect" id="select">
+                                        <option value="">選択してください</option>
+                                        <option value="1">オプション 1</option>
+                                        <option value="2">オプション 2</option>
+                                        <option value="3">オプション 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">Checkbox & Radio</h3>
+                        <div class="uiGrid uiGrid_cols_2">
+                            <div class="uiGrid__item">
+                                <div class="uiFormGroup">
+                                    <label class="uiFormGroup__label">Checkboxes</label>
+                                    <div style="display: flex; gap: 2rem; margin-top: 1rem;">
+                                        <label class="uiCheckbox">
+                                            <input class="uiCheckbox__input" type="checkbox" checked>
+                                            <span class="uiCheckbox__mark"></span>
+                                            <span class="uiCheckbox__label">選択中</span>
+                                        </label>
+                                        <label class="uiCheckbox">
+                                            <input class="uiCheckbox__input" type="checkbox">
+                                            <span class="uiCheckbox__mark"></span>
+                                            <span class="uiCheckbox__label">未選択</span>
+                                        </label>
+                                        <label class="uiCheckbox">
+                                            <input class="uiCheckbox__input" type="checkbox" disabled>
+                                            <span class="uiCheckbox__mark"></span>
+                                            <span class="uiCheckbox__label">無効</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="uiGrid__item">
+                                <div class="uiFormGroup">
+                                    <label class="uiFormGroup__label">Radio Buttons</label>
+                                    <div style="display: flex; gap: 2rem; margin-top: 1rem;">
+                                        <label class="uiRadio">
+                                            <input class="uiRadio__input" type="radio" name="radio-group" checked>
+                                            <span class="uiRadio__mark"></span>
+                                            <span class="uiRadio__label">選択中</span>
+                                        </label>
+                                        <label class="uiRadio">
+                                            <input class="uiRadio__input" type="radio" name="radio-group">
+                                            <span class="uiRadio__mark"></span>
+                                            <span class="uiRadio__label">未選択</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <section id="navigation" class="uiSection designSystem__section designSystem__section_isOpen">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Navigation</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">Breadcrumbs</h3>
+                        <nav class="uiBreadcrumb" aria-label="Breadcrumb">
+                            <div class="uiBreadcrumb__item">
+                                <a class="uiBreadcrumb__link" href="#">Home</a>
+                                <span class="uiBreadcrumb__separator"></span>
+                            </div>
+                            <div class="uiBreadcrumb__item">
+                                <a class="uiBreadcrumb__link" href="#">Category</a>
+                                <span class="uiBreadcrumb__separator"></span>
+                            </div>
+                            <div class="uiBreadcrumb__item">
+                                <span class="uiBreadcrumb__text">Current Page</span>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">Pagination</h3>
+                        <nav class="uiPagination" aria-label="Pagination">
+                            <ul class="uiPagination__list">
+                                <li class="uiPagination__item">
+                                    <a class="uiPagination__link uiPagination__link_prev" href="#">Prev</a>
+                                </li>
+                                <li class="uiPagination__item">
+                                    <a class="uiPagination__link" href="#">1</a>
+                                </li>
+                                <li class="uiPagination__item">
+                                    <a class="uiPagination__link uiPagination__link_current" href="#" aria-current="page">2</a>
+                                </li>
+                                <li class="uiPagination__item">
+                                    <a class="uiPagination__link" href="#">3</a>
+                                </li>
+                                <li class="uiPagination__item">
+                                    <span class="uiPagination__ellipsis">...</span>
+                                </li>
+                                <li class="uiPagination__item">
+                                    <a class="uiPagination__link" href="#">10</a>
+                                </li>
+                                <li class="uiPagination__item">
+                                    <a class="uiPagination__link uiPagination__link_next" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">Tabs</h3>
+                        <div class="uiTabs">
+                            <div class="uiTabs__nav">
+                                <button class="uiTabs__tab uiTabs__tab_active">Tab 1</button>
+                                <button class="uiTabs__tab">Tab 2</button>
+                                <button class="uiTabs__tab">Tab 3</button>
+                            </div>
+                            <div class="uiTabs__content">
+                                <div class="uiTabs__panel uiTabs__panel_active">
+                                    <p class="uiBody">Tab 1 Content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                                <div class="uiTabs__panel">
+                                    <p class="uiBody">Tab 2 Content: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                </div>
+                                <div class="uiTabs__panel">
+                                    <p class="uiBody">Tab 3 Content: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feedback -->
+        <section id="feedback" class="uiSection designSystem__section designSystem__section_isOpen">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Feedback</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">Modal</h3>
+                        <button class="uiButton uiButton_type_primary" onclick="document.getElementById('demo-modal').classList.add('uiModal_isOpen')">Open Modal</button>
+                        
+                        <!-- Demo Modal -->
+                        <div class="uiModal" id="demo-modal">
+                            <div class="uiModal__overlay" onclick="document.getElementById('demo-modal').classList.remove('uiModal_isOpen')"></div>
+                            <div class="uiModal__dialog">
+                                <div class="uiModal__header">
+                                    <h3 class="uiModal__title">Modal Title</h3>
+                                    <button class="uiModal__close" onclick="document.getElementById('demo-modal').classList.remove('uiModal_isOpen')">&times;</button>
+                                </div>
+                                <div class="uiModal__body">
+                                    <p>This is a modal dialog. You can place any content here.</p>
+                                </div>
+                                <div class="uiModal__footer">
+                                    <button class="uiButton uiButton_type_outline" onclick="document.getElementById('demo-modal').classList.remove('uiModal_isOpen')">Cancel</button>
+                                    <button class="uiButton uiButton_type_primary" onclick="document.getElementById('demo-modal').classList.remove('uiModal_isOpen')">Confirm</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">Toast</h3>
+                        <div class="uiButtonGroup">
+                            <button class="uiButton uiButton_type_outline" onclick="showToast('success')">Show Success Toast</button>
+                            <button class="uiButton uiButton_type_outline" onclick="showToast('error')">Show Error Toast</button>
+                        </div>
+
+                        <!-- Demo Toasts -->
+                        <div class="uiToast uiToast_type_success" id="demo-toast-success" style="position: relative; transform: none; bottom: auto; right: auto; margin-top: 1rem; z-index: 1;">
+                            <div class="uiToast__icon">✅</div>
+                            <div class="uiToast__content">
+                                <p class="uiToast__title">Success</p>
+                                <p class="uiToast__message">Operation completed successfully.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">Loader</h3>
+                        <div style="display: flex; align-items: center; gap: 2rem;">
+                            <div class="uiLoader uiLoader_size_sm"></div>
+                            <div class="uiLoader"></div>
+                            <div class="uiLoader uiLoader_size_lg"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- UI Elements -->
+        <section id="ui-elements" class="uiSection designSystem__section designSystem__section_isOpen">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">UI Elements</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">Badges</h3>
+                        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                            <span class="uiBadge uiBadge_type_primary">Primary</span>
+                            <span class="uiBadge uiBadge_type_secondary">Secondary</span>
+                            <span class="uiBadge uiBadge_type_accent">Accent</span>
+                            <span class="uiBadge uiBadge_type_outline">Outline</span>
+                            <span class="uiBadge uiBadge_type_primary uiBadge_size_sm">Small</span>
+                            <span class="uiBadge uiBadge_type_primary uiBadge_size_lg">Large</span>
+                        </div>
+                    </div>
+
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">Tags</h3>
+                        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                            <a href="#" class="uiTag">Tag</a>
+                            <a href="#" class="uiTag">
+                                <span class="uiTag__icon">#</span>
+                                Hashtag
+                            </a>
+                            <a href="#" class="uiTag">
+                                <span class="uiTag__icon">🏷️</span>
+                                With Icon
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">Dividers</h3>
+                        <div style="padding: 1rem 0;">
+                            <p class="uiBody">Solid Divider</p>
+                            <hr class="uiDivider">
+                            <p class="uiBody">Dashed Divider</p>
+                            <hr class="uiDivider uiDivider_type_dashed">
+                            <p class="uiBody">Dotted Divider</p>
+                            <hr class="uiDivider uiDivider_type_dotted">
+                            <p class="uiBody">
+                                Vertical Divider: 
+                                <span>Item 1</span>
+                                <span class="uiDivider uiDivider_vertical"></span>
+                                <span>Item 2</span>
+                                <span class="uiDivider uiDivider_vertical"></span>
+                                <span>Item 3</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Animation -->
+        <section id="animation" class="uiSection designSystem__section designSystem__section_isOpen">
+            <div class="uiSection__inner uiContainer">
+                <h2 class="designSystem__sectionTitle js-designSystem-toggle">
+                    <span class="designSystem__sectionTitleText">Animation</span>
+                    <span class="designSystem__sectionTitleIcon">+</span>
+                </h2>
+                <div class="designSystem__sectionContent">
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">Entrance Animations</h3>
+                        <div class="uiGrid uiGrid_cols_4">
+                            <div class="uiGrid__item">
+                                <div class="u-anim_fadeIn" style="padding: 2rem; background: #f5f5f5; text-align: center; border-radius: 8px;">Fade In</div>
+                            </div>
+                            <div class="uiGrid__item">
+                                <div class="u-anim_fadeInUp" style="padding: 2rem; background: #f5f5f5; text-align: center; border-radius: 8px;">Fade In Up</div>
+                            </div>
+                            <div class="uiGrid__item">
+                                <div class="u-anim_scaleIn" style="padding: 2rem; background: #f5f5f5; text-align: center; border-radius: 8px;">Scale In</div>
+                            </div>
+                            <div class="uiGrid__item">
+                                <div class="u-anim_slideInRight" style="padding: 2rem; background: #f5f5f5; text-align: center; border-radius: 8px;">Slide In Right</div>
+                            </div>
+                        </div>
+                        <p class="uiBody" style="margin-top: 1rem; font-size: 0.9rem; color: #666;">Note: Animations play on page load. Refresh to see them again.</p>
+                    </div>
+
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">Hover Effects</h3>
+                        <div class="uiGrid uiGrid_cols_3">
+                            <div class="uiGrid__item">
+                                <div class="u-hover_lift" style="padding: 2rem; background: #fff; border: 1px solid #ddd; text-align: center; border-radius: 8px; cursor: pointer;">
+                                    Lift on Hover
+                                </div>
+                            </div>
+                            <div class="uiGrid__item">
+                                <div class="u-hover_scale" style="padding: 2rem; background: #fff; border: 1px solid #ddd; text-align: center; border-radius: 8px; cursor: pointer;">
+                                    Scale on Hover
+                                </div>
+                            </div>
+                            <div class="uiGrid__item">
+                                <div class="u-hover_glow" style="padding: 2rem; background: #fff; border: 1px solid #ddd; text-align: center; border-radius: 8px; cursor: pointer;">
+                                    Glow on Hover
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="designSystem__componentGroup">
+                        <h3 class="uiHeading uiHeading_level_h3">Continuous</h3>
+                        <div style="display: flex; gap: 2rem; align-items: center;">
+                            <div class="u-anim_pulse" style="width: 60px; height: 60px; background: var(--color-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.8rem;">Pulse</div>
                         </div>
                     </div>
                 </div>
@@ -183,7 +714,7 @@
         </section>
 
         <!-- Text Links -->
-        <section class="uiSection designSystem__section designSystem__section_isOpen">
+        <section id="links" class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
                 <h2 class="designSystem__sectionTitle js-designSystem-toggle">
                     <span class="designSystem__sectionTitleText">Text Links</span>
@@ -203,7 +734,7 @@
         </section>
 
         <!-- Sections / Grid -->
-        <section class="uiSection designSystem__section designSystem__section_isOpen">
+        <section id="sections" class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
                 <h2 class="designSystem__sectionTitle js-designSystem-toggle">
                     <span class="designSystem__sectionTitleText">Sections / Grid</span>
@@ -266,7 +797,7 @@
         </section>
 
         <!-- Cards -->
-        <section class="uiSection designSystem__section designSystem__section_isOpen">
+        <section id="cards" class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
                 <h2 class="designSystem__sectionTitle js-designSystem-toggle">
                     <span class="designSystem__sectionTitleText">Cards</span>
@@ -274,29 +805,6 @@
                 </h2>
                 <div class="designSystem__sectionContent">
                     <div class="designSystem__componentGroup">
-                    <h3 class="uiHeading uiHeading_level_h3">Service Card（メニュー用）</h3>
-                    <div class="uiGrid uiGrid_cols_3">
-                        <div class="uiGrid__item">
-                            <div class="uiCard uiCard_type_service">
-                                <img class="uiCard__image" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a14e?w=800&h=600&fit=crop" alt="カット" />
-                                <div class="uiCard__body">
-                                    <h4 class="uiCard__title">カット</h4>
-                                    <div class="uiCard__meta">
-                                        <span class="uiCard__metaItem">60分</span>
-                                    </div>
-                                    <p class="uiCard__text">お客様の骨格や髪質に合わせた、最適なカットスタイルをご提案します</p>
-                                    <p class="uiCard__price">5,000円</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="uiGrid__item">
-                            <div class="uiCard uiCard_type_service">
-                                <img class="uiCard__image" src="https://images.unsplash.com/photo-1516975080664-ed2fc6a13737?w=800&h=600&fit=crop" alt="カラー" />
-                                <div class="uiCard__body">
-                                    <h4 class="uiCard__title">カラー</h4>
-                                    <div class="uiCard__meta">
-                                        <span class="uiCard__metaItem">90分</span>
-                                    </div>
                                     <p class="uiCard__text">お肌のトーンに合わせた、自然で美しいカラーリングを施します</p>
                                     <p class="uiCard__price">8,000円</p>
                                 </div>
@@ -404,7 +912,7 @@
         </section>
 
         <!-- Lists -->
-        <section class="uiSection designSystem__section designSystem__section_isOpen">
+        <section id="lists" class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
                 <h2 class="designSystem__sectionTitle js-designSystem-toggle">
                     <span class="designSystem__sectionTitleText">Lists</span>
@@ -474,7 +982,7 @@
         </section>
 
         <!-- Header Patterns -->
-        <section class="uiSection designSystem__section designSystem__section_isOpen">
+        <section id="header" class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
                 <h2 class="designSystem__sectionTitle js-designSystem-toggle">
                     <span class="designSystem__sectionTitleText">Header Patterns</span>
@@ -722,7 +1230,7 @@
         </section>
 
         <!-- Hero Patterns -->
-        <section class="uiSection designSystem__section designSystem__section_isOpen">
+        <section id="hero" class="uiSection designSystem__section designSystem__section_isOpen">
             <div class="uiSection__inner uiContainer">
                 <h2 class="designSystem__sectionTitle js-designSystem-toggle">
                     <span class="designSystem__sectionTitleText">Hero Patterns</span>
@@ -1776,6 +2284,8 @@
                 </div>
             </div>
         </section>
+    </div>
+    </div>
     </div>
 </main>
 <%- include('../template/_footer', {

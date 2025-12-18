@@ -9,173 +9,185 @@
 <div id="page-transition-overlay" class="page-transition-overlay"></div>
 <main class="salonMain salonMain_type_top">
     <section class="salonHero">
-        <div class="salonHero__bg">
-            <picture class="salonHero__image">
-                <img class="salonHero__imageImg" src="/images/salon/hero_top.png" alt="Lumière Salon" loading="eager" />
-            </picture>
+        <div class="salonHero__visual">
+            <div class="salonHero__imageWrapper">
+                <img class="salonHero__image" src="/images/salon/hero_top.png" alt="Lumière Salon" loading="eager" />
+            </div>
         </div>
-        <div class="salonHero__inner">
-            <div class="salonHero__content">
-                <h1 class="salonHero__catchcopy">Timeless<br>Elegance</h1>
-                <p class="salonHero__subtitle">あなただけの特別な時間を</p>
-                <div class="salonHero__buttons">
-                    <a class="uiButton uiButton_type_primary uiButton_size_lg" href="/salon/reserve/">
-                        <span class="uiButton__text">ご予約</span>
-                    </a>
-                    <a class="uiButton uiButton_type_outline uiButton_size_lg" href="/salon/menu/">
-                        <span class="uiButton__text">メニュー</span>
-                    </a>
-                </div>
+        <div class="salonHero__content">
+            <div class="salonHero__textWrapper">
+                <h1 class="salonHero__catchcopy">
+                    <span class="salonHero__revealText"><span>Timeless</span></span>
+                    <span class="salonHero__revealText"><span>Elegance</span></span>
+                </h1>
+                <p class="salonHero__subtitle">
+                    静寂と美意識が交差する、<br>
+                    あなただけのサンクチュアリ。
+                </p>
             </div>
         </div>
         <div class="salonHero__scrollIndicator">
-            <p class="salonHero__scrollIndicatorText">Scroll</p>
-            <div class="salonHero__scrollIndicatorIcon"></div>
+            <span class="salonHero__scrollText">Scroll</span>
+            <span class="salonHero__scrollLine"></span>
         </div>
     </section>
 
     <section class="salonConcept">
-        <div class="salonConcept__inner">
-            <h2 class="salonConcept__title uiHeading uiHeading_level_h2">コンセプト</h2>
-            <div class="salonConcept__content">
-                <p class="salonConcept__text">都心の喧騒から離れた、静かな隠れ家のような空間で、<br class="pcnon">あなただけの特別な時間をお過ごしください。</p>
-                <p class="salonConcept__text">私たちは、お客様一人ひとりに寄り添い、<br class="pcnon">最適なスタイルをご提案いたします。</p>
-                <p class="salonConcept__text">リラックスできる空間と、丁寧なカウンセリングで、<br class="pcnon">あなたの理想を実現します。</p>
+        <div class="container">
+            <div class="salonConcept__inner">
+                <div class="salonConcept__image fadein">
+                    <img src="https://picsum.photos/800/1000?random=1" alt="Concept Image" loading="lazy">
+                </div>
+                <div class="salonConcept__content fadein delay-200">
+                    <h2 class="salonConcept__title uiHeading uiHeading_level_h2">Concept</h2>
+                    <p class="salonConcept__lead">静寂と美意識が<br>交差する場所</p>
+                    <p class="salonConcept__text">
+                        都心の喧騒から離れた、静かな隠れ家。<br>
+                        そこは、あなた本来の美しさを引き出すための<br>
+                        特別なサンクチュアリです。
+                    </p>
+                    <p class="salonConcept__text">
+                        一人ひとりの骨格や髪質、<br>
+                        そしてライフスタイルに寄り添い、<br>
+                        「あなたらしさ」を最大限に輝かせるスタイルを<br>
+                        ご提案いたします。
+                    </p>
+                    <div class="salonConcept__button">
+                        <a class="uiButton uiButton_type_link" href="/salon/about/">
+                            <span class="uiButton__text">Read More</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="salonPopularMenu">
-        <div class="salonPopularMenu__inner">
-            <h2 class="salonPopularMenu__title uiHeading uiHeading_level_h2">人気メニュー</h2>
-            <div class="salonPopularMenu__list">
-                <%- include('./template/sections/_menuCard', {
-                    menuCard: {
-                        name: 'カット',
-                        description: 'お客様の骨格や髪質に合わせた、最適なカットスタイルをご提案します',
-                        time: '60分',
-                        price: '5,000円',
-                        image: 'https://picsum.photos/800/600?random=10',
-                        link: '/salon/menu/#cut'
-                    }
-                }) %>
-                <%- include('./template/sections/_menuCard', {
-                    menuCard: {
-                        name: 'カラー',
-                        description: 'お肌のトーンに合わせた、自然で美しいカラーリングを施します',
-                        time: '90分',
-                        price: '8,000円',
-                        image: 'https://picsum.photos/800/600?random=11',
-                        link: '/salon/menu/#color'
-                    }
-                }) %>
-                <%- include('./template/sections/_menuCard', {
-                    menuCard: {
-                        name: 'ヘッドスパ',
-                        description: '頭皮と髪をリフレッシュ。リラックスできる特別な時間をお過ごしください',
-                        time: '45分',
-                        price: '6,000円',
-                        image: 'https://picsum.photos/800/600?random=12',
-                        link: '/salon/menu/#spa'
-                    }
-                }) %>
+    <section class="salonMenu">
+        <div class="container">
+            <div class="salonMenu__header fadein">
+                <div>
+                   <h2 class="salonMenu__title uiHeading uiHeading_level_h2">Menu</h2>
+                   <p class="salonMenu__subtitle">Selected Treatments</p>
+                </div>
+                <div class="salonMenu__button">
+                    <a class="uiButton uiButton_type_outline" href="/salon/menu/">
+                        <span class="uiButton__text">View All Menu</span>
+                    </a>
+                </div>
             </div>
-            <div class="salonPopularMenu__button">
-                <a class="uiButton uiButton_type_outline" href="/salon/menu/">メニュー一覧を見る</a>
-            </div>
-        </div>
-    </section>
+            
+            <div class="salonMenu__grid">
+                <!-- Grid Item 1 (Left Large) -->
+                <div class="salonMenu__item fadein delay-100">
+                    <a href="/salon/menu/#cut" class="salonMenu__link">
+                        <div class="salonMenu__imageWrapper">
+                            <img src="https://picsum.photos/800/1000?random=10" alt="Cut" class="salonMenu__image">
+                            <span class="salonMenu__viewMore">View Detail</span>
+                        </div>
+                        <div class="salonMenu__info">
+                            <span class="salonMenu__category">Hair Cut</span>
+                            <h3 class="salonMenu__name">Design Cut</h3>
+                            <p class="salonMenu__price">¥6,600〜</p>
+                        </div>
+                    </a>
+                </div>
 
-    <section class="salonFirstTime">
-        <div class="salonFirstTime__inner">
-            <h2 class="salonFirstTime__title uiHeading uiHeading_level_h2">初めての方へ</h2>
-            <div class="salonFirstTime__flow">
-                <div class="salonFirstTime__flowItem">
-                    <div class="salonFirstTime__flowNumber">01</div>
-                    <h3 class="salonFirstTime__flowTitle">ご来店</h3>
-                    <p class="salonFirstTime__flowText">ご予約いただいた時間にご来店ください。スタッフがお迎えいたします。</p>
+                <!-- Grid Item 2 (Right Normal) -->
+                <div class="salonMenu__item fadein delay-200">
+                    <a href="/salon/menu/#color" class="salonMenu__link">
+                        <div class="salonMenu__imageWrapper">
+                            <img src="https://picsum.photos/600/800?random=11" alt="Color" class="salonMenu__image">
+                            <span class="salonMenu__viewMore">View Detail</span>
+                        </div>
+                        <div class="salonMenu__info">
+                            <span class="salonMenu__category">Hair Color</span>
+                            <h3 class="salonMenu__name">Premium Color</h3>
+                            <p class="salonMenu__price">¥8,800〜</p>
+                        </div>
+                    </a>
                 </div>
-                <div class="salonFirstTime__flowItem">
-                    <div class="salonFirstTime__flowNumber">02</div>
-                    <h3 class="salonFirstTime__flowTitle">カウンセリング</h3>
-                    <p class="salonFirstTime__flowText">お客様のご希望やライフスタイルをお聞きし、最適なスタイルをご提案します。</p>
-                </div>
-                <div class="salonFirstTime__flowItem">
-                    <div class="salonFirstTime__flowNumber">03</div>
-                    <h3 class="salonFirstTime__flowTitle">施術</h3>
-                    <p class="salonFirstTime__flowText">丁寧な技術で、お客様の理想を実現します。リラックスしてお過ごしください。</p>
-                </div>
-                <div class="salonFirstTime__flowItem">
-                    <div class="salonFirstTime__flowNumber">04</div>
-                    <h3 class="salonFirstTime__flowTitle">アフターケア</h3>
-                    <p class="salonFirstTime__flowText">スタイルの仕上げと、ご自宅でのケア方法をご案内いたします。</p>
+
+                <!-- Grid Item 3 (Middle Overlap) -->
+                <div class="salonMenu__item fadein delay-300">
+                    <a href="/salon/menu/#spa" class="salonMenu__link">
+                        <div class="salonMenu__imageWrapper">
+                            <img src="https://picsum.photos/600/800?random=12" alt="Head Spa" class="salonMenu__image">
+                            <span class="salonMenu__viewMore">View Detail</span>
+                        </div>
+                        <div class="salonMenu__info">
+                            <span class="salonMenu__category">Relaxation</span>
+                            <h3 class="salonMenu__name">Head Spa</h3>
+                            <p class="salonMenu__price">¥4,400〜</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="salonNews">
-        <div class="salonNews__inner">
-            <h2 class="salonNews__title uiHeading uiHeading_level_h2">お知らせ</h2>
-            <ul class="salonNews__list">
-                <li class="salonNews__item">
-                    <article class="salonNews__article">
-                        <time class="salonNews__date" datetime="2025-01-15">2025.01.15</time>
-                        <span class="salonNews__category">お知らせ</span>
-                        <h3 class="salonNews__articleTitle">
-                            <a class="salonNews__articleLink" href="#">新年の営業時間について</a>
-                        </h3>
-                    </article>
-                </li>
-                <li class="salonNews__item">
-                    <article class="salonNews__article">
-                        <time class="salonNews__date" datetime="2025-01-10">2025.01.10</time>
-                        <span class="salonNews__category">キャンペーン</span>
-                        <h3 class="salonNews__articleTitle">
-                            <a class="salonNews__articleLink" href="#">初回限定キャンペーン実施中</a>
-                        </h3>
-                    </article>
-                </li>
-                <li class="salonNews__item">
-                    <article class="salonNews__article">
-                        <time class="salonNews__date" datetime="2025-01-05">2025.01.05</time>
-                        <span class="salonNews__category">お知らせ</span>
-                        <h3 class="salonNews__articleTitle">
-                            <a class="salonNews__articleLink" href="#">新スタッフ入店のお知らせ</a>
-                        </h3>
-                    </article>
-                </li>
-            </ul>
-            <div class="salonNews__button">
-                <a class="uiButton uiButton_type_outline" href="/salon/news/">お知らせ一覧を見る</a>
+        <div class="container">
+            <div class="salonNews__inner">
+                <div class="salonNews__header fadein">
+                    <h2 class="salonNews__title uiHeading uiHeading_level_h2">News</h2>
+                </div>
+                <div class="salonNews__content fadein delay-200">
+                    <ul class="salonNews__list">
+                        <li class="salonNews__item">
+                            <a class="salonNews__link" href="#">
+                                <time class="salonNews__date" datetime="2025-01-15">2025.01.15</time>
+                                <span class="salonNews__category">Info</span>
+                                <h3 class="salonNews__articleTitle">新年の営業時間について</h3>
+                                <span class="salonNews__arrow">→</span>
+                            </a>
+                        </li>
+                        <li class="salonNews__item">
+                            <a class="salonNews__link" href="#">
+                                <time class="salonNews__date" datetime="2025-01-10">2025.01.10</time>
+                                <span class="salonNews__category">Campaign</span>
+                                <h3 class="salonNews__articleTitle">初回限定キャンペーン実施中</h3>
+                                <span class="salonNews__arrow">→</span>
+                            </a>
+                        </li>
+                        <li class="salonNews__item">
+                            <a class="salonNews__link" href="#">
+                                <time class="salonNews__date" datetime="2025-01-05">2025.01.05</time>
+                                <span class="salonNews__category">Info</span>
+                                <h3 class="salonNews__articleTitle">新スタッフ入店のお知らせ</h3>
+                                <span class="salonNews__arrow">→</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="salonNews__button">
+                        <a class="uiButton uiButton_type_link" href="/salon/news/">
+                            <span class="uiButton__text">View All News</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="salonAccess">
-        <div class="salonAccess__inner">
-            <h2 class="salonAccess__title uiHeading uiHeading_level_h2">アクセス</h2>
-            <div class="salonAccess__content">
-                <div class="salonAccess__map">
-                    <img class="salonAccess__mapImage" src="https://picsum.photos/800/600?random=20" alt="アクセスマップ" loading="eager" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/667eea/ffffff?text=Access+Map';" />
-                </div>
-                <div class="salonAccess__info">
-                    <dl class="salonAccess__infoItem">
-                        <dt class="salonAccess__infoDt">最寄り駅</dt>
-                        <dd class="salonAccess__infoDd">○○駅 徒歩5分</dd>
-                    </dl>
-                    <dl class="salonAccess__infoItem">
-                        <dt class="salonAccess__infoDt">住所</dt>
-                        <dd class="salonAccess__infoDd"><%- typeof config !== 'undefined' && config.salon && config.salon.address ? config.salon.address.replace(/ /g, '<br class="pcnon">') : '〒000-0000<br class="pcnon">都道府県 市区町村 番地' %></dd>
-                    </dl>
-                    <% if (typeof config !== 'undefined' && config.salon && config.salon.parking) { %>
-                    <dl class="salonAccess__infoItem">
-                        <dt class="salonAccess__infoDt">駐車場</dt>
-                        <dd class="salonAccess__infoDd"><%= config.salon.parking %></dd>
-                    </dl>
-                    <% } %>
-                    <div class="salonAccess__button">
-                        <a class="uiButton uiButton_type_primary" href="/salon/about/#access">詳しいアクセス情報を見る</a>
+        <div class="salonAccess__bg">
+            <img src="https://picsum.photos/1920/1080?random=20" alt="Access Background" loading="lazy">
+        </div>
+        <div class="salonAccess__content fadein">
+            <div class="container">
+                <div class="salonAccess__box">
+                    <h2 class="salonAccess__title uiHeading uiHeading_level_h2">Access</h2>
+                    <p class="salonAccess__address">
+                        <%- typeof config !== 'undefined' && config.salon && config.salon.address ? config.salon.address.replace(/ /g, '<br>') : '〒000-0000<br>東京都港区南青山3-1-1' %>
+                    </p>
+                    <div class="salonAccess__info">
+                        <p>Open: 10:00 - 20:00</p>
+                        <p>Close: Tuesday</p>
+                        <p>Tel: 03-1234-5678</p>
+                    </div>
+                    <div>
+                        <a class="salonAccess__link" href="/salon/about/#access">
+                            View on Google Maps
+                        </a>
                     </div>
                 </div>
             </div>

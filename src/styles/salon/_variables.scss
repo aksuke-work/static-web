@@ -26,6 +26,9 @@ $color-bg: #ffffff;            // 基本背景色
 $color-bg-gray: #f9f9f9;       // 薄いグレー背景
 $color-bg-dark: #111111;       // ダークモード風背景
 
+// Border Colors
+$color-border: #e0e0e0;        // 境界線色
+
 // Gradients
 $gradient-primary: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
 $gradient-gold: linear-gradient(135deg, #c5a059 0%, #e0c080 100%);
@@ -39,64 +42,79 @@ $gradient-overlay: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5));
 $font-serif: "Cormorant Garamond", "Shippori Mincho", "Noto Serif JP", serif; // 見出し用（英語・日本語）
 $font-sans: "Zen Kaku Gothic New", "Helvetica Neue", Helvetica, Arial, sans-serif; // 本文用
 
-// Font Sizes (Fluid Typography)
-$font-size-xs: clamp(1.0rem, 0.9vw, 1.2rem);
-$font-size-sm: clamp(1.2rem, 1.1vw, 1.4rem);
-$font-size-base: clamp(1.4rem, 1.3vw, 1.6rem);
-$font-size-md: clamp(1.6rem, 1.5vw, 1.8rem);
-$font-size-lg: clamp(2.0rem, 2.0vw, 2.4rem);
-$font-size-xl: clamp(2.4rem, 3.0vw, 3.2rem);
-$font-size-xxl: clamp(3.2rem, 5.0vw, 6.4rem);
-$font-size-display: clamp(4.0rem, 8.0vw, 12.0rem); // インパクトのある見出し用
+// Font Sizes (Fluid Typography) - Refined for "Trendy" & "Minimal"
+$font-size-xs: clamp(1.0rem, 0.8vw, 1.1rem);
+$font-size-sm: clamp(1.1rem, 0.9vw, 1.3rem);
+$font-size-base: clamp(1.3rem, 1.1vw, 1.5rem); // Slightly smaller base
+$font-size-md: clamp(1.5rem, 1.4vw, 1.8rem);
+$font-size-lg: clamp(1.8rem, 1.8vw, 2.2rem);
+$font-size-xl: clamp(2.2rem, 2.5vw, 3.0rem);
+$font-size-xxl: clamp(2.8rem, 4.0vw, 4.5rem); // Reduced from 6.4rem max
+$font-size-display: clamp(3.5rem, 6.0vw, 8.0rem); // Reduced from 12.0rem max
 
 // Line Heights
-$line-height-tight: 1.2;
-$line-height-base: 1.6;
-$line-height-relaxed: 1.8;
+$line-height-tight: 1.4;
+$line-height-base: 1.8; // More breathing room
+$line-height-relaxed: 2.2;
 
 // Letter Spacing
-$letter-spacing-tight: -0.02em;
-$letter-spacing-base: 0.05em;
-$letter-spacing-wide: 0.1em;
-$letter-spacing-widest: 0.2em;
+$letter-spacing-tight: 0.04em;
+$letter-spacing-base: 0.1em; // Wider default tracking
+$letter-spacing-wide: 0.2em;
+$letter-spacing-widest: 0.3em;
 
 // ==========================================================================
 // Spacing & Layout
 // ==========================================================================
 
-// Section Spacing
-$spacing-xs: 0.8rem;
-$spacing-sm: 1.6rem;
-$spacing-md: 3.2rem;
-$spacing-lg: 6.4rem;
-$spacing-xl: 12.0rem;
-$spacing-2xl: 20.0rem;
+// Spacing - バランスの取れた値
+$spacing-xs: 0.5rem;    // 8px
+$spacing-sm: 0.75rem;   // 12px
+$spacing-md: 1rem;      // 16px
+$spacing-lg: 1.5rem;    // 24px
+$spacing-xl: 2rem;      // 32px
+$spacing-2xl: 2.75rem;  // 44px (48px → 44px)
+$spacing-3xl: 3.5rem;   // 56px (64px → 56px)
 
+// Section Padding - 85%に調整（快適な余白）
 $salon-section-padding: (
-    sm: $spacing-md,
-    md: $spacing-lg,
-    lg: $spacing-xl,
-    xl: $spacing-2xl
+    xs: 3rem,     // 1.75rem → 3rem (More breathing room on mobile)
+    sm: 4rem,     // 2.5rem → 4rem
+    md: 5rem,     // 3.5rem → 5rem
+    lg: 6.5rem,   // 5rem → 6.5rem
+    xl: 8rem,     // 7rem → 8rem
+    2xl: 10rem    // 8.5rem → 10rem
 );
 
-// Container Width
+// Container Widths
 $container-width-sm: 640px;
-$container-width-md: 1024px;
-$container-width-lg: 1440px;
+$container-width-md: 768px;
+$container-width-lg: 1280px; // Slightly narrower for better readability
+$container-width-xl: 1600px; // For full-width style layouts
 
 // Border Radius
-$border-radius-sm: 4px;
-$border-radius-md: 8px;
-$border-radius-lg: 16px;
+$border-radius-sm: 2px; // Sharper
+$border-radius-md: 4px;
+$border-radius-lg: 8px;
 $border-radius-full: 9999px;
 
 // ==========================================================================
 // Animation & Transitions
 // ==========================================================================
 
-$transition-fast: 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-$transition-base: 0.6s cubic-bezier(0.22, 1, 0.36, 1); // Custom Ease
-$transition-slow: 1.0s cubic-bezier(0.22, 1, 0.36, 1);
+$transition-fast: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+$transition-base: 0.8s cubic-bezier(0.16, 1, 0.3, 1); // Smooth "luxury" feel
+$transition-slow: 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+// ==========================================================================
+// Shadows
+// ==========================================================================
+
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 
 // ==========================================================================
 // Mixins
@@ -176,15 +194,4 @@ $breakpoints: (
         0 1px 2px rgba(0,0,0,0.24);
 }
 
-// Fade In Animation Class
-.fadein {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity $transition-base, transform $transition-base;
-    
-    &.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 

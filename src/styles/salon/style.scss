@@ -99,6 +99,18 @@ $font-primary: 'Zen Old Mincho', serif;
 @import 'common/**/*.scss';
 @import 'pages/**/*.scss';
 
+body {
+    font-family: $font-sans;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    color: $color-text;
+    background-color: $color-bg;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "palt"; // Proportional metrics for Japanese
+    letter-spacing: 0.05em; // Slightly tighter default
+}
+
 .show_page_loading::before {
     content: '';
     position: fixed;

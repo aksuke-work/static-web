@@ -5,185 +5,582 @@
    Style/Gallery Page - 2025 Modern Luxury Design
    ========================================================================== */
 
-// Hero Section
+/* ==========================================================================
+   Hero Section - Asymmetry
+   ========================================================================== */
 .salonStyleHero {
     position: relative;
-    height: 50vh;
-    min-height: 400px;
+    min-height: 50vh;
+    background-color: $color-bg;
     display: flex;
     align-items: center;
-    justify-content: center;
     overflow: hidden;
-    color: $color-text-white;
 
     @include media(sp) {
-        min-height: 300px;
+        flex-direction: column;
+        height: auto;
+        min-height: 50svh;
+        padding-top: 80px; 
     }
 
+    // Right Visual
     &__bg {
         position: absolute;
         top: 0;
-        left: 0;
-        width: 100%;
+        right: 0;
+        left: auto;
+        width: 55%;
         height: 100%;
         z-index: 0;
+        clip-path: inset(0 0 0 100%);
+        animation: heroRevealRight 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 
-        &__after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+        @include media(sp) {
+            position: relative;
             width: 100%;
-            height: 100%;
-            background: $gradient-overlay;
-            z-index: 1;
+            height: 40vh;
+            clip-path: inset(100% 0 0 0);
+            animation-name: heroRevealDown;
         }
+
+        &::after { display: none; }
 
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transform: scale(1.2);
+            animation: subtleZoom 10s infinite alternate ease-in-out;
         }
     }
 
+    // Left Content
     &__inner {
         position: relative;
         z-index: 2;
-        text-align: center;
+        width: 45%;
+        padding-left: 6vw;
+        padding-right: $spacing-lg;
+        text-align: left;
+
+        @include media(sp) {
+            width: 100%;
+            padding: $spacing-xl $spacing-lg;
+        }
     }
 
     &__title {
         font-family: $font-serif;
-        font-size: $font-size-xxl;
+        font-size: clamp(4rem, 6vw, 7rem);
         font-weight: 300;
-        letter-spacing: $letter-spacing-widest;
-        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: $spacing-md;
+        text-shadow: none;
+        color: $color-text;
+    }
+
+    &__subtitle {
+        font-family: $font-sans; // Sans-serif for subtitle
+        font-size: var(--font-size-md);
+        font-weight: 300;
+        letter-spacing: $letter-spacing-wide;
+        color: rgba($color-text, 0.8);
+        border-left: 1px solid $color-accent;
+        padding-left: $spacing-lg;
+    }
+}
+
+// Reusing animations
+@keyframes heroRevealRight { to { clip-path: inset(0 0 0 0); } }
+@keyframes heroRevealDown { to { clip-path: inset(0 0 0 0); } }
+@keyframes subtleZoom { to { transform: scale(1.1); } }
+
+/* ==========================================================================
+   Gallery Grid Section - Clean & Rythmic
+   ========================================================================== */
+.salonStyleGallery {
+    padding: 10rem 0;
+    background-color: transparent;
+
+    &__inner {
+        max-width: $container-width-lg;
+        margin: 0 auto;
+        padding: 0 var(--spacing-xl);
+        @include media(sp) { padding: 0 $spacing-lg; }
+    }
+
+    &__title {
+        @extend .uiHeading_level_h2;
+        font-family: $font-sans; // Sans-serif for section titles
+        font-weight: 600;
+        margin-bottom: 2rem;
+    }
+
+    &__description {
+        font-family: $font-sans; // Sans-serif for descriptions
+        font-size: 1.5rem;
+        line-height: 1.8;
+        color: rgba($color-text, 0.7);
+        text-align: center;
+        margin-bottom: 6rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
 
         @include media(sp) {
-            font-size: $font-size-xl;
+            font-size: 1.3rem;
+            margin-bottom: 4rem;
+        }
+    }
+
+    &__filter {
+        display: flex;
+        justify-content: flex-start;
+        align-items: baseline;
+        gap: 3rem;
+        margin-bottom: 6rem;
+        flex-wrap: wrap;
+        border-bottom: 1px solid rgba($color-text, 0.1);
+        padding-bottom: 2rem;
+    }
+
+    &__filterButton {
+        padding: 0;
+        min-width: auto;
+        border: none;
+        background: transparent;
+        color: rgba($color-text, 0.4);
+        font-family: $font-sans; // Sans-serif for UI elements
+        font-size: 1.6rem; 
+        letter-spacing: 0.05em;
+        transition: all 0.3s ease;
+        position: relative;
+        cursor: pointer;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: $color-accent;
+            transition: width 0.3s ease;
+        }
+
+        &:hover, &_type_active {
+            color: $color-text;
+            &::after { width: 100%; }
+        }
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 500px; // Explicit height for each row
+        gap: 3rem;
+        margin-top: 6rem;
+        
+        @include media(tab) {
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: 450px;
+            gap: 2.5rem;
+        }
+
+        @include media(sp) {
+            grid-template-columns: 1fr;
+            grid-auto-rows: 400px;
+            gap: 4rem;
+        }
+    }
+
+    &__item {
+        position: relative;
+        margin: 0;
+        overflow: hidden;
+        background: #f5f5f5;
+        transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        opacity: 0;
+        transform: translateY(20px);
+
+        &.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        // Hover Effect
+        &:hover {
+            transform: translateY(-5px);
+            z-index: 2;
+            
+            .salonStyleGallery__image {
+                filter: grayscale(0%);
+                transform: scale(1.03);
+            }
+            
+            .salonStyleGallery__tags {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+
+    &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        filter: grayscale(10%);
+        transition: all 0.6s ease;
+    }
+
+    &__tags {
+        position: absolute;
+        bottom: 1.5rem;
+        left: 1.5rem;
+        right: 1.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.4s ease;
+    }
+
+    &__tag {
+        font-size: 1.1rem;
+        padding: 4px 10px;
+        background: #fff;
+        color: $color-text;
+        font-family: $font-sans; // Sans-serif for tags
+    }
+}
+
+/* ==========================================================================
+   Before & After Section - Stabilized Overlap
+   ========================================================================== */
+.salonBeforeAfter {
+    padding: 12rem 0;
+    
+    &__inner {
+        max-width: $container-width-lg;
+        margin: 0 auto;
+        padding: 0 var(--spacing-xl);
+    }
+
+    &__title { 
+        @extend .uiHeading_level_h2;
+        margin-bottom: 2rem;
+    }
+
+    &__description {
+        font-size: 1.5rem;
+        line-height: 1.8;
+        color: rgba($color-text, 0.7);
+        text-align: center;
+        margin-bottom: 8rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+
+        @include media(sp) {
+            font-size: 1.3rem;
+            margin-bottom: 6rem;
+        }
+    }
+
+    &__list {
+        display: flex; // Switch to flex for easier centering if needed
+        flex-direction: column;
+        gap: 12rem; // Large separation between B/A sets
+
+        @include media(sp) {
+            gap: 8rem;
+        }
+    }
+
+    &__item {
+        display: grid;
+        grid-template-columns: 1fr 1fr; // 50/50 split
+        align-items: center; // Vertically center
+        position: relative;
+        max-width: 1000px;
+        margin: 0 auto;
+
+        @include media(sp) {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+    }
+
+    // Left Logic
+    &__before {
+        position: relative;
+        width: 100%; // Taking up the full grid cell
+        aspect-ratio: 3/4;
+        z-index: 1;
+        margin-right: -4rem; // Overlap right
+
+        @include media(sp) {
+            margin-right: 0;
+            margin-bottom: -2rem; // Overlap bottom on mobile
+            width: 85%; // Indent
+        }
+    }
+
+    // Right Logic
+    &__after {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 3/4;
+        z-index: 2;
+        margin-left: -4rem; // Overlap left
+        margin-top: 8rem; // Shift down for "Broken" feel but stable
+        box-shadow: -20px 20px 60px rgba(0,0,0,0.1); // Depth shadow
+
+        @include media(sp) {
+            margin-left: auto; // Align right
+            margin-top: 0;
+            width: 85%;
+        }
+        
+        // Interaction Reveal
+        transition: transform 0.4s ease;
+        &:hover {
+            transform: scale(1.02);
+            z-index: 10;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__info {
+        grid-column: 1 / -1;
+        text-align: center;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba($color-text, 0.1);
+    }
+
+    &__service {
+        font-size: 1.4rem;
+        color: $color-text;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+    }
+
+    &__stylist {
+        font-size: 1.2rem;
+        color: rgba($color-text, 0.6);
+    }
+
+    &__label {
+        position: absolute;
+        top: 2rem;
+        left: -1.5rem;
+        background: $color-text;
+        color: #fff;
+        padding: 0.5rem 1.5rem;
+        font-size: 1.2rem;
+        letter-spacing: 0.1em;
+        writing-mode: vertical-rl; // Vertical text Japanese style? or just sideways
+        @include media(sp) {
+             writing-mode: horizontal-tb;
+             top: -1rem;
+             left: 2rem;
+        }
+        
+        // Override for After
+        .salonBeforeAfter__after & {
+            left: auto;
+            right: -1.5rem;
+            background: $color-accent;
+            
+             @include media(sp) {
+                 right: 2rem;
+             }
         }
     }
 }
 
-// Gallery Grid
-.salonStyleGallery {
-    padding: map-get($salon-section-padding, xl) 0;
-
-    @include media(sp) {
-        padding: map-get($salon-section-padding, md) 0;
-    }
-}
-
-.salonStyleGallery__inner {
-    max-width: $container-width-lg;
-    margin: 0 auto;
-    padding: 0 $spacing-lg;
-
-    @include media(sp) {
-        padding: 0 $spacing-md;
-    }
-}
-
-.salonStyleGallery__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: $spacing-lg;
-
-    @include media(tab) {
-        grid-template-columns: repeat(2, 1fr);
+/* ==========================================================================
+   Testimonial Section - Clean & Readable
+   ========================================================================== */
+.salonTestimonial {
+    padding: 12rem 0;
+    
+    &__inner {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 $spacing-xl;
+        @include media(sp) { padding: 0 $spacing-lg; }
     }
 
-    @include media(sp) {
-        grid-template-columns: 1fr;
-    }
-}
+    &__title { @extend .uiHeading_level_h2; }
 
-.salonStyleGallery__item {
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 1;
-    @include hover-lift;
-
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform $transition-slow;
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 6rem;
     }
 
-    &:hover img {
-        transform: scale(1.1);
+    &__item {
+        background: linear-gradient(to bottom, rgba($color-accent, 0.03), transparent 120px);
+        padding: 4rem 3rem 3rem;
+        border-radius: 8px;
+        border: 1px solid rgba($color-text, 0.08);
+        text-align: left;
+        position: relative;
+        
+        // Alternating background for rhythm
+        &:nth-child(even) {
+            background: linear-gradient(to bottom, rgba($color-primary, 0.02), transparent 120px);
+        }
+        
+        // Quote mark decoration
+        &::before {
+            content: '"';
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            font-family: $font-serif;
+            font-size: 6rem;
+            line-height: 1;
+            color: rgba($color-accent, 0.15);
+            font-weight: 300;
+        }
+        
+        @include media(sp) {
+            padding: 3rem 2rem 2.5rem;
+        }
     }
-}
-
-// Before/After Section
-.salonStyleBeforeAfter {
-    padding: map-get($salon-section-padding, xl) 0;
-    background-color: $color-secondary;
-
-    @include media(sp) {
-        padding: map-get($salon-section-padding, md) 0;
+    
+    &__rating {
+         display: inline-flex;
+         gap: 6px;
+         color: $color-accent;
+         margin-bottom: 2.5rem;
+         font-size: 1.4rem;
+         position: relative;
+         z-index: 1;
     }
-}
 
-.salonStyleBeforeAfter__inner {
-    max-width: $container-width-lg;
-    margin: 0 auto;
-    padding: 0 $spacing-lg;
-
-    @include media(sp) {
-        padding: 0 $spacing-md;
-    }
-}
-
-.salonStyleBeforeAfter__title {
-    @extend .uiHeading_level_h2;
-}
-
-.salonStyleBeforeAfter__list {
-    display: grid;
-    gap: $spacing-2xl;
-}
-
-.salonStyleBeforeAfter__item {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: $spacing-xl;
-    background-color: $color-bg;
-    padding: $spacing-xl;
-
-    @include media(sp) {
-        grid-template-columns: 1fr;
-        padding: $spacing-lg;
-    }
-}
-
-.salonStyleBeforeAfter__imageWrap {
-    position: relative;
-
-    img {
-        width: 100%;
-        height: auto;
+    &__comment {
+        font-family: $font-serif;
+        font-size: 1.6rem;
+        line-height: 1.9;
+        font-weight: 300;
+        margin-bottom: 3rem;
         display: block;
+        text-align: left;
+        color: rgba($color-text, 0.9);
+        position: relative;
+        z-index: 1;
+        
+        // First sentence emphasis
+        &::first-line {
+            font-size: 1.8rem;
+            font-weight: 400;
+        }
+    }
+
+    &__info {
+        font-size: 1.3rem;
+        color: rgba($color-text, 0.6);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba($color-text, 0.08);
+        
+        @include media(sp) {
+            font-size: 1.2rem;
+        }
+    }
+
+    &__row {
+        display: flex;
+        gap: 0;
+        flex-wrap: wrap;
+        align-items: baseline;
+    }
+
+    &__name {
+        font-weight: 700;
+        color: $color-text;
+        font-size: 1.6rem;
+        font-family: $font-sans;
+        margin-right: 1.5rem;
+    }
+
+    &__age,
+    &__location,
+    &__menu {
+        display: inline;
+        font-size: 1.2rem;
+        color: rgba($color-text, 0.5);
+        
+        &::before {
+            content: ' / ';
+            margin: 0 0.8rem;
+            color: rgba($color-text, 0.3);
+        }
+        
+        &:first-child::before {
+            content: '';
+            margin: 0;
+        }
+    }
+    
+    &__menu {
+        display: inline-block;
+        background: linear-gradient(135deg, rgba($color-accent, 0.12), rgba($color-accent, 0.08));
+        color: rgba($color-text, 0.8);
+        padding: 4px 12px;
+        border-radius: 4px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin-left: 1rem;
+        
+        &::before {
+            content: '';
+            margin: 0;
+        }
     }
 }
 
-.salonStyleBeforeAfter__label {
-    position: absolute;
-    top: $spacing-md;
-    left: $spacing-md;
-    background-color: rgba($color-primary, 0.8);
-    color: $color-text-white;
-    padding: $spacing-xs $spacing-md;
-    font-size: $font-size-sm;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: $letter-spacing-wide;
+/* ==========================================================================
+   SNS Section
+   ========================================================================== */
+.salonSns {
+    padding: 8rem 0;
+    background-color: transparent;
+    text-align: center;
+    border-top: 1px solid rgba($color-text, 0.1);
+
+    &__inner {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    &__title { @extend .uiHeading_level_h2; }
+
+    &__text {
+        font-size: 1.4rem;
+        color: rgba($color-text, 0.6);
+        margin-bottom: 3rem;
+    }
 }
 
-.salonStyleBeforeAfter__description {
-    font-size: $font-size-sm;
-    line-height: $line-height-relaxed;
-    color: $color-text-light;
-    margin-top: $spacing-md;
+@keyframes heroZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
 }

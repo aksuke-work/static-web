@@ -1,0 +1,131 @@
+@use 'sass:math';
+@import '../variables';
+
+/* ==========================================================================
+   Animation Utilities - 2025 Modern Luxury
+   ========================================================================== */
+
+/* Keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -20px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translate3d(20px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+/* Utility Classes */
+.u-anim {
+    &_fadeIn {
+        animation: fadeIn $transition-base ease forwards;
+    }
+
+    &_fadeInUp {
+        animation: fadeInUp $transition-base ease forwards;
+    }
+
+    &_fadeInDown {
+        animation: fadeInDown $transition-base ease forwards;
+    }
+
+    &_scaleIn {
+        animation: scaleIn $transition-base ease forwards;
+    }
+
+    &_slideInRight {
+        animation: slideInRight $transition-base ease forwards;
+    }
+
+    &_pulse {
+        animation: pulse 2s infinite;
+    }
+}
+
+/* Stagger Delays */
+@for $i from 1 through 10 {
+    .u-delay-#{$i}00 {
+        animation-delay: #{$i * 100}ms;
+    }
+}
+
+/* Hover Animations */
+.u-hover {
+    &_lift {
+        transition: transform $transition-fast;
+        will-change: transform;
+
+        &:hover {
+            transform: translateY(-4px);
+        }
+    }
+
+    &_scale {
+        transition: transform $transition-fast;
+        will-change: transform;
+
+        &:hover {
+            transform: scale(1.02);
+        }
+    }
+
+    &_glow {
+        transition: box-shadow $transition-fast;
+        will-change: box-shadow;
+
+        &:hover {
+            box-shadow: 0 0 15px rgba($color-primary, 0.4);
+        }
+    }
+}

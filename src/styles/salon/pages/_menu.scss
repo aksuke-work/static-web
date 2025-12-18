@@ -9,541 +9,374 @@
    Hero Section
    ========================================================================== */
 
+/* ==========================================================================
+   Menu Page - Fluid Elegance Refinement
+   ========================================================================== */
+
+/* ==========================================================================
+   Hero Section - Asymmetry (Matches About Page)
+   ========================================================================== */
 .salonMenuHero {
     position: relative;
-    height: 50vh;
-    min-height: 400px;
+    min-height: 50vh; // Compact
+    background-color: $color-bg;
     display: flex;
     align-items: center;
-    justify-content: center;
     overflow: hidden;
-    color: $color-text-white;
 
     @include media(sp) {
-        min-height: 300px;
-        height: 40vh;
+        flex-direction: column; // Image top, text bottom
+        height: auto;
+        min-height: 50svh;
+        padding-top: 80px; 
     }
 
+    // Background -> Right Visual
     &__bg {
         position: absolute;
         top: 0;
-        left: 0;
-        width: 100%;
+        right: 0;
+        left: auto; // Override typical hero
+        width: 55%;
         height: 100%;
         z-index: 0;
+        clip-path: inset(0 0 0 100%); // Start hidden
+        animation: heroRevealRight 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 
-        &::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+        @include media(sp) {
+            position: relative;
             width: 100%;
-            height: 100%;
-            background: $gradient-overlay;
-            z-index: 1;
+            height: 40vh;
+            clip-path: inset(100% 0 0 0);
+            animation-name: heroRevealDown;
+        }
+
+        &::after { 
+            display: none; // Remove overlay for clarity
         }
 
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transform: scale(1.2);
+            animation: subtleZoom 10s infinite alternate ease-in-out;
         }
     }
 
+    // Inner -> Left Content
     &__inner {
         position: relative;
         z-index: 2;
-        text-align: center;
-        padding: 0 var(--spacing-lg);
-        max-width: $container-width-lg;
-        margin: 0 auto;
+        width: 45%;
+        padding-left: 6vw;
+        padding-right: $spacing-lg;
+        text-align: left; // Left align text
 
         @include media(sp) {
-            padding: 0 var(--spacing-md);
+            width: 100%;
+            padding: $spacing-xl $spacing-lg;
         }
     }
 
     &__title {
         font-family: $font-serif;
-        font-size: clamp(4rem, 6vw + 2rem, 6.4rem);
+        font-size: clamp(4rem, 6vw, 7rem);
         font-weight: 300;
-        letter-spacing: $letter-spacing-widest;
-        margin-bottom: var(--spacing-md);
-
-        @include media(sp) {
-            font-size: clamp(3.2rem, 8vw, 4.8rem);
-        }
+        letter-spacing: 0.05em;
+        margin-bottom: $spacing-md;
+        text-shadow: none; // Clean
+        color: $color-text; // Dark text
     }
 
     &__subtitle {
         font-size: var(--font-size-md);
         font-weight: 300;
         letter-spacing: $letter-spacing-wide;
-        opacity: 0.9;
-
-        @include media(sp) {
-            font-size: var(--font-size-base);
-        }
+        color: rgba($color-text, 0.8);
+        border-left: 1px solid $color-accent; // Matching About style
+        padding-left: $spacing-lg;
     }
 }
+
+// Animations reuse
+@keyframes heroRevealRight { to { clip-path: inset(0 0 0 0); } }
+@keyframes heroRevealDown { to { clip-path: inset(0 0 0 0); } }
+@keyframes subtleZoom { to { transform: scale(1.1); } }
+
 
 /* ==========================================================================
    Menu List Sections
    ========================================================================== */
-
-.salonMenuList {
-    padding: var(--section-spacing-lg) 0;
-    background-color: $color-bg;
-
-    @include media(sp) {
-        padding: var(--section-spacing-md) 0;
-    }
-
-    &:nth-child(even) {
-        background-color: $color-secondary;
-    }
-
-    &__inner {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 0 var(--spacing-xl);
-
-        @include media(sp) {
-            padding: 0 var(--spacing-md);
-        }
-    }
-
-    &__title {
-        @extend .uiHeading_level_h2;
-    }
-
-    &__items {
-        display: flex;
-        flex-direction: column;
-        gap: var(--spacing-xl);
-    }
-
-    &__item {
-        padding: var(--spacing-lg);
-        background: rgba($color-bg, 0.5);
-        border-radius: $border-radius-md;
-        border-left: 4px solid $color-accent;
-        transition: all $transition-base;
-
-        @include media(sp) {
-            padding: var(--spacing-md);
-        }
-
-        &:hover {
-            background: $color-bg;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transform: translateX(4px);
-        }
-    }
-
-    &__itemName {
-        font-family: $font-serif;
-        font-size: var(--font-size-xl);
-        font-weight: 500;
-        color: $color-primary;
-        margin-bottom: var(--spacing-sm);
-
-        @include media(sp) {
-            font-size: var(--font-size-lg);
-        }
-    }
-
-    &__itemDescription {
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-relaxed);
-        color: $color-text-light;
-        margin-bottom: var(--spacing-md);
-
-        @include media(sp) {
-            font-size: var(--font-size-sm);
-        }
-    }
-
-    &__itemInfo {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: var(--spacing-md);
-
-        @include media(sp) {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: var(--spacing-sm);
-        }
-    }
-
-    &__itemTime {
-        font-size: var(--font-size-sm);
-        color: $color-text-light;
-
-        @include media(sp) {
-            font-size: var(--font-size-xs);
-        }
-    }
-
-    &__itemPrice {
-        font-family: $font-serif;
-        font-size: var(--font-size-xl);
-        font-weight: 600;
-        color: $color-accent;
-
-        @include media(sp) {
-            font-size: var(--font-size-lg);
-        }
-    }
-}
-
 /* ==========================================================================
-   Set Menu Section
+   Menu List Sections
    ========================================================================== */
-
-.salonMenuSet {
-    padding: var(--section-spacing-lg) 0;
-    background-color: $color-bg-gray;
-
-    @include media(sp) {
-        padding: var(--section-spacing-md) 0;
-    }
+.salonMenuList {
+    padding: 10rem 0;
+    background-color: transparent;
 
     &__inner {
         max-width: $container-width-lg;
         margin: 0 auto;
         padding: 0 var(--spacing-xl);
-
-        @include media(sp) {
-            padding: 0 var(--spacing-md);
-        }
+        @include media(sp) { padding: 0 $spacing-lg; }
     }
 
     &__title {
         @extend .uiHeading_level_h2;
+        margin-bottom: 6rem;
     }
 
-    &__items {
+    &__content {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-xl);
+        column-gap: 8rem;
+        row-gap: 4rem;
 
         @include media(sp) {
             grid-template-columns: 1fr;
-            gap: var(--spacing-lg);
+            gap: 4rem;
         }
     }
 
     &__item {
-        background-color: $color-bg;
-        padding: var(--spacing-2xl);
-        border-radius: $border-radius-lg;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        transition: all $transition-base;
-        position: relative;
-        overflow: hidden;
-
-        @include media(sp) {
-            padding: var(--spacing-xl);
-        }
-
-        // 背景装飾
-        &::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 150px;
-            height: 150px;
-            background: rgba($color-accent, 0.05);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        &:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-        }
-    }
-
-    &__itemName {
-        font-family: $font-serif;
-        font-size: var(--font-size-xl);
-        font-weight: 600;
-        color: $color-primary;
-        margin-bottom: var(--spacing-md);
-        position: relative;
-        z-index: 1;
-
-        @include media(sp) {
-            font-size: var(--font-size-lg);
-        }
-    }
-
-    &__itemDescription {
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-relaxed);
-        color: $color-text-light;
-        margin-bottom: var(--spacing-lg);
-        position: relative;
-        z-index: 1;
-
-        @include media(sp) {
-            font-size: var(--font-size-sm);
-        }
-    }
-
-    &__itemInfo {
         display: flex;
         justify-content: space-between;
-        align-items: flex-end;
-        padding-top: var(--spacing-lg);
-        border-top: 1px solid rgba($color-primary, 0.1);
-        position: relative;
-        z-index: 1;
+        align-items: baseline;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid rgba($color-text, 0.1);
+        transition: border-color 0.3s ease;
 
-        @include media(sp) {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: var(--spacing-sm);
+        &:hover {
+            border-bottom-color: $color-accent;
         }
     }
 
-    &__itemTime {
-        font-size: var(--font-size-sm);
-        color: $color-text-light;
+    &__itemTitle {
+        font-family: $font-serif;
+        font-size: 1.6rem;
+        font-weight: 400;
+        color: $color-text;
+        letter-spacing: 0.05em;
     }
 
     &__itemPrice {
         font-family: $font-serif;
-        font-size: var(--font-size-xxl);
-        font-weight: 700;
-        color: $color-accent;
-        line-height: 1;
-
-        @include media(sp) {
-            font-size: var(--font-size-xl);
-        }
-    }
-
-    &__itemPriceNote {
-        display: block;
-        font-size: var(--font-size-xs);
-        font-weight: 400;
-        color: $color-text-light;
-        margin-top: var(--spacing-xs);
+        font-size: 1.6rem;
+        font-weight: 300;
+        color: $color-text;
     }
 }
 
 /* ==========================================================================
-   Option Section
+   Set Menu Section - Overlapping Editorial Cards
    ========================================================================== */
-
-.salonMenuOption {
-    padding: var(--section-spacing-lg) 0;
-    background-color: $color-bg;
-
-    @include media(sp) {
-        padding: var(--section-spacing-md) 0;
-    }
+.salonMenuSet {
+    padding: 12rem 0;
+    background-color: rgba($color-bg-gray, 0.3);
 
     &__inner {
-        max-width: 900px;
+        max-width: $container-width-lg;
         margin: 0 auto;
         padding: 0 var(--spacing-xl);
-
-        @include media(sp) {
-            padding: 0 var(--spacing-md);
-        }
+        @include media(sp) { padding: 0 $spacing-lg; }
     }
 
     &__title {
         @extend .uiHeading_level_h2;
+        margin-bottom: 8rem;
     }
 
-    &__items {
+    &__list {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: var(--spacing-md);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6rem;
 
         @include media(sp) {
             grid-template-columns: 1fr;
+            gap: 6rem;
         }
+    }
+
+    &__item {
+        position: relative;
+        background: transparent;
+        padding: 0;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+        transition: transform 0.4s ease;
+
+        &:hover {
+            transform: translateY(-10px);
+            
+            .salonMenuSet__image { filter: grayscale(0%); }
+            .salonMenuSet__content { background: #fff; }
+        }
+    }
+
+    &__image {
+        width: 100%; // Keep within column
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        filter: grayscale(100%);
+        transition: filter 0.5s ease;
+        margin-bottom: 2rem;
+        
+        @include media(sp) {
+             aspect-ratio: 3/2;
+        }
+    }
+
+    &__content {
+        padding: 2rem;
+        background: transparent;
+        border-left: 1px solid rgba($color-text, 0.2);
+        transition: background-color 0.3s ease;
+    }
+
+    &__itemTitle {
+        font-family: $font-serif;
+        font-size: 2.4rem;
+        font-weight: 300;
+        color: $color-text;
+        margin-bottom: 1rem;
+    }
+
+    &__itemPrice {
+        display: block;
+        font-family: $font-serif;
+        font-size: 2rem;
+        color: $color-accent;
+        margin-bottom: 2rem;
+    }
+
+    &__itemDescription {
+        font-size: 1.3rem;
+        line-height: 1.8;
+        color: rgba($color-text, 0.7);
+        margin-bottom: 2rem;
+    }
+    
+    &__note {
+        font-size: 1.1rem;
+        color: rgba($color-text, 0.5);
+    }
+}
+
+/* ==========================================================================
+   Option Menu - Simple Grid
+   ========================================================================== */
+.salonMenuOption {
+    padding: 10rem 0;
+    
+    &__inner {
+        max-width: $container-width-lg;
+        margin: 0 auto;
+        padding: 0 $spacing-xl;
+        @include media(sp) { padding: 0 $spacing-lg; }
+    }
+
+    &__title { @extend .uiHeading_level_h2; margin-bottom: 6rem; }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6rem;
+        
+        @include media(tab) { grid-template-columns: repeat(2, 1fr); }
+        @include media(sp) { grid-template-columns: 1fr; gap: 4rem; }
+    }
+
+    &__item {
+        text-align: center;
+        padding: 4rem 2rem;
+        border: 1px solid rgba($color-text, 0.1);
+        transition: border-color 0.3s ease;
+        
+        &:hover { border-color: $color-accent; }
+    }
+
+    &__itemTitle {
+        font-family: $font-serif;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    &__itemPrice {
+        font-family: $font-serif;
+        font-size: 1.6rem;
+        color: rgba($color-text, 0.6);
+    }
+}
+
+/* ==========================================================================
+   Discount - Minimalist
+   ========================================================================== */
+.salonMenuDiscount {
+    padding: 8rem 0;
+    background-color: $color-bg-gray; // Keep gray block for separation
+
+    &__inner {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 $spacing-xl;
+    }
+
+    &__title { @extend .uiHeading_level_h2; margin-bottom: 4rem; }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
     }
 
     &__item {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: var(--spacing-md);
-        background: $color-bg-gray;
-        border-radius: $border-radius-sm;
-
-        @include media(sp) {
-            padding: var(--spacing-sm) var(--spacing-md);
+        background: $color-bg;
+        padding: 2rem 4rem;
+        border: none;
+        box-shadow: none;
+        
+         @include media(sp) {
+            padding: 2rem;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
         }
     }
 
-    &__itemName {
-        font-size: var(--font-size-base);
-        color: $color-text;
-
-        @include media(sp) {
-            font-size: var(--font-size-sm);
-        }
+    &__itemTitle {
+        font-size: 1.6rem;
+        font-weight: 500;
+        letter-spacing: 0.05em;
     }
 
     &__itemPrice {
+        font-size: 1.8rem;
         font-family: $font-serif;
-        font-size: var(--font-size-lg);
-        font-weight: 600;
         color: $color-accent;
-
-        @include media(sp) {
-            font-size: var(--font-size-md);
-        }
     }
 }
 
 /* ==========================================================================
-   Discount Section
+   Note
    ========================================================================== */
-
-.salonMenuDiscount {
-    padding: var(--section-spacing-lg) 0;
-    background-color: $color-secondary;
-
-    @include media(sp) {
-        padding: var(--section-spacing-md) 0;
-    }
-
-    &__inner {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 0 var(--spacing-xl);
-
-        @include media(sp) {
-            padding: 0 var(--spacing-md);
-        }
-    }
-
-    &__title {
-        @extend .uiHeading_level_h2;
-    }
-
-    &__items {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-xl);
-
-        @include media(sp) {
-            grid-template-columns: 1fr;
-            gap: var(--spacing-lg);
-        }
-    }
-
-    &__item {
-        background: $color-bg;
-        padding: var(--spacing-xl);
-        border-radius: $border-radius-md;
-        text-align: center;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-
-        @include media(sp) {
-            padding: var(--spacing-lg);
-        }
-    }
-
-    &__itemName {
-        font-family: $font-serif;
-        font-size: var(--font-size-xl);
-        font-weight: 600;
-        color: $color-accent;
-        margin-bottom: var(--spacing-md);
-
-        @include media(sp) {
-            font-size: var(--font-size-lg);
-        }
-    }
-
-    &__itemDescription {
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-relaxed);
-        color: $color-text;
-
-        @include media(sp) {
-            font-size: var(--font-size-sm);
-        }
-    }
-}
-
-/* ==========================================================================
-   Note Section
-   ========================================================================== */
-
 .salonMenuNote {
-    padding: var(--section-spacing-lg) 0;
-    background-color: $color-bg-gray;
-
-    @include media(sp) {
-        padding: var(--section-spacing-md) 0;
-    }
+    padding: 6rem 0;
+    text-align: center;
 
     &__inner {
-        max-width: 900px;
+        max-width: $container-width-lg;
         margin: 0 auto;
         padding: 0 var(--spacing-xl);
-
-        @include media(sp) {
-            padding: 0 var(--spacing-md);
-        }
     }
 
-    &__title {
-        @extend .uiHeading_level_h2;
-    }
-
-    &__content {
-        background: $color-bg;
-        padding: var(--spacing-xl);
-        border-radius: $border-radius-md;
-        border-left: 4px solid $color-accent;
-
-        @include media(sp) {
-            padding: var(--spacing-lg);
-        }
-    }
-
-    &__list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    &__item {
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-relaxed);
-        color: $color-text;
-        padding-left: var(--spacing-lg);
-        position: relative;
-        margin-bottom: var(--spacing-md);
-
-        @include media(sp) {
-            font-size: var(--font-size-sm);
-            padding-left: var(--spacing-md);
-        }
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-
-        &::before {
-            content: '※';
-            position: absolute;
-            left: 0;
-            color: $color-accent;
-            font-weight: 600;
-        }
+    &__text {
+        font-size: 1.2rem;
+        color: rgba($color-text, 0.5);
+        line-height: 2;
     }
 }

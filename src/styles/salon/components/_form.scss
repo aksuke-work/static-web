@@ -1,0 +1,182 @@
+@use 'sass:math';
+@import '../variables';
+
+/* ==========================================================================
+   Form Components - 2025 Modern Luxury
+   ========================================================================== */
+
+.uiForm {
+    width: 100%;
+}
+
+.uiInput,
+.uiTextarea,
+.uiSelect {
+    appearance: none;
+    display: block;
+    width: 100%;
+    padding: $spacing-md $spacing-lg;
+    font-family: $font-sans;
+    font-size: $font-size-base;
+    color: $color-text;
+    background-color: $color-bg-gray;
+    border: 1px solid transparent;
+    border-bottom: 2px solid $color-border;
+    border-radius: $border-radius-sm $border-radius-sm 0 0;
+    transition: all $transition-fast;
+
+    &::placeholder {
+        color: rgba($color-text, 0.4);
+    }
+
+    &:hover {
+        background-color: darken($color-bg-gray, 2%);
+    }
+
+    &:focus {
+        outline: none;
+        background-color: $color-bg;
+        border-bottom-color: $color-accent;
+        box-shadow: 0 4px 12px rgba($color-accent, 0.1);
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        background-color: $color-bg-gray;
+        border-bottom-color: $color-border;
+    }
+}
+
+.uiTextarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.uiSelect {
+    padding-right: $spacing-2xl;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231a1a1a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right $spacing-md center;
+    background-size: 1.2em;
+    cursor: pointer;
+}
+
+/* Checkbox & Radio */
+.uiCheckbox,
+.uiRadio {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-sm;
+    cursor: pointer;
+    user-select: none;
+
+    &__input {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    &__mark {
+        position: relative;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 2px solid $color-border;
+        background-color: $color-bg;
+        transition: all $transition-fast;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform $transition-fast;
+        }
+    }
+
+    &__label {
+        font-size: $font-size-base;
+        color: $color-text;
+    }
+
+    &:hover &__mark {
+        border-color: $color-accent;
+    }
+
+    &__input:checked + &__mark {
+        background-color: $color-accent;
+        border-color: $color-accent;
+    }
+
+    &__input:disabled + &__mark {
+        opacity: 0.5;
+        cursor: not-allowed;
+        background-color: $color-border;
+    }
+}
+
+.uiCheckbox {
+    &__mark {
+        border-radius: $border-radius-sm;
+
+        &::after {
+            width: 10px;
+            height: 6px;
+            border-left: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+            transform: translate(-50%, -60%) rotate(-45deg) scale(0);
+        }
+    }
+
+    &__input:checked + &__mark::after {
+        transform: translate(-50%, -60%) rotate(-45deg) scale(1);
+    }
+}
+
+.uiRadio {
+    &__mark {
+        border-radius: 50%;
+
+        &::after {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+    }
+
+    &__input:checked + &__mark::after {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Form Group */
+.uiFormGroup {
+    margin-bottom: $spacing-lg;
+
+    &__label {
+        display: block;
+        margin-bottom: $spacing-xs;
+        font-size: $font-size-sm;
+        font-weight: 700;
+        color: $color-text;
+    }
+
+    &__help {
+        display: block;
+        margin-top: $spacing-xs;
+        font-size: $font-size-xs;
+        color: $color-text-light;
+    }
+
+    &__error {
+        display: block;
+        margin-top: $spacing-xs;
+        font-size: $font-size-xs;
+        color: #e74c3c;
+        font-weight: 500;
+    }
+}
